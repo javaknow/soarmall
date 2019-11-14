@@ -1293,8 +1293,10 @@ public class MetooGoodsViewAction {
 		}*/
 		String youliketemp = Json.toJson(result, JsonFormat.compact());
 		try {
-			response.setContentType("text/plain");
+			response.setContentType("application/json;charset=utf-8");
 			response.setHeader("Cache-Control", "no-cache");
+			response.setHeader("Access-Control-Allow-Origin", "*");
+			response.setHeader("Access-Control-Allow-Credentials", "true");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().print(youliketemp);
 		} catch (IOException e) {

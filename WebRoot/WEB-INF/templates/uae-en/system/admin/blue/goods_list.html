@@ -150,7 +150,7 @@ function ajax_update(id,fieldName,obj,value){
         #end
         <tr>
           <td  class="check_position"><input name="checkbox" type="checkbox" id="checkbox" value="$!obj.id" /></td>
-          <td align="center">$!obj.eid</td>
+          <td align="center">$!obj.goods_serial</td>
           <td><label>
               <textarea name="textarea" cols="40" rows="3"  title="可编辑" onblur="ajax_update('$!obj.id','goods_name',this)">$!obj.goods_name</textarea>
             </label></td>
