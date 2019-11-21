@@ -70,7 +70,7 @@ public class Goods extends IdEntity {
 	private String inventory_type;// 库存方式，分为all全局库存，spec按规格库存
 	@Column(columnDefinition = "int default 0")
 	private int goods_salenum;// 商品售出数量
-	private String goods_serial;// 商品货号 [主sku]
+	private String goods_serial;// 商品货号 [主spu]
 	private String eid;// 商品eid[spu]
 	@Column(precision = 12, scale = 2)
 	private BigDecimal goods_weight;// 商品重量
@@ -224,7 +224,10 @@ public class Goods extends IdEntity {
 	private Date mobile_hotTime;// 手机热卖时间，
 	@Column(columnDefinition = "int default 0")
 	private int enough_reduce;// 0为未参加满就减，1为已参加
+	@Column(columnDefinition = "int default 0")
+	private int enough_free;// 0为未参加满包邮，1为已参加
 	private String order_enough_reduce_id;// 对应的满就减id
+	private String order_enough_free_id;// 对应的满包邮id
 	@Column(columnDefinition = "int default 0")
 	private int order_enough_give_status;// 满就送状态，0为非满就送商品，1为满就送商品
 	@Column(columnDefinition = "int default 0")
@@ -273,6 +276,23 @@ public class Goods extends IdEntity {
 	private int number_days;//天数 1为 一天、2为两天、3为三天
 	@OneToMany(mappedBy = "goods", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE) //<set>标签的inverse="true" 效果相同
 	private List<CGoods> cgoods = new ArrayList<CGoods>();
+	
+	public String getOrder_enough_free_id() {
+		return order_enough_free_id;
+	}
+
+	public void setOrder_enough_free_id(String order_enough_free_id) {
+		this.order_enough_free_id = order_enough_free_id;
+	}
+
+	public int getEnough_free() {
+		return enough_free;
+	}
+
+	public void setEnough_free(int enough_free) {
+		this.enough_free = enough_free;
+	}
+
 	public String getFeatures_one() {
 		return features_one;
 	}

@@ -7,12 +7,16 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/login.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/login.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+		<script>
 jQuery(document).ready(function(){
   jQuery("#theForm").validate({
     errorPlacement: function(error, element){
@@ -58,64 +62,69 @@ function ajax_update(){
 	}
 </script>
 </head>
-<body  style="background:url($!webPath/resources/style/system/front/default/images/background_seller.jpg) no-repeat; background-size: cover; onkeydown="strdown(event)">
-<div class="login_center">
-  <div class="login_center_bg">
-    <div class="login_center_c">
-      <div class="login_center_c_main" style="position: relative;">
-      	<div style="width: 205px;  height: 100px; position: absolute;  top: -100px;  left: 80px;  z-index: 999;">
-      		<img src="$!webPath/resources/style/system/front/default/images/ebuyair.png" style="max-width:100%;max-height:100%;"/>
-      	</div>
-        <div class="login_center_c_main_c">
-          <div class="new_seller_login_center">
-            <h3>商家登录</h3>
-            <form action="$!webPath/koala_login.json" method="post" name="theForm" id="theForm">
-            <div class="new_seller_login_center_m">
-              <ul>
-                <li> <i>用户名</i> <span><i class="login_top_img"><img src="$!webPath/resources/style/system/front/default/images/news_seller_bg_center_name.png" /></i>
-                  <input class="login_name" placeholder="请输入用户名..." name="username" type="text"  id="username" onblur="ajax_update()"/>
-                  </span> <b></b> </li>
-                <li> <i>密 码</i> <span><i class="login_top_img"><img src="$!webPath/resources/style/system/front/default/images/news_seller_bg_center_pass.png" /></i>
-                  <input class="login_name" placeholder="请输入密码..." name="password" type="password" id="password"/>
-                  </span> <b></b> </li>
-               #if($!config.securityCodeLogin) 
-                 <script>
+<body
+	style="background: url($!webPath/resources/style/system/front/default/images/background_seller.jpg) no-repeat; background-size: cover;"strdown(event)">
+	<div class="login_center">
+		<div class="login_center_bg">
+			<div class="login_center_c">
+				<div class="login_center_c_main" style="position: relative;">
+					<div
+						style="width: 205px; height: 100px; position: absolute; top: -100px; left: 80px; z-index: 999;">
+						<img
+							src="$!webPath/resources/style/system/front/default/images/ebuyair.png"
+							style="max-width: 100%; max-height: 100%;" />
+					</div>
+					<div class="login_center_c_main_c">
+						<div class="new_seller_login_center">
+							<h3>商家登录</h3>
+							<form action="$!webPath/koala_login.json" method="post"
+								name="theForm" id="theForm">
+								<div class="new_seller_login_center_m">
+									<ul>
+										<li><i>用户名</i> <span><i class="login_top_img"><img
+													src="$!webPath/resources/style/system/front/default/images/news_seller_bg_center_name.png" /></i>
+												<input class="login_name" placeholder="请输入用户名..."
+												name="username" type="text" id="username"
+												onblur="ajax_update()" /> </span> <b></b></li>
+										<li><i>密 码</i> <span><i class="login_top_img"><img
+													src="$!webPath/resources/style/system/front/default/images/news_seller_bg_center_pass.png" /></i>
+												<input class="login_name" placeholder="请输入密码..."
+												name="password" type="password" id="password" /> </span> <b></b></li>
+										#if($!config.securityCodeLogin)
+										<script>
                  function refreshCode(){
 	                 jQuery("#code_img").attr("src","$!webPath/verify.json?w=64&h=34&d"+new Date().getTime());
                  }
                 </script>
-                <li id="code_verify_li"> <i>验证码</i> <span><i class="login_top_img"><img src="$!webPath/resources/style/system/front/default/images/news_seller_bg_center_verify.png" /></i>
-                  <input class="login_verify"  name="code" type="text" id="code" />
-                  </span> 
-                  <!-- 验证码隐藏 h4 -->
-                  #if($!config.securityCodeType!='voice')
-                  <h4  style="display:none;" id="code_verify">
-                  <em><img id="code_img" src="$!webPath/verify.json?w=64&h=34" style="width:59px; height:34px;"/></em>
-                  <strong>
-                  <a href="javascript:void(0);" onclick="refreshCode();" title="刷新验证码" >
-                  <img src="$!webPath/resources/style/system/front/default/images/news_seller_bg_refresh.png" /></a>
-                  </strong>
-                  </h4>
-                  #end
-                  #if($!config.securityCodeType=='voice') 
-                  <img id="code_img" src="$!webPath/verify.json" width="0" height="0" />
-                   <script>
+										<li id="code_verify_li"><i>验证码</i> <span><i
+												class="login_top_img"><img
+													src="$!webPath/resources/style/system/front/default/images/news_seller_bg_center_verify.png" /></i>
+												<input class="login_verify" name="code" type="text"
+												id="code" /> </span> <!-- 验证码隐藏 h4 -->
+											#if($!config.securityCodeType!='voice')
+											<h4 style="display: none;" id="code_verify">
+												<em><img id="code_img"
+													src="$!webPath/verify.json?w=64&h=34"
+													style="width: 59px; height: 34px;" /></em> <strong> <a
+													href="javascript:void(0);" onclick="refreshCode();"
+													title="刷新验证码"> <img
+														src="$!webPath/resources/style/system/front/default/images/news_seller_bg_refresh.png" /></a>
+												</strong>
+											</h4> #end #if($!config.securityCodeType=='voice') <img
+											id="code_img" src="$!webPath/verify.json" width="0"
+											height="0" /> <script>
 				   function readCode(id){
                          var  s = "<embed id='sound_play' name='sound_play' src='$!webPath/resources/flash/soundPlayer.swf?" + (new Date().getTime()) + "' FlashVars='url=$!webPath"+ "' width='0'   height='0' allowScriptAccess='always' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/go/getflashplayer' /></embed>";
                     jQuery("#"+id).html(s);
                     }
-			      </script> 
-                  <i id="player" style="width:0px;height:0px;"></i>
-                  <div style="margin-top:5px; float:left; margin-left:5px;">
-                  <a href="javascript:void(0);"  onclick="readCode('player')" class="code_speech"></a>
-                  <a href="javascript:void(0);" onclick="refreshCode();" title="刷新验证码" class="code_refresh" ></a>
-                  </div>
-                  #end
-                   <b></b> 
-                  </li>
-                #end
-                
-	               <!--  #if(!$!user)
+			      </script> <i id="player" style="width: 0px; height: 0px;"></i>
+											<div style="margin-top: 5px; float: left; margin-left: 5px;">
+												<a href="javascript:void(0);" onclick="readCode('player')"
+													class="code_speech"></a> <a href="javascript:void(0);"
+													onclick="refreshCode();" title="刷新验证码" class="code_refresh"></a>
+											</div> #end <b></b></li> #end
+
+										<!--  #if(!$!user)
 	                
 	             	<li class="login_button" id="sss"><a href="javascript:void(0);" onclick="login();">登 录</a><input name="login_role" type="hidden" id="login_role" value="seller" /></li>
 	             	 #else
@@ -125,21 +134,27 @@ function ajax_update(){
 	             	  <li class="login_button"><a href="javascript:void(0);" onclick="login();">登 录</a><input name="login_role" type="hidden" id="login_role" value="user" /></li>
 	             	  #end
 	             	 #end -->
-	             	 
-	             	 
-	             	 <li class="login_button" ><a href="javascript:void(0);" onclick="login();">登 录</a><input name="login_role" type="hidden" id="login_role" value="" /></li>
-              </ul>
-               
-            </div>
-            <button><p style="width:30px;height:20px;"><a href="$!webpath/register.htm">注册</a></p></button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="login_center_bottom">$!config.copyRight</div>
-    </div>
-  </div>
-</div>
+
+
+										<li class="login_button"><a href="javascript:void(0);"
+											onclick="login();">登 录</a><input name="login_role"
+											type="hidden" id="login_role" value="" /></li>
+									</ul>
+
+								</div>
+								<button>
+									<p style="width: 30px; height: 20px;">
+										<a href="$!webpath/register.htm">注册</a>
+									</p>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="login_center_bottom">$!config.copyRight</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

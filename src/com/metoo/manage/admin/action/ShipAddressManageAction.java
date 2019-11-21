@@ -23,7 +23,6 @@ import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.ShipAddress;
-import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.ShipAddressQueryObject;
 import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.IShipAddressService;

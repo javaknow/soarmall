@@ -11,8 +11,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.metoo.core.constant.Globals;
 import com.metoo.core.domain.IdEntity;
-import com.taobao.top.link.LinkException;
-import com.taobao.top.link.endpoint.Identity;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 @Table(name = Globals.DEFAULT_TABLE_SUFFIX + "goodsTest")

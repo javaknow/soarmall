@@ -4,18 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 </head>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/overlay.css" type="text/css" rel="stylesheet" />
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/kindeditor.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/lang/zh_CN.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/overlay.css"
+	type="text/css" rel="stylesheet" />
+<link
+	href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+	type=text/css rel=stylesheet>
+	<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+	<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+	<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+	<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+	<script charset="utf-8" src="$!webPath/resources/editor/kindeditor.js"></script>
+	<script charset="utf-8" src="$!webPath/resources/editor/lang/zh_CN.js"></script>
+	<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+	<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+	<script>
 var options = {
         cssPath : '$!webPath/resources/editor/plugins/code/prettify.css',
         filterMode : true,
@@ -130,82 +136,99 @@ function saveForm(){
 	jQuery("#theForm").submit();
 }
 </script>
-<body>
-<form action="$!webPath/admin/self_freegoods_save.htm" method="post" name="theForm" id="theForm" enctype="multipart/form-data">
- <input name="id" type="hidden" id="id" value="$!obj.id"/>
-  <div class="cont">
-    <h1 class="seth">0元试用商品</h1>
-    <div class="nav_list">
-      <ul>
-      <li><a href="$!webPath/admin/self_freegoods_list.htm"><b>管理</b></a></li>
-        <li><a href="$!webPath/admin/self_freegoods_add.htm" class="this"><b>新增</b></a></li>
-      </ul>
-    </div>
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="addnavtable">
-    			<tr>
-                    <td align="right"> 0元试用名称：</td>
-                    <td class="px10"><input name="free_name" type="text" id="free_name" style="height:25px;" value="$!obj.free_name" size="120"/></td>
-                  </tr>
-                  <tr>
-                    <td align="right"> 开始时间：</td>
-                    <td class="px10"><input name="beginTime" type="text" id="beginTime" style="height:25px;" value="$!CommUtil.formatShortDate($!obj.beginTime)" size="20" readonly="readonly" /></td>
-                  </tr>
-                  <tr>
-                    <td align="right"> 结束时间：</td>
-                    <td class="px10"><input name="endTime" type="text" id="endTime" style="height:25px;" value="$!CommUtil.formatShortDate($!obj.endTime)" size="20" readonly="readonly" /></td>
-                  </tr>              
-                  <tr>
-                    <td align="right"> 0元试用商品：</td>
-                    <td class="px10"><input name="free_goods" type="text" id="free_goods" style="height:25px;" value="$!obj.goods_name" size="40" readonly="readonly" dialog_uri="$!webPath/admin/free_goods_self.htm" dialog_title="选择0元试用商品" dialog_width="450" dialog_height="200" dialog_id="show_free_goods" />
-                      <input name="goods_id" type="hidden" id="goods_id" value="$!obj.goods_id" /></td>
-                  </tr>
-                  <tr id="store_price" style="display:none;">
-                    <td align="right">商品价格：</td>
-                    <td class="px10" id="store_price_info">&nbsp;</td>
-                  </tr>
-                  <tr id="store_inventory" style="display:none;">
-                    <td align="right">商品库存：</td>
-                    <td class="px10" id="store_inventory_info">&nbsp;</td>
-                  </tr>
-                  #if($!obj)
-                   <tr>
-                     <td align="right"> 当前图片：</td>
-                     <td class="px10"><img src="$!imageWebServer/$!obj.free_acc.path/$!obj.free_acc.name" width="150" height="60" /></td>
-                   </tr>
-                   #end
-                   <tr>
-                    <td align="right"> 0元试用图片：</td>
-                    <td class="px10"><input type="file" name="free_acc" id="free_acc" />
-                    最佳尺寸：543*222px</td>
-                  </tr>
-                  <tr>
-                     <td align="right"> 0元试用总数：</td>
-                     <td class="px10 message"><input name="default_count" type="text" id="default_count" style="height:25px;" value="$!obj.default_count" size="40" />
-                     0元试用总数请少于商品库存数</td>
-                  </tr>
-                  <tr>
-                    <td align="right">商品类别：</td>
-                    <td class="px10 message">
-                    <select name="class_id" id="class_id">
-                    <option value="">请选择0元试用类别...</option>
-                    #foreach($cl in $cls)
-                    <option value="$!cl.id">$!cl.className</option>
-                    #end
-                    </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td width="120" align="right">0元试用简介：</td>
-                    <td class="px10 message"><textarea name="free_details" cols="40" rows="6" id="free_details">$!obj.free_details</textarea></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="px10"><span class="setsub">
-                      <input name="提交" type="submit"  value="保存"  style="cursor:pointer;"/>
-                      </span></td>
-                  </tr>
-                </table>
-  </div>
-</form>
-</body>
+	<body>
+		<form action="$!webPath/admin/self_freegoods_save.htm" method="post"
+			name="theForm" id="theForm" enctype="multipart/form-data">
+			<input name="id" type="hidden" id="id" value="$!obj.id" />
+			<div class="cont">
+				<h1 class="seth">0元试用商品</h1>
+				<div class="nav_list">
+					<ul>
+						<li><a href="$!webPath/admin/self_freegoods_list.htm"><b>管理</b></a></li>
+						<li><a href="$!webPath/admin/self_freegoods_add.htm"
+							class="this"><b>新增</b></a></li>
+					</ul>
+				</div>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0"
+					class="addnavtable">
+					<tr>
+						<td align="right">0元试用名称：</td>
+						<td class="px10"><input name="free_name" type="text"
+							id="free_name" style="height: 25px;" value="$!obj.free_name"
+							size="120" /></td>
+					</tr>
+					<tr>
+						<td align="right">开始时间：</td>
+						<td class="px10"><input name="beginTime" type="text"
+							id="beginTime" style="height: 25px;"
+							value="$!CommUtil.formatShortDate($!obj.beginTime)" size="20"
+							readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td align="right">结束时间：</td>
+						<td class="px10"><input name="endTime" type="text"
+							id="endTime" style="height: 25px;"
+							value="$!CommUtil.formatShortDate($!obj.endTime)" size="20"
+							readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td align="right">0元试用商品：</td>
+						<td class="px10"><input name="free_goods" type="text"
+							id="free_goods" style="height: 25px;" value="$!obj.goods_name"
+							size="40" readonly="readonly"
+							dialog_uri="$!webPath/admin/free_goods_self.htm"
+							dialog_title="选择0元试用商品" dialog_width="450" dialog_height="200"
+							dialog_id="show_free_goods" /> <input name="goods_id"
+							type="hidden" id="goods_id" value="$!obj.goods_id" /></td>
+					</tr>
+					<tr id="store_price" style="display: none;">
+						<td align="right">商品价格：</td>
+						<td class="px10" id="store_price_info">&nbsp;</td>
+					</tr>
+					<tr id="store_inventory" style="display: none;">
+						<td align="right">商品库存：</td>
+						<td class="px10" id="store_inventory_info">&nbsp;</td>
+					</tr>
+					#if($!obj)
+					<tr>
+						<td align="right">当前图片：</td>
+						<td class="px10"><img
+							src="$!imageWebServer/$!obj.free_acc.path/$!obj.free_acc.name"
+							width="150" height="60" /></td>
+					</tr>
+					#end
+					<tr>
+						<td align="right">0元试用图片：</td>
+						<td class="px10"><input type="file" name="free_acc"
+							id="free_acc" /> 最佳尺寸：543*222px</td>
+					</tr>
+					<tr>
+						<td align="right">0元试用总数：</td>
+						<td class="px10 message"><input name="default_count"
+							type="text" id="default_count" style="height: 25px;"
+							value="$!obj.default_count" size="40" /> 0元试用总数请少于商品库存数</td>
+					</tr>
+					<tr>
+						<td align="right">商品类别：</td>
+						<td class="px10 message"><select name="class_id"
+							id="class_id">
+								<option value="">请选择0元试用类别...</option> #foreach($cl in $cls)
+								<option value="$!cl.id">$!cl.className</option> #end
+						</select></td>
+					</tr>
+					<tr>
+						<td width="120" align="right">0元试用简介：</td>
+						<td class="px10 message"><textarea name="free_details"
+								cols="40" rows="6" id="free_details">$!obj.free_details</textarea></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td class="px10"><span class="setsub"> <input
+								name="提交" type="submit" value="保存" style="cursor: pointer;" />
+						</span></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</body>
 </html>

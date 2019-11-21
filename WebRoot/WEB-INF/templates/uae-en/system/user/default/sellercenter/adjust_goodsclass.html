@@ -7,12 +7,16 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+		<script>
 jQuery(document).ready(function() {
 	init_data();
 	/*  jQuery("#grade_id").change(function(){
@@ -138,141 +142,147 @@ function init_data(){
 </script>
 </head>
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-  <div class="seller_center"> $!httpInclude.include("/seller/nav.htm?op=adjust_goodsClass")
-    <div class="seller_right">
-      <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>商品管理</b> > <b>经营类目调整</b></span></div>
-      <div class="seller_list">
-      
-        <!--信息列表 -->
-			<div class="information_list">
-            	<ul>
-                	<li>
-                    	<span class="information_list_left">当前店铺类型：</span>
-                    	<span class="information_list_right">$!store.grade.gradeName
-                    	 #if($!{store.grade.content}!="")( $!{store.grade.content} )#end</span>
-                    </li>
-                    <li>
-                    	<span class="information_list_left">当前主营类目：</span>
-                    	<span class="information_list_right">$!main_gc.className</span>
-                    </li>
-                    <li>
-                    	<span class="information_list_left">当前详细类目：</span>
-                    	<div class="child">
-                    	<table width="300" border="0" cellpadding="0" cellspacing="0">
-	                    	<tr>
-		                    	#if($!detail_gcs.size()>0)
-		                    		#foreach($gc in $detail_gcs)
-		                    		<td align='left' style='clear:both; float:left; width:300px; height:25px; line-height:30px; margin-left:-5px;'>
-		                    			$!gc.parent.className&nbsp;&nbsp;->&nbsp;&nbsp;
-		                    			$!gc.className 
-		                    			#if($!velocityCount!=$!{detail_gcs.size()})
-		                    		</td>
-		                    			 #end
-		                    		 #end
-		                    	#else
-		                    		    暂无详细类目
-		                    	#end
-	                    	</tr>
-  						</table>
-                    </div>
-                    </li>
-                </ul>
-                
-            </div>
-         <div class="add_usercenter"> 
-		  <form action="$!webPath/seller/adjust_apply_save.htm" method="post" name="theForm" id="theForm">	
-          <div class="seller_store">
-            <div class="seller_store_list">
-              <ul >
-                <li style="display:none"> <span>店铺类型：</span> 
-                <input name="store_grade" id="store_grade"  value="$!{store.grade.id}" /> 
-                 <!-- <i>
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			$!httpInclude.include("/seller/nav.htm?op=adjust_goodsClass")
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>商品管理</b>
+						> <b>经营类目调整</b></span>
+				</div>
+				<div class="seller_list">
+
+					<!--信息列表 -->
+					<div class="information_list">
+						<ul>
+							<li><span class="information_list_left">当前店铺类型：</span> <span
+								class="information_list_right">$!store.grade.gradeName
+									#if($!{store.grade.content}!="")( $!{store.grade.content} )#end</span>
+							</li>
+							<li><span class="information_list_left">当前主营类目：</span> <span
+								class="information_list_right">$!main_gc.className</span></li>
+							<li><span class="information_list_left">当前详细类目：</span>
+								<div class="child">
+									<table width="300" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											#if($!detail_gcs.size()>0) #foreach($gc in $detail_gcs)
+											<td align='left'
+												style='clear: both; float: left; width: 300px; height: 25px; line-height: 30px; margin-left: -5px;'>
+												$!gc.parent.className&nbsp;&nbsp;->&nbsp;&nbsp;
+												$!gc.className #if($!velocityCount!=$!{detail_gcs.size()})</td>
+											#end #end #else 暂无详细类目 #end
+										</tr>
+									</table>
+								</div></li>
+						</ul>
+
+					</div>
+					<div class="add_usercenter">
+						<form action="$!webPath/seller/adjust_apply_save.htm"
+							method="post" name="theForm" id="theForm">
+							<div class="seller_store">
+								<div class="seller_store_list">
+									<ul>
+										<li style="display: none"><span>店铺类型：</span> <input
+											name="store_grade" id="store_grade"
+											value="$!{store.grade.id}" /> <!-- <i>
                   <select name="grade_id" id="grade_id" autocomplete="off">
                     <option>请选择店铺类型</option>
                     #foreach($grade in $grades)
                     <option value="$!grade.id">$!grade.gradeName</option>
                     #end
                   </select>
-                </i> -->   </li>
-                <!--  -->
-                <li style="display:none" ><span>主营类目：</span> <i>
-                  <select name="gc_main_id" id="gc_main_id" autocomplete="off">
-                  	<option value="$!{main_gc.id}">请选择主营类目</option>
-                  	#foreach($gc in $goodsClass)
-                    <option value="$!{gc.id}">$!{gc.className}</option>
-                    #end
-                  </select>
-                  </i> </li>
-                  <!-- style="display:none" -->
-                <li > <span>类目详细：</span> <b><a href="javascript:void(0)" onclick="add_GC_detail()">调整</a></b> </li>
-              </ul>
-            </div>
-      
-       <div class="adjust_bg" style="display:none"></div>
-            <div class="class_settle" style="float:left;display:none" id="gc_list">
-            <h4>已选类目：</h4>
-              <table width="695" border="0" cellpadding="0" cellspacing="0" class="class_settle_table">
-                <tr>
-                  <th  align="center" valign="middle">一级类目</th>
-                  <th  align="center" valign="middle">二级类目</th>
-                  <th  align="center" valign="middle">操作</th>
-                </tr>
-              </table>
-            </div>
-            <div class="settled_box_pop" style="display:none" id="settled_box_pop">
-                <h4><a href="javascript:void(0)" class="settled_pop_close" onclick="cancel_GC_detail()"></a></h4>
-                <div class="settled_pop_inbox">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="70" align="left" valign="top">一级类目</td>
-                    <td align="left" width="230">
-                        <select name="goodsClass" id="gc_details1" class="gc_details3">
-                            <option value="">请选择</option>
-                        #foreach($gc in $goodsClass)
-                            <option value="$!gc.id">$!{gc.className}</option>
-                        #end
-                        </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="left" valign="top" width="80">二级类目</td>
-                    <td align="left">
-                        #foreach($gc in $goodsClass)
-                        <div class="settled_gc" id="gc_details2_$!{gc.id}" style="display:none">
-	                        #foreach($child in $gc.childs)
-	                            <span class="settled_check">
-	                            <label style="cursor:pointer">
-	                              <input name="gc_id" type="checkbox" value="$!child.id" id="gc_id" />$!child.className
-	                            </label>
-	                            </span>
-	                        #end
-                        </div>
-                        #end
-                    </td>
-                  </tr>
-                </table>
-                </div>
-                <div class="settled_pop_btn"><span><a href="javascript:void(0)" class="setable_add" onclick="sava_GC_detail()">添加</a><a href="javascript:void(0)" class="setable_add" onclick="cancel_GC_detail()">取消</a></span></div>  
-            </div>
-            <div class="settled_box_pop" style="display:none" id="settled_box_pop_limit">
-                <h4><a href="javascript:void(0)" class="settled_pop_close" onclick="cancel_GC_detail()"></a></h4>
-                <div class="settled_pop_inbox">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td align="left" valign="top" width="80">二级类目</td>
-                    <td align="left">
-                        <div class="settled_gc" id="gc_details_limit">
-                        </div>
-                    </td>
-                  </tr>
-                </table>
-                </div>
-                <div class="settled_pop_btn"><span><a href="javascript:void(0)" class="setable_add" onclick="sava_GC_detail()">添加</a><a href="javascript:void(0)" class="setable_add" onclick="cancel_GC_detail()">取消</a></span></div>
-             </div>    
-        <!--信息列表 -->
-			<!-- <div class="information_list" style="display:none">
+                </i> --></li>
+										<!--  -->
+										<li style="display: none"><span>主营类目：</span> <i> <select
+												name="gc_main_id" id="gc_main_id" autocomplete="off">
+													<option value="$!{main_gc.id}">请选择主营类目</option>
+													#foreach($gc in $goodsClass)
+													<option value="$!{gc.id}">$!{gc.className}</option> #end
+											</select>
+										</i></li>
+										<!-- style="display:none" -->
+										<li><span>类目详细：</span> <b><a
+												href="javascript:void(0)" onclick="add_GC_detail()">调整</a></b></li>
+									</ul>
+								</div>
+
+								<div class="adjust_bg" style="display: none"></div>
+								<div class="class_settle" style="float: left; display: none"
+									id="gc_list">
+									<h4>已选类目：</h4>
+									<table width="695" border="0" cellpadding="0" cellspacing="0"
+										class="class_settle_table">
+										<tr>
+											<th align="center" valign="middle">一级类目</th>
+											<th align="center" valign="middle">二级类目</th>
+											<th align="center" valign="middle">操作</th>
+										</tr>
+									</table>
+								</div>
+								<div class="settled_box_pop" style="display: none"
+									id="settled_box_pop">
+									<h4>
+										<a href="javascript:void(0)" class="settled_pop_close"
+											onclick="cancel_GC_detail()"></a>
+									</h4>
+									<div class="settled_pop_inbox">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0">
+											<tr>
+												<td width="70" align="left" valign="top">一级类目</td>
+												<td align="left" width="230"><select name="goodsClass"
+													id="gc_details1" class="gc_details3">
+														<option value="">请选择</option> #foreach($gc in $goodsClass)
+														<option value="$!gc.id">$!{gc.className}</option> #end
+												</select></td>
+											</tr>
+											<tr>
+												<td align="left" valign="top" width="80">二级类目</td>
+												<td align="left">#foreach($gc in $goodsClass)
+													<div class="settled_gc" id="gc_details2_$!{gc.id}"
+														style="display: none">
+														#foreach($child in $gc.childs) <span class="settled_check">
+															<label style="cursor: pointer"> <input
+																name="gc_id" type="checkbox" value="$!child.id"
+																id="gc_id" />$!child.className
+														</label>
+														</span> #end
+													</div> #end
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="settled_pop_btn">
+										<span><a href="javascript:void(0)" class="setable_add"
+											onclick="sava_GC_detail()">添加</a><a href="javascript:void(0)"
+											class="setable_add" onclick="cancel_GC_detail()">取消</a></span>
+									</div>
+								</div>
+								<div class="settled_box_pop" style="display: none"
+									id="settled_box_pop_limit">
+									<h4>
+										<a href="javascript:void(0)" class="settled_pop_close"
+											onclick="cancel_GC_detail()"></a>
+									</h4>
+									<div class="settled_pop_inbox">
+										<table width="100%" border="0" cellpadding="0" cellspacing="0">
+											<tr>
+												<td align="left" valign="top" width="80">二级类目</td>
+												<td align="left">
+													<div class="settled_gc" id="gc_details_limit"></div>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="settled_pop_btn">
+										<span><a href="javascript:void(0)" class="setable_add"
+											onclick="sava_GC_detail()">添加</a><a href="javascript:void(0)"
+											class="setable_add" onclick="cancel_GC_detail()">取消</a></span>
+									</div>
+								</div>
+								<!--信息列表 -->
+								<!-- <div class="information_list" style="display:none">
             	<ul>
                  <div class="child">
                     	<table width="300" border="0" cellpadding="0" cellspacing="0">
@@ -313,23 +323,27 @@ $!httpInclude.include("/seller/top.htm")
                 </ul>
                 
             </div> -->
-     
-           
-        <!--  -->
-          	<div class="adjust_b" style="display:none">
-            	<a href="javascript:void(0)" onclick="init_data()" style=" margin-left:400px;">重置</a>
-                <a href="javascript:void(0)" onclick="javascript:jQuery('#theForm').submit()">提交</a>
-            </div>
-          	<input type="hidden" name="gc_detail_info" id="gc_detail_info" value="$!gc_detail_info" />
-            <input type="hidden" name="gc_main" id="gc_main" value="$!main_gc.id" />
-            <input type="hidden" name="store_grade" id="store_grade" value="$!store_grade" />
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+
+
+								<!--  -->
+								<div class="adjust_b" style="display: none">
+									<a href="javascript:void(0)" onclick="init_data()"
+										style="margin-left: 400px;">重置</a> <a
+										href="javascript:void(0)"
+										onclick="javascript:jQuery('#theForm').submit()">提交</a>
+								</div>
+								<input type="hidden" name="gc_detail_info" id="gc_detail_info"
+									value="$!gc_detail_info" /> <input type="hidden"
+									name="gc_main" id="gc_main" value="$!main_gc.id" /> <input
+									type="hidden" name="store_grade" id="store_grade"
+									value="$!store_grade" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

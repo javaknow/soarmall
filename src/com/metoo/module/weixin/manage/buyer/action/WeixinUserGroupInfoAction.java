@@ -17,7 +17,6 @@ import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.GroupInfo;
-import com.metoo.foundation.domain.query.GroupClassQueryObject;
 import com.metoo.foundation.service.IGroupInfoService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;

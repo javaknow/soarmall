@@ -7,19 +7,28 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type="text/css" rel="stylesheet">
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/kindeditor.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/lang/zh_CN.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type="text/css" rel="stylesheet">
+			<link href="$!webPath/resources/style/common/css/overlay.css"
+				type="text/css" rel="stylesheet" />
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+			<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+			<script charset="utf-8"
+				src="$!webPath/resources/editor/kindeditor.js"></script>
+			<script charset="utf-8"
+				src="$!webPath/resources/editor/lang/zh_CN.js"></script>
+			<script>
 var options = {
         cssPath : '$!webPath/resources/editor/plugins/code/prettify.css',
         filterMode : true,
@@ -109,43 +118,50 @@ function ajaxPage(url,currentPage,obj){
 </script>
 </head>
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-  <div class="seller_center"> $!httpInclude.include("/seller/nav.htm?op=goods_format")
-    <div class="seller_right">
-      <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>商品管理</b> ><b>新增商品版式</b></span></div>
-      <div class="seller_list">
-        <div class="seller_list_title">
-          <ul class="seller_title_ul">
-            <li ><a href='$!webPath/seller/goods_format_list.htm' ><i></i>版式列表</a></li>
-            <li class="this"><a href='$!webPath/seller/goods_format_add.htm' ><i></i>新增版式</a></li>
-          </ul>
-        </div>
-        <div class="add_usercenter">
-          <form action="$!webPath/seller/goods_format_save.htm" method="post" id="theForm" >
-            <input name="id" type="hidden" id="id"  value="$!obj.id"/>
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_base_table">
-              <tr>
-                <td align="right"><strong class="redstr">*</strong>版式名称：</td>
-                <td ><input name="gf_name" type="text" id="gf_name"  value="$!obj.gf_name" class="base_txt"/>
-                </td>
-              </tr>
-              <tr>
-                <td align="right"><strong class="redstr">*</strong>版式位置：</td>
-                <td><select name="gf_type" id="gf_type">
-                    <option value="">版式位置</option>
-                    <option value="0">顶部版式</option>
-                    <option value="1">底部版式</option>
-                  </select></td>
-              </tr>
-              <tr>
-                <td align="right" ><strong class="redstr">*</strong>版式内容：</td>
-                <td ><textarea name="gf_content" cols="40" rows="6" id="gf_content" class="base_text">$!obj.gf_content</textarea></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td >
-				<script>
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			$!httpInclude.include("/seller/nav.htm?op=goods_format")
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>商品管理</b>
+						><b>新增商品版式</b></span>
+				</div>
+				<div class="seller_list">
+					<div class="seller_list_title">
+						<ul class="seller_title_ul">
+							<li><a href='$!webPath/seller/goods_format_list.htm'><i></i>版式列表</a></li>
+							<li class="this"><a
+								href='$!webPath/seller/goods_format_add.htm'><i></i>新增版式</a></li>
+						</ul>
+					</div>
+					<div class="add_usercenter">
+						<form action="$!webPath/seller/goods_format_save.htm"
+							method="post" id="theForm">
+							<input name="id" type="hidden" id="id" value="$!obj.id" />
+							<table width="100%" border="0" cellspacing="0" cellpadding="0"
+								class="user_base_table">
+								<tr>
+									<td align="right"><strong class="redstr">*</strong>版式名称：</td>
+									<td><input name="gf_name" type="text" id="gf_name"
+										value="$!obj.gf_name" class="base_txt" /></td>
+								</tr>
+								<tr>
+									<td align="right"><strong class="redstr">*</strong>版式位置：</td>
+									<td><select name="gf_type" id="gf_type">
+											<option value="">版式位置</option>
+											<option value="0">顶部版式</option>
+											<option value="1">底部版式</option>
+									</select></td>
+								</tr>
+								<tr>
+									<td align="right"><strong class="redstr">*</strong>版式内容：</td>
+									<td><textarea name="gf_content" cols="40" rows="6"
+											id="gf_content" class="base_text">$!obj.gf_content</textarea></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td><script>
                  function switch_editor_photo(obj){
 			         var album_id = jQuery(obj).attr("album_id");
 				     jQuery.post("$!webPath/seller/goods_img.htm",{"type":"goods_detail_album","album_id":album_id},function(text){
@@ -169,22 +185,27 @@ $!httpInclude.include("/seller/top.htm")
 				   }		
 			    }
               </script>
-                  <div class="photoimg">
-                    <div class="addphoto"><a id="album_switch" href="javascript:void(0);" onclick="switch_editor_album('');">打开相册图片</a></div>
-                    <div class="editor_photo_detail" style="display:none;"> </div>
-                  </div></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td ><input name="" type="submit"  value="提交"  style="cursor:pointer;" class="seller_save"/></td>
-              </tr>
-            </table>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+										<div class="photoimg">
+											<div class="addphoto">
+												<a id="album_switch" href="javascript:void(0);"
+													onclick="switch_editor_album('');">打开相册图片</a>
+											</div>
+											<div class="editor_photo_detail" style="display: none;">
+											</div>
+										</div></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td><input name="" type="submit" value="提交"
+										style="cursor: pointer;" class="seller_save" /></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

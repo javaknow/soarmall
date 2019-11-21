@@ -2,13 +2,11 @@ package com.metoo.core.weixin.test;
 
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
-
-import com.metoo.core.weixin.utils.MD5Util;
-
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
+
+import com.metoo.core.weixin.utils.MD5Util;
 
 public class payTest {
 

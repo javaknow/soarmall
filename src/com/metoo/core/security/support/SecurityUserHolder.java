@@ -1,14 +1,11 @@
 package com.metoo.core.security.support;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.security.context.SecurityContextHolder;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.metoo.core.constant.Globals;
-import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.User;
 
 /**

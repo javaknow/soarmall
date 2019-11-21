@@ -29,7 +29,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.metoo.buyer.domain.Result;
 import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
@@ -51,7 +50,6 @@ import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
 import com.metoo.lucene.LuceneResult;
 import com.metoo.lucene.LuceneUtil;
-import com.metoo.lucene.LuceneVo;
 import com.metoo.manage.admin.tools.UserTools;
 import com.metoo.view.web.tools.GoodsClassViewTools;
 import com.metoo.view.web.tools.GoodsViewTools;

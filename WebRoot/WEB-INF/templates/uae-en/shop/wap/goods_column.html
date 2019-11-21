@@ -2,21 +2,29 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<title>首页 - $!config.title</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/style/system/front/wap/v2.0/css/v2.0style.css" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/style/system/front/wap/v2.0/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet"
-	 type="text/css" />
-	<link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
-	<link href="$!webPath/resources/style/system/front/wap/css/style_170228_bak.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/animate.css">
-	<script src="$!webPath/resources/wap/jquery-3.1.1.min.js"></script>
-	<script>
+<meta charset="utf-8">
+<title>首页 - $!config.title</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet"
+	type="text/css" />
+<link
+	href="$!webPath/resources/style/system/front/wap/v2.0/css/v2.0style.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="$!webPath/resources/style/system/front/wap/v2.0/css/font-awesome-4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
+<link
+	href="$!webPath/resources/style/system/front/wap/css/style_170228_bak.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/css/animate.css">
+<script src="$!webPath/resources/wap/jquery-3.1.1.min.js"></script>
+<script>
 		$(function () {
 			$("#$!{title}").addClass("this");
 
@@ -69,26 +77,25 @@
 					}
 				});
 	</script>
-	<style>
-		html,
-		body {
-			background-color: #efeff4;
-		}
+<style>
+html, body {
+	background-color: #efeff4;
+}
 
-		.mui-bar .mui-pull-left .mui-icon {
-			padding-right: 5px;
-			font-size: 28px;
-		}
+.mui-bar .mui-pull-left .mui-icon {
+	padding-right: 5px;
+	font-size: 28px;
+}
 
-		.mui-bar .mui-btn {
-			font-weight: normal;
-			font-size: 17px;
-		}
+.mui-bar .mui-btn {
+	font-weight: normal;
+	font-size: 17px;
+}
 
-		.mui-bar .mui-btn-link {
-			top: 1px;
-		}
-	</style>
+.mui-bar .mui-btn-link {
+	top: 1px;
+}
+</style>
 </head>
 
 <body>
@@ -131,37 +138,45 @@
 				#foreach($gc in $gcs)
 				<div class="phone_floor">
 					<!-- 名字 -->
-					<div style="background-color:#3aaba9; width:97vw; line-height:40px;  margin:1vw 1.5vw 0vw 1.5vw; border-radius:5px; color:#fff;">
-						<span class="recommed_title" style="font-size:16px;">
-							<i class="fa fa-long-arrow-left fa-1x"></i>
-							&nbsp;&nbsp;名字：$!{gc.className}&nbsp;&nbsp;
-							<i class="fa fa-long-arrow-right fa-1x"></i>
+					<div
+						style="background-color: #3aaba9; width: 97vw; line-height: 40px; margin: 1vw 1.5vw 0vw 1.5vw; border-radius: 5px; color: #fff;">
+						<span class="recommed_title" style="font-size: 16px;"> <i
+							class="fa fa-long-arrow-left fa-1x"></i>
+							&nbsp;&nbsp;名字：$!{gc.className}&nbsp;&nbsp; <i
+							class="fa fa-long-arrow-right fa-1x"></i>
 						</span>
 					</div>
 					<!-- 商品 -->
-					#set($recommedGoods = $!goodsViewTools.queryRecommedByGc("$!{gc.id}")) #if($!recommedGoods.ad_acc.path) #set($img = "$!imageWebServer/$!recommedGoods.ad_acc.path/$!recommedGoods.ad_acc.name")
-					<div class="recommed_goods" style="margin-bottom:0px; border-bottom:0px solid #f2f2f2;">
-						<a href="$!webPath/wap/goods.htm?id=$!recommedGoods.id">
-							<img src="$!img" style="height:calc(100vw*0.5);width:97vw;padding:1vw 1.5vw;">
-							<span class="recom_title">
-								<span style="color:red;">￥$!{recommedGoods.store_price}</span>&nbsp;&nbsp;$!{recommedGoods.goods_name}</span>
-							<span class="recom_name">$!{recommedGoods.seo_description}</span>
+					#set($recommedGoods =
+					$!goodsViewTools.queryRecommedByGc("$!{gc.id}"))
+					#if($!recommedGoods.ad_acc.path) #set($img =
+					"$!imageWebServer/$!recommedGoods.ad_acc.path/$!recommedGoods.ad_acc.name")
+					<div class="recommed_goods"
+						style="margin-bottom: 0px; border-bottom: 0px solid #f2f2f2;">
+						<a href="$!webPath/wap/goods.htm?id=$!recommedGoods.id"> <img
+							src="$!img"
+							style="height: calc(100vw * 0.5); width: 97vw; padding: 1vw 1.5vw;">
+							<span class="recom_title"> <span style="color: red;">￥$!{recommedGoods.store_price}</span>&nbsp;&nbsp;$!{recommedGoods.goods_name}
+						</span> <span class="recom_name">$!{recommedGoods.seo_description}</span>
 						</a>
 					</div>
 					#end
 					<div class="goodslist">
 						<div class="ohbox">
 							<ul>
-								#foreach($goods in $goodsViewTools.query_with_gc("$!{gc.id}",50)) #if($!goods.goods_main_photo) #set($img="$!imageWebServer/$!{goods.goods_main_photo.path}/$!{goods.goods_main_photo.name}_small.$!{goods.goods_main_photo.ext}")
-								#else #set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}") #end
-								<li>
-									<a href="$!webPath/wap/goods.htm?id=$!goods.id">
-										<img src="$!img" />
-										<span class="goods_title">$!{goods.goods_name}#if($!goodsViewTools.query_activity_status("$!goods.id","group_buy")=="true")
-											<i style="font-size:12px; padding:0px 5px; overflow:hidden; border-radius:2px; background:#6ea724; text-align:center; line-height:17px; color:#FFF; margin-right:5px;">团购</i>#end</span>
-										<span class="goods_price">￥$!{goods.goods_current_price}</span>
-									</a>
-								</li> #end
+								#foreach($goods in
+								$goodsViewTools.query_with_gc("$!{gc.id}",50))
+								#if($!goods.goods_main_photo)
+								#set($img="$!imageWebServer/$!{goods.goods_main_photo.path}/$!{goods.goods_main_photo.name}_small.$!{goods.goods_main_photo.ext}")
+								#else
+								#set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+								#end
+								<li><a href="$!webPath/wap/goods.htm?id=$!goods.id"> <img
+										src="$!img" /> <span class="goods_title">$!{goods.goods_name}#if($!goodsViewTools.query_activity_status("$!goods.id","group_buy")=="true")
+											<i
+											style="font-size: 12px; padding: 0px 5px; overflow: hidden; border-radius: 2px; background: #6ea724; text-align: center; line-height: 17px; color: #FFF; margin-right: 5px;">团购</i>#end
+									</span> <span class="goods_price">￥$!{goods.goods_current_price}</span>
+								</a></li> #end
 							</ul>
 						</div>
 					</div>
@@ -169,15 +184,16 @@
 				#end
 			</div>
 
-			<div style="height:40px;width:100%;background-color:#fff;margin:10px 0px;">
-				<ul style="height:40px;width:100%;">
+			<div
+				style="height: 40px; width: 100%; background-color: #fff; margin: 10px 0px;">
+				<ul style="height: 40px; width: 100%;">
 					#foreach($gc in $gc_parents)
-					<li style="width:25%;text-align:center;font-size:14px;line-height:40px;float:left;" id="menu_$!{gc.className}">
-						<a href="$!webPath/wap/goods_column.htm?gcid=$!{gc.id}&title=menu_$!{gc.className}">
+					<li
+						style="width: 25%; text-align: center; font-size: 14px; line-height: 40px; float: left;"
+						id="menu_$!{gc.className}"><a
+						href="$!webPath/wap/goods_column.htm?gcid=$!{gc.id}&title=menu_$!{gc.className}">
 							<span>$!{gc.className}测试</span>
-						</a>
-					</li>
-					#end
+					</a></li> #end
 				</ul>
 			</div>
 		</div>

@@ -5,13 +5,11 @@
   #end
 </script>
 <ul class="set3">
-<li><strong class="sred"></strong>详细分类</li>
-<li>
-#foreach($gc in $gcs)
- <label>
-<span class="checkbox_left"><input name="gc_ids" type="checkbox" value="$!gc.id"/></span><span class="checkbox_right">$!gc.className</span>
-</label>
-#end
-</li>
+	<li><strong class="sred"></strong>详细分类</li>
+	<li>#foreach($gc in $gcs) <label> <span
+			class="checkbox_left"><input name="gc_ids" type="checkbox"
+				value="$!gc.id" /></span><span class="checkbox_right">$!gc.className</span>
+	</label> #end
+	</li>
 </ul>
 #end

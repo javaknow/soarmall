@@ -22,8 +22,6 @@ import com.metoo.foundation.domain.User;
 import com.metoo.foundation.service.IAddressService;
 import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.IUserService;
-import com.metoo.metooapi.foundation.service.IAddressMetooService;
-import com.metoo.metooapi.foundation.service.IAreaMetooService;
 
 @Controller
 public class AppAddressBuyerMetooAction {

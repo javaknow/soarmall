@@ -2,7 +2,6 @@ package com.metoo.metooapi.manage.php.seller.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,10 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.metoo.buyer.domain.Result;
-import com.metoo.core.annotation.SecurityMapping;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.EnoughReduce;
@@ -55,7 +51,7 @@ public class PhpEnoughReduceSellerAction {
 	 * @param uid用户id
 	 * @param jsonmap满就送金额json
 	 */
-	@RequestMapping("/php/seller/enoughSave.json")
+	@RequestMapping("/php/seller/enough_save.json")
 	public void save(HttpServletRequest request,
 			HttpServletResponse response, String id, String currentPage,
 			String uid, String jsonmap){

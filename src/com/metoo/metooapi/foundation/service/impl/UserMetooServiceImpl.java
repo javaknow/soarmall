@@ -1,6 +1,5 @@
 package com.metoo.metooapi.foundation.service.impl;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -24,7 +23,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.metoo.buyer.domain.Result;
 import com.metoo.core.dao.IGenericDAO;
 import com.metoo.core.mv.JModelAndView;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.Md5Encrypt;
 import com.metoo.core.tools.WebForm;

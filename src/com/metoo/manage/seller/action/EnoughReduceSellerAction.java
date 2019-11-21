@@ -36,8 +36,6 @@ import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.EnoughReduce;
 import com.metoo.foundation.domain.GoldLog;
 import com.metoo.foundation.domain.Goods;
-import com.metoo.foundation.domain.GoodsBrand;
-import com.metoo.foundation.domain.GoodsClass;
 import com.metoo.foundation.domain.SalesLog;
 import com.metoo.foundation.domain.Store;
 import com.metoo.foundation.domain.User;
@@ -440,7 +438,7 @@ public class EnoughReduceSellerAction {
 					.getCurrentUser().getId());
 			user = user.getParent() == null ? user : user.getParent();
 			Store store = user.getStore();
-			if (!enoughreduce.getStore_id().equals("" + store.getId())) {
+			if (enoughreduce != null && enoughreduce.getStore_id().equals("" + store.getId())) {
 				JModelAndView mv = new JModelAndView(
 						"user/default/sellercenter/seller_error.html",
 						configService.getSysConfig(),
@@ -604,7 +602,8 @@ public class EnoughReduceSellerAction {
 						&& obj.getActivity_status() == 0
 						&& obj.getF_sale_type() == 0
 						&& obj.getAdvance_sale_type() == 0
-						&& obj.getOrder_enough_give_status() == 0) {
+						&& obj.getOrder_enough_give_status() == 0
+						&& obj.getEnough_free() == 0) {
 					obj.setEnough_reduce(1);
 					obj.setOrder_enough_reduce_id(er_id);
 					jsonlist.add(id);
@@ -670,7 +669,8 @@ public class EnoughReduceSellerAction {
 									&& ergood.getActivity_status() == 0
 									&& ergood.getF_sale_type() == 0
 									&& ergood.getAdvance_sale_type() == 0
-									&& ergood.getOrder_enough_give_status() == 0) {
+									&& ergood.getOrder_enough_give_status() == 0
+									&& ergood.getEnough_free() == 0) {
 								goods_id_list.add(id);
 								ergood.setEnough_reduce(1);
 								ergood.setOrder_enough_reduce_id(er_id);

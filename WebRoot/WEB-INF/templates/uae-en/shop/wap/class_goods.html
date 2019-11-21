@@ -2,20 +2,25 @@
 <html lang="zh">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-	<meta name="apple-wap-web-app-capable" content="yes">
-	<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
-	<title>$!config.title</title>
-	<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/index_left.css">
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
-	<link href="$!webPath/resources/style/system/front/wap/css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
-    <link rel="stylesheet" href="$!webPath/resources/wap/css/animate.css">
-    <script src="$!webPath/resources/wap/jquery-3.1.1.min.js"></script>
-	<script>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style"
+	content="black-translucent">
+<title>$!config.title</title>
+<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index_left.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
+<link href="$!webPath/resources/style/system/front/wap/css/style.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/css/animate.css">
+<script src="$!webPath/resources/wap/jquery-3.1.1.min.js"></script>
+<script>
 	jQuery(document).ready(function(){
 		   jQuery("#top_$!{orderBy}").addClass("this");
 		   if("$!{orderBy}"=="store_price"){
@@ -55,89 +60,95 @@
 			
 		});<!--end-->
 	</script>
-	<style>
-	</style>
+<style>
+</style>
 </head>
 
 <body>
 
 	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
-        <!--侧滑菜单部分-->
-        <aside id="offCanvasSide" class="mui-off-canvas-left">
-            <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-                <div class="mui-scroll">
-               		 $!httpInclude.include("/wap/index_left.htm")
-                </div>
-            </div>'
-        </aside>
-        <!--主界面部分-->
-        <div class="mui-inner-wrap">
-            <header class="mui-bar mui-bar-nav">
-                 $!httpInclude.include("/wap/top.htm")
-            </header>
- 			<!-- 主题内容 -->
-            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
-		 		<!-- 主体内容 -->
-	            <div class="mui-scroll">
-				<div class="group_top">
-    <ul>
-      <li id="top_goods_salenum"><a href="javascript:void(0)"><span>销量</span></a></li>
-      <li id="top_goods_collect"><a href="javascript:void(0)"><span>人气</span></a></li>
-      <li id="top_store_price"><a href="javascript:void(0)"><span>价格</span></a></li>
-    </ul>
-  </div>
-  <div class="group_list"> 
-  #if($!objs.size()>0)
-  #foreach($obj in $objs) 
-  <a href="$!webPath/wap/goods.htm?id=$!{obj.id}">
-    <dl>
-      <dt><img width="90" height="90" src="$!imageWebServer/$!obj.goods_main_photo.path/$!{obj.goods_main_photo.name}_small.$!{obj.goods_main_photo.ext}"></dt>
-      <dd>
-        <h3><b>$!obj.goods_name</b></h3>
-        <span><strong>¥$!obj.store_price</strong></span> <em>$!{obj.evaluate_count}人评价，$!{obj.goods_salenum}人已购买</em> </dd>
-    </dl>
-    </a> 
-  #end
-  #else
-  <div class="loading">
-    <ul>
-      <li>暂无数据....</li>
-    </ul>
-    </div>
-  #end
-  </div>
-  <div class="loading" id="loading" style="display:none">
-    <ul>
-      <li><img src="$!webPath/resources/style/system/front/wap/images/loading.gif" width="16" height="16"></li>
-      <li>正在加载....</li>
-    </ul>
-  </div>
-  <div class="loading" id="loading_none" style="display:none">
-    <ul>
-      <li>没有更多了....</li>
-    </ul>
-  </div>
-						
-		          <div style="margin-top:100px;display:block;"></div>
-                </div>
-            </div>
-            <!-- off-canvas backdrop -->
-            <div class="mui-off-canvas-backdrop"></div>
-        </div>
-        <!--购物车列表-->
-        <aside id="offCanvasSides" class="mui-off-canvas-right" style="background:#fff;">
-				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						 $!httpInclude.include("/wap/cart_right.htm")
-						<!-- <h4 class="text-center"><small class="txtcolor-black">Grand Total:</small>&nbsp;1,987.23&nbsp;<small class="txtcolor-black">AED</small></h4>
+		<!--侧滑菜单部分-->
+		<aside id="offCanvasSide" class="mui-off-canvas-left">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/index_left.htm")</div>
+			</div>
+			'
+		</aside>
+		<!--主界面部分-->
+		<div class="mui-inner-wrap">
+			<header class="mui-bar mui-bar-nav">
+				$!httpInclude.include("/wap/top.htm") </header>
+			<!-- 主题内容 -->
+			<div id="offCanvasContentScroll"
+				class="mui-content mui-scroll-wrapper">
+				<!-- 主体内容 -->
+				<div class="mui-scroll">
+					<div class="group_top">
+						<ul>
+							<li id="top_goods_salenum"><a href="javascript:void(0)"><span>销量</span></a></li>
+							<li id="top_goods_collect"><a href="javascript:void(0)"><span>人气</span></a></li>
+							<li id="top_store_price"><a href="javascript:void(0)"><span>价格</span></a></li>
+						</ul>
+					</div>
+					<div class="group_list">
+						#if($!objs.size()>0) #foreach($obj in $objs) <a
+							href="$!webPath/wap/goods.htm?id=$!{obj.id}">
+							<dl>
+								<dt>
+									<img width="90" height="90"
+										src="$!imageWebServer/$!obj.goods_main_photo.path/$!{obj.goods_main_photo.name}_small.$!{obj.goods_main_photo.ext}">
+								</dt>
+								<dd>
+									<h3>
+										<b>$!obj.goods_name</b>
+									</h3>
+									<span><strong>¥$!obj.store_price</strong></span> <em>$!{obj.evaluate_count}人评价，$!{obj.goods_salenum}人已购买</em>
+								</dd>
+							</dl>
+						</a> #end #else
+						<div class="loading">
+							<ul>
+								<li>暂无数据....</li>
+							</ul>
+						</div>
+						#end
+					</div>
+					<div class="loading" id="loading" style="display: none">
+						<ul>
+							<li><img
+								src="$!webPath/resources/style/system/front/wap/images/loading.gif"
+								width="16" height="16"></li>
+							<li>正在加载....</li>
+						</ul>
+					</div>
+					<div class="loading" id="loading_none" style="display: none">
+						<ul>
+							<li>没有更多了....</li>
+						</ul>
+					</div>
+
+					<div style="margin-top: 100px; display: block;"></div>
+				</div>
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
+		</div>
+		<!--购物车列表-->
+		<aside id="offCanvasSides" class="mui-off-canvas-right"
+			style="background: #fff;">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/cart_right.htm")
+					<!-- <h4 class="text-center"><small class="txtcolor-black">Grand Total:</small>&nbsp;1,987.23&nbsp;<small class="txtcolor-black">AED</small></h4>
 						<div class="trolley_content">
 							<a href="" class="examine">View Cart</a>
 							<a href="" class="settle_accounts">Checkout</a>
 						</div> -->
-					</div>
 				</div>
+			</div>
 		</aside>
-    </div>
+	</div>
 	<script src="$!webPath/resources/wap/mui.js"></script>
 	<script>
 	mui.init({

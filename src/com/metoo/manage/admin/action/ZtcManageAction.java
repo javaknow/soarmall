@@ -28,7 +28,6 @@ import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
 import com.metoo.foundation.service.IUserService;
 import com.metoo.foundation.service.IZTCGoldLogService;
-import com.metoo.manage.admin.tools.GoodsTools;
 
 @Controller
 public class ZtcManageAction {

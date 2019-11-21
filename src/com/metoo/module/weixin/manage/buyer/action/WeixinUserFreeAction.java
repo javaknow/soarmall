@@ -19,12 +19,9 @@ import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.FreeApplyLog;
 import com.metoo.foundation.domain.FreeGoods;
-import com.metoo.foundation.domain.GroupInfo;
 import com.metoo.foundation.domain.User;
-import com.metoo.foundation.domain.query.GroupClassQueryObject;
 import com.metoo.foundation.service.IFreeApplyLogService;
 import com.metoo.foundation.service.IFreeGoodsService;
-import com.metoo.foundation.service.IGroupInfoService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
 /**

@@ -1,4 +1,4 @@
-Ôªø<script>
+<script>
 	jQuery(document).ready(function(){
 		jQuery("span[id^='span_']").click(function(){
 		 var str = jQuery(this).attr("id").substring(2);
@@ -37,21 +37,28 @@
 	});
 </script>
 <div class="classify">
-  <h1 style="background-color:$!{obj.font_back_color}"><span style="color:$!{obj.font_color}">ÂïÜÂìÅÂàÜÁ±ª</span></h1>
-  <div class="classify_list" style="background-color:$!{obj.board_back_color}"> #foreach($ugc in $ugcs)
-    <div class="level_li">
-      <div class="level_one" style="background-color:$!{obj.board_back_color}"><i id="i_$!{ugc.id}" class="i_cut"></i><span id="span_$!{ugc.id}" child_show="true" style="cursor:pointer">$!ugc.className</span></div>
-      <div class="level_second">
-        <ul>
-          #foreach($child in $ugc.childs)
-           #if($!{decorate_view}=="true")
-          <li><a href="javascript:void(0);">$!child.className</a></li>
-          #else
-           <li><a href="$!webPath/goods_list.htm?ugc_id=$!{child.id}&orderBy=goods_salenum&orderType=desc&store_id=$!{store.id}">$!child.className</a></li>
-          #end
-          #end
-        </ul>
-      </div>
-    </div>
-    #end </div>
+	<h1 style="background-color: $!{obj.font_back_color">
+		<span style="color: $!{obj.font_color">…Ã∆∑∑÷¿‡</span>
+	</h1>
+	<div class="classify_list"
+		style="background-color: $!{obj.board_back_color">
+		#foreach($ugc in $ugcs)
+		<div class="level_li">
+			<div class="level_one"
+				style="background-color: $!{obj.board_back_color">
+				<i id="i_$!{ugc.id}" class="i_cut"></i><span id="span_$!{ugc.id}"
+					child_show="true" style="cursor: pointer">$!ugc.className</span>
+			</div>
+			<div class="level_second">
+				<ul>
+					#foreach($child in $ugc.childs) #if($!{decorate_view}=="true")
+					<li><a href="javascript:void(0);">$!child.className</a></li> #else
+					<li><a
+						href="$!webPath/goods_list.htm?ugc_id=$!{child.id}&orderBy=goods_salenum&orderType=desc&store_id=$!{store.id}">$!child.className</a></li>
+					#end #end
+				</ul>
+			</div>
+		</div>
+		#end
+	</div>
 </div>

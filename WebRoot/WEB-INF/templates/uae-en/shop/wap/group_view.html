@@ -2,10 +2,13 @@
 <html lang="zh">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="viewport"
+	content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta name="apple-wap-web-app-capable" content="yes">
-<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
-<link href="$!webPath/resources/style/system/front/wap/css/style.css" rel="stylesheet" type="text/css" />
+<meta name="apple-wap-web-app-status-bar-style"
+	content="black-translucent">
+<link href="$!webPath/resources/style/system/front/wap/css/style.css"
+	rel="stylesheet" type="text/css" />
 <script src="$!webPath/resources/js/wap/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 function timeCount(remain_id){
@@ -124,54 +127,74 @@ function ajaxPage(url,currentPage,obj){
 </head>
 
 <body>
-<div class="phone_hd"><a class="back" href="javascript:history.go(-1);"><img src="$!webPath/resources/style/system/front/wap/images/back.png" width="25" height="25" /></a>团购详情<a class="menu home" href="$!webPath/wap/index.htm"><img src="$!webPath/resources/style/system/front/wap/images/home.png" width="25" height="25" /></a></div>
+	<div class="phone_hd">
+		<a class="back" href="javascript:history.go(-1);"><img
+			src="$!webPath/resources/style/system/front/wap/images/back.png"
+			width="25" height="25" /></a>团购详情<a class="menu home"
+			href="$!webPath/wap/index.htm"><img
+			src="$!webPath/resources/style/system/front/wap/images/home.png"
+			width="25" height="25" /></a>
+	</div>
 
-<div class="group_infro">
-	<div class="pic"><img src="$!imageWebServer/$!obj.gg_img.path/$!obj.gg_img.name" /><span>$!obj.gg_name</span></div>
-    <div class="date"><span class="fl"><i><img src="$!webPath/resources/style/system/front/wap/images/clock_black.png" width="20" height="20" /></i><span class="fl" id="time_down_info" endTime="$!CommUtil.formatTime('MM/dd/yyyy HH:mm:ss',$!{obj.endTime})"><b>11</b>天<b>11</b>小时<b>11</b>分<b>11</b>秒</span></span><span class="fr"><b>$!obj.gg_selled_count</b>人已团</span></div>
-    <div class="price"><span class="fl">¥<b>$!{obj.gg_price}</b></span>
-     #if($!obj.gg_status==1)
-     #if($!obj.gg_count>0)
-    <span class="fr"><a href="$!webPath/wap/goods.htm?id=$!{obj.gg_goods.id}">马上团</a></span>
-    #else
-    <span class="fr over"><a href="javascript:void(0);">已售完</a></span>
-    #end
-    #else
-    <span class="fr over"><a href="javascript:void(0);">已结束</a></li>
-    #end
-    
-    </div>
-    <div class="old_price">
-    	<ul>#set($save = $!{obj.gg_goods.goods_price}-$!{obj.gg_price})
-        	<li><p>原价</p><p class="gray"><s>¥$!{obj.gg_goods.goods_price}</s></p></li>
-            <li><p>折扣</p><p class="gray">$!{obj.gg_rebate}折</p></li>
-            <li><p>节省</p><p class="gray">¥$!save</p></li>
-        </ul>
-    </div>
-</div>
+	<div class="group_infro">
+		<div class="pic">
+			<img src="$!imageWebServer/$!obj.gg_img.path/$!obj.gg_img.name" /><span>$!obj.gg_name</span>
+		</div>
+		<div class="date">
+			<span class="fl"><i><img
+					src="$!webPath/resources/style/system/front/wap/images/clock_black.png"
+					width="20" height="20" /></i><span class="fl" id="time_down_info"
+				endTime="$!CommUtil.formatTime('MM/dd/yyyy HH:mm:ss',$!{obj.endTime})"><b>11</b>天<b>11</b>小时<b>11</b>分<b>11</b>秒</span></span><span
+				class="fr"><b>$!obj.gg_selled_count</b>人已团</span>
+		</div>
+		<div class="price">
+			<span class="fl">¥<b>$!{obj.gg_price}</b></span>
+			#if($!obj.gg_status==1) #if($!obj.gg_count>0) <span class="fr"><a
+				href="$!webPath/wap/goods.htm?id=$!{obj.gg_goods.id}">马上团</a></span> #else
+			<span class="fr over"><a href="javascript:void(0);">已售完</a></span>
+			#end #else <span class="fr over"><a href="javascript:void(0);">已结束</a>
+				</li> #end 
+		</div>
+		<div class="old_price">
+			<ul>
+				#set($save = $!{obj.gg_goods.goods_price}-$!{obj.gg_price})
+				<li><p>原价</p>
+					<p class="gray">
+						<s>¥$!{obj.gg_goods.goods_price}</s>
+					</p></li>
+				<li><p>折扣</p>
+					<p class="gray">$!{obj.gg_rebate}折</p></li>
+				<li><p>节省</p>
+					<p class="gray">¥$!save</p></li>
+			</ul>
+		</div>
+	</div>
 
-<div class="group_infro_con">
-	<div class="group_infro_tab">
-    	<ul id="group_click">
-        	<li class="this" mark="info"><a href="javascript:void(0);">商品介绍</a></li>
-            <li url="$!webPath/wap/group_evaluation.htm?goods_id=$!{obj.gg_goods.id}&id=$!{obj.gg_goods.goods_store.id}" mark="evaluate"><a href="javascript:void(0);">商品评价</a></li>
-            <li url="$!webPath/wap/group_order.htm?goods_id=$!{obj.gg_goods.id}&id=$!{obj.gg_goods.goods_store.id}" mark="deal"><a href="javascript:void(0);">成交记录</a></li>
-        </ul>
-    </div>
-    <!--商品介绍-->
-    <div class="group_infro_box" style="display:block;" id="info">$!obj.gg_content</div>
-    <!--商品评价-->
-    <div class="group_infro_box" style="display:none;" id="evaluate">
-    	
-        
-    </div>
-    <!--成交记录-->
-    <div class="group_infro_box" style="display:none" id="deal">
-    	
-    </div>
-$!httpInclude.include("/wap/footer.htm") </div>
-$!httpInclude.include("/wap/layer.htm")
+	<div class="group_infro_con">
+		<div class="group_infro_tab">
+			<ul id="group_click">
+				<li class="this" mark="info"><a href="javascript:void(0);">商品介绍</a></li>
+				<li
+					url="$!webPath/wap/group_evaluation.htm?goods_id=$!{obj.gg_goods.id}&id=$!{obj.gg_goods.goods_store.id}"
+					mark="evaluate"><a href="javascript:void(0);">商品评价</a></li>
+				<li
+					url="$!webPath/wap/group_order.htm?goods_id=$!{obj.gg_goods.id}&id=$!{obj.gg_goods.goods_store.id}"
+					mark="deal"><a href="javascript:void(0);">成交记录</a></li>
+			</ul>
+		</div>
+		<!--商品介绍-->
+		<div class="group_infro_box" style="display: block;" id="info">$!obj.gg_content</div>
+		<!--商品评价-->
+		<div class="group_infro_box" style="display: none;" id="evaluate">
 
-    
+
+		</div>
+		<!--成交记录-->
+		<div class="group_infro_box" style="display: none" id="deal"></div>
+		$!httpInclude.include("/wap/footer.htm")
+	</div>
+	$!httpInclude.include("/wap/layer.htm")
+
+
 </body>
 </html>

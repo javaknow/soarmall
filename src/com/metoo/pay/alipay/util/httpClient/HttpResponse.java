@@ -4,8 +4,6 @@ import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.httpclient.Header;
 
-import com.metoo.pay.alipay.config.AlipayConfig;
-
 /* *
  *类名：HttpResponse
  *功能：Http返回对象的封装

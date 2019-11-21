@@ -3,7 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
 <script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
 <script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
 <script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
@@ -97,36 +99,46 @@ function upload_img(){
 </script>
 </head>
 <body scroll="yes">
-<div class="cont">
-  <h3 class="seth">淘宝导入</h3>
-  <div class="productmain">
-            <div class="step">
-            <div class="step1">
-                <h1><span class="add"></span>第一步：导入CSV文件成功,已成功导入$!{already_import_count}件商品，$!{no_import_count}件导入失败。</span></h1>
-            </div>
-             <div class="step1 this"><h1>第二步：导入CSV文件，<span style="color:#F00">请上传与csv文件同级的images目录(或与csv文件同名的目录)内的tbi文件。</span></h1></div>
-              <div class="step1"><h1>第三步：整理数据</h1></div>
-                <ul style="margin-top:10px;">
-                  <li><span class="hui2">导入相册：</span><span>
-                     <select name="upload_album_id" id="upload_album_id">
-                      #foreach($album in $alubms)
-                      <option value="$!album.id">$!album.album_name</option>
-                      #end
-                    </select>
-                    </span></li>
-                
-                  <li style="padding-top:10px;">
-                  <i style="float:left; margin-top:3px;margin-right: 4px;">导入图片：</i>
-                  <span class="upload" id="upload_imgs"></span> <img src="$!webPath/resources/style/common/images/wait.gif" style="display:none;" id="upload_wait" />
-                  </li>
-                   <li><span id="img_desc_info" style="margin-top: 4px;float: left;clear: both;width: 100%;margin-bottom: 5px"></span></li>
-                  <li style="padding-top:10px;padding-left: 66px;"><span class="submit">
-                    <input type="button" value="上传图片" onclick="upload_img();" />
-                    </span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-</div>
+	<div class="cont">
+		<h3 class="seth">淘宝导入</h3>
+		<div class="productmain">
+			<div class="step">
+				<div class="step1">
+					<h1>
+						<span class="add"></span>第一步：导入CSV文件成功,已成功导入$!{already_import_count}件商品，$!{no_import_count}件导入失败。</span>
+					</h1>
+				</div>
+				<div class="step1 this">
+					<h1>
+						第二步：导入CSV文件，<span style="color: #F00">请上传与csv文件同级的images目录(或与csv文件同名的目录)内的tbi文件。</span>
+					</h1>
+				</div>
+				<div class="step1">
+					<h1>第三步：整理数据</h1>
+				</div>
+				<ul style="margin-top: 10px;">
+					<li><span class="hui2">导入相册：</span><span> <select
+							name="upload_album_id" id="upload_album_id">
+								#foreach($album in $alubms)
+								<option value="$!album.id">$!album.album_name</option> #end
+						</select>
+					</span></li>
+
+					<li style="padding-top: 10px;"><i
+						style="float: left; margin-top: 3px; margin-right: 4px;">导入图片：</i>
+						<span class="upload" id="upload_imgs"></span> <img
+						src="$!webPath/resources/style/common/images/wait.gif"
+						style="display: none;" id="upload_wait" /></li>
+					<li><span id="img_desc_info"
+						style="margin-top: 4px; float: left; clear: both; width: 100%; margin-bottom: 5px"></span></li>
+					<li style="padding-top: 10px; padding-left: 66px;"><span
+						class="submit"> <input type="button" value="上传图片"
+							onclick="upload_img();" />
+					</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</div>
 </body>
 </html>

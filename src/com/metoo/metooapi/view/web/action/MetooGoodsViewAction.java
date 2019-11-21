@@ -1,51 +1,6 @@
 package com.metoo.metooapi.view.web.action;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.jws.soap.SOAPBinding.Use;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.nutz.json.Json;
-import org.nutz.json.JsonFormat;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.metoo.buyer.domain.Result;
-import com.metoo.core.domain.virtual.SysMap;
-import com.metoo.core.ip.IPSeeker;
-import com.metoo.core.mv.JModelAndView;
-import com.metoo.core.query.support.IPageList;
-import com.metoo.core.security.support.SecurityUserHolder;
-import com.metoo.core.tools.CommUtil;
-import com.metoo.foundation.domain.Accessory;
-import com.metoo.foundation.domain.ActivityGoods;
-import com.metoo.foundation.domain.BuyGift;
-import com.metoo.foundation.domain.CGoods;
-import com.metoo.foundation.domain.CombinPlan;
-import com.metoo.foundation.domain.Consult;
-import com.metoo.foundation.domain.EnoughReduce;
-import com.metoo.foundation.domain.Evaluate;
-import com.metoo.foundation.domain.Favorite;
-import com.metoo.foundation.domain.FootPoint;
-import com.metoo.foundation.domain.Goods;
-import com.metoo.foundation.domain.GoodsClass;
-import com.metoo.foundation.domain.GoodsLog;
-import com.metoo.foundation.domain.Group;
-import com.metoo.foundation.domain.User;
-import com.metoo.foundation.domain.query.ConsultQueryObject;
-import com.metoo.foundation.domain.query.EvaluateQueryObject;
-
-
-
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -61,59 +16,43 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.annotations.Parameter;
 import org.nutz.json.Json;
 import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
-
 
 import com.metoo.buyer.domain.Result;
 import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.ip.IPSeeker;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
-import com.metoo.core.tools.JsonUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.Accessory;
 import com.metoo.foundation.domain.ActivityGoods;
-import com.metoo.foundation.domain.Address;
-import com.metoo.foundation.domain.Album;
 import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.BuyGift;
+import com.metoo.foundation.domain.CGoods;
 import com.metoo.foundation.domain.CombinPlan;
-import com.metoo.foundation.domain.Consult;
-import com.metoo.foundation.domain.ConsultSatis;
 import com.metoo.foundation.domain.EnoughReduce;
 import com.metoo.foundation.domain.Evaluate;
+import com.metoo.foundation.domain.Favorite;
 import com.metoo.foundation.domain.FootPoint;
 import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.GoodsBrand;
 import com.metoo.foundation.domain.GoodsClass;
 import com.metoo.foundation.domain.GoodsLog;
 import com.metoo.foundation.domain.GoodsSpecProperty;
-import com.metoo.foundation.domain.GoodsTest;
 import com.metoo.foundation.domain.GoodsTypeProperty;
 import com.metoo.foundation.domain.Group;
-import com.metoo.foundation.domain.GroupGoods;
-import com.metoo.foundation.domain.OrderFormLog;
 import com.metoo.foundation.domain.Store;
-import com.metoo.foundation.domain.StoreNavigation;
 import com.metoo.foundation.domain.SysConfig;
 import com.metoo.foundation.domain.Transport;
 import com.metoo.foundation.domain.User;
-import com.metoo.foundation.domain.UserGoodsClass;
-import com.metoo.foundation.domain.query.ConsultQueryObject;
 import com.metoo.foundation.domain.query.EvaluateQueryObject;
 import com.metoo.foundation.domain.query.GoodsQueryObject;
-import com.metoo.foundation.domain.virtual.GoodsCompareView;
 import com.metoo.foundation.service.IActivityGoodsService;
 import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.IBuyGiftService;
@@ -131,7 +70,6 @@ import com.metoo.foundation.service.IGoodsClassService;
 import com.metoo.foundation.service.IGoodsLogService;
 import com.metoo.foundation.service.IGoodsService;
 import com.metoo.foundation.service.IGoodsSpecPropertyService;
-import com.metoo.foundation.service.IGoodsTestService;
 import com.metoo.foundation.service.IGoodsTypePropertyService;
 import com.metoo.foundation.service.IOrderFormService;
 import com.metoo.foundation.service.IStoreNavigationService;
@@ -145,7 +83,6 @@ import com.metoo.manage.admin.tools.ImageTools;
 import com.metoo.manage.admin.tools.OrderFormTools;
 import com.metoo.manage.admin.tools.UserTools;
 import com.metoo.manage.seller.tools.TransportTools;
-import com.metoo.metooapi.foundation.service.IGoodsMetooService;
 import com.metoo.metooapi.view.web.tool.MetooGoodsViewTools;
 import com.metoo.view.web.tools.ActivityViewTools;
 import com.metoo.view.web.tools.AreaViewTools;
@@ -154,10 +91,6 @@ import com.metoo.view.web.tools.EvaluateViewTools;
 import com.metoo.view.web.tools.GoodsViewTools;
 import com.metoo.view.web.tools.IntegralViewTools;
 import com.metoo.view.web.tools.StoreViewTools;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JsonConfig;
-import net.sf.json.util.CycleDetectionStrategy;
 
 /**
  * 
@@ -782,19 +715,11 @@ public class MetooGoodsViewAction {
 					}else{
 						String trans = null;
 						float freight_price = 0;
-						if(obj.getTransport().isTrans_mail()){
-							trans = "mail";
-							 freight_price = transportTools.cal_goods_trans_fee_metoo(CommUtil.null2String(obj.getTransport().getId()), "mail", obj, current_city);
-						}
+						System.out.println(obj.getTransport());
 						if(obj.getTransport().isTrans_express()){
 							trans = "express";
 							 freight_price = transportTools.cal_goods_trans_fee_metoo(CommUtil.null2String(obj.getTransport().getId()), "express", obj, current_city);
 						}
-						if(obj.getTransport().isTrans_ems()){
-							trans = "ems";
-							 freight_price = transportTools.cal_goods_trans_fee_metoo(CommUtil.null2String(obj.getTransport().getId()), "ems", obj, current_city);
-						}
-						
 						goods_transfee_map.put("goods_transfee", freight_price);
 						goods_transfee_map.put("trans", trans);
 					}
@@ -2729,6 +2654,7 @@ public class MetooGoodsViewAction {
 		Object goods_weight = goods.getGoods_weight();
 		if(goods != null){
 			if(goods.getGoods_transfee() == 0){
+				System.out.println(goods.getTransport());		
 				Transport trans = this.transportService.getObjById(goods.getTransport().getId());
 				String json = "";
 				if (type.equals("mail")) {

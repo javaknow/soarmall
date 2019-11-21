@@ -7,17 +7,24 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type=text/css rel=stylesheet>
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+			<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+			<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+			<script>
 jQuery(document).ready(function(){								
   jQuery("#theForm").validate({
   submitHandler:function(){
@@ -277,194 +284,255 @@ function remove_plan(obj){
 </script>
 </head>
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-<div class="seller_center">
-<div class="seller_center_left"> $!httpInclude.include("/seller/nav.htm?op=combin") </div>
-<div class="seller_right">
-  <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>促销推广</b>><b>组合销售</b></span></div>
-  <div class="seller_list">
-    <div class="seller_list_title">
-      <ul class="seller_title_ul">
-        <li><a href="$!webPath/seller/combin.htm"><i></i>组合套装</a></li>
-        <li><a href="$!webPath/seller/combin.htm?type=1"><i></i>组合配件</a></li>
-        <li #if(!$!edit) class="this" #end><a href='$!webPath/seller/combin_add.htm'><i></i>添加组合</a></li>
-        <li><a href='$!webPath/seller/combin_meal.htm'><i></i>套餐购买</a></li>
-        <li><a href='$!webPath/seller/combin_meal_log.htm'><i></i>购买日志</a></li>
-        #if($!edit)
-         <li class="this"><a href='javascript:void(0);'><i></i>组合编辑</a></li> 
-         #end
-      </ul>
-    </div>
-    <form id="theForm" name="theForm" action="">
-    <input id="id" name="id" type="hidden" value="$!obj.id"/>
-    <input id="combin_mark" name="combin_mark" type="hidden"/>
-    <div class="seller_list_box">
-      <div class="pro_ass_contant">
-      #if($!edit)
-      	#if($!obj.combin_type==0)
-      	<div class="save_btn"><a href="javascript:void(0);" onclick="save_form(0);">保存为组合套装</a></div>
-        #else
-        <div class="save_btn save_btn02"><a href="javascript:void(0);" onclick="save_form(1);">保存为组合配件</a></div>
-        #end
-     #else
-        <div class="save_btn"><a href="javascript:void(0);" onclick="save_form(0);">保存为组合套装</a></div>
-        <div class="save_btn save_btn02"><a href="javascript:void(0);" onclick="save_form(1);">保存为组合配件</a></div>
-     #end   
-        <div class="pro_ass_contant_center_t"> <span class="pro_ass_left_left">主体商品：</span>
-          <input id="main_goods_id" name="main_goods_id" type="hidden" value="$!obj.main_goods_id"/>
-           <input id="old_main_goods_id" name="old_main_goods_id" type="hidden" value="$!obj.main_goods_id"/>
-          <input id="plan_num" name="plan_num" type="hidden"/>
-          <div class="pro_ass_contant_right">
-              #set($img="resources/style/common/images/good.jpg")
-              #set($name="主体商品信息")
-              #set($price="0.00")
-               #if($!obj)
-           	   #set($map=$!combinTools.getMainGoodsMap("$!obj.id"))  
-               #set($img=$!map.get('img'))
-               #set($price=$!map.get('price'))
-               #set($name=$!map.get('name'))
-               #end
-            <ul class="pro_ass_contant_ul" id="main_goods_" price="$!{price}">
-              <li class="pic"><span>
-                <p><img id="img" src="$!imageWebServer/$!{img}" width="80" height="80" price="$!{price}"/></p>
-                </span></li>
-              <li class="name"> <span class="name_height" id="name">$!{name}</span> <span><a href="javascript:void(0);" dialog_uri="$!webPath/seller/combin_set_goods.htm?type=main" dialog_title="设置主体商品" dialog_width="540" dialog_height="500" dialog_id="load_main_goods">设置</a></span> </li>
-            </ul>
-          </div>
-          <div class="combin_notice">
-          1、保存组合套装后，用户可选择购买整个套装，套装价格为组合价格。</br>
-          2、保存组合配件后，用户可任意选择配件中的商品，配件商品均为原价。</br>
-          3、一个主体商品最多可分别设置一个组合套装和一个组合配件。
-          </div>
-        </div>
-        <div class="pro_ass_left_top" >
-          <div class="pro_ass_left_top_name">
-            <dl>
-              <dt>组合时间：</dt>
-              <dd>
-                <input name="beginTime" id="beginTime" type="text" value="#if($!obj)$!CommUtil.formatShortDate($!obj.beginTime) #else $!{now}#end" placeholder="开始时间"/>
-              </dd>
-              <i>——</i>
-              <dd>
-                <input name="endTime" id="endTime" type="text" value="$!CommUtil.formatShortDate($!obj.endTime)" placeholder="结束时间"/>
-              </dd>
-            </dl>
-          </div>
-        </div>
-        <div class="pro_ass_left_left_zh">组合方案：</div>
-        <div id="plan_list">
-#if(!$!obj)<!--新增-->
-        <div class="pro_ass_contant_center" id="plan_1" count=1> <span class="pro_ass_left">
-            <input id="other_goods_ids_1" name="other_goods_ids_1" type="hidden" value=""/>
-            <input id="plan_goods_price_1" name="plan_goods_price_1" value="0.00" type="hidden" count="1"/>
-            <ul id="main_goods_1">
-              <li class="pro_ass_image"><span>
-              #set($img="resources/style/common/images/good.jpg")
-              #if($!obj)
-           	  #set($map=$!combinTools.getMainGoodsMap("$!obj.id"))  
-              #set($img=$!map.get('img'))
-              #end
-                <p><img id="img" src="$!imageWebServer/$!{img}" width="80" height="80" /></p>
-                </span></li>
-              <li class="pro_ass_name" id="name">&nbsp;&nbsp;&nbsp;&nbsp;主体商品</li>
-            </ul>
-            </span> <span class="add_ass"></span>
-            <div class="pro_ass_mid">
-              <table width="100%" border="0" cellpadding="0" cellspacing="0" class="pro_asstable">
-                <tr> #foreach($count in [1..$!{config.combin_count}])
-                  <td status="none" count='$!velocityCount'><ul class="pro_ass_two">
-                      <li class="ass_two_image"><span>
-                        <p><img id="img" src="$!webPath/resources/style/common/images/good.jpg" width="80" height="80" /></p>
-                        </span></li>
-                      <li class="ass_two_name" id="name">组合商品信息</li>
-                    </ul></td>
-                  #if($!{count}!=$!{config.combin_count})
-                  <td style=" float:left;"><span class="add_ass"></span></td>
-                  #end 	
-                  #end </tr>
-              </table>
-              <div class="pro_ass_set"><a href="javascript:void(0);" dialog_uri="$!webPath/seller/combin_set_goods.htm?type=other&&plan_count=1" dialog_title="设置主体商品" dialog_width="540" dialog_height="500" dialog_id="load_main_goods">设置</a></div>
-            </div>
-            <span class="evla_ass"></span>
-            <div class="pro_ass_right">
-              <ul class="pro_ass_price">
-                <li><span>商品总价:</span><b id="all_price_1">¥0.00</b></li>
-                <li><span>组合价格:</span>
-                  <input id="combin_price_1" name="combin_price_1" type="text" style="width:50px" placeholder="¥">
-                  </input>
-                </li>
-              </ul>
-            </div>
-          </div>
-#else  <!--编辑-->
-         #foreach($plan in $combinTools.getCombinGoodsMaps("$!obj.id"))
-          <div class="pro_ass_contant_center" id="plan_$!{velocityCount}" count=$!{velocityCount}> <span class="pro_ass_left">
-            <input id="other_goods_ids_$!{velocityCount}" name="other_goods_ids_$!{velocityCount}" type="hidden" value="$!combinTools.getCombinGoodsIds($!plan)"/>
-            <input id="plan_goods_price_$!{velocityCount}" name="plan_goods_price_$!{velocityCount}" value="$!plan.get('all_goods_price')" type="hidden" count="$!{velocityCount}"/>
-            <ul id="main_goods_$!{velocityCount}">
-              <li class="pro_ass_image"><span>
-              #set($img="resources/style/common/images/good.jpg")
-              #set($name="主体商品")
-              #if($!obj)
-           	  #set($map=$!combinTools.getMainGoodsMap("$!obj.id"))  
-              #set($img=$!map.get('img'))
-              #set($name=$!map.get('name'))
-              #end
-                <p><img id="img" src="$!imageWebServer/$!{img}" width="80" height="80" /></p>
-                </span></li>
-              <li class="pro_ass_name" id="name">$!{name}</li>
-            </ul>
-            </span> <span class="add_ass"></span>
-            <div class="pro_ass_mid">
-              <table width="100%" border="0" cellpadding="0" cellspacing="0" class="pro_asstable">
-                <tr> 
-                #foreach($goodsinfo in $!combinTools.getCombinGoodsInfo_list($!{plan}))
-                  <td #if($!goodsinfo.get('id')!='')status="goods"#else status="none" #end id="$!goodsinfo.get('id')" count='$!velocityCount'><ul class="pro_ass_two">
-                      <li class="ass_two_image"><span>
-                      #set($img="resources/style/common/images/good.jpg")
-                      #set($name="组合商品信息")
-                      #if($!goodsinfo!="null")
-                        #set($img=$!goodsinfo.get('img'))
-                        #set($name=$!goodsinfo.get('name'))
-                      #end
-                        <p><img id="img" src="$!imageWebServer/$!img" width="80" height="80" /></p>
-                        </span></li>
-                      <li class="ass_two_name" id="name">$!{name}</li>
-                    </ul></td>
-                  #if($!{velocityCount}!=$!combinTools.getCombinGoodsInfo_list($!{plan}).size())
-                  <td style=" float:left;"><span class="add_ass"></span></td>
-                  #end 	
-                 #end 
-                 </tr>
-              </table>
-              <div class="pro_ass_set"><a href="javascript:void(0);" dialog_uri="$!webPath/seller/combin_set_goods.htm?type=other&&plan_count=$!{velocityCount}" dialog_title="设置主体商品" dialog_width="540" dialog_height="500" dialog_id="load_main_goods">设置</a></div>
-              #if($!velocityCount!=1)
-              <div class="pro_ass_set_right"><a href="javascript:void(0);" plan_count="$!velocityCount" onclick="remove_plan(this)">删除</a></div>
-              #end
-            </div>
-            <span class="evla_ass"></span>
-            <div class="pro_ass_right">
-              <ul class="pro_ass_price">
-                <li><span>商品总价:</span><b id="all_price_$!{velocityCount}">#if($!obj)¥$!{plan.get('all_goods_price')}#else¥0.00#end</b></li>
-                <li><span>组合价格:</span>
-                  <input id="combin_price_$!{velocityCount}" name="combin_price_$!{velocityCount}" type="text" #if($!obj) value="$!plan.get('plan_goods_price')" #end style="width:50px" placeholder="¥">
-                  </input>
-                </li>
-              </ul>
-            </div>
-          </div>
-         #end 
-#end   
-          
-          <div> </div>
-          <div class="seller_center_add"><a href="javascript:void(0);" onclick="add_plan()">添加新方案</a></div>
-        </div>
-      </div>
-    </div>
-    </form>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			<div class="seller_center_left">
+				$!httpInclude.include("/seller/nav.htm?op=combin")</div>
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>促销推广</b>><b>组合销售</b></span>
+				</div>
+				<div class="seller_list">
+					<div class="seller_list_title">
+						<ul class="seller_title_ul">
+							<li><a href="$!webPath/seller/combin.htm"><i></i>组合套装</a></li>
+							<li><a href="$!webPath/seller/combin.htm?type=1"><i></i>组合配件</a></li>
+							<li #if(!$!edit) class="this" #end><a
+								href='$!webPath/seller/combin_add.htm'><i></i>添加组合</a></li>
+							<li><a href='$!webPath/seller/combin_meal.htm'><i></i>套餐购买</a></li>
+							<li><a href='$!webPath/seller/combin_meal_log.htm'><i></i>购买日志</a></li>
+							#if($!edit)
+							<li class="this"><a href='javascript:void(0);'><i></i>组合编辑</a></li>
+							#end
+						</ul>
+					</div>
+					<form id="theForm" name="theForm" action="">
+						<input id="id" name="id" type="hidden" value="$!obj.id" /> <input
+							id="combin_mark" name="combin_mark" type="hidden" />
+						<div class="seller_list_box">
+							<div class="pro_ass_contant">
+								#if($!edit) #if($!obj.combin_type==0)
+								<div class="save_btn">
+									<a href="javascript:void(0);" onclick="save_form(0);">保存为组合套装</a>
+								</div>
+								#else
+								<div class="save_btn save_btn02">
+									<a href="javascript:void(0);" onclick="save_form(1);">保存为组合配件</a>
+								</div>
+								#end #else
+								<div class="save_btn">
+									<a href="javascript:void(0);" onclick="save_form(0);">保存为组合套装</a>
+								</div>
+								<div class="save_btn save_btn02">
+									<a href="javascript:void(0);" onclick="save_form(1);">保存为组合配件</a>
+								</div>
+								#end
+								<div class="pro_ass_contant_center_t">
+									<span class="pro_ass_left_left">主体商品：</span> <input
+										id="main_goods_id" name="main_goods_id" type="hidden"
+										value="$!obj.main_goods_id" /> <input id="old_main_goods_id"
+										name="old_main_goods_id" type="hidden"
+										value="$!obj.main_goods_id" /> <input id="plan_num"
+										name="plan_num" type="hidden" />
+									<div class="pro_ass_contant_right">
+										#set($img="resources/style/common/images/good.jpg")
+										#set($name="主体商品信息") #set($price="0.00") #if($!obj)
+										#set($map=$!combinTools.getMainGoodsMap("$!obj.id"))
+										#set($img=$!map.get('img')) #set($price=$!map.get('price'))
+										#set($name=$!map.get('name')) #end
+										<ul class="pro_ass_contant_ul" id="main_goods_"
+											price="$!{price}">
+											<li class="pic"><span>
+													<p>
+														<img id="img" src="$!imageWebServer/$!{img}" width="80"
+															height="80" price="$!{price}" />
+													</p>
+											</span></li>
+											<li class="name"><span class="name_height" id="name">$!{name}</span>
+												<span><a href="javascript:void(0);"
+													dialog_uri="$!webPath/seller/combin_set_goods.htm?type=main"
+													dialog_title="设置主体商品" dialog_width="540"
+													dialog_height="500" dialog_id="load_main_goods">设置</a></span></li>
+										</ul>
+									</div>
+									<div class="combin_notice">
+										1、保存组合套装后，用户可选择购买整个套装，套装价格为组合价格。</br>
+										2、保存组合配件后，用户可任意选择配件中的商品，配件商品均为原价。</br>
+										3、一个主体商品最多可分别设置一个组合套装和一个组合配件。
+									</div>
+								</div>
+								<div class="pro_ass_left_top">
+									<div class="pro_ass_left_top_name">
+										<dl>
+											<dt>组合时间：</dt>
+											<dd>
+												<input name="beginTime" id="beginTime" type="text"
+													value="#if($!obj)$!CommUtil.formatShortDate($!obj.beginTime) #else $!{now}#end"
+													placeholder="开始时间" />
+											</dd>
+											<i>——</i>
+											<dd>
+												<input name="endTime" id="endTime" type="text"
+													value="$!CommUtil.formatShortDate($!obj.endTime)"
+													placeholder="结束时间" />
+											</dd>
+										</dl>
+									</div>
+								</div>
+								<div class="pro_ass_left_left_zh">组合方案：</div>
+								<div id="plan_list">
+									#if(!$!obj)
+									<!--新增-->
+									<div class="pro_ass_contant_center" id="plan_1" count=1>
+										<span class="pro_ass_left"> <input
+											id="other_goods_ids_1" name="other_goods_ids_1" type="hidden"
+											value="" /> <input id="plan_goods_price_1"
+											name="plan_goods_price_1" value="0.00" type="hidden"
+											count="1" />
+											<ul id="main_goods_1">
+												<li class="pro_ass_image"><span>
+														#set($img="resources/style/common/images/good.jpg")
+														#if($!obj)
+														#set($map=$!combinTools.getMainGoodsMap("$!obj.id"))
+														#set($img=$!map.get('img')) #end
+														<p>
+															<img id="img" src="$!imageWebServer/$!{img}" width="80"
+																height="80" />
+														</p>
+												</span></li>
+												<li class="pro_ass_name" id="name">&nbsp;&nbsp;&nbsp;&nbsp;主体商品</li>
+											</ul>
+										</span> <span class="add_ass"></span>
+										<div class="pro_ass_mid">
+											<table width="100%" border="0" cellpadding="0"
+												cellspacing="0" class="pro_asstable">
+												<tr>
+													#foreach($count in [1..$!{config.combin_count}])
+													<td status="none" count='$!velocityCount'><ul
+															class="pro_ass_two">
+															<li class="ass_two_image"><span>
+																	<p>
+																		<img id="img"
+																			src="$!webPath/resources/style/common/images/good.jpg"
+																			width="80" height="80" />
+																	</p>
+															</span></li>
+															<li class="ass_two_name" id="name">组合商品信息</li>
+														</ul></td> #if($!{count}!=$!{config.combin_count})
+													<td style="float: left;"><span class="add_ass"></span></td>
+													#end #end
+												</tr>
+											</table>
+											<div class="pro_ass_set">
+												<a href="javascript:void(0);"
+													dialog_uri="$!webPath/seller/combin_set_goods.htm?type=other&&plan_count=1"
+													dialog_title="设置主体商品" dialog_width="540"
+													dialog_height="500" dialog_id="load_main_goods">设置</a>
+											</div>
+										</div>
+										<span class="evla_ass"></span>
+										<div class="pro_ass_right">
+											<ul class="pro_ass_price">
+												<li><span>商品总价:</span><b id="all_price_1">¥0.00</b></li>
+												<li><span>组合价格:</span> <input id="combin_price_1"
+													name="combin_price_1" type="text" style="width: 50px"
+													placeholder="¥"> </input></li>
+											</ul>
+										</div>
+									</div>
+									#else
+									<!--编辑-->
+									#foreach($plan in $combinTools.getCombinGoodsMaps("$!obj.id"))
+									<div class="pro_ass_contant_center" id="plan_$!{velocityCount}"
+										count=$!{velocityCount}>
+										<span class="pro_ass_left"> <input
+											id="other_goods_ids_$!{velocityCount}"
+											name="other_goods_ids_$!{velocityCount}" type="hidden"
+											value="$!combinTools.getCombinGoodsIds($!plan)" /> <input
+											id="plan_goods_price_$!{velocityCount}"
+											name="plan_goods_price_$!{velocityCount}"
+											value="$!plan.get('all_goods_price')" type="hidden"
+											count="$!{velocityCount}" />
+											<ul id="main_goods_$!{velocityCount}">
+												<li class="pro_ass_image"><span>
+														#set($img="resources/style/common/images/good.jpg")
+														#set($name="主体商品") #if($!obj)
+														#set($map=$!combinTools.getMainGoodsMap("$!obj.id"))
+														#set($img=$!map.get('img')) #set($name=$!map.get('name'))
+														#end
+														<p>
+															<img id="img" src="$!imageWebServer/$!{img}" width="80"
+																height="80" />
+														</p>
+												</span></li>
+												<li class="pro_ass_name" id="name">$!{name}</li>
+											</ul>
+										</span> <span class="add_ass"></span>
+										<div class="pro_ass_mid">
+											<table width="100%" border="0" cellpadding="0"
+												cellspacing="0" class="pro_asstable">
+												<tr>
+													#foreach($goodsinfo in
+													$!combinTools.getCombinGoodsInfo_list($!{plan}))
+													<td #if($!goodsinfo.get('id')!='' )status="goods" #else
+														status="none" #end id="$!goodsinfo.get('id')"
+														count='$!velocityCount'><ul class="pro_ass_two">
+															<li class="ass_two_image"><span>
+																	#set($img="resources/style/common/images/good.jpg")
+																	#set($name="组合商品信息") #if($!goodsinfo!="null")
+																	#set($img=$!goodsinfo.get('img'))
+																	#set($name=$!goodsinfo.get('name')) #end
+																	<p>
+																		<img id="img" src="$!imageWebServer/$!img" width="80"
+																			height="80" />
+																	</p>
+															</span></li>
+															<li class="ass_two_name" id="name">$!{name}</li>
+														</ul></td>
+													#if($!{velocityCount}!=$!combinTools.getCombinGoodsInfo_list($!{plan}).size())
+													<td style="float: left;"><span class="add_ass"></span></td>
+													#end #end
+												</tr>
+											</table>
+											<div class="pro_ass_set">
+												<a href="javascript:void(0);"
+													dialog_uri="$!webPath/seller/combin_set_goods.htm?type=other&&plan_count=$!{velocityCount}"
+													dialog_title="设置主体商品" dialog_width="540"
+													dialog_height="500" dialog_id="load_main_goods">设置</a>
+											</div>
+											#if($!velocityCount!=1)
+											<div class="pro_ass_set_right">
+												<a href="javascript:void(0);" plan_count="$!velocityCount"
+													onclick="remove_plan(this)">删除</a>
+											</div>
+											#end
+										</div>
+										<span class="evla_ass"></span>
+										<div class="pro_ass_right">
+											<ul class="pro_ass_price">
+												<li><span>商品总价:</span><b
+													id="all_price_$!{velocityCount}">#if($!obj)¥$!{plan.get('all_goods_price')}#else¥0.00#end</b></li>
+												<li><span>组合价格:</span> <input
+													id="combin_price_$!{velocityCount}"
+													name="combin_price_$!{velocityCount}" type="text"
+													#if($!obj) value="$!plan.get('plan_goods_price')" #end
+													style="width: 50px" placeholder="¥"> </input></li>
+											</ul>
+										</div>
+									</div>
+									#end #end
+
+									<div></div>
+									<div class="seller_center_add">
+										<a href="javascript:void(0);" onclick="add_plan()">添加新方案</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			$!httpInclude.include("/footer.htm")
 </body>
 </html>

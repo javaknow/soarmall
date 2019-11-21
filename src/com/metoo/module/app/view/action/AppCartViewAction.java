@@ -1,9 +1,6 @@
 package com.metoo.module.app.view.action;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,10 +23,6 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.methods.GetMethod;
 import org.nutz.json.Json;
 import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +30,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.metoo.buyer.domain.Result;
-import com.metoo.core.domain.virtual.SysMap;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.ActivityGoods;
-import com.metoo.foundation.domain.Address;
 import com.metoo.foundation.domain.BuyGift;
-import com.metoo.foundation.domain.CGoods;
 import com.metoo.foundation.domain.CombinPlan;
 import com.metoo.foundation.domain.CouponInfo;
 import com.metoo.foundation.domain.EnoughReduce;
@@ -52,9 +41,6 @@ import com.metoo.foundation.domain.GoodsCart;
 import com.metoo.foundation.domain.GoodsSpecProperty;
 import com.metoo.foundation.domain.GoodsSpecification;
 import com.metoo.foundation.domain.GroupGoods;
-import com.metoo.foundation.domain.OrderForm;
-import com.metoo.foundation.domain.OrderFormLog;
-import com.metoo.foundation.domain.Store;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.service.IActivityGoodsService;
 import com.metoo.foundation.service.IAddressService;

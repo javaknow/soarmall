@@ -7,13 +7,16 @@
 <meta name="description" content="$!obj.seo_description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link rel="stylesheet" type="text/css" href="$!webPath/resources/style/system/front/default/css/user.css"/>
-<link rel="stylesheet" type="text/css" href="$!webPath/resources/style/system/front/default/css/public.css"/>
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link rel="stylesheet" type="text/css"
+			href="$!webPath/resources/style/system/front/default/css/user.css" />
+		<link rel="stylesheet" type="text/css"
+			href="$!webPath/resources/style/system/front/default/css/public.css" />
+		<link href="$!webPath/resources/style/common/css/overlay.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+		<script>
 function ajaxPage(url,currentPage,obj){
 	
 	 jQuery.ajax({type:'POST',url:url,data:{"currentPage":currentPage},
@@ -167,159 +170,247 @@ function del_dynamic(dynamic_id){
 }			
 </script>
 </head>
-<body background="$!webPath/resources/style/system/front/default/images/sns_bg.png";>
-$!httpInclude.include("/top.htm")
-<div class="sns_width"> $!httpInclude.include("/buyer/my_sns_head.htm")
-  <div class="sns_main"> $!httpInclude.include("/buyer/my_sns_nav.htm?op=dynamic")
-    <div class="sns_list_box_m"> 
-      <!-- 弹出 -->
-      <div class="sns_list_box_bg"  style="display:none;"></div>
-      <div class="sns_list_box_img" style="display:none;">
-      	<img src=""/>
-      	<i><a href="javascript:void(0)" onclick="hide_big_img()">关闭</a></i>
-      </div>
-      <div class="edit_img_list" style="display:none;"> 
-        <!-- 关闭按钮 -->
-        <div class="edit_img_list_close"><a href="javascript:void(0)" onclick="img_box_hide()">x</a></div>
-        <ul>
-          <li class="this"><a href="javascript:void(0)" onclick="table_img_box('fav_goods',this)">收藏商品</a></li>
-          <li><a href="javascript:void(0)" onclick="table_img_box('eva_goods',this)">我的晒单</a></li>
-        </ul>
-        <!--没有数据 -->
-        <div class="edit_img_list_nothing" style="display:none;"> 还没有图片... </div>
-        <!--收藏的商品 -->
-        <div class="edit_img_list_intimg" style="display:;">
-          <div class="edit_img_list_intimg_top" id="fav_goods">
-            <div class="edit_img_list_intimg_top_left"><a href="javascript:void(0)" onclick="ajaxPage('$!webPath/buyer/dynamic_fav_ajax.htm','1',this)"><img src="$!webPath/resources/style/system/front/default/images/picScroll_left_hover.png" /></a></div>
-            <div class="edit_img_list_intimg_top_right"><a href="javascript:void(0)" onclick="ajaxPage('$!webPath/buyer/dynamic_fav_ajax.htm','2',this)"><img src="$!webPath/resources/style/system/front/default/images/picScroll_right_hover.png" /></a></div>
-            <div class="edit_img_list_intimg_top_c" #if($!{fav_objs.size()}!=0) style="background-color:#FFF" #end >
-            	#foreach($obj in $fav_objs)
-                <span><a href="javascript:void(0)" onclick="add_img('$!{obj.goods_id}','fav')">
-                <img src="$!imageWebServer/$!obj.goods_photo" />
-                </a></span>
-                #end
-            </div>
-          </div>
-        </div>
-        <!--晒单的商品 -->
-        <div class="edit_img_list_intimg" style="display:none;">
-          <div class="edit_img_list_intimg_top" id="eva_goods">
-         	<div class="edit_img_list_intimg_top_left"><a href="javascript:void(0)" onclick="ajaxPage('$!webPath/buyer/dynamic_eva_ajax.htm','1',this)"><img src="$!webPath/resources/style/system/front/default/images/picScroll_left_hover.png" /></a></div>
-            <div class="edit_img_list_intimg_top_right"><a href="javascript:void(0)" onclick="ajaxPage('$!webPath/buyer/dynamic_eva_ajax.htm','2',this)"><img src="$!webPath/resources/style/system/front/default/images/picScroll_right_hover.png" /></a></div>
-            <div class="edit_img_list_intimg_top_c" #if($!{eva_objs.size()}!=0) style="background-color:#FFF" #end >
-            	#foreach($obj in $eva_objs)
-                <span><a href="javascript:void(0)" onclick="add_img('$!{obj.id}','eva')">
-                <img src="$!imageWebServer/$!obj.path/$!obj.name" /></a></span>
-                #end
-            </div>
-          </div>
-        </div>
-        <!--已选 -->
-        <div class="edit_img_list_intimg_b">
-          <h3>已选：</h3>
-          <div class="edit_img_list_intimg_b_c"> </div>
-          <div class="edit_img_list_intimg_b_b"> <a href="javascript:void(0)" onclick="img_box_hide()">确定</a> </div>
-        </div>
-      </div>
-      <div class="sns_main_box">
-        <div class="sns_main_box_left"> 
-          <!--sns -->
-          <div class="sns_center">
-            <div class="sns_center_top">
-              <div class="sns_center_top_t">畅所欲言，让Ta们都知道！</div>
-              <div class="sns_center_top_c">
-                <textarea name="dynamic_content" id="dynamic_content"></textarea>
-              </div>
-              <div class="sns_center_top_c_color" style="display:none"></div>
-              <div class="sns_center_top_b"> <span class="addimg"><img src="$!webPath/resources/style/system/front/default/images/picture.png" height="20" width="23" onclick="img_box_show()" style="cursor:pointer"/><a href="javascript:void(0)" onclick="img_box_show()">添加图片</a></span> <span class="send"><a href="javascript:void(0)" onclick="dynamic_save()">发  布</a></span> </div>
-              <div class="sns_center_top_b_img" style="display:none"> <em><img src="$!webPath/resources/style/system/front/default/images/sns_img_jt.png" /></em>
-                <ul>
-                </ul>
-              </div>
-            </div>
-            <input type="hidden" id="img_info" name="img_info" value="$!img_info" autocomplete="off"/>
-          </div>
-          #if($!userDynamics.size()>0)
-          #foreach($dynamic in $userDynamics)
-          <div class="sns_main_list">
-            <dl>
-            #if($!user.photo)
-            #set($user_photo="$!imageWebServer/$!user.photo.path/$!user.photo.name")
-            #else 
-            #set($user_photo="$!imageWebServer/$!config.memberIcon.path/$!config.memberIcon.name")
-            #end
-              <dt><img src="$!user_photo" /></dt>
-              <dd>
-              	<span class="sns_top"><h3>$!{user.userName}</h3><b><a href="javascript:void(0)" onclick="del_dynamic($!{dynamic.id})">删除</a></b><i>$!CommUtil.formatLongDate($!dynamic.addTime)</i></span>
-                <span class="sns_word">$!dynamic.dynamic_content</span>
-                <span class="sns_img">
-                	#foreach($info in $!snsTools.getDynamic_img_info($!dynamic.img_info))	
-                    <strong><a href="javascript:void(0)" onclick="show_big_img('$!{webPath}/$!{info.img}')"><img src="$!imageWebServer/$!info.img" /></a></strong>
-                	#end
-                </span> 
-              </dd>
-            </dl>
-          </div>
-          #end
-          <div class="sns_center_more" id="loading_more">
-          	<a href="javascript:void(0)" onclick="dynamic_more()">加载更多</a>
-          </div>
-          <div class="sns_center_more_loading" id="loading" style="display:none">
-          	<a href="javascript:void(0)">正在加载...</a>
-          </div>
-          <div class="sns_center_more_loading_none" id="loading_none" style="display:none">
-          	<a href="javascript:void(0)">没有更多了...</a>
-          </div>
-          #else
-          <div class="sns_nothing"> <span class="fl"><img src="$!webPath/resources/style/system/front/default/images/sns_no.png" width="30" height="30" /></span> <span class="fr">暂无动态</span> </div>
-          #end
-        </div>
-        <div class="sns_main_box_right">
-          <div class="sns_main_box_right_top"> <span class="this"><a href="javascript:void(0)" onclick="change_snsUser(this,'att')">ta关注的</a></span> <span><a href="javascript:void(0)" onclick="change_snsUser(this,'fan')">关注ta的</a></span> </div>
-          #if($!userAttsList.size()>0)
-          <div class="sns_main_box_right_center" type="att"> #foreach($userAtt in $userAttsList)
-            #if($!userAtt.user_photo)
-            #set($userAtt_photo="$!imageWebServer/$!userAtt.user_photo")
-            #else 
-            #set($userAtt_photo="$!imageWebServer/$!config.memberIcon.path/$!config.memberIcon.name")
-            #end
-            <dl>
-              <dt><a href="$!webPath/sns/other_sns_$!{userAtt.user_id}.htm" target="_blank"><img src="$!userAtt_photo" /></a></dt>
-              <dd>
-                <h3><b><a href="$!webPath/sns/other_sns_$!{userAtt.user_id}.htm" target="_blank">$!userAtt.user_name</a></b></h3>
-                <span><i>粉丝<a href="$!webPath/sns/other_sns_fans.htm?other_id=$!{userAtt.user_id}"  target="_blank">$!snsTools.queryFans("$!{userAtt.user_id}")</a></i><i>关注<a href="$!webPath/sns/other_sns_atts.htm?other_id=$!{userAtt.user_id}"  target="_blank">$!snsTools.queryAtts("$!{userAtt.user_id}")</a></i></span> </dd>
-            </dl>
-            #end </div>
-          <div class="sns_main_box_right_b" type="att">
-            <div class="sns_main_box_right_b_c"><a href="$!webPath/buyer/my_sns_atts.htm">关注了<b>$!snsTools.queryAtts("$!{user.id}")</b>人，点击查看全部  >></a></div>
-          </div>
-          #else
-          <div class="sns_main_box_right_center_nothing_att"></div>
-          #end  
-          #if($!userFansList.size()>0)
-          <div class="sns_main_box_right_center" style="display:none" type="fan"> #foreach($userFan in $userFansList)
-            #if($!userFan.user_photo)
-            #set($userFan_photo="$!imageWebServer/$!userFan.user_photo")
-            #else 
-            #set($userFan_photo="$!imageWebServer/$!config.memberIcon.path/$!config.memberIcon.name")
-            #end
-            <dl>
-              <dt><a href="$!webPath/sns/other_sns_$!{userFan.user_id}.htm" target="_blank"><img src="$!userFan_photo" /></a></dt>
-              <dd>
-                <h3><b><a href="$!webPath/sns/other_sns_$!{userFan.user_id}.htm" target="_blank">$!userFan.user_name</a></b></h3>
-                <span><i>粉丝<a href="$!webPath/sns/other_sns_fans.htm?other_id=$!{userFan.user_id}"  target="_blank">$!snsTools.queryFans("$!{userFan.user_id}")</a></i><i>关注<a href="$!webPath/sns/other_sns_atts.htm?other_id=$!{userFan.user_id}"  target="_blank">$!snsTools.queryAtts("$!{userFan.user_id}")</a></i></span> </dd>
-            </dl>
-            #end </div>
-          <div class="sns_main_box_right_b" style="display:none" type="fan">
-            <div class="sns_main_box_right_b_c"><a href="$!webPath/buyer/my_sns_fans.htm">共有<b>$!snsTools.queryFans("$!{user.id}")</b>位粉丝，点击查看全部  >></a></div>
-          </div>
-          #else
-          <div class="sns_main_box_right_center_nothing_fan" style="display:none"></div>
-          #end </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+<body
+	background="$!webPath/resources/style/system/front/default/images/sns_bg.png";>
+	$!httpInclude.include("/top.htm")
+	<div class="sns_width">
+		$!httpInclude.include("/buyer/my_sns_head.htm")
+		<div class="sns_main">
+			$!httpInclude.include("/buyer/my_sns_nav.htm?op=dynamic")
+			<div class="sns_list_box_m">
+				<!-- 弹出 -->
+				<div class="sns_list_box_bg" style="display: none;"></div>
+				<div class="sns_list_box_img" style="display: none;">
+					<img src="" /> <i><a href="javascript:void(0)"
+						onclick="hide_big_img()">关闭</a></i>
+				</div>
+				<div class="edit_img_list" style="display: none;">
+					<!-- 关闭按钮 -->
+					<div class="edit_img_list_close">
+						<a href="javascript:void(0)" onclick="img_box_hide()">x</a>
+					</div>
+					<ul>
+						<li class="this"><a href="javascript:void(0)"
+							onclick="table_img_box('fav_goods',this)">收藏商品</a></li>
+						<li><a href="javascript:void(0)"
+							onclick="table_img_box('eva_goods',this)">我的晒单</a></li>
+					</ul>
+					<!--没有数据 -->
+					<div class="edit_img_list_nothing" style="display: none;">
+						还没有图片...</div>
+					<!--收藏的商品 -->
+					<div class="edit_img_list_intimg" style="display:;">
+						<div class="edit_img_list_intimg_top" id="fav_goods">
+							<div class="edit_img_list_intimg_top_left">
+								<a href="javascript:void(0)"
+									onclick="ajaxPage('$!webPath/buyer/dynamic_fav_ajax.htm','1',this)"><img
+									src="$!webPath/resources/style/system/front/default/images/picScroll_left_hover.png" /></a>
+							</div>
+							<div class="edit_img_list_intimg_top_right">
+								<a href="javascript:void(0)"
+									onclick="ajaxPage('$!webPath/buyer/dynamic_fav_ajax.htm','2',this)"><img
+									src="$!webPath/resources/style/system/front/default/images/picScroll_right_hover.png" /></a>
+							</div>
+							<div class="edit_img_list_intimg_top_c"
+								#if($!{fav_objs.size()}!=0) style="background-color: #FFF" #end>
+								#foreach($obj in $fav_objs) <span><a
+									href="javascript:void(0)"
+									onclick="add_img('$!{obj.goods_id}','fav')"> <img
+										src="$!imageWebServer/$!obj.goods_photo" />
+								</a></span> #end
+							</div>
+						</div>
+					</div>
+					<!--晒单的商品 -->
+					<div class="edit_img_list_intimg" style="display: none;">
+						<div class="edit_img_list_intimg_top" id="eva_goods">
+							<div class="edit_img_list_intimg_top_left">
+								<a href="javascript:void(0)"
+									onclick="ajaxPage('$!webPath/buyer/dynamic_eva_ajax.htm','1',this)"><img
+									src="$!webPath/resources/style/system/front/default/images/picScroll_left_hover.png" /></a>
+							</div>
+							<div class="edit_img_list_intimg_top_right">
+								<a href="javascript:void(0)"
+									onclick="ajaxPage('$!webPath/buyer/dynamic_eva_ajax.htm','2',this)"><img
+									src="$!webPath/resources/style/system/front/default/images/picScroll_right_hover.png" /></a>
+							</div>
+							<div class="edit_img_list_intimg_top_c"
+								#if($!{eva_objs.size()}!=0) style="background-color: #FFF" #end>
+								#foreach($obj in $eva_objs) <span><a
+									href="javascript:void(0)" onclick="add_img('$!{obj.id}','eva')">
+										<img src="$!imageWebServer/$!obj.path/$!obj.name" />
+								</a></span> #end
+							</div>
+						</div>
+					</div>
+					<!--已选 -->
+					<div class="edit_img_list_intimg_b">
+						<h3>已选：</h3>
+						<div class="edit_img_list_intimg_b_c"></div>
+						<div class="edit_img_list_intimg_b_b">
+							<a href="javascript:void(0)" onclick="img_box_hide()">确定</a>
+						</div>
+					</div>
+				</div>
+				<div class="sns_main_box">
+					<div class="sns_main_box_left">
+						<!--sns -->
+						<div class="sns_center">
+							<div class="sns_center_top">
+								<div class="sns_center_top_t">畅所欲言，让Ta们都知道！</div>
+								<div class="sns_center_top_c">
+									<textarea name="dynamic_content" id="dynamic_content"></textarea>
+								</div>
+								<div class="sns_center_top_c_color" style="display: none"></div>
+								<div class="sns_center_top_b">
+									<span class="addimg"><img
+										src="$!webPath/resources/style/system/front/default/images/picture.png"
+										height="20" width="23" onclick="img_box_show()"
+										style="cursor: pointer" /><a href="javascript:void(0)"
+										onclick="img_box_show()">添加图片</a></span> <span class="send"><a
+										href="javascript:void(0)" onclick="dynamic_save()">发 布</a></span>
+								</div>
+								<div class="sns_center_top_b_img" style="display: none">
+									<em><img
+										src="$!webPath/resources/style/system/front/default/images/sns_img_jt.png" /></em>
+									<ul>
+									</ul>
+								</div>
+							</div>
+							<input type="hidden" id="img_info" name="img_info"
+								value="$!img_info" autocomplete="off" />
+						</div>
+						#if($!userDynamics.size()>0) #foreach($dynamic in $userDynamics)
+						<div class="sns_main_list">
+							<dl>
+								#if($!user.photo)
+								#set($user_photo="$!imageWebServer/$!user.photo.path/$!user.photo.name")
+								#else
+								#set($user_photo="$!imageWebServer/$!config.memberIcon.path/$!config.memberIcon.name")
+								#end
+								<dt>
+									<img src="$!user_photo" />
+								</dt>
+								<dd>
+									<span class="sns_top"><h3>$!{user.userName}</h3> <b><a
+											href="javascript:void(0)"
+											onclick="del_dynamic($!{dynamic.id})">删除</a></b><i>$!CommUtil.formatLongDate($!dynamic.addTime)</i></span>
+									<span class="sns_word">$!dynamic.dynamic_content</span> <span
+										class="sns_img"> #foreach($info in
+										$!snsTools.getDynamic_img_info($!dynamic.img_info)) <strong><a
+											href="javascript:void(0)"
+											onclick="show_big_img('$!{webPath}/$!{info.img}')"><img
+												src="$!imageWebServer/$!info.img" /></a></strong> #end
+									</span>
+								</dd>
+							</dl>
+						</div>
+						#end
+						<div class="sns_center_more" id="loading_more">
+							<a href="javascript:void(0)" onclick="dynamic_more()">加载更多</a>
+						</div>
+						<div class="sns_center_more_loading" id="loading"
+							style="display: none">
+							<a href="javascript:void(0)">正在加载...</a>
+						</div>
+						<div class="sns_center_more_loading_none" id="loading_none"
+							style="display: none">
+							<a href="javascript:void(0)">没有更多了...</a>
+						</div>
+						#else
+						<div class="sns_nothing">
+							<span class="fl"><img
+								src="$!webPath/resources/style/system/front/default/images/sns_no.png"
+								width="30" height="30" /></span> <span class="fr">暂无动态</span>
+						</div>
+						#end
+					</div>
+					<div class="sns_main_box_right">
+						<div class="sns_main_box_right_top">
+							<span class="this"><a href="javascript:void(0)"
+								onclick="change_snsUser(this,'att')">ta关注的</a></span> <span><a
+								href="javascript:void(0)" onclick="change_snsUser(this,'fan')">关注ta的</a></span>
+						</div>
+						#if($!userAttsList.size()>0)
+						<div class="sns_main_box_right_center" type="att">
+							#foreach($userAtt in $userAttsList) #if($!userAtt.user_photo)
+							#set($userAtt_photo="$!imageWebServer/$!userAtt.user_photo")
+							#else
+							#set($userAtt_photo="$!imageWebServer/$!config.memberIcon.path/$!config.memberIcon.name")
+							#end
+							<dl>
+								<dt>
+									<a href="$!webPath/sns/other_sns_$!{userAtt.user_id}.htm"
+										target="_blank"><img src="$!userAtt_photo" /></a>
+								</dt>
+								<dd>
+									<h3>
+										<b><a
+											href="$!webPath/sns/other_sns_$!{userAtt.user_id}.htm"
+											target="_blank">$!userAtt.user_name</a></b>
+									</h3>
+									<span><i>粉丝<a
+											href="$!webPath/sns/other_sns_fans.htm?other_id=$!{userAtt.user_id}"
+											target="_blank">$!snsTools.queryFans("$!{userAtt.user_id}")</a></i><i>关注<a
+											href="$!webPath/sns/other_sns_atts.htm?other_id=$!{userAtt.user_id}"
+											target="_blank">$!snsTools.queryAtts("$!{userAtt.user_id}")</a></i></span>
+								</dd>
+							</dl>
+							#end
+						</div>
+						<div class="sns_main_box_right_b" type="att">
+							<div class="sns_main_box_right_b_c">
+								<a href="$!webPath/buyer/my_sns_atts.htm">关注了<b>$!snsTools.queryAtts("$!{user.id}")</b>人，点击查看全部
+									>>
+								</a>
+							</div>
+						</div>
+						#else
+						<div class="sns_main_box_right_center_nothing_att"></div>
+						#end #if($!userFansList.size()>0)
+						<div class="sns_main_box_right_center" style="display: none"
+							type="fan">
+							#foreach($userFan in $userFansList) #if($!userFan.user_photo)
+							#set($userFan_photo="$!imageWebServer/$!userFan.user_photo")
+							#else
+							#set($userFan_photo="$!imageWebServer/$!config.memberIcon.path/$!config.memberIcon.name")
+							#end
+							<dl>
+								<dt>
+									<a href="$!webPath/sns/other_sns_$!{userFan.user_id}.htm"
+										target="_blank"><img src="$!userFan_photo" /></a>
+								</dt>
+								<dd>
+									<h3>
+										<b><a
+											href="$!webPath/sns/other_sns_$!{userFan.user_id}.htm"
+											target="_blank">$!userFan.user_name</a></b>
+									</h3>
+									<span><i>粉丝<a
+											href="$!webPath/sns/other_sns_fans.htm?other_id=$!{userFan.user_id}"
+											target="_blank">$!snsTools.queryFans("$!{userFan.user_id}")</a></i><i>关注<a
+											href="$!webPath/sns/other_sns_atts.htm?other_id=$!{userFan.user_id}"
+											target="_blank">$!snsTools.queryAtts("$!{userFan.user_id}")</a></i></span>
+								</dd>
+							</dl>
+							#end
+						</div>
+						<div class="sns_main_box_right_b" style="display: none" type="fan">
+							<div class="sns_main_box_right_b_c">
+								<a href="$!webPath/buyer/my_sns_fans.htm">共有<b>$!snsTools.queryFans("$!{user.id}")</b>位粉丝，点击查看全部
+									>>
+								</a>
+							</div>
+						</div>
+						#else
+						<div class="sns_main_box_right_center_nothing_fan"
+							style="display: none"></div>
+						#end
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

@@ -24,12 +24,9 @@ import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
 import com.metoo.core.tools.CommUtil;
-import com.metoo.foundation.domain.Article;
-import com.metoo.foundation.domain.ArticleClass;
 import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.GoodsBrand;
 import com.metoo.foundation.domain.GoodsClass;
-import com.metoo.foundation.domain.GoodsFloor;
 import com.metoo.foundation.domain.SysConfig;
 import com.metoo.foundation.domain.query.GoodsQueryObject;
 import com.metoo.foundation.service.IArticleClassService;
@@ -41,7 +38,6 @@ import com.metoo.foundation.service.IGoodsService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
 import com.metoo.metooapi.view.web.tool.GoodsMetooFloorViewTools;
-import com.metoo.view.web.tools.GoodsFloorViewTools;
 
 @Controller
 public class MetooIndexViewAction {

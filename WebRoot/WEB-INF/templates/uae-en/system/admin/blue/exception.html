@@ -4,23 +4,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 </head>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
 <body>
-<div class="cont">
-  <h1 class="seth">系统消息</h1>
-  <div class="bigok">
-    <div class="bigokimg"><img src="$!webPath/resources/style/system/manage/blue/images/error.jpg"  /></div>
-    <div class="bigleft">
-      <ul>
-        <li>系统出现异常！</li>
-		#if($!url)
-        <li class="hui">自动为您跳转到刚才的页面！</li>
-        <li class="successbtn"><a href="$!url">返回上一页</a></li>
-		#end
-      </ul>
-    </div>
-	#if($!url)
-	<script>
+	<div class="cont">
+		<h1 class="seth">系统消息</h1>
+		<div class="bigok">
+			<div class="bigokimg">
+				<img
+					src="$!webPath/resources/style/system/manage/blue/images/error.jpg" />
+			</div>
+			<div class="bigleft">
+				<ul>
+					<li>系统出现异常！</li> #if($!url)
+					<li class="hui">自动为您跳转到刚才的页面！</li>
+					<li class="successbtn"><a href="$!url">返回上一页</a></li> #end
+				</ul>
+			</div>
+			#if($!url)
+			<script>
 	  var count=3;
 	  window.setInterval(go,1000);
 	  function go(){
@@ -28,8 +31,8 @@
 	    if(count==0) window.location.href="$!url";
 	  }
 	</script>
-	#end
-  </div>
-</div>
+			#end
+		</div>
+	</div>
 </body>
 </html>

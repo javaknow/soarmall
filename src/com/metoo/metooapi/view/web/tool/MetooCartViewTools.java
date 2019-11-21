@@ -6,12 +6,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.ActivityGoods;
@@ -117,6 +115,7 @@ public class MetooCartViewTools {
 		double price = 0;
 		Map map = new HashMap();
 		int count = 0;
+		String sku = "";
 		if (goods.getGroup() != null && goods.getGroup_buy() == 2) {// 团购商品统一按照团购价格处理
 			for (GroupGoods gg : goods.getGroup_goods_list()) {
 				if (gg.getGroup().getId().equals(goods.getGroup().getId())) {
@@ -139,6 +138,7 @@ public class MetooCartViewTools {
 						if (Arrays.equals(gsp_ids, s_id) && obj.getGoods_disabled().equals("0")) {
 							price = CommUtil.null2Double(obj.getDiscount_price());
 							count = obj.getGoods_inventory();
+							sku = obj.getGoods_serial();
 						}
 					}
 				}else{
@@ -153,6 +153,7 @@ public class MetooCartViewTools {
 							if (Arrays.equals(gsp_ids, s_id) && obj.getGoods_disabled().equals("0")) {
 								price = CommUtil.null2Double(obj.getDiscount_price());
 								count = obj.getGoods_inventory();
+								sku = obj.getGoods_serial();
 							}
 						}
 					}
@@ -179,6 +180,7 @@ public class MetooCartViewTools {
 		}
 		map.put("price", price);
 		map.put("count", count);
+		map.put("sku", sku);
 		return map;
 	}
 	

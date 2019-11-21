@@ -26,10 +26,8 @@
 			<div class="nav_list">
 				<ul>
 					<li><a href="$!webPath/admin/album.htm" class="this"><b>我的相册</b>
-					</a>
-					</li>
-					<li><a href="$!webPath/admin/watermark.htm"><b>水印管理</b>
 					</a></li>
+					<li><a href="$!webPath/admin/watermark.htm"><b>水印管理</b> </a></li>
 				</ul>
 			</div>
 			<div class="photo_oper">
@@ -49,26 +47,22 @@
 				<ul class="photo_listul">
 					<li class="photo_bg"><span><a
 							href="$!webPath/admin/album_image.htm?id=$!obj.id"><img
-								src="$!cover_img" width="150" height="150" />
-						</a>
-					</span><i><a href="javascript:void(0);"
+								src="$!cover_img" width="150" height="150" /> </a> </span><i><a
+							href="javascript:void(0);"
 							dialog_uri="$!webPath/admin/album_edit.htm?id=$!obj.id&currentPage=$!currentPage"
 							dialog_title="编辑相册" dialog_width="400" dialog_height="100"
-							dialog_id="album_edit" class="pens">编辑</a>
-					</i><i><a href="javascript:void(0);"
+							dialog_id="album_edit" class="pens">编辑</a> </i><i><a
+							href="javascript:void(0);"
 							onclick="if(confirm('删除商品相册会同步删除相册里图片，可能影响商品显示，是否继续?'))  window.location.href='$!webPath/admin/album_del.htm?mulitId=$!obj.id'"
-							class="delp">删除</a>
-					</i>
-					</li>
+							class="delp">删除</a> </i></li>
 					<li class="photo_name"><b
-						style="float:right; margin-right:20px; font-weight:lighter;">共$!{albumViewTools.query_album("$!obj.id").size()}张</b><a
+						style="float: right; margin-right: 20px; font-weight: lighter;">共$!{albumViewTools.query_album("$!obj.id").size()}张</b><a
 						href="$!webPath/admin/album_image.htm?id=$!obj.id">$!obj.album_name</a>
 					</li>
 					<li class="photo_de"><a href="javascript:void(0);"
 						dialog_uri="$!webPath/admin/album_upload.htm?currentPage=$!currentPage&album_id=$!obj.id"
 						dialog_title="上传相片" dialog_width="400" dialog_height="100"
-						dialog_id="album_add" class="photos_upload">上传相片</a>
-					</li>
+						dialog_id="album_add" class="photos_upload">上传相片</a></li>
 				</ul>
 				#end
 			</div>

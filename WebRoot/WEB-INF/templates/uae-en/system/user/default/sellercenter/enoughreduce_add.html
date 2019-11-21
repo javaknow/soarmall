@@ -7,18 +7,26 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay_blue.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay_blue.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type=text/css rel=stylesheet>
+			<link href="$!webPath/resources/style/common/css/overlay.css"
+				type="text/css" rel="stylesheet" />
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+			<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+			<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+			<script>
 jQuery(document).ready(function(){
 	
 	#if($!obj.er_json)
@@ -149,74 +157,95 @@ function addermoney(){
 </script>
 </head>
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-  <div class="seller_center"> $!httpInclude.include("/seller/nav.htm?op=enoughreduce")
-    <div class="seller_right">
-      <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>促销推广</b> ><b>满就减</b></span></div>
-      <div class="seller_list">
-        <div class="seller_list_title">
-          <ul class="seller_title_ul">
-            <li><a href="$!webPath/seller/enoughreduce_list.htm"><i></i>满就减列表</a></li>
-            <li #if(!$!edit)class="this"#end><a href="$!webPath/seller/enoughreduce_add.htm"><i></i>新增满就减</a></li>
-            <li><a href="$!webPath/seller/enoughreduce_meal.htm"><i></i>套餐购买</a></li>
-            <li><a href="$!webPath/seller/enoughreduce_meal_log.htm"><i></i>购买日志</a></li>
-            #if($!edit)
-            <li class="this"><a href="javascript:void(0)"><i></i>编辑满就减</a></li>
-            #end
-          </ul>
-        </div>
-        <div class="add_usercenter">
-          <form action="$!webPath/seller/enoughreduce_save.htm" method="post" name="theForm" id="theForm">
-            <input name="count" type="hidden" id="count" />
-            <input id="id" name="id" value="$!obj.id" type="hidden" />
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_base_table">
-              <tr>
-                <td width="20%" align="right" valign="top"><strong class="redstr">*</strong> 满就减标题：</td>
-                <td class="px10"><input name="ertitle" type="text" id="ertitle" value="$!obj.ertitle" class="base_txt"/></td>
-              </tr>
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong> 开始时间：</td>
-                <td class="px10"><input name="erbegin_time" type="text" id="erbegin_time" style="height:25px;" value="$!CommUtil.formatShortDate($!obj.erbegin_time)" size="40" class="base_txt" readonly="readonly"  /></td>
-              </tr>
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong>结束时间：</td>
-                <td class="px10"><input name="erend_time" type="text" id="erend_time" style="height:25px;" value="$!CommUtil.formatShortDate($!obj.erend_time)" size="40" class="base_txt" readonly="readonly"  /></td>
-              </tr>
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong>减免金额：</td>
-                <td class="px10"><table class="enough_table" width="100%" border="0" cellspacing="0" cellpadding="0" id="ertable">
-                    #if(!$!obj.er_json)
-                    <tr >
-                      <td><span class="enough_ip"> 满
-                        <input name="enoughMoney_1" type="text" id="enoughMoney_1"  />
-                        减
-                        <input name="reduceMoney_1" type="text" id="reduceMoney_1"  />
-                        </span></td>
-                    </tr>
-                    #end
-                    <tr id="addermoney">
-                      <td><span class="webname"><a href="javascript:void(0);" onclick="addermoney()" class="blue" style=" border:1px solid #00ABF2; background:#00ABF2; color:#fff; padding:2px 5px; border-radius:3px;" >继续添加</a></span></td>
-                    </tr>
-                  </table></td>
-              </tr>
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong>满就减说明：</td>
-                <td class="px10"><textarea name="ercontent" rows="6" cols="40" id="ercontent">$!obj.ercontent</textarea></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td class="px10"><span class="setsub">
-                  <input type="submit" value="保存"  style="cursor:pointer;" class="seller_save"/>
-                  </span></td>
-              </tr>
-            </table>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			$!httpInclude.include("/seller/nav.htm?op=enoughreduce")
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>促销推广</b>
+						><b>满就减</b></span>
+				</div>
+				<div class="seller_list">
+					<div class="seller_list_title">
+						<ul class="seller_title_ul">
+							<li><a href="$!webPath/seller/enoughreduce_list.htm"><i></i>满就减列表</a></li>
+							<li #if(!$!edit)class="this" #end><a
+								href="$!webPath/seller/enoughreduce_add.htm"><i></i>新增满就减</a></li>
+							<li><a href="$!webPath/seller/enoughreduce_meal.htm"><i></i>套餐购买</a></li>
+							<li><a href="$!webPath/seller/enoughreduce_meal_log.htm"><i></i>购买日志</a></li>
+							#if($!edit)
+							<li class="this"><a href="javascript:void(0)"><i></i>编辑满就减</a></li>
+							#end
+						</ul>
+					</div>
+					<div class="add_usercenter">
+						<form action="$!webPath/seller/enoughreduce_save.htm"
+							method="post" name="theForm" id="theForm">
+							<input name="count" type="hidden" id="count" /> <input id="id"
+								name="id" value="$!obj.id" type="hidden" />
+							<table width="100%" border="0" cellspacing="0" cellpadding="0"
+								class="user_base_table">
+								<tr>
+									<td width="20%" align="right" valign="top"><strong
+										class="redstr">*</strong> 满就减标题：</td>
+									<td class="px10"><input name="ertitle" type="text"
+										id="ertitle" value="$!obj.ertitle" class="base_txt" /></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>
+										开始时间：</td>
+									<td class="px10"><input name="erbegin_time" type="text"
+										id="erbegin_time" style="height: 25px;"
+										value="$!CommUtil.formatShortDate($!obj.erbegin_time)"
+										size="40" class="base_txt" readonly="readonly" /></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>结束时间：</td>
+									<td class="px10"><input name="erend_time" type="text"
+										id="erend_time" style="height: 25px;"
+										value="$!CommUtil.formatShortDate($!obj.erend_time)" size="40"
+										class="base_txt" readonly="readonly" /></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>减免金额：</td>
+									<td class="px10"><table class="enough_table" width="100%"
+											border="0" cellspacing="0" cellpadding="0" id="ertable">
+											#if(!$!obj.er_json)
+											<tr>
+												<td><span class="enough_ip"> 满 <input
+														name="enoughMoney_1" type="text" id="enoughMoney_1" /> 减
+														<input name="reduceMoney_1" type="text" id="reduceMoney_1" />
+												</span></td>
+											</tr>
+											#end
+											<tr id="addermoney">
+												<td><span class="webname"><a
+														href="javascript:void(0);" onclick="addermoney()"
+														class="blue"
+														style="border: 1px solid #00ABF2; background: #00ABF2; color: #fff; padding: 2px 5px; border-radius: 3px;">继续添加</a></span></td>
+											</tr>
+										</table></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>满就减说明：</td>
+									<td class="px10"><textarea name="ercontent" rows="6"
+											cols="40" id="ercontent">$!obj.ercontent</textarea></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td class="px10"><span class="setsub"> <input
+											type="submit" value="保存" style="cursor: pointer;"
+											class="seller_save" />
+									</span></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

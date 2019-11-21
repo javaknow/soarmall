@@ -7,27 +7,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.nutz.json.Json;
-import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.metoo.buyer.domain.Result;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.service.IGoodsService;
 @Component
 public class GoodsMetooFloorViewTools {
-	
 	@Autowired
 	private IGoodsService goodsService;
-	
-	
-	
-	
 	
 	public void generic_goods(String json,Map goodsfloorchildsName) {
 		List<Goods> goods_list = new ArrayList<Goods>();
@@ -47,7 +37,6 @@ public class GoodsMetooFloorViewTools {
 									params, -1, -1);
 					List<Map> goodslist = new ArrayList<Map>(); 
 					for(Goods goods:goods_list){
-						
 						goodsfloorchildsName.put("goods_main_photo", goods.getGoods_main_photo());
 						goodsfloorchildsName.put("path", goods.getGoods_main_photo().getPath());
 						goodsfloorchildsName.put("name", goods.getGoods_main_photo().getName());

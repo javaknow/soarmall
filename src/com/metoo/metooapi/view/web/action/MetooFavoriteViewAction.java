@@ -16,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.metoo.buyer.domain.Result;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.Favorite;
 import com.metoo.foundation.domain.Store;
@@ -25,7 +24,6 @@ import com.metoo.foundation.service.IFavoriteService;
 import com.metoo.foundation.service.IStoreService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserService;
-import com.metoo.module.chatting.service.IChattingConfigService;
 @Controller
 public class MetooFavoriteViewAction {
 	@Autowired

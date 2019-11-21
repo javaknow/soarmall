@@ -1,70 +1,96 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-	<meta name="apple-wap-web-app-capable" content="yes">
-	<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
-	<title>$!config.title</title>
-	<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/mian.css">
-	<link href="$!webPath/resources/style/system/front/wap/css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
-    <link rel="stylesheet" href="$!webPath/resources/wap/css/animate.css">
-    <script src="$!webPath/resources/wap/jquery-3.1.1.min.js"></script>
-	<script src="$!webPath/resources/js/wap/defined.js"></script>
-	<style>
-			.canvas-left-bottom{border:none;}
-			.mui-badge-danger{background-color:#007aff;}
-			.mui-table-view-divider{background-color:rgb(252, 251, 244);}
-   			.car_pay .paymen_btn{
-   				background:#1E90FF;
-   				width:50%;
-   			}
-   			.car_pay,.car_pay .paymen_btn{
-   				height:54px;
-   				justify-content: center;
-   				align-items: center;
-   			    display: flex;
-   			}
-   			.num>a{
-   				margin:0px 10px 0px 10px;
-   			}
-   			.del{
-	 			overflow: hidden;
-			    
-   			}
-   			.del>a{
-   			 	font-size: 10px;
-   			 	color: rgb(151, 156, 174);
-   			}
-   			.del>a>i{ font-weight: bold;}
-			.cart_operation{
-			    padding: 8px;
-				clear: both;
-				margin-top:10px;
-				border-top: 1px solid #e7e7e7;
-			}
-   			.car_page ul li input{
-   				padding:0px;
-   			}
-   			.car_page{
-   				margin:0px;
-   			}
-   			.car_page ul li{
-   				border-radius: 3px;
-   				margin:5px;
-   				border: 1px solid #d6d6d6;
-   			}
-			.wrapper {
-				width: 500px;
-				margin: 50px auto;
-			}
-			input[type=radio],input[type=checkbox] {
-				display: none;
-			}
-			/* label:before {
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style"
+	content="black-translucent">
+<title>$!config.title</title>
+<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/css/mian.css">
+<link href="$!webPath/resources/style/system/front/wap/css/style.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/css/animate.css">
+<script src="$!webPath/resources/wap/jquery-3.1.1.min.js"></script>
+<script src="$!webPath/resources/js/wap/defined.js"></script>
+<style>
+.canvas-left-bottom {
+	border: none;
+}
+
+.mui-badge-danger {
+	background-color: #007aff;
+}
+
+.mui-table-view-divider {
+	background-color: rgb(252, 251, 244);
+}
+
+.car_pay .paymen_btn {
+	background: #1E90FF;
+	width: 50%;
+}
+
+.car_pay, .car_pay .paymen_btn {
+	height: 54px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.num>a {
+	margin: 0px 10px 0px 10px;
+}
+
+.del {
+	overflow: hidden;
+}
+
+.del>a {
+	font-size: 10px;
+	color: rgb(151, 156, 174);
+}
+
+.del>a>i {
+	font-weight: bold;
+}
+
+.cart_operation {
+	padding: 8px;
+	clear: both;
+	margin-top: 10px;
+	border-top: 1px solid #e7e7e7;
+}
+
+.car_page ul li input {
+	padding: 0px;
+}
+
+.car_page {
+	margin: 0px;
+}
+
+.car_page ul li {
+	border-radius: 3px;
+	margin: 5px;
+	border: 1px solid #d6d6d6;
+}
+
+.wrapper {
+	width: 500px;
+	margin: 50px auto;
+}
+
+input[type=radio], input[type=checkbox] {
+	display: none;
+}
+/* label:before {
 				content: "";
 				display: inline-block;
 				
@@ -76,36 +102,72 @@
 				left: 0;
 				bottom: 0;
 				background-color: #D8D8D8;} */
-			
-			.radio label:before {
-				border-radius: 8px;
-			}
-			.checkbox label {
-				margin-bottom: 10px;
-			}
-			.checkbox label:before {
-				border-radius: 3px;
-			}
-			
-			input[type=checkbox]:checked + label:before {
-				content: "\2713";
-				font-size: 15px;
-				color: #f3f3f3;
-				text-align: center;
-				line-height: 18px;
-				background-color: #F94D4D;
-			}
-			#total_price{}
-			.mui-numbox{ height: 22px;}
-			.car_pay_sub{display: flex; justify-content: flex-end;padding: 5px 0px;}
-			.car_content{    background-color: rgb(255, 255, 255);  padding: 15px 18px;  border-bottom: 1px solid rgb(226, 229, 241);}
-			.list_server{display:block;}
-			.list_server>li{display: flex;font-size:13px;padding: 5px 0px;}
-			.list_server>li:last-child{display: flex;font-size:13px;border-bottom: 1px solid rgb(218, 222, 232);}
-			.list_server>li>span:first-child{flex:1;}
-			.star_color{color:#007aff;}
-   		</style>
-    <script>
+.radio label:before {
+	border-radius: 8px;
+}
+
+.checkbox label {
+	margin-bottom: 10px;
+}
+
+.checkbox label:before {
+	border-radius: 3px;
+}
+
+input[type=checkbox]:checked+label:before {
+	content: "\2713";
+	font-size: 15px;
+	color: #f3f3f3;
+	text-align: center;
+	line-height: 18px;
+	background-color: #F94D4D;
+}
+
+#total_price {
+	
+}
+
+.mui-numbox {
+	height: 22px;
+}
+
+.car_pay_sub {
+	display: flex;
+	justify-content: flex-end;
+	padding: 5px 0px;
+}
+
+.car_content {
+	background-color: rgb(255, 255, 255);
+	padding: 15px 18px;
+	border-bottom: 1px solid rgb(226, 229, 241);
+}
+
+.list_server {
+	display: block;
+}
+
+.list_server>li {
+	display: flex;
+	font-size: 13px;
+	padding: 5px 0px;
+}
+
+.list_server>li:last-child {
+	display: flex;
+	font-size: 13px;
+	border-bottom: 1px solid rgb(218, 222, 232);
+}
+
+.list_server>li>span:first-child {
+	flex: 1;
+}
+
+.star_color {
+	color: #007aff;
+}
+</style>
+<script>
 		  function gift_tier_confirm(arg){
 			  var size = jQuery("#gift_inner_"+arg).find(":checked").length;
 			 	if(size==0){
@@ -479,23 +541,23 @@
 
 <body>
 	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
-        <!--侧滑菜单部分-->
-        <aside id="offCanvasSide" class="mui-off-canvas-left">
-            <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-                <div class="mui-scroll">
-                 	 $!httpInclude.include("/wap/buyer/nav.htm")
-                </div>
-            </div>
-        </aside>
-        <!--主界面部分-->
-        <div class="mui-inner-wrap">
-            <header class="mui-bar mui-bar-nav">
-                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
-               	<div class="mui-title">
-				<!-- 	<img src="$!webPath/images/logos.png" alt="" class="logo" > -->
+		<!--侧滑菜单部分-->
+		<aside id="offCanvasSide" class="mui-off-canvas-left">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/buyer/nav.htm")</div>
+			</div>
+		</aside>
+		<!--主界面部分-->
+		<div class="mui-inner-wrap">
+			<header class="mui-bar mui-bar-nav">
+				<a href="#offCanvasSide"
+					class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+				<div class="mui-title">
+					<!-- 	<img src="$!webPath/images/logos.png" alt="" class="logo" > -->
 				</div>
-				
-				<div class="meunright mui-pull-right" >
+
+				<div class="meunright mui-pull-right">
 					<!-- #if($!user.userName)
 			            <a class="meunright_a" href="$!webPath/wap/buyer/center.htm?op=center" >
 		                	<span class="" style="color:#007aff;font-size:18px;">
@@ -508,195 +570,275 @@
 		                		Log&nbsp;In
 			                </span>
 		                </a>
-		            #end    -->     
-		            
-		            <a href="$!webPath/wap/index.htm" style="color:#007aff">
-		                <span style="position:relative;" class="top_icon">
-		                	<i class="iconfont iconzhuye" style="font-size: 20px;"></i>
-		                </span>
-	                </a>
-		            &nbsp;&nbsp;&nbsp;
-	                <a href="#" style="color:#007aff" id="sousuotop">
-		                <span style="position:relative;" class="top_icon">
-		                	<i class="iconfont iconsousuo" style="font-size: 18px;"></i>
-		                </span>
-	                </a>
+		            #end    -->
+
+					<a href="$!webPath/wap/index.htm" style="color: #007aff"> <span
+						style="position: relative;" class="top_icon"> <i
+							class="iconfont iconzhuye" style="font-size: 20px;"></i>
+					</span>
+					</a> &nbsp;&nbsp;&nbsp; <a href="#" style="color: #007aff"
+						id="sousuotop"> <span style="position: relative;"
+						class="top_icon"> <i class="iconfont iconsousuo"
+							style="font-size: 18px;"></i>
+					</span>
+					</a>
 				</div>
-            </header>
- 			<!-- 主题内容 -->
-            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
-            <!-- 搜索栏 -->
-	 		<div class="sousuo_content ">
-	 		  <div class="sousuo_class" id="search_box">
-			    <input type="search" class="sousuo_class_input" placeholder="What are you looking for?" autocomplete="off" tabindex="-1"> 
-				<div class="sousuo_class_buttom">
-			      <i class="iconfont iconsousuo"></i>
-			    </div>
-			  	<div class="search-auto-results hide"></div>
-			  </div>
-	 		</div> 	
-		 		<!-- 主体内容 -->
-		   <div class="mui-scroll">
-					<form  method="post"  name="cart_form" target="_self" id="cart_form" action="$!webPath/wap/goods_cart2.htm">
-					    <input type="hidden" name="giftids" id="giftids" value="" />
-					    
+			</header>
+			<!-- 主题内容 -->
+			<div id="offCanvasContentScroll"
+				class="mui-content mui-scroll-wrapper">
+				<!-- 搜索栏 -->
+				<div class="sousuo_content ">
+					<div class="sousuo_class" id="search_box">
+						<input type="search" class="sousuo_class_input"
+							placeholder="What are you looking for?" autocomplete="off"
+							tabindex="-1">
+						<div class="sousuo_class_buttom">
+							<i class="iconfont iconsousuo"></i>
+						</div>
+						<div class="search-auto-results hide"></div>
+					</div>
+				</div>
+				<!-- 主体内容 -->
+				<div class="mui-scroll">
+					<form method="post" name="cart_form" target="_self" id="cart_form"
+						action="$!webPath/wap/goods_cart2.htm">
+						<input type="hidden" name="giftids" id="giftids" value="" />
+
 						<!--购物车-->
-					    <div class="car_page">
-					    	<ul>
-					        	<!--普通商品-->
-					        #foreach($obj in $cart)
-					        #set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-					        #if($!obj.goods.goods_main_photo)               
-					        #set($img="$!imageWebServer/$!{obj.goods.goods_main_photo.path}/$!{obj.goods.goods_main_photo.name}_small.$!{obj.goods.goods_main_photo.ext}")         
-					        #end
-					        	<li>
-					        		<div class="li_box">
-					        				<div class="cat_top_list">
-								                <div class="img"><a href="$!webPath/wap/goods.htm?id=$!obj.goods.id"><img src="$!{img}" width="60" height="60" /></a></div>
-								                <div class="infro"><span class="name"><a href="$!webPath/wap/goods.htm?id=$!obj.goods.id">$!obj.goods.goods_name </a></span>
-								                <div class="mui-numbox"  data-numbox-min='1'>
-													<button id="count_down_$!obj.id"  gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type" class="subtract mui-btn mui-btn-numbox-minus" type="button">-</button>
-													<input class="mui-input-numbox" style="font-size: 13px;" type="number" name="goods_count_$!{obj.id}" type="text" id="goods_count_$!{obj.id}" f_sale_type="$!obj.goods.f_sale_type" value="$!obj.count" gc_id="$!obj.id"  goods_count="$!obj.count" >
-													<button id="count_up_$!obj.id"  gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type" class="plussub mui-btn mui-btn-numbox-plus" type="button">+</button>
-												</div> 
-								                </div>
-								                #set($total_price=$!obj.count * $!obj.price)
-							                	<div class="fr">
-							                		<span class="price" id="gc_price$!{obj.id}">$!{total_price} AED</span>
-							                	</div>
-							                	<div class="mui-input-row mui-checkbox mui-left">
-							                		<div>
-													<label for="id_$!obj.id" id="label_$!obj.id"></label>
-													<input type="checkbox" id="id_$!obj.id" mark="$!obj.cart_type" value="$!{obj.id}" name="id"  >
-													</div>
+						<div class="car_page">
+							<ul>
+								<!--普通商品-->
+								#foreach($obj in $cart)
+								#set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+								#if($!obj.goods.goods_main_photo)
+								#set($img="$!imageWebServer/$!{obj.goods.goods_main_photo.path}/$!{obj.goods.goods_main_photo.name}_small.$!{obj.goods.goods_main_photo.ext}")
+								#end
+								<li>
+									<div class="li_box">
+										<div class="cat_top_list">
+											<div class="img">
+												<a href="$!webPath/wap/goods.htm?id=$!obj.goods.id"><img
+													src="$!{img}" width="60" height="60" /></a>
+											</div>
+											<div class="infro">
+												<span class="name"><a
+													href="$!webPath/wap/goods.htm?id=$!obj.goods.id">$!obj.goods.goods_name
+												</a></span>
+												<div class="mui-numbox" data-numbox-min='1'>
+													<button id="count_down_$!obj.id" gc_id="$!obj.id"
+														f_sale_type="$!obj.goods.f_sale_type"
+														class="subtract mui-btn mui-btn-numbox-minus"
+														type="button">-</button>
+													<input class="mui-input-numbox" style="font-size: 13px;"
+														type="number" name="goods_count_$!{obj.id}" type="text"
+														id="goods_count_$!{obj.id}"
+														f_sale_type="$!obj.goods.f_sale_type" value="$!obj.count"
+														gc_id="$!obj.id" goods_count="$!obj.count">
+													<button id="count_up_$!obj.id" gc_id="$!obj.id"
+														f_sale_type="$!obj.goods.f_sale_type"
+														class="plussub mui-btn mui-btn-numbox-plus" type="button">+</button>
 												</div>
 											</div>
-							                <!-- 购物车操作 -->
-							                <div class="cart_operation">
-								                <span class="del">
-								                	<a href="javascript:void(0);" data-id="$!obj.id" class="big_cartRemove" onclick="big_cart_remove('$!obj.id');"><i class="iconfont iconshanchu"></i>Remove</a>
-								                </span>
-								                <!-- <span class="del">
+											#set($total_price=$!obj.count * $!obj.price)
+											<div class="fr">
+												<span class="price" id="gc_price$!{obj.id}">$!{total_price}
+													AED</span>
+											</div>
+											<div class="mui-input-row mui-checkbox mui-left">
+												<div>
+													<label for="id_$!obj.id" id="label_$!obj.id"></label> <input
+														type="checkbox" id="id_$!obj.id" mark="$!obj.cart_type"
+														value="$!{obj.id}" name="id">
+												</div>
+											</div>
+										</div>
+										<!-- 购物车操作 -->
+										<div class="cart_operation">
+											<span class="del"> <a href="javascript:void(0);"
+												data-id="$!obj.id" class="big_cartRemove"
+												onclick="big_cart_remove('$!obj.id');"><i
+													class="iconfont iconshanchu"></i>Remove</a>
+											</span>
+											<!-- <span class="del">
 									                <a href="javascript:void(0);" class="details_star">
 									                	<i class="iconfont iconshoucang1" mark="0" ></i>
 														<span >Move to Wishlist</span>
 													</a>
 								                </span> -->
-								                <!-- <span class="pitch">
+											<!-- <span class="pitch">
 								                	<input type="checkbox" id="id_$!obj.id" mark="$!obj.cart_type" value="$!{obj.id}" name="id" />
 								                </span> -->
+										</div>
+									</div>
+								</li> #end
+								<!--满就减活动-->
+								#if($!er_goods) #foreach($param in ${er_goods.keySet()})
+								<li id="tr_$!param" mark="$!param">
+									<div class="car_act">
+										<div class="li_hd">
+											<span class="red_bg">满减</span><span class="gray"
+												style="width: 75%" id="erString$!param">$!erString.get($param)</span>
+										</div>
+									</div> #foreach($obj in ${er_goods.get($param)})
+									#if($!obj.goods.goods_main_photo)
+									#set($img="$!imageWebServer/$!{obj.goods.goods_main_photo.path}/$!{obj.goods.goods_main_photo.name}_small.$!{obj.goods.goods_main_photo.ext}")
+									#else
+									#set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+									#end
+
+									#set($goods_url="$!webPath/wap/goods.htm?id=$!obj.goods.id")
+									<div class="li_box" style="margin-bottom: 5px;"
+										goods_list="goods_info_$!obj.id" id="$!obj.id"
+										mark="if_size_$!param"
+										#if($!{obj.goods.goods_store.store_status}!=15) #end>
+										<div class="check">
+											<div class="checkbox">
+												<input type="checkbox" id="id_$!obj.id"
+													mark="$!obj.cart_type" value="$!{obj.id}" name="id" /><label
+													for="id_$!obj.id" id="label_$!obj.id"></label>
 											</div>
-						         	</div>
-					            </li>
-					        #end
-					        <!--满就减活动-->
-					        #if($!er_goods)
-					        #foreach($param in ${er_goods.keySet()})
-					            <li id="tr_$!param" mark="$!param">
-					            	<div class="car_act">
-					                	<div class="li_hd"><span class="red_bg">满减</span><span class="gray" style="width:75%" id="erString$!param">$!erString.get($param)</span></div></div>
-					        #foreach($obj in ${er_goods.get($param)})
-					        #if($!obj.goods.goods_main_photo)               
-					        #set($img="$!imageWebServer/$!{obj.goods.goods_main_photo.path}/$!{obj.goods.goods_main_photo.name}_small.$!{obj.goods.goods_main_photo.ext}")
-					        #else
-					        #set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-					        #end
-					        
-					        #set($goods_url="$!webPath/wap/goods.htm?id=$!obj.goods.id")
-					                <div class="li_box" style="margin-bottom:5px;" goods_list="goods_info_$!obj.id" id="$!obj.id" mark="if_size_$!param" #if($!{obj.goods.goods_store.store_status}!=15) #end>
-					                    <div class="check"> <div class="checkbox"><input type="checkbox" id="id_$!obj.id" mark="$!obj.cart_type" value="$!{obj.id}" name="id" /><label for="id_$!obj.id" id="label_$!obj.id"></label></div></div>
-					                    <div class="img"><a href="$!goods_url"><img src="$!{img}" width="60" height="60" /></a></div>
-					                    <div class="infro"><span class="name"><a href="$!goods_url">$!obj.goods.goods_name </a></span><span class="num"><a class="minus" href="javascript:void(0);" id="count_down_$!obj.id" gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type">－</a>
-					                    		<input  name="goods_count_$!{obj.id}" type="text" id="goods_count_$!{obj.id}" f_sale_type="$!obj.goods.f_sale_type" value="$!obj.count" gc_id="$!obj.id"  goods_count="$!obj.count" /><a class="plus" href="javascript:void(0);" id="count_up_$!obj.id" gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type">+</a></span>
-					                    </div>
-					                    #set($total_price=$!obj.count * $!obj.price)
-					                    <div class="fr"><span class="price" id="gc_price$!{obj.id}">AED $!{total_price}元</span><span class="del"><a href="javascript:void(0);" onclick="big_cart_remove('$!obj.id');"><img src="$!webPath/resources/style/system/front/wap/images/del.png" width="25" height="25" /></a></span></div>
-					                </div>
-					                
-					        #end        
-					            </li>
-					        #end
-					        #end
-					        <!--满就赠活动-->
-					        #if($!ac_goods)
-					        #foreach($param in ${ac_goods.keySet()})
-					        #set($buyGift = $!goodsViewTools.query_buyGift("$!{param}"))
-					        <div class="gift_box" style="display:none;" id="gift_inner_$!buyGift.id">
-					    	<div class="gift_div">
-					        	<div class="gift_header"><span class="fl">请选择一件赠品</span><span class="fr"><a href="javascript:void(0);" onclick="gift_tier_confirm('$!{buyGift.id}');">确定</a></span></div>
-					            <div class="gift_bd">
-					            	<ul>
-					                 #foreach($map in $!CommUtil.Json2List("$!buyGift.gift_info"))
-					                      #set($storegoods_count = $!{map.get('storegoods_count')})	
-					                      #set($goods_id = "$!{map.get('goods_id')}")	
-					                      #set($enough=1)
-					                      #if($!storegoods_count==0)
-					                      #if($!{map.get('goods_count')}<=0)
-					                      #set($enough=0)
-					                      #end
-					                      #end
-					                      
-					                      #if($!storegoods_count==1)
-					                      #set($g = $!goodsViewTools.query_Goods("$!{goods_id}"))
-					                      #if($!g)
-					                      #if($!g.goods_inventory<=0)
-					                      #set($enough=0)
-					                      #end
-					                      #else
-					                      #set($enough=0)
-					                      #end
-					                      #end
-					                      
-					                      #if($!enough==1)  
-					                      #set($goods_name = "$!{map.get('goods_name')}")
-					                      #set($goods_price = "$!{map.get('goods_price')}")
-					                      #set($goods_mainphoto_path = "$!{map.get('goods_main_photo')}")
-					                      #set($img="$!imageWebServer/$!{goods_mainphoto_path}")
-					                      #set($goods_domainPath = "$!{map.get('goods_domainPath')}")
-					                	<li>
-					                    	<table cellpadding="0" cellspacing="0">
-					                        	<tbody>
-					                            	<tr>
-					                                	<td width="10%" align="left"><div class="check"> <div class="checkbox"><input type="checkbox" value="$!goods_id" goods_name="$!goods_name" id="giftid_$!goods_id" img_url="$!img"  /><label for="giftid_$!goods_id"></label></div></div></td>
-					                                    <td width="22%" align="left"><img src="$!img" width="60" height="60" /></td>
-					                                    <td width="35%" align="left"><p class="name">$!goods_name</p></td>
-					                                    <td align="left"><s>原价：AED $!goods_price元</s><br /> 现价:0元</td>
-					                                </tr>
-					                            </tbody>
-					                        </table>
-					                    </li>
-					                    #end
-					                      #end
-					                </ul>
-					            </div>
-					        </div>
-					        <div class="black_bg"></div>
-					    </div>
-					            <li id="li_$!buyGift.id">
-					            	<div class="car_act">
-					                	<div class="li_hd" id="gift_header_$!buyGift.id"><span class="red_bg">满赠</span><span class="gray">活动商品已购满$!buyGift.condition_amount元， 即可选择赠品</span><span class="get"><a style="display:none" href="javascript:void(0);" onclick="gift_tier_show('$!{buyGift.id}');" id="select_gift_$!buyGift.id">领取赠品</a></span></div>
-					                </div>
-					                #foreach($obj in ${ac_goods.get($param)})
-					        #if($!obj.goods.goods_main_photo)               
-					        #set($img="$!imageWebServer/$!{obj.goods.goods_main_photo.path}/$!{obj.goods.goods_main_photo.name}_small.$!{obj.goods.goods_main_photo.ext}")
-					        #else
-					        #set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-					        #end
-					        
-					        #set($goods_url="$!webPath/wap/goods.htm?id=$!obj.goods.id")
-					                <div class="li_box" goods_list="goods_info_$!obj.id" id="$!obj.id" mark="if_size_$!buyGift.id">
-					                <div class="check"> <div class="checkbox"><input type="checkbox" id="id_$!obj.id" mark="$!obj.cart_type" value="$!{obj.id}" check_gift_id="$!buyGift.id" name="id" /><label for="id_$!obj.id" id="label_$!obj.id"></label></div></div>
-					                    <div class="img"><a href="$!goods_url"><img src="$!img" width="60" height="60" /></a></div>
-					                    <div class="infro"><span class="name"><a href="$!goods_url">$!obj.goods.goods_name </a></span><span class="num"><a class="minus" href="javascript:void(0);" id="count_down_$!obj.id" gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type" check_gift_id="$!buyGift.id">－</a><input  name="goods_count_$!{obj.id}" type="text" id="goods_count_$!{obj.id}" f_sale_type="$!obj.goods.f_sale_type" value="$!obj.count" gc_id="$!obj.id"  goods_count="$!obj.count" check_gift_id="$!buyGift.id" /><a class="plus" href="javascript:void(0);" id="count_up_$!obj.id" gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type" check_gift_id="$!buyGift.id">+</a></span>
-					                    </div>
-					                    #set($total_price=$!obj.count * $!obj.price)
-					                    <div class="fr"><span class="price" id="gc_price$!{obj.id}">AED $!{total_price}元</span><span class="del"><a href="javascript:void(0);" onclick="big_cart_remove('$!obj.id');"><img src="$!webPath/resources/style/system/front/wap/images/del.png" width="25" height="25" /></a></span></div>
-					                </div>
-					                 #end
-					            </li>
-					        #end
-					        #end
-					        <script>
+										</div>
+										<div class="img">
+											<a href="$!goods_url"><img src="$!{img}" width="60"
+												height="60" /></a>
+										</div>
+										<div class="infro">
+											<span class="name"><a href="$!goods_url">$!obj.goods.goods_name
+											</a></span><span class="num"><a class="minus"
+												href="javascript:void(0);" id="count_down_$!obj.id"
+												gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type">－</a>
+												<input name="goods_count_$!{obj.id}" type="text"
+												id="goods_count_$!{obj.id}"
+												f_sale_type="$!obj.goods.f_sale_type" value="$!obj.count"
+												gc_id="$!obj.id" goods_count="$!obj.count" /><a
+												class="plus" href="javascript:void(0);"
+												id="count_up_$!obj.id" gc_id="$!obj.id"
+												f_sale_type="$!obj.goods.f_sale_type">+</a></span>
+										</div>
+										#set($total_price=$!obj.count * $!obj.price)
+										<div class="fr">
+											<span class="price" id="gc_price$!{obj.id}">AED
+												$!{total_price}元</span><span class="del"><a
+												href="javascript:void(0);"
+												onclick="big_cart_remove('$!obj.id');"><img
+													src="$!webPath/resources/style/system/front/wap/images/del.png"
+													width="25" height="25" /></a></span>
+										</div>
+									</div> #end
+								</li> #end #end
+								<!--满就赠活动-->
+								#if($!ac_goods) #foreach($param in ${ac_goods.keySet()})
+								#set($buyGift = $!goodsViewTools.query_buyGift("$!{param}"))
+								<div class="gift_box" style="display: none;"
+									id="gift_inner_$!buyGift.id">
+									<div class="gift_div">
+										<div class="gift_header">
+											<span class="fl">请选择一件赠品</span><span class="fr"><a
+												href="javascript:void(0);"
+												onclick="gift_tier_confirm('$!{buyGift.id}');">确定</a></span>
+										</div>
+										<div class="gift_bd">
+											<ul>
+												#foreach($map in
+												$!CommUtil.Json2List("$!buyGift.gift_info"))
+												#set($storegoods_count = $!{map.get('storegoods_count')})
+												#set($goods_id = "$!{map.get('goods_id')}") #set($enough=1)
+												#if($!storegoods_count==0)
+												#if($!{map.get('goods_count')}<=0) #set($enough=0) #end #end
+
+												#if($!storegoods_count==1) #set($g =
+												$!goodsViewTools.query_Goods("$!{goods_id}")) #if($!g)
+												#if($!g.goods_inventory<=0) #set($enough=0) #end #else
+												#set($enough=0) #end #end #if($!enough==1) #set($goods_name
+												= "$!{map.get('goods_name')}") #set($goods_price =
+												"$!{map.get('goods_price')}") #set($goods_mainphoto_path =
+												"$!{map.get('goods_main_photo')}")
+												#set($img="$!imageWebServer/$!{goods_mainphoto_path}")
+												#set($goods_domainPath = "$!{map.get('goods_domainPath')}")
+												<li>
+													<table cellpadding="0" cellspacing="0">
+														<tbody>
+															<tr>
+																<td width="10%" align="left"><div class="check">
+																		<div class="checkbox">
+																			<input type="checkbox" value="$!goods_id"
+																				goods_name="$!goods_name" id="giftid_$!goods_id"
+																				img_url="$!img" /><label for="giftid_$!goods_id"></label>
+																		</div>
+																	</div></td>
+																<td width="22%" align="left"><img src="$!img"
+																	width="60" height="60" /></td>
+																<td width="35%" align="left"><p class="name">$!goods_name</p></td>
+																<td align="left"><s>原价：AED $!goods_price元</s><br />
+																	现价:0元</td>
+															</tr>
+														</tbody>
+													</table>
+												</li> #end #end
+											</ul>
+										</div>
+									</div>
+									<div class="black_bg"></div>
+								</div>
+								<li id="li_$!buyGift.id">
+									<div class="car_act">
+										<div class="li_hd" id="gift_header_$!buyGift.id">
+											<span class="red_bg">满赠</span><span class="gray">活动商品已购满$!buyGift.condition_amount元，
+												即可选择赠品</span><span class="get"><a style="display: none"
+												href="javascript:void(0);"
+												onclick="gift_tier_show('$!{buyGift.id}');"
+												id="select_gift_$!buyGift.id">领取赠品</a></span>
+										</div>
+									</div> #foreach($obj in ${ac_goods.get($param)})
+									#if($!obj.goods.goods_main_photo)
+									#set($img="$!imageWebServer/$!{obj.goods.goods_main_photo.path}/$!{obj.goods.goods_main_photo.name}_small.$!{obj.goods.goods_main_photo.ext}")
+									#else
+									#set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+									#end
+
+									#set($goods_url="$!webPath/wap/goods.htm?id=$!obj.goods.id")
+									<div class="li_box" goods_list="goods_info_$!obj.id"
+										id="$!obj.id" mark="if_size_$!buyGift.id">
+										<div class="check">
+											<div class="checkbox">
+												<input type="checkbox" id="id_$!obj.id"
+													mark="$!obj.cart_type" value="$!{obj.id}"
+													check_gift_id="$!buyGift.id" name="id" /><label
+													for="id_$!obj.id" id="label_$!obj.id"></label>
+											</div>
+										</div>
+										<div class="img">
+											<a href="$!goods_url"><img src="$!img" width="60"
+												height="60" /></a>
+										</div>
+										<div class="infro">
+											<span class="name"><a href="$!goods_url">$!obj.goods.goods_name
+											</a></span><span class="num"><a class="minus"
+												href="javascript:void(0);" id="count_down_$!obj.id"
+												gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type"
+												check_gift_id="$!buyGift.id">－</a><input
+												name="goods_count_$!{obj.id}" type="text"
+												id="goods_count_$!{obj.id}"
+												f_sale_type="$!obj.goods.f_sale_type" value="$!obj.count"
+												gc_id="$!obj.id" goods_count="$!obj.count"
+												check_gift_id="$!buyGift.id" /><a class="plus"
+												href="javascript:void(0);" id="count_up_$!obj.id"
+												gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type"
+												check_gift_id="$!buyGift.id">+</a></span>
+										</div>
+										#set($total_price=$!obj.count * $!obj.price)
+										<div class="fr">
+											<span class="price" id="gc_price$!{obj.id}">AED
+												$!{total_price}元</span><span class="del"><a
+												href="javascript:void(0);"
+												onclick="big_cart_remove('$!obj.id');"><img
+													src="$!webPath/resources/style/system/front/wap/images/del.png"
+													width="25" height="25" /></a></span>
+										</div>
+									</div> #end
+								</li> #end #end
+								<script>
 					         function combin_carts_detail(id){
 								 if(id!="" && id!=undefined){
 								   var dis = jQuery("#combin_other").css("display");
@@ -730,79 +872,121 @@
 									 }
 								 };
 					         </script>
-					            <!--组合套装活动开始-->
-					            #if($!combin_carts)
-					        #foreach($obj in $combin_carts)
-					        #if($!obj.combin_main==1)
-					        #set($suit_map=$!goodsViewTools.getSuitInfo("$!obj.id"))
-					        #end
-					        #if($!obj.goods.goods_main_photo)               
-					        #set($img="$!imageWebServer/$!{obj.goods.goods_main_photo.path}/$!{obj.goods.goods_main_photo.name}_small.$!{obj.goods.goods_main_photo.ext}")
-					        #else
-					        #set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-					        #end
-					        
-					
-					         #set($goods_url="$!webPath/wap/goods.htm?id=$!obj.goods.id")
-					        <div class="gift_box" style="display:none;" id="combin_other">
-					    	<div class="gift_div">
-					        	<div class="gift_header"><span class="fl">删除任意套装内商品，其他商品不再享受套装优惠</span><span class="fr"><a href="javascript:void(0);" onclick="javascript:jQuery('#combin_other').hide();">关闭</a></span></div>
-					            <div class="gift_bd">
-					            	<ul id="combin_ul">
-					                
-					                	
-					
-					                </ul>
-					            </div>
-					        </div>
-					        <div class="black_bg"></div>
-					    </div>
-					        
-					            <li>
-					            	<div class="car_act">
-					                	<div class="li_hd" id="gift_header_$!buyGift.id"><span class="red_bg">组合</span><span class="gray">套装内商品总价格：AED $!{suit_map.get('all_goods_price')}，组合后价格：AED $!{suit_map.get('plan_goods_price')}</span><span class="get"><a href="javascript:void(0);" onclick="combin_carts_detail('$!obj.id');">组合明细</a></span></div>
-					                </div>
-					                #set($goods_url="$!webPath/wap/goods.htm?id=$!obj.id")
-					                <div class="li_box" goods_list="goods_info_$!obj.id" id="$!obj.id" mark="if_size_$!buyGift.id">
-					                <div class="check"> <div class="checkbox"><input type="checkbox" id="id_$!obj.id" mark="$!obj.cart_type" value="$!{obj.id}"  name="id" /><label for="id_$!obj.id" id="label_$!obj.id"></label></div></div>
-					                    <div class="img"><a href="$!goods_url"><img src="$!img" width="60" height="60" /></a></div>
-					                    <div class="infro"><span class="name"><a href="$!goods_url">$!obj.goods.goods_name </a></span><span class="num"><a class="minus" href="javascript:void(0);" id="count_down_$!obj.id" gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type" check_gift_id="$!buyGift.id">－</a><input  name="goods_count_$!{obj.id}" type="text" id="goods_count_$!{obj.id}" f_sale_type="$!obj.goods.f_sale_type" value="$!obj.count" gc_id="$!obj.id"  goods_count="$!obj.count" check_gift_id="$!buyGift.id" /><a class="plus" href="javascript:void(0);" id="count_up_$!obj.id" gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type" check_gift_id="$!buyGift.id">+</a></span>
-					                    </div>
-					                    #set($total_price=$!obj.count * $!obj.price)
-					                    <div class="fr"><span class="price" id="gc_price$!{obj.id}">AED $!{total_price}元</span><span class="del"><a href="javascript:void(0);" onclick="big_cart_remove('$!obj.id');"><img src="$!webPath/resources/style/system/front/wap/images/del.png" width="25" height="25" /></a></span></div>
-					                </div>
-					            </li>
-					        #end 
-					        #end
-					        </ul>
-					    </div>
-					    <input type="hidden" name="gcs" id="gcs" />
-					</form>   
+								<!--组合套装活动开始-->
+								#if($!combin_carts) #foreach($obj in $combin_carts)
+								#if($!obj.combin_main==1)
+								#set($suit_map=$!goodsViewTools.getSuitInfo("$!obj.id")) #end
+								#if($!obj.goods.goods_main_photo)
+								#set($img="$!imageWebServer/$!{obj.goods.goods_main_photo.path}/$!{obj.goods.goods_main_photo.name}_small.$!{obj.goods.goods_main_photo.ext}")
+								#else
+								#set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+								#end
+
+
+								#set($goods_url="$!webPath/wap/goods.htm?id=$!obj.goods.id")
+								<div class="gift_box" style="display: none;" id="combin_other">
+									<div class="gift_div">
+										<div class="gift_header">
+											<span class="fl">删除任意套装内商品，其他商品不再享受套装优惠</span><span
+												class="fr"><a href="javascript:void(0);"
+												onclick="javascript:jQuery('#combin_other').hide();">关闭</a></span>
+										</div>
+										<div class="gift_bd">
+											<ul id="combin_ul">
+
+
+
+											</ul>
+										</div>
+									</div>
+									<div class="black_bg"></div>
+								</div>
+
+								<li>
+									<div class="car_act">
+										<div class="li_hd" id="gift_header_$!buyGift.id">
+											<span class="red_bg">组合</span><span class="gray">套装内商品总价格：AED
+												$!{suit_map.get('all_goods_price')}，组合后价格：AED
+												$!{suit_map.get('plan_goods_price')}</span><span class="get"><a
+												href="javascript:void(0);"
+												onclick="combin_carts_detail('$!obj.id');">组合明细</a></span>
+										</div>
+									</div> #set($goods_url="$!webPath/wap/goods.htm?id=$!obj.id")
+									<div class="li_box" goods_list="goods_info_$!obj.id"
+										id="$!obj.id" mark="if_size_$!buyGift.id">
+										<div class="check">
+											<div class="checkbox">
+												<input type="checkbox" id="id_$!obj.id"
+													mark="$!obj.cart_type" value="$!{obj.id}" name="id" /><label
+													for="id_$!obj.id" id="label_$!obj.id"></label>
+											</div>
+										</div>
+										<div class="img">
+											<a href="$!goods_url"><img src="$!img" width="60"
+												height="60" /></a>
+										</div>
+										<div class="infro">
+											<span class="name"><a href="$!goods_url">$!obj.goods.goods_name
+											</a></span><span class="num"><a class="minus"
+												href="javascript:void(0);" id="count_down_$!obj.id"
+												gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type"
+												check_gift_id="$!buyGift.id">－</a><input
+												name="goods_count_$!{obj.id}" type="text"
+												id="goods_count_$!{obj.id}"
+												f_sale_type="$!obj.goods.f_sale_type" value="$!obj.count"
+												gc_id="$!obj.id" goods_count="$!obj.count"
+												check_gift_id="$!buyGift.id" /><a class="plus"
+												href="javascript:void(0);" id="count_up_$!obj.id"
+												gc_id="$!obj.id" f_sale_type="$!obj.goods.f_sale_type"
+												check_gift_id="$!buyGift.id">+</a></span>
+										</div>
+										#set($total_price=$!obj.count * $!obj.price)
+										<div class="fr">
+											<span class="price" id="gc_price$!{obj.id}">AED
+												$!{total_price}元</span><span class="del"><a
+												href="javascript:void(0);"
+												onclick="big_cart_remove('$!obj.id');"><img
+													src="$!webPath/resources/style/system/front/wap/images/del.png"
+													width="25" height="25" /></a></span>
+										</div>
+									</div>
+								</li> #end #end
+							</ul>
+						</div>
+						<input type="hidden" name="gcs" id="gcs" />
+					</form>
 					<div class="car_content">
 						<ul class="list_server">
 							<li>
-								<p style="flex:1;">Aggregate</p>
-								<span class="price total_pri" id="total_price">&nbsp;0.00 AED</span>
-								<span id="enough_reduce_money" style="display:none">
-								<p id="before_price">商品总额:AED 0.00元</p>
-								<p id="reduce_price">满就减金额:AED 0.00元</p></span>
+								<p style="flex: 1;">Aggregate</p> <span class="price total_pri"
+								id="total_price">&nbsp;0.00 AED</span> <span
+								id="enough_reduce_money" style="display: none">
+									<p id="before_price">商品总额:AED 0.00元</p>
+									<p id="reduce_price">满就减金额:AED 0.00元</p>
+							</span>
 							</li>
-							<li><span>Shipping</span><span>Free</span></li>	
+							<li><span>Shipping</span><span>Free</span></li>
 						</ul>
 						<div class="car_pay_sub">
-					    	<div class="check"> <div class="checkbox"><input type="checkbox" id="ids" /><label style="margin-top:20px;" for="ids"></label></div></div>
-					      	<button type="button" class="mui-btn mui-btn-primary submit_bt" data-loading-text = "loading" data-loading-icon-position="right">Pay</button>
-					    </div>
+							<div class="check">
+								<div class="checkbox">
+									<input type="checkbox" id="ids" /><label
+										style="margin-top: 20px;" for="ids"></label>
+								</div>
+							</div>
+							<button type="button" class="mui-btn mui-btn-primary submit_bt"
+								data-loading-text="loading" data-loading-icon-position="right">Pay</button>
+						</div>
 					</div>
-				    
-                    <div style="margin-top:100px;display:block;"></div>
-                </div>
-            </div>
-            <!-- off-canvas backdrop -->
-            <div class="mui-off-canvas-backdrop"></div>
-        </div>
-	
-    </div>
+
+					<div style="margin-top: 100px; display: block;"></div>
+				</div>
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
+		</div>
+
+	</div>
 
 	<script src="$!webPath/resources/wap/mui.js"></script>
 	<script>

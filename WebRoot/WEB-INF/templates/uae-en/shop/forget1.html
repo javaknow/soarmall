@@ -7,12 +7,16 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/login.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/login.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+		<script>
 jQuery(document).ready(function(){
   jQuery("#theForm").validate({
 	rules: {
@@ -38,58 +42,74 @@ jQuery(document).ready(function(){
     jQuery("#code_img").attr("src","$!webPath/verify.htm?d"+new Date().getTime());
  }
 </script>
-<style>
-.footer{  
+		<style>
+.footer {
 	position: fixed;
-    bottom: 0px;
+	bottom: 0px;
 }
-html,body{background: #fff;}
+
+html, body {
+	background: #fff;
+}
 </style>
 </head>
 <body>
-$!httpInclude.include("/top.htm")
-<div class="login_head"> #if($!config.websiteLogo)
-  #set($img="$!imageWebServer/$!{config.websiteLogo.path}/$!{config.websiteLogo.name}")
-  #else
-  #set($img="$!webPath/resources/style/system/front/default/images/logo.jpg")
-  #end
-  <h1><span><a href="$!webPath"><img src="$!img" width="209" height="70" /></a></span></h1>
-</div>
-<div class="forget_page">
-  <!-- <h3><span>找回密码</span></h3> -->
-  <div class="forget_page_box">
-    <!-- <ul class="forget_step">
+	$!httpInclude.include("/top.htm")
+	<div class="login_head">
+		#if($!config.websiteLogo)
+		#set($img="$!imageWebServer/$!{config.websiteLogo.path}/$!{config.websiteLogo.name}")
+		#else
+		#set($img="$!webPath/resources/style/system/front/default/images/logo.jpg")
+		#end
+		<h1>
+			<span><a href="$!webPath"><img src="$!img" width="209"
+					height="70" /></a></span>
+		</h1>
+	</div>
+	<div class="forget_page">
+		<!-- <h3><span>找回密码</span></h3> -->
+		<div class="forget_page_box">
+			<!-- <ul class="forget_step">
       <li class="this">填写账户名</li>
       <li>验证身份</li>
       <li>设置新密码</li>
       <li class="forget_last">完成</li>
     </ul> -->
-    <p class="Sign_text">Forgot your password?</p>
-    <p class="Sign_up_text">Enter your email and we’ll send you a password reset link</p>
-    <div class="forget_common">
-      <form action="$!webPath/forget2.htm" method="post" name="theForm" id="theForm">
-        <table width="500" border="0" cellpadding="0" cellspacing="0" class="regist_common_table">
-          <tr>
-            <!-- <td width="70" align="right" valign="top" class="forget_tb">账户名称：</td> -->
-            <td colspan="2">
-            	<div style="display: flex; align-items: center; justify-content: center;">
-            		<input name="userName" type="text" class="regist_txt" id="userName" placeholder="请输入用户名/邮箱/已验证手机号" />
-            	</div>
-            </td>
-          </tr>
-          <tr>
-            <td  align="right" valign="top" class="forget_tb">验证码：</td>
-            <td><input name="code" type="text" class="regist_code" id="code" />
-              <b class="regist_code_img"><img src="$!webPath/verify.htm" id="code_img" width="58" height="27" onclick="refreshCode();" /></b><a href="javascript:void(0);" onclick="refreshCode();" class="code_refresh"></a></td>
-          </tr>
-          <tr>
-            <td colspan="2"><input name="提交" type="submit"  class="forget_btn" value="Submit Email" /></td>
-          </tr>
-        </table>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="main"> </div>
+			<p class="Sign_text">Forgot your password?</p>
+			<p class="Sign_up_text">Enter your email and we’ll send you a
+				password reset link</p>
+			<div class="forget_common">
+				<form action="$!webPath/forget2.htm" method="post" name="theForm"
+					id="theForm">
+					<table width="500" border="0" cellpadding="0" cellspacing="0"
+						class="regist_common_table">
+						<tr>
+							<!-- <td width="70" align="right" valign="top" class="forget_tb">账户名称：</td> -->
+							<td colspan="2">
+								<div
+									style="display: flex; align-items: center; justify-content: center;">
+									<input name="userName" type="text" class="regist_txt"
+										id="userName" placeholder="请输入用户名/邮箱/已验证手机号" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td align="right" valign="top" class="forget_tb">验证码：</td>
+							<td><input name="code" type="text" class="regist_code"
+								id="code" /> <b class="regist_code_img"><img
+									src="$!webPath/verify.htm" id="code_img" width="58" height="27"
+									onclick="refreshCode();" /></b><a href="javascript:void(0);"
+								onclick="refreshCode();" class="code_refresh"></a></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input name="提交" type="submit"
+								class="forget_btn" value="Submit Email" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="main"></div>
 </body>
 </html>

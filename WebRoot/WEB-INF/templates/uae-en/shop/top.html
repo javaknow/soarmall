@@ -73,51 +73,43 @@ var browserEvent = function (obj, url, title) {
 </script>
 
 <div class="top" id="top">
-  <div class="top_page">
-    <div class="top_right">
-    #if($!user)
-    <span> 
-    #if("$!user.userRole"=="ADMIN")
-    <a href="$!webPath/admin/index.htm">Personal Center</a> 
-    #end 
-    <a href="$!webPath/koala_logout.htm">Log Out</a>
-    </span> 
-    #else
-    <span> 
-    <a href="$!webPath/user_login.json">Log In</a>
-    </span>
-    <span>
-    <a href="$!webPath/register.htm">Ship To
-		<select class="select">
-				<option value="volvo">UAE</option>
-				<option value="saab">Saab</option>
-				<option value="fiat">Fiat</option>
-				<option value="audi">Audi</option>
-		</select>
-    </a>
-    </span>
-    #end 
-    <span class="top_pull"> 
-    <a href="$!webPath/buyer/order.htm">العربية</a> 
-    </span>
-    
-      #set($navs=$!navTools.queryNav(-1,-1))
-      #if($!navs.size()>0) <span class="top_pull"> <em class="">网站导航<s class=""></s></em>
-      <div class="top_this" style="display:none">
-        <div class="website">
-          <ul>
-            #foreach($nav in $navs)
-            #if($!CommUtil.indexOf("$!nav.url","http://")>0)
-            <li><a href="$!nav.url"  #if($!{nav.new_win}==1)target="_blank"#end  rel="nofollow">$!nav.title</a></li>
-            #else
-            <li><a href="$!webPath/$!nav.url"  #if($!{nav.new_win}==1)target="_blank"#end  rel="nofollow">$!nav.title</a></li>
-            #end
-            #end
-          </ul>
-        </div>
-      </div>
-      </span> #end </div>
-#if(!$!user) <span class="top_shop"><a href="$!webPath/seller/login.htm">Sell with Us</a></span> #else
-    #if("$!user.userRole"=="SELLER") <b class="top_b">|</b> <span class="top_shop"><a href="$!webPath/seller/index.htm">Merchant Manage</a></span> #end
-    #end </div>
+	<div class="top_page">
+		<div class="top_right">
+			#if($!user) <span> #if("$!user.userRole"=="ADMIN") <a
+				href="$!webPath/admin/index.htm">Personal Center</a> #end <a
+				href="$!webPath/koala_logout.htm">Log Out</a>
+			</span> #else <span> <a href="$!webPath/user_login.json">Log In</a>
+			</span> <span> <a href="$!webPath/register.htm">Ship To <select
+					class="select">
+						<option value="volvo">UAE</option>
+						<option value="saab">Saab</option>
+						<option value="fiat">Fiat</option>
+						<option value="audi">Audi</option>
+				</select>
+			</a>
+			</span> #end <span class="top_pull"> <a
+				href="$!webPath/buyer/order.htm">العربية</a>
+			</span> #set($navs=$!navTools.queryNav(-1,-1)) #if($!navs.size()>0) <span
+				class="top_pull"> <em class="">网站导航<s class=""></s></em>
+				<div class="top_this" style="display: none">
+					<div class="website">
+						<ul>
+							#foreach($nav in $navs)
+							#if($!CommUtil.indexOf("$!nav.url","http://")>0)
+							<li><a href="$!nav.url" #if($!{nav.new_win}==1)target=
+								"_blank"#end rel="nofollow">$!nav.title</a></li> #else
+							<li><a href="$!webPath/$!nav.url"
+								#if($!{nav.new_win}==1)target= "_blank"#end rel="nofollow">$!nav.title</a></li>
+							#end #end
+						</ul>
+					</div>
+				</div>
+			</span> #end
+		</div>
+		#if(!$!user) <span class="top_shop"><a
+			href="$!webPath/seller/login.htm">Sell with Us</a></span> #else
+		#if("$!user.userRole"=="SELLER") <b class="top_b">|</b> <span
+			class="top_shop"><a href="$!webPath/seller/index.htm">Merchant
+				Manage</a></span> #end #end
+	</div>
 </div>

@@ -1,13 +1,10 @@
 package com.metoo.metooapi.foundation.service.impl;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
@@ -19,7 +16,6 @@ import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.metoo.buyer.domain.Result;
@@ -34,7 +30,6 @@ import com.metoo.foundation.domain.Accessory;
 import com.metoo.foundation.domain.ActivityGoods;
 import com.metoo.foundation.domain.BuyGift;
 import com.metoo.foundation.domain.CombinPlan;
-import com.metoo.foundation.domain.Consult;
 import com.metoo.foundation.domain.EnoughReduce;
 import com.metoo.foundation.domain.Evaluate;
 import com.metoo.foundation.domain.FootPoint;
@@ -43,7 +38,6 @@ import com.metoo.foundation.domain.GoodsClass;
 import com.metoo.foundation.domain.GoodsLog;
 import com.metoo.foundation.domain.Group;
 import com.metoo.foundation.domain.User;
-import com.metoo.foundation.domain.query.ConsultQueryObject;
 import com.metoo.foundation.domain.query.EvaluateQueryObject;
 import com.metoo.foundation.service.IActivityGoodsService;
 import com.metoo.foundation.service.IAreaService;

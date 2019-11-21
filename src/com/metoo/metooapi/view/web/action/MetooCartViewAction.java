@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,8 +18,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -46,10 +43,7 @@ import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.ActivityGoods;
 import com.metoo.foundation.domain.Address;
-import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.BuyGift;
-import com.metoo.foundation.domain.CombinPlan;
-import com.metoo.foundation.domain.CouponInfo;
 import com.metoo.foundation.domain.DeliveryAddress;
 import com.metoo.foundation.domain.EnoughReduce;
 import com.metoo.foundation.domain.Goods;
@@ -60,7 +54,6 @@ import com.metoo.foundation.domain.GroupGoods;
 import com.metoo.foundation.domain.OrderForm;
 import com.metoo.foundation.domain.OrderFormLog;
 import com.metoo.foundation.domain.Store;
-import com.metoo.foundation.domain.Transport;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.VerifyCode;
 import com.metoo.foundation.service.IActivityGoodsService;
@@ -2473,6 +2466,10 @@ public class MetooCartViewAction {
 												json_map.put("goods_name", gc.getGoods().getGoods_name());
 												json_map.put("goods_choice_type", gc.getGoods().getGoods_choice_type());
 												json_map.put("goods_type", goods_type);
+												json_map.put("goods_weight", gc.getGoods().getGoods_weight());
+												json_map.put("goods_length", gc.getGoods().getGoods_length());
+												json_map.put("goods_width", gc.getGoods().getGoods_width());
+												json_map.put("goods_high", gc.getGoods().getGoods_high());
 												json_map.put("goods_count", gc.getCount());
 												json_map.put("goods_price", gc.getPrice());// 商品单价
 												json_map.put("goods_all_price", CommUtil.mul(gc.getPrice(), gc.getCount()));// 商品总价
@@ -2598,7 +2595,12 @@ public class MetooCartViewAction {
 												json_map.put("goods_id", gc.getGoods().getId());
 												json_map.put("goods_name", gc.getGoods().getGoods_name());
 												json_map.put("goods_choice_type", gc.getGoods().getGoods_choice_type());
-												json_map.put("goods_type", goods_type);
+												json_map.put("goods_weight", gc.getGoods().getGoods_weight());
+												json_map.put("goods_length", gc.getGoods().getGoods_length());
+												json_map.put("goods_width", gc.getGoods().getGoods_width());
+												json_map.put("goods_high", gc.getGoods().getGoods_high());
+												json_map.put("goods_spu", gc.getGoods().getGoods_serial());
+												json_map.put("goods_sku", this.metooCartViewTools.generic_default_info_color(gc.getGoods(), gc.getCart_gsp(), gc.getColor()).get("sku"));
 												json_map.put("goods_count", gc.getCount());
 												json_map.put("goods_price", gc.getPrice());// 商品单价
 												json_map.put("goods_all_price", CommUtil.mul(gc.getPrice(), gc.getCount()));// 商品总价
@@ -2736,12 +2738,14 @@ public class MetooCartViewAction {
 									order_store_id = CommUtil.null2String(store.getId());
 								}
 								of.setOrder_id(user.getId() + order_suffix + order_store_id);
-								System.out.println(user.getId() + order_suffix + order_store_id);
 								// 设置收货地址信息
 								of.setReceiver_Name(addr.getTrueName());
 								of.setReceiver_area(addr.getArea().getParent().getParent().getAreaName()
 										+ addr.getArea().getParent().getAreaName() + addr.getArea().getAreaName());
 								of.setReceiver_area_info(addr.getArea_info());
+								of.setReceiver_state(addr.getArea().getParent().getParent().getAreaName());	
+								of.setReceiver_city(addr.getArea().getParent().getAreaName());
+								of.setReceiver_street(addr.getArea().getAreaName());
 								of.setReceiver_mobile(addr.getMobile());
 								of.setReceiver_telephone(addr.getTelephone());
 								of.setReceiver_zip(addr.getZip());

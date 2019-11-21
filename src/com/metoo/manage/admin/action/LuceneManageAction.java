@@ -22,7 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.metoo.core.annotation.SecurityMapping;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.tools.CommUtil;
-import com.metoo.foundation.domain.Accessory;
 import com.metoo.foundation.domain.Article;
 import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.GroupGoods;

@@ -21,9 +21,6 @@ import org.apache.poi.hssf.record.formula.functions.T;
 import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.google.gson.Gson;
-import com.metoo.foundation.domain.Area;
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 

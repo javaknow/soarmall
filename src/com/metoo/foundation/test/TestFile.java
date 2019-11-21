@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import com.metoo.core.tools.CommUtil;
-import com.metoo.core.tools.database.AppendMessage;
 
 public class TestFile {
 	public static void main(String[] args) {

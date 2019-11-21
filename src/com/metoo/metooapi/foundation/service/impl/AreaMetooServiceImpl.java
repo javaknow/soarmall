@@ -1,6 +1,5 @@
 package com.metoo.metooapi.foundation.service.impl;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,23 +14,13 @@ import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.metoo.buyer.domain.Result;
-import com.metoo.core.annotation.SecurityMapping;
 import com.metoo.core.dao.IGenericDAO;
-import com.metoo.core.mv.JModelAndView;
-import com.metoo.core.security.support.SecurityUserHolder;
-import com.metoo.core.tools.CommUtil;
-import com.metoo.foundation.domain.Address;
 import com.metoo.foundation.domain.Area;
-import com.metoo.foundation.domain.User;
-import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
 import com.metoo.foundation.service.IUserService;
-import com.metoo.metooapi.foundation.service.IAddressMetooService;
 import com.metoo.metooapi.foundation.service.IAreaMetooService;
 @Service
 @Transactional

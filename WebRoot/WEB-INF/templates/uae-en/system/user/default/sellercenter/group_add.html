@@ -7,20 +7,29 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay_blue.css" type="text/css" rel="stylesheet" />
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/kindeditor.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/lang/zh_CN.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay_blue.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type=text/css rel=stylesheet>
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+			<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+			<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
+			<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+			<script charset="utf-8"
+				src="$!webPath/resources/editor/kindeditor.js"></script>
+			<script charset="utf-8"
+				src="$!webPath/resources/editor/lang/zh_CN.js"></script>
+			<script>
 var options = {
         cssPath : '$!webPath/resources/editor/plugins/code/prettify.css',
         filterMode : true,
@@ -214,151 +223,171 @@ jQuery(document).ready(function(){
 </head>
 
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-  <div class="seller_center">
-  $!httpInclude.include("/seller/nav.htm?op=groupgoods")
-    <div class="seller_right">
-      <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>团购管理</b> ><b>商品购管理</b></span></div>
-      <div class="seller_list">
-        <div class="seller_list_title">
-          <ul class="seller_title_ul">
-            <li><a href='$!webPath/seller/group.htm'><i></i>商品类团购商品列表</a></li>
-            <li class="this"><a href='$!webPath/seller/group_add.htm?type=goods'><i></i>新增商品类团购</a></li>
-          </ul>
-        </div>
-        <div class="add_usercenter">
-          <form action="$!webPath/seller/group_goods_save.htm" method="post" enctype="multipart/form-data" name="theForm" id="theForm">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_base_table">
-                  <tr>
-                    <td width="15%" align="right" valign="top">团购活动：</td>
-                    <td class="px10 message">
-                    <select name="group_id" id="group_id" class="error_gray">
-                    #foreach($group in $groups)
-                    #set($time="$!CommUtil.formatTime('yyyy年MM月dd日 HH:mm',$!{group.beginTime}) - $!CommUtil.formatTime('yyyy年MM月dd日 HH:mm',$!{group.endTime})")
-                    <option value="$!group.id">$!group.group_name[$!time]</option>
-                    #end
-                    </select>
-<input name="id" type="hidden" id="id" value="$!obj.id" /></td>
-                  </tr>
-                   <tr>
-                    <td align="right" valign="top"> <strong class="redstr">*</strong>开始时间：</td>
-                    <td class="px10"><input name="beginTime" type="text" id="beginTime" style="height:25px;" value="$!CommUtil.formatShortDate($!obj.beginTime)" size="40" class="base_txt" readonly="readonly"  />
-                    <i class=""></i>
-                    </td>
-                  </tr>
-                   <tr>
-                    <td align="right" valign="top"> <strong class="redstr">*</strong>结束时间：</td>
-                    <td class="px10"><input name="endTime" type="text" id="endTime" style="height:25px;" value="$!CommUtil.formatShortDate($!obj.endTime)" size="40" class="base_txt" readonly="readonly"  /><i class=""></i> </td>
-                   
-                  </tr>
-                  
-                  <tr>
-                    <td align="right" valign="top"> <strong class="redstr">*</strong>团购名称：</td>
-                    <td class="px10"><input name="gg_name" type="text" id="gg_name" style="height:25px;" value="$!obj.gg_name" size="40" class="base_txt" />
-                     <i class=""></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="right" valign="top"> <strong class="redstr">*</strong>团购商品：</td>
-                    <td class="px10"><input name="goods_name" type="text" id="goods_name" style="height:25px;" value="$!obj.gg_goods.goods_name" size="40" readonly="readonly" dialog_uri="$!webPath/seller/group_goods.htm" dialog_title="选择团购商品" dialog_width="470" dialog_height="200" dialog_id="group_goods" class="base_txt"/>
-                      <input name="goods_id" type="hidden" id="goods_id" value="$!obj.gg_goods.id" /><i class=""></i></td>
-                  </tr>
-                  <tr id="store_price" style="display:none;">
-                    <td align="right" valign="top">商品价格：</td>
-                    <td class="px10" id="store_price_info">&nbsp;</td>
-                  </tr>
-                  <tr id="store_inventory" style="display:none;">
-                    <td align="right" valign="top">商品库存：</td>
-                    <td class="px10" id="store_inventory_info">&nbsp;</td>
-                  </tr>
-                  <tr>
-                    <td align="right" valign="top"> <strong class="redstr">*</strong>团购价格：</td>
-                    <td class="px10"><input name="gg_price" type="text" id="gg_price" style="height:25px;" value="$!obj.gg_price" size="40" class="base_txt"/>
-                    <i></i></td>
-                  </tr>
-                  #if($!obj)
-                   <tr>
-                     <td align="right" valign="top"> 当前图片：</td>
-                     <td class="px10"><img src="$!imageWebServer/$!obj.gg_img.path/$!obj.gg_img.name" width="150" height="150" /></td>
-                   </tr>
-                   #end
-                   <tr>
-                    <td align="right" valign="top"> <strong class="redstr">*</strong>团购图片：</td>
-                    <td>
-                  <span class="water_upload"> <b class="opacity_txt">
-                  <input name="gg_acc_path" type="text" id="gg_acc_path" readonly="readonly" />
-                  </b> <b class="opacity_submit">
-                  <input name="gg_acc_select" type="button" value="浏览..." id="gg_acc_select" />
-                  </b> <b class="opacity_up">
-                  <input  name="gg_acc" type="file" id="gg_acc" class="brand_logo" /> 
-                  <i></i><i class="base_i">最佳尺寸：440*292px</i>
-                </b>  </span></td>
-                  </tr>
-                  <tr>
-                     <td align="right" valign="top"> <strong class="redstr">*</strong>商品总数：</td>
-                     <td class="px10 message"><input name="gg_count" type="text" id="gg_count" style="height:25px;" value="$!obj.gg_count" size="40" class="base_txt"/>                       <i class=""></i></td>
-                  </tr>
-                  <tr>
-                    <td align="right" valign="top"><strong class="redstr">*</strong>团购类别：</td>
-                    <td class="px10 message">
-                    <select name="gc_id" id="gc_id">
-                    #foreach($gc in $gcs)
-                    <option value="$!gc.id">$!gc.gc_name</option>
-                    #end
-                    </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="right" valign="top"><strong class="redstr"></strong>所属区域：</td>
-                    <td class="px10 message">
-                    
-                    <select name="area1" id="area1" level="2" style="float:left; margin-right:5px;">
-                    <option value="">城市</option>
-                    
-          #foreach($area in $gas)           
-          
-                    <option value="$!area.id" #if($!obj&&$!obj.gg_ga.parent.parent&&$!area.id==$!obj.gg_ga.parent.parent.id) selected="selected" #end>$!area.ga_name</option>
-                    
-           #end          
-        
-                  </select>
-                  <select name="area2" id="area2" level="3" style="float:left; margin-right:5px;">
-                    <option value="">区/县</option>
-                    
-         #if($!obj)#foreach($area in $obj.gg_ga.parent.childs)                     
-          
-                    <option value="$!area.id" #if($!obj&&$!obj.gg_ga.parent&&$!area.id==$!obj.gg_ga.parent.id) selected="selected"#end>$!area.ga_name</option>
-                    
-         #end#end                    
-        
-                  </select>
-                  
-                  <input id="ga_id" name="ga_id" type="hidden"  #if($!obj&&$!obj.gg_ga) value="$!obj.gg_ga.id" #else value="-1" #end /><i></i><i class="base_i" id="ga_i">不选择区域则默认为全国</i></td>
-                  </tr>
-                  <tr>
-                    <td width="120" align="right" valign="top">团购简介：</td>
-                    <td class="px10 message"><textarea name="gg_content" cols="40" rows="6" id="gg_content">$!obj.gg_content</textarea></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="px10"><label>
-                    <input type="checkbox" name="gc_agree" id="gc_agree" />
-                    我已阅读 <a href="$!webPath/doc_group.htm" target="_blank" style="color:#F60">团购服务协议</a> 并同意<i></i></label></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td class="px10"><span class="setsub">
-                      <input name="提交" type="submit"  value="保存"  style="cursor:pointer;" class="seller_save"/>
-                      </span></td>
-                  </tr>
-                </table>
-				</form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			$!httpInclude.include("/seller/nav.htm?op=groupgoods")
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>团购管理</b>
+						><b>商品购管理</b></span>
+				</div>
+				<div class="seller_list">
+					<div class="seller_list_title">
+						<ul class="seller_title_ul">
+							<li><a href='$!webPath/seller/group.htm'><i></i>商品类团购商品列表</a></li>
+							<li class="this"><a
+								href='$!webPath/seller/group_add.htm?type=goods'><i></i>新增商品类团购</a></li>
+						</ul>
+					</div>
+					<div class="add_usercenter">
+						<form action="$!webPath/seller/group_goods_save.htm" method="post"
+							enctype="multipart/form-data" name="theForm" id="theForm">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0"
+								class="user_base_table">
+								<tr>
+									<td width="15%" align="right" valign="top">团购活动：</td>
+									<td class="px10 message"><select name="group_id"
+										id="group_id" class="error_gray"> #foreach($group in
+											$groups) #set($time="$!CommUtil.formatTime('yyyy年MM月dd日
+											HH:mm',$!{group.beginTime}) -
+											$!CommUtil.formatTime('yyyy年MM月dd日
+											HH:mm',$!{group.endTime})")
+											<option value="$!group.id">$!group.group_name[$!time]</option>
+											#end
+									</select> <input name="id" type="hidden" id="id" value="$!obj.id" /></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>开始时间：</td>
+									<td class="px10"><input name="beginTime" type="text"
+										id="beginTime" style="height: 25px;"
+										value="$!CommUtil.formatShortDate($!obj.beginTime)" size="40"
+										class="base_txt" readonly="readonly" /> <i class=""></i></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>结束时间：</td>
+									<td class="px10"><input name="endTime" type="text"
+										id="endTime" style="height: 25px;"
+										value="$!CommUtil.formatShortDate($!obj.endTime)" size="40"
+										class="base_txt" readonly="readonly" /><i class=""></i></td>
+
+								</tr>
+
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>团购名称：</td>
+									<td class="px10"><input name="gg_name" type="text"
+										id="gg_name" style="height: 25px;" value="$!obj.gg_name"
+										size="40" class="base_txt" /> <i class=""></i></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>团购商品：</td>
+									<td class="px10"><input name="goods_name" type="text"
+										id="goods_name" style="height: 25px;"
+										value="$!obj.gg_goods.goods_name" size="40"
+										readonly="readonly"
+										dialog_uri="$!webPath/seller/group_goods.htm"
+										dialog_title="选择团购商品" dialog_width="470" dialog_height="200"
+										dialog_id="group_goods" class="base_txt" /> <input
+										name="goods_id" type="hidden" id="goods_id"
+										value="$!obj.gg_goods.id" /><i class=""></i></td>
+								</tr>
+								<tr id="store_price" style="display: none;">
+									<td align="right" valign="top">商品价格：</td>
+									<td class="px10" id="store_price_info">&nbsp;</td>
+								</tr>
+								<tr id="store_inventory" style="display: none;">
+									<td align="right" valign="top">商品库存：</td>
+									<td class="px10" id="store_inventory_info">&nbsp;</td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>团购价格：</td>
+									<td class="px10"><input name="gg_price" type="text"
+										id="gg_price" style="height: 25px;" value="$!obj.gg_price"
+										size="40" class="base_txt" /> <i></i></td>
+								</tr>
+								#if($!obj)
+								<tr>
+									<td align="right" valign="top">当前图片：</td>
+									<td class="px10"><img
+										src="$!imageWebServer/$!obj.gg_img.path/$!obj.gg_img.name"
+										width="150" height="150" /></td>
+								</tr>
+								#end
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>团购图片：</td>
+									<td><span class="water_upload"> <b
+											class="opacity_txt"> <input name="gg_acc_path"
+												type="text" id="gg_acc_path" readonly="readonly" />
+										</b> <b class="opacity_submit"> <input name="gg_acc_select"
+												type="button" value="浏览..." id="gg_acc_select" />
+										</b> <b class="opacity_up"> <input name="gg_acc" type="file"
+												id="gg_acc" class="brand_logo" /> <i></i><i class="base_i">最佳尺寸：440*292px</i>
+										</b>
+									</span></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>商品总数：</td>
+									<td class="px10 message"><input name="gg_count"
+										type="text" id="gg_count" style="height: 25px;"
+										value="$!obj.gg_count" size="40" class="base_txt" /> <i
+										class=""></i></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>团购类别：</td>
+									<td class="px10 message"><select name="gc_id" id="gc_id">
+											#foreach($gc in $gcs)
+											<option value="$!gc.id">$!gc.gc_name</option> #end
+									</select></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr"></strong>所属区域：</td>
+									<td class="px10 message"><select name="area1" id="area1"
+										level="2" style="float: left; margin-right: 5px;">
+											<option value="">城市</option> #foreach($area in $gas)
+
+											<option value="$!area.id"
+												#if($!obj&&$!obj.gg_ga.parent.parent&&$!area.id==$!obj.gg_ga.parent.parent.id)
+												selected="selected" #end>$!area.ga_name</option> #end
+
+									</select> <select name="area2" id="area2" level="3"
+										style="float: left; margin-right: 5px;">
+											<option value="">区/县</option> #if($!obj)#foreach($area in
+											$obj.gg_ga.parent.childs)
+
+											<option value="$!area.id"
+												#if($!obj&&$!obj.gg_ga.parent&&$!area.id==$!obj.gg_ga.parent.id)
+												selected="selected" #end>$!area.ga_name</option> #end#end
+
+									</select> <input id="ga_id" name="ga_id" type="hidden"
+										#if($!obj&&$!obj.gg_ga) value="$!obj.gg_ga.id" #else
+										value="-1" #end /><i></i><i class="base_i" id="ga_i">不选择区域则默认为全国</i></td>
+								</tr>
+								<tr>
+									<td width="120" align="right" valign="top">团购简介：</td>
+									<td class="px10 message"><textarea name="gg_content"
+											cols="40" rows="6" id="gg_content">$!obj.gg_content</textarea></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td class="px10"><label> <input type="checkbox"
+											name="gc_agree" id="gc_agree" /> 我已阅读 <a
+											href="$!webPath/doc_group.htm" target="_blank"
+											style="color: #F60">团购服务协议</a> 并同意<i></i></label></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td class="px10"><span class="setsub"> <input
+											name="提交" type="submit" value="保存" style="cursor: pointer;"
+											class="seller_save" />
+									</span></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

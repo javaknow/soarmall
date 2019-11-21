@@ -24,17 +24,13 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.StringReader;
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -43,7 +39,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -59,30 +54,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.swing.ImageIcon;
 
 import org.apache.commons.fileupload.disk.DiskFileItem;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.methods.multipart.FilePart;
-import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
-import org.apache.commons.httpclient.methods.multipart.Part;
-import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 import org.nutz.json.Json;
-import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -90,15 +72,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.metoo.buyer.domain.Http;
-import com.metoo.buyer.domain.Httpst;
-import com.metoo.buyer.domain.Result;
 import com.metoo.core.query.support.IPageList;
 import com.metoo.foundation.domain.Accessory;
 import com.metoo.foundation.domain.Address;
@@ -106,16 +80,11 @@ import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.GroupGoods;
 import com.metoo.foundation.service.IAreaService;
-import com.metoo.foundation.service.IGoodsClassService;
 import com.metoo.foundation.service.IGoodsService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.lucene.LuceneResult;
 import com.metoo.lucene.LuceneVo;
 import com.metoo.view.web.tools.GoodsViewTools;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JsonConfig;
-import net.sf.json.util.CycleDetectionStrategy;
 
 /**
  * 
@@ -1087,9 +1056,7 @@ public class CommUtil {
 	
 	public static List<Map> saveIPageList2ModelAndView2(IPageList pList){
 		List<Address> address = pList.getResult();
-		
 		List<Map> addressList = new ArrayList<Map>();
-		
 		for (Address addresslist : address) {
 			Map addressMap = new HashMap();
 			Map  map1= new HashMap();

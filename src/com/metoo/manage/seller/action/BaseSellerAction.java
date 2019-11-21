@@ -25,7 +25,6 @@ import com.metoo.foundation.domain.Article;
 import com.metoo.foundation.domain.Complaint;
 import com.metoo.foundation.domain.Consult;
 import com.metoo.foundation.domain.Goods;
-import com.metoo.foundation.domain.Message;
 import com.metoo.foundation.domain.OrderForm;
 import com.metoo.foundation.domain.ReturnGoodsLog;
 import com.metoo.foundation.domain.Store;

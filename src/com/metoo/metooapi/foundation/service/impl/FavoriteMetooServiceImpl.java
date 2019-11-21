@@ -1,7 +1,6 @@
 package com.metoo.metooapi.foundation.service.impl;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.nutz.json.Json;
 import org.nutz.json.JsonFormat;
-import org.nutz.mvc.annotation.PUT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +25,6 @@ import com.metoo.core.query.GenericPageList;
 import com.metoo.core.query.PageObject;
 import com.metoo.core.query.support.IPageList;
 import com.metoo.core.query.support.IQueryObject;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.Favorite;
 import com.metoo.foundation.domain.Goods;

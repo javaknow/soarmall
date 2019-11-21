@@ -3,14 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
-<script>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
+<link href="$!webPath/resources/style/common/css/overlay.css"
+	type="text/css" rel="stylesheet" />
+<link
+	href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+	type=text/css rel=stylesheet>
+	<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+	<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+	<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+	<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
+	<script>
 jQuery(document).ready(function(){
    jQuery("#info_id").focus();
    jQuery(".import_key a").click(function(){
@@ -64,43 +69,51 @@ function check_info(){
 </script>
 </head>
 <body>
-<div class="cont">
-  <h1 class="seth">团购码管理</h1>
-  <div class="nav_list">
-    <ul>
-      <li><a class="this" href="$!webPath/admin/group_code.htm"><b>团购码管理</b></a> </li>
-      <li><a href="$!webPath/admin/grouplife_selfinfo.htm"><b>团购码列表</b></a></li>
-    </ul>
-  </div>
-  <div class="fshoptb2">
-    <div class="import">
-          <div class="import_top">输入兑换码</div>
-          <div class="import_input">
-            <input name="info_id" onBlur="focus();" type="text"placeholder="请输入买家提供的电子兑换券..." id="info_id" />
-          </div>
-          <div class="import_key">
-            <ul>
-              <li><a href="javascript:void(0);" key_val="1">1</a></li>
-              <li><a href="javascript:void(0);" key_val="2">2</a></li>
-              <li><a href="javascript:void(0);" key_val="3">3</a></li>
-              <li><a href="javascript:void(0);" key_val="4">4</a></li>
-              <li><a href="javascript:void(0);" key_val="5">5</a></li>
-              <li><a href="javascript:void(0);" key_val="6">6</a></li>
-              <li><a href="javascript:void(0);" key_val="7">7</a></li>
-              <li><a href="javascript:void(0);" key_val="8">8</a></li>
-              <li><a href="javascript:void(0);" key_val="9">9</a></li>
-              <li><a href="javascript:void(0);" key_val="0">0</a></li>
-            </ul>
-          </div>
-          <div class="import_eidt">
-            <dl>
-              <dt><a href="javascript:void(0);" onclick="clear_code();">清除</a></dt>
-              <dt><a href="javascript:void(0);" onclick="back_code();">后退</a></dt>
-              <dd><a href="javascript:void(0);" onclick="check_info();">提交验证</a></dd>
-            </dl>
-          </div>
-        </div>
-  </div>
-</div>
+	<div class="cont">
+		<h1 class="seth">团购码管理</h1>
+		<div class="nav_list">
+			<ul>
+				<li><a class="this" href="$!webPath/admin/group_code.htm"><b>团购码管理</b></a>
+				</li>
+				<li><a href="$!webPath/admin/grouplife_selfinfo.htm"><b>团购码列表</b></a></li>
+			</ul>
+		</div>
+		<div class="fshoptb2">
+			<div class="import">
+				<div class="import_top">输入兑换码</div>
+				<div class="import_input">
+					<input name="info_id" onBlur="focus();" type="text"
+						placeholder="请输入买家提供的电子兑换券..." id="info_id" />
+				</div>
+				<div class="import_key">
+					<ul>
+						<li><a href="javascript:void(0);" key_val="1">1</a></li>
+						<li><a href="javascript:void(0);" key_val="2">2</a></li>
+						<li><a href="javascript:void(0);" key_val="3">3</a></li>
+						<li><a href="javascript:void(0);" key_val="4">4</a></li>
+						<li><a href="javascript:void(0);" key_val="5">5</a></li>
+						<li><a href="javascript:void(0);" key_val="6">6</a></li>
+						<li><a href="javascript:void(0);" key_val="7">7</a></li>
+						<li><a href="javascript:void(0);" key_val="8">8</a></li>
+						<li><a href="javascript:void(0);" key_val="9">9</a></li>
+						<li><a href="javascript:void(0);" key_val="0">0</a></li>
+					</ul>
+				</div>
+				<div class="import_eidt">
+					<dl>
+						<dt>
+							<a href="javascript:void(0);" onclick="clear_code();">清除</a>
+						</dt>
+						<dt>
+							<a href="javascript:void(0);" onclick="back_code();">后退</a>
+						</dt>
+						<dd>
+							<a href="javascript:void(0);" onclick="check_info();">提交验证</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

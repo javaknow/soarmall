@@ -1,20 +1,11 @@
 package com.metoo.metooapi.manage.admin.tool;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.nutz.json.Json;
-import org.nutz.json.JsonFormat;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.iskyshop.core.tools.CommUtil;
-import com.metoo.buyer.domain.Result;
 @Controller
 public class OrderFormMetooTool {
 	

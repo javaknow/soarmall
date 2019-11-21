@@ -1,9 +1,7 @@
 package com.metoo.module.weixin.view.action;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -26,10 +24,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -46,7 +40,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.metoo.core.annotation.SecurityMapping;
-import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.service.IQueryService;
@@ -56,7 +49,6 @@ import com.metoo.foundation.domain.Address;
 import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.BuyGift;
 import com.metoo.foundation.domain.CombinPlan;
-import com.metoo.foundation.domain.CouponInfo;
 import com.metoo.foundation.domain.DeliveryAddress;
 import com.metoo.foundation.domain.EnoughReduce;
 import com.metoo.foundation.domain.Goods;
@@ -67,7 +59,6 @@ import com.metoo.foundation.domain.GroupGoods;
 import com.metoo.foundation.domain.GroupInfo;
 import com.metoo.foundation.domain.GroupJoiner;
 import com.metoo.foundation.domain.GroupLifeGoods;
-import com.metoo.foundation.domain.IntegralLog;
 import com.metoo.foundation.domain.Message;
 import com.metoo.foundation.domain.OrderForm;
 import com.metoo.foundation.domain.OrderFormLog;

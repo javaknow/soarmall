@@ -82,70 +82,72 @@ jQuery(function(){
 })
 </script>
 <form method="post" id="addr_form">
-  <div class="shopping_address_first">
-    <div class="shopping_address_first_top">Add New Addres</div>
-    <div class="shopping_address_first_add">
-      <div class="shopping_address_first_add_name">
-        <div class="shopping_address_first_add_name_left">Name*</div>
-        <div class="shopping_address_first_add_name_left_input">
-          <input name="trueName" type="text" id="trueName"  placeholder=""  />
-        </div>
-      </div>
-      <div class="shopping_address_first_add_name">
-        <div class="shopping_address_first_add_name_left">Phone *</div>
-        <div class="shopping_address_first_add_name_left_input">
-          <input name="telephone" type="text" id="telephone"  placeholder=""  />
-        </div>
-      </div> 
-      <div class="shopping_address_first_add_name">
-        <div class="shopping_address_first_add_name_left">Mobile *</div>
-        <div class="shopping_address_first_add_name_left_input">
-          <input name="mobile" type="text" id="mobile"   placeholder=""  />
-        </div>
-      </div>
-      <div class="shopping_address_first_add_addrees">
-        <div class="shopping_address_first_add_name_left">Address：</div>
-        <div class="shopping_address_first_add_addrees_left_input">
-          <select name="area1" id="area1" level="2">
-            <option value="">Province/autonomous region</option>
-             #foreach($area in $areas)           
-             <option value="$!area.id">$!area.areaName</option>
-             #end 
-            </select>
-          <select name="area2" id="area2" level="3">
-           <option value="">City level</option> 
-             #foreach($area in $obj.area.parent.parent.childs)                     
-               <option value="$!area.id">$!area.areaName</option>
-             #end                    
-          </select>
-          <select name="area3" id="area3" level="4">
-          <option value="">County/district</option>  
-            #foreach($area in $$obj.area.parent.childs)                     
-             <option value="$!area.id">$!area.areaName</option>            
-            #end                    
-             </select>
-          <input id="area_id" name="area_id" type="hidden"  />
-        </div>
-      </div>
-      <div class="shopping_address_first_add_xx">
-        <div class="shopping_address_first_add_name_left">Street Name/No.</div>
-        <div class="shopping_address_first_add_xx_input">
-          <textarea name="area_info" cols="2" rows="" id="area_info" placeholder=" "></textarea>
-          </textarea>
-        </div>
-      </div>
-      <div class="shopping_address_first_add_name">
-        <div class="shopping_address_first_add_name_left">ZIP code：</div>
-        <div class="shopping_address_first_add_name_left_input">
-          <input name="zip" type="text" id="zip" placeholder="ZIP code"  />
-        </div>
-      </div>
-      <div class="shopping_address_bottom">
-        #if($!addrs.size()>0)<div class="shopping_address_bottom_yes"><a href="javascript:void(0);" class="cancel_address" onclick="jQuery('.shopping_address_first').parent().remove();">Cancel</a></div>#end
-        <div class="shopping_address_bottom_no"><a href="javascript:void(0);">Save</a>
-          <input name="op_type" type="hidden" id="op_type" value="address_create" />
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="shopping_address_first">
+		<div class="shopping_address_first_top">Add New Addres</div>
+		<div class="shopping_address_first_add">
+			<div class="shopping_address_first_add_name">
+				<div class="shopping_address_first_add_name_left">Name*</div>
+				<div class="shopping_address_first_add_name_left_input">
+					<input name="trueName" type="text" id="trueName" placeholder="" />
+				</div>
+			</div>
+			<div class="shopping_address_first_add_name">
+				<div class="shopping_address_first_add_name_left">Phone *</div>
+				<div class="shopping_address_first_add_name_left_input">
+					<input name="telephone" type="text" id="telephone" placeholder="" />
+				</div>
+			</div>
+			<div class="shopping_address_first_add_name">
+				<div class="shopping_address_first_add_name_left">Mobile *</div>
+				<div class="shopping_address_first_add_name_left_input">
+					<input name="mobile" type="text" id="mobile" placeholder="" />
+				</div>
+			</div>
+			<div class="shopping_address_first_add_addrees">
+				<div class="shopping_address_first_add_name_left">Address：</div>
+				<div class="shopping_address_first_add_addrees_left_input">
+					<select name="area1" id="area1" level="2">
+						<option value="">Province/autonomous region</option>
+						#foreach($area in $areas)
+						<option value="$!area.id">$!area.areaName</option> #end
+					</select> <select name="area2" id="area2" level="3">
+						<option value="">City level</option> #foreach($area in
+						$obj.area.parent.parent.childs)
+						<option value="$!area.id">$!area.areaName</option> #end
+					</select> <select name="area3" id="area3" level="4">
+						<option value="">County/district</option> #foreach($area in
+						$$obj.area.parent.childs)
+						<option value="$!area.id">$!area.areaName</option> #end
+					</select> <input id="area_id" name="area_id" type="hidden" />
+				</div>
+			</div>
+			<div class="shopping_address_first_add_xx">
+				<div class="shopping_address_first_add_name_left">Street
+					Name/No.</div>
+				<div class="shopping_address_first_add_xx_input">
+					<textarea name="area_info" cols="2" rows="" id="area_info"
+						placeholder=" "></textarea>
+					</textarea>
+				</div>
+			</div>
+			<div class="shopping_address_first_add_name">
+				<div class="shopping_address_first_add_name_left">ZIP code：</div>
+				<div class="shopping_address_first_add_name_left_input">
+					<input name="zip" type="text" id="zip" placeholder="ZIP code" />
+				</div>
+			</div>
+			<div class="shopping_address_bottom">
+				#if($!addrs.size()>0)
+				<div class="shopping_address_bottom_yes">
+					<a href="javascript:void(0);" class="cancel_address"
+						onclick="jQuery('.shopping_address_first').parent().remove();">Cancel</a>
+				</div>
+				#end
+				<div class="shopping_address_bottom_no">
+					<a href="javascript:void(0);">Save</a> <input name="op_type"
+						type="hidden" id="op_type" value="address_create" />
+				</div>
+			</div>
+		</div>
+	</div>
 </form>

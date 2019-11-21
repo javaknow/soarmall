@@ -7,15 +7,19 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+		<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+		<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+		<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
+		<script>
 jQuery(document).ready(function(){
  jQuery("#theForm").validate({
 		errorPlacement: function(error, element){
@@ -95,7 +99,7 @@ function selectAllOverRead(obj){
 	}
 }
 </script>
-<script>
+		<script>
 #if($!obj&&$!obj.properties.size()>1)
 var count=$!obj.properties.size();
 #else
@@ -131,160 +135,186 @@ count++;
 </script>
 </head>
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-  <div class="seller_center"> $!httpInclude.include("/seller/nav.htm?op=goods_spec_list")
-    <div class="seller_right">
-      <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>商品管理</b> > <b>新增规格</b></span></div>
-      <div class="seller_list">
-        <div class="seller_list_title">
-          <ul class="seller_title_ul">
-            <li><a href="$!webPath/seller/goods_spec_list.htm"><i></i>规格列表</a></li>
-            <li class="this"><a href="$!webPath/seller/goods_spec_add.htm"><i></i>新增规格</a></li>
-          </ul>
-        </div>
-        <div class="add_usercenter">
-          <form action="$!webPath/seller/goods_spec_save.htm" method="post" enctype="multipart/form-data" name="theForm" id="theForm">
-            <input name="id" type="hidden" id="id"  value="$!obj.id"/>
-            <input name="count" type="hidden" id="count" />
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_base_table">
-              <tr>
-                <td align="right" width="80px"><strong class="redstr">*</strong>关联类目：</td>
-                <td >
-           
-                <select id="gc_id" name="gc_id"  class="user_base_select">
-                <option value="">请选择...</option>
-                #foreach($gc in $gcs)
-                 <option value="$!gc.id">$!gc.className</option>
-                #end
-                </select>
-             
-                <label>
-                
-               <span class="span_base"> <input type="checkbox" onclick="selectAllOverRead(this)"/>关联所有下级</span>
-                </label>
-                  </td>
-              </tr>
-             
-              <tr id="gc_detail" #if(!$!obj || $!obj.spec_goodsClass_detail.size()==0) style="display:none" #end>
-                <td align="right"><strong class="redstr"></strong>详细类目：</td>
-                <td >
-                
-                  <ul class="user_base_ul">
-                  #foreach($detail in $gc_details)
-                    <li>
-                    <label>
-                      <input id="" name="goodsClass_detail_ids" type="checkbox" value="$!detail.id" />
-                      <span>$!detail.className</span>
-                      </label>
-                      </li>
-                   #end 
-                  </ul>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td align="right"><strong class="redstr">*</strong>规格名称：</td>
-                #if(!$!obj.id)
-                <td ><input name="name" type="text" id="name"  value="$!obj.name" class="base_txt"/>
-                <td >$!obj.name</td>
-                #else
-                <td >$!obj.name</td>
-                #end
-                
-              </tr>
-              <tr>
-                <td align="right"><strong class="redstr">*</strong>规格序号：</td>
-                <td><input name="sequence" type="text" id="sequence"  value="$!obj.sequence" class="base_txt"/>
-                  <i class="base_i">请填写整数。</i></td>
-              </tr>
-              <tr style="display:none">
-                <td align="right">规格类型：</td>
-                <td><div class="spec_radio">
-                    <label>
-                      <input name="type" id="type1" type="radio" checked="checked" value="text"  onclick="img_spec('0')"/>
-                      文字 </label>
-                    <label >
-                      <input name="type" id="type2" type="radio" value="img" onclick="img_spec('1')"/>
-                      图片 </label>
-                  </div>
-                  <i class="base_i" style="margin-top:5px;">例如填写颜色规格时，可用对应的色彩图片来表现其各种颜色值</i></td>
-              </tr>
-            </table>
-            <div class="specification">
-              <h2>新增规格值</h2>
-              <div class="fshoptb2 ">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="fshop_table2">
-                  <tr id="goods_spec_">
-                    <th width="82"><span class="form_btna"><strong>排序</strong></span></th>
-                    <th width="271"><span class="form_btna"><strong>规格值</strong></span></th>
-                    <th width="558"><span class="form_btna"><strong><span id="goods_spec_property_img_" #if(!$!obj||$!obj.type=="text")style="display:none;"#end>规格图片</span></strong></span></th>
-                    <th  align="center">操作</th>
-                  </tr>
-                  #if($!obj)
-                  #foreach($info in $obj.properties)
-                  <tr id="goods_spec_property">
-                    <td width="82" ><span class="size70">
-                      <input name="sequence_$!velocityCount" type="text" id="sequence_$!velocityCount" value="$!info.sequence"/>
-                      <input name="id_$!velocityCount" type="hidden" id="id_$!velocityCount" value="$!info.id" />
-                      </span></td>
-                    <td ><span class="size200">
-                      <input name="value_$!velocityCount" type="text" id="value_$!velocityCount" value="$!info.value"/>
-                      </span></td>
-                    <td width="558" class="liul"><span class="size13" id="goods_spec_property_img_" #if(!$!obj||$!obj.type=="text")style="display:none;"#end >
-                      <input name="textfield_$!velocityCount" type="text" id="textfield_$!velocityCount" />
-                      </span><span class="filebtn" id="goods_spec_property_img_"  #if(!$!obj||$!obj.type=="text")style="display:none;"#end>
-                      <input name="button" type="button" id="button1" value=""/>
-                      </span> <span id="goods_spec_property_img_" style="float:left;" class="file" >
-                      <input  name="specImage_$!velocityCount" type="file" id="specImage_$!velocityCount" onchange="change_img(this);" size="30"/>
-                      </span>
-                       <span id="goods_spec_property_img_" class="seller_spec"  #if(!$!obj||$!obj.type=="text")style="display:none;"#end >
-                       #if($!info.specImage)
-                       <img id="image_$!velocityCount" name="image_$!velocityCount" src="$!imageWebServer/$!info.specImage.path/$!info.specImage.name" width="16" height="16"/>
-                       #else
-                        <img id="image_$!velocityCount" name="image_$!velocityCount" src="$!webPath/resources/style/common/images/transparent.gif" width="16" height="16"/>
-                       #end
-                       </span></td>
-                    <td width="116" align="center" class="hui oprate_con"><a href="javascript:void(0);" onclick="remove_goods_spec_property(this.parentNode.parentNode,'$!info.id')" class="blue">删除</a></td>
-                  </tr>
-                  #end
-                  #else
-                  <tr id="goods_spec_property">
-                    <td width="82"><span class="size70">
-                      <input name="sequence_1" type="text" id="sequence_1" value=""/>
-                      </span></td>
-                    <td width="271"><span class="size200">
-                      <input name="value_1" type="text" id="value_1" value=""/>
-                      </span></td>
-                    <td width="558" class="liul" ><span class="size13" id="goods_spec_property_img_"  style="display:none;">
-                      <input name="textfield_1" type="text" id="textfield_1" />
-                      </span> <span class="filebtn" id="goods_spec_property_img_"  style="display:none;">
-                      <input name="button" type="button" id="button1" value=""/>
-                      </span> <span style="float:left;" class="file" >
-                      <input name="specImage_1" type="file" id="specImage_1" size="30"  onchange="change_img(this);"/>
-                      </span> <span class="seller_spec" id="goods_spec_property_img_"  style="display:none;"><img id="image_1" name="image_1" src="$!webPath/resources/style/common/images/transparent.gif" width="16" height="16"/></span></td>
-                    <td width="116" align="center" class="hui oprate_con"><a href="javascript:void(0);" onclick="remove_goods_spec_property(this.parentNode.parentNode,'')" class="blue">删除</a></td>
-                  </tr>
-                  #end
-                  <tr>
-                  	<td>&nbsp;</td>
-                    <td colspan="2"><span class="newclass"><a href="javascript:void(0);" onclick="add_goods_spec_property();">新增规格值</a></span></td>
-                    <td>&nbsp;</td>
-                  </tr>
-                  <tr>
-                  	<td colspan="2">&nbsp;</td>
-                    <td><input name="" type="button" value="提交" onclick="saveForm();" style="cursor:pointer;" class="seller_save"/></td>
-                    <td>&nbsp;</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			$!httpInclude.include("/seller/nav.htm?op=goods_spec_list")
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>商品管理</b>
+						> <b>新增规格</b></span>
+				</div>
+				<div class="seller_list">
+					<div class="seller_list_title">
+						<ul class="seller_title_ul">
+							<li><a href="$!webPath/seller/goods_spec_list.htm"><i></i>规格列表</a></li>
+							<li class="this"><a
+								href="$!webPath/seller/goods_spec_add.htm"><i></i>新增规格</a></li>
+						</ul>
+					</div>
+					<div class="add_usercenter">
+						<form action="$!webPath/seller/goods_spec_save.htm" method="post"
+							enctype="multipart/form-data" name="theForm" id="theForm">
+							<input name="id" type="hidden" id="id" value="$!obj.id" /> <input
+								name="count" type="hidden" id="count" />
+							<table width="100%" border="0" cellspacing="0" cellpadding="0"
+								class="user_base_table">
+								<tr>
+									<td align="right" width="80px"><strong class="redstr">*</strong>关联类目：</td>
+									<td><select id="gc_id" name="gc_id"
+										class="user_base_select">
+											<option value="">请选择...</option> #foreach($gc in $gcs)
+											<option value="$!gc.id">$!gc.className</option> #end
+									</select> <label> <span class="span_base"> <input
+												type="checkbox" onclick="selectAllOverRead(this)" />关联所有下级
+										</span>
+									</label></td>
+								</tr>
+
+								<tr id="gc_detail"
+									#if(!$!obj || $!obj.spec_goodsClass_detail.size()==0)
+									style="display: none" #end>
+									<td align="right"><strong class="redstr"></strong>详细类目：</td>
+									<td>
+
+										<ul class="user_base_ul">
+											#foreach($detail in $gc_details)
+											<li><label> <input id=""
+													name="goodsClass_detail_ids" type="checkbox"
+													value="$!detail.id" /> <span>$!detail.className</span>
+											</label></li> #end
+										</ul>
+
+									</td>
+								</tr>
+								<tr>
+									<td align="right"><strong class="redstr">*</strong>规格名称：</td>
+									#if(!$!obj.id)
+									<td><input name="name" type="text" id="name"
+										value="$!obj.name" class="base_txt" />
+										<td>$!obj.name</td> #else
+										<td>$!obj.name</td> #end
+								</tr>
+								<tr>
+									<td align="right"><strong class="redstr">*</strong>规格序号：</td>
+									<td><input name="sequence" type="text" id="sequence"
+										value="$!obj.sequence" class="base_txt" /> <i class="base_i">请填写整数。</i></td>
+								</tr>
+								<tr style="display: none">
+									<td align="right">规格类型：</td>
+									<td><div class="spec_radio">
+											<label> <input name="type" id="type1" type="radio"
+												checked="checked" value="text" onclick="img_spec('0')" />
+												文字
+											</label> <label> <input name="type" id="type2" type="radio"
+												value="img" onclick="img_spec('1')" /> 图片
+											</label>
+										</div> <i class="base_i" style="margin-top: 5px;">例如填写颜色规格时，可用对应的色彩图片来表现其各种颜色值</i></td>
+								</tr>
+							</table>
+							<div class="specification">
+								<h2>新增规格值</h2>
+								<div class="fshoptb2 ">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0"
+										class="fshop_table2">
+										<tr id="goods_spec_">
+											<th width="82"><span class="form_btna"><strong>排序</strong></span></th>
+											<th width="271"><span class="form_btna"><strong>规格值</strong></span></th>
+											<th width="558"><span class="form_btna"><strong><span
+														id="goods_spec_property_img_" #if(!$!obj||$!obj.type==
+														"text")style="display: none;" #end>规格图片</span></strong></span></th>
+											<th align="center">操作</th>
+										</tr>
+										#if($!obj) #foreach($info in $obj.properties)
+										<tr id="goods_spec_property">
+											<td width="82"><span class="size70"> <input
+													name="sequence_$!velocityCount" type="text"
+													id="sequence_$!velocityCount" value="$!info.sequence" /> <input
+													name="id_$!velocityCount" type="hidden"
+													id="id_$!velocityCount" value="$!info.id" />
+											</span></td>
+											<td><span class="size200"> <input
+													name="value_$!velocityCount" type="text"
+													id="value_$!velocityCount" value="$!info.value" />
+											</span></td>
+											<td width="558" class="liul"><span class="size13"
+												id="goods_spec_property_img_" #if(!$!obj||$!obj.type==
+												"text")style="display: none;" #end> <input
+													name="textfield_$!velocityCount" type="text"
+													id="textfield_$!velocityCount" />
+											</span><span class="filebtn" id="goods_spec_property_img_"
+												#if(!$!obj||$!obj.type== "text")style="display: none;" #end>
+													<input name="button" type="button" id="button1" value="" />
+											</span> <span id="goods_spec_property_img_" style="float: left;"
+												class="file"> <input name="specImage_$!velocityCount"
+													type="file" id="specImage_$!velocityCount"
+													onchange="change_img(this);" size="30" />
+											</span> <span id="goods_spec_property_img_" class="seller_spec"
+												#if(!$!obj||$!obj.type== "text")style="display: none;" #end>
+													#if($!info.specImage) <img id="image_$!velocityCount"
+													name="image_$!velocityCount"
+													src="$!imageWebServer/$!info.specImage.path/$!info.specImage.name"
+													width="16" height="16" /> #else <img
+													id="image_$!velocityCount" name="image_$!velocityCount"
+													src="$!webPath/resources/style/common/images/transparent.gif"
+													width="16" height="16" /> #end
+											</span></td>
+											<td width="116" align="center" class="hui oprate_con"><a
+												href="javascript:void(0);"
+												onclick="remove_goods_spec_property(this.parentNode.parentNode,'$!info.id')"
+												class="blue">删除</a></td>
+										</tr>
+										#end #else
+										<tr id="goods_spec_property">
+											<td width="82"><span class="size70"> <input
+													name="sequence_1" type="text" id="sequence_1" value="" />
+											</span></td>
+											<td width="271"><span class="size200"> <input
+													name="value_1" type="text" id="value_1" value="" />
+											</span></td>
+											<td width="558" class="liul"><span class="size13"
+												id="goods_spec_property_img_" style="display: none;">
+													<input name="textfield_1" type="text" id="textfield_1" />
+											</span> <span class="filebtn" id="goods_spec_property_img_"
+												style="display: none;"> <input name="button"
+													type="button" id="button1" value="" />
+											</span> <span style="float: left;" class="file"> <input
+													name="specImage_1" type="file" id="specImage_1" size="30"
+													onchange="change_img(this);" />
+											</span> <span class="seller_spec" id="goods_spec_property_img_"
+												style="display: none;"><img id="image_1"
+													name="image_1"
+													src="$!webPath/resources/style/common/images/transparent.gif"
+													width="16" height="16" /></span></td>
+											<td width="116" align="center" class="hui oprate_con"><a
+												href="javascript:void(0);"
+												onclick="remove_goods_spec_property(this.parentNode.parentNode,'')"
+												class="blue">删除</a></td>
+										</tr>
+										#end
+										<tr>
+											<td>&nbsp;</td>
+											<td colspan="2"><span class="newclass"><a
+													href="javascript:void(0);"
+													onclick="add_goods_spec_property();">新增规格值</a></span></td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">&nbsp;</td>
+											<td><input name="" type="button" value="提交"
+												onclick="saveForm();" style="cursor: pointer;"
+												class="seller_save" /></td>
+											<td>&nbsp;</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

@@ -3,16 +3,9 @@
         "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
 <urlrewrite>
 	<!-- 二级域名处理，排除了www及顶级域名 -->
-	<!-- 
-	<rule>
-		<note>二级域名</note>
-		<condition type="server-name" operator="equal">
-			^(?!www)^([A-Za-z0-9])+\.koala\.net
-		</condition>
-		<from>^/index.htm$</from>
-		<to type="forward">/store.htm</to>
-	</rule>
-	 -->
+	<!-- <rule> <note>二级域名</note> <condition type="server-name" operator="equal"> 
+		^(?!www)^([A-Za-z0-9])+\.koala\.net </condition> <from>^/index.htm$</from> 
+		<to type="forward">/store.htm</to> </rule> -->
 	<rule>
 		<note>id参数文章管理</note>
 		<from>^/article_([0-9]+).htm$</from>

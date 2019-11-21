@@ -1,9 +1,5 @@
 package com.metoo.foundation.test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class TestComposite {
 	public static void main(String[] args) {
 		// 一维字符串数组

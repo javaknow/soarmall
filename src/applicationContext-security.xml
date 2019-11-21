@@ -14,7 +14,7 @@
 		class="org.springframework.security.concurrent.SessionRegistryImpl" />
 	<global-method-security secured-annotations="enabled">
 	</global-method-security>
-	
+
 	<http auto-config="false" entry-point-ref="loginUrlEntryPoint">
 		<!--不用Filter去处理的url -->
 		<intercept-url pattern="/login.htm*" filters="none" />
@@ -30,7 +30,7 @@
 			exception-if-maximum-exceeded="false" expired-url="/outline.htm"
 			session-registry-alias="sessionRegistry" />
 	</http>
-	
+
 	<authentication-manager alias="authenticationManager" />
 
 	<beans:bean id="shopAuthenticationProvider"

@@ -41,30 +41,36 @@ jQuery("#acc").change(function(){
 });
 </script>
 
-<form action="$!webPath/seller/store_slide_save.htm" method="post" id="theForm">
-  <div class="seller_banner_edit">
-    <!-- banner 上传弹出 -->
-    <div class="enjoy_bg_center_c">
-      <div class="enjoy_bg_center_top_word">
-        <div class="enjoy_bg_center_img_p">请选择上传的图片：</div>
-        <span class="water_upload"> <b class="opacity_txt">
-        <input name="acc_path" type="text" id="acc_path" readonly />
-        </b> <b class="opacity_submit">
-        <input name="" type="button" value="浏览..." />
-        </b> <b class="opacity_up">
-        <input name="acc" type="file"  size="32" id="acc"/>
-        </b> </span>
-        <div class="enjoy_bg_center_img_p_error"> </div>
-      </div>
-      <div class="enjoy_bg_center_top_word">
-        <div class="enjoy_bg_center_img_p">请选择图片的URL：</div>
-        <span class="water_upload"> <b class="opacity_txt">
-        <input name="acc_url" type="text" style="width:240px;" id="acc_url"/>
-        </b> </span>
-        <div class="enjoy_bg_center_img_p_error"> </div>
-      </div>
-      <div class="enjoy_b"><a href="javascript:void(0);" onclick="jQuery('#theForm').submit();" id="save">确定</a></div>
-    </div>
-    <div class="enjoy_bg_input"></div>
-  </div>
+<form action="$!webPath/seller/store_slide_save.htm" method="post"
+	id="theForm">
+	<div class="seller_banner_edit">
+		<!-- banner 上传弹出 -->
+		<div class="enjoy_bg_center_c">
+			<div class="enjoy_bg_center_top_word">
+				<div class="enjoy_bg_center_img_p">请选择上传的图片：</div>
+				<span class="water_upload"> <b class="opacity_txt"> <input
+						name="acc_path" type="text" id="acc_path" readonly />
+				</b> <b class="opacity_submit"> <input name="" type="button"
+						value="浏览..." />
+				</b> <b class="opacity_up"> <input name="acc" type="file" size="32"
+						id="acc" />
+				</b>
+				</span>
+				<div class="enjoy_bg_center_img_p_error"></div>
+			</div>
+			<div class="enjoy_bg_center_top_word">
+				<div class="enjoy_bg_center_img_p">请选择图片的URL：</div>
+				<span class="water_upload"> <b class="opacity_txt"> <input
+						name="acc_url" type="text" style="width: 240px;" id="acc_url" />
+				</b>
+				</span>
+				<div class="enjoy_bg_center_img_p_error"></div>
+			</div>
+			<div class="enjoy_b">
+				<a href="javascript:void(0);" onclick="jQuery('#theForm').submit();"
+					id="save">确定</a>
+			</div>
+		</div>
+		<div class="enjoy_bg_input"></div>
+	</div>
 </form>

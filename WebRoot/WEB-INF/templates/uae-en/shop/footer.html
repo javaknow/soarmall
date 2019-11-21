@@ -18,10 +18,10 @@ jQuery(document).ready(function(){
     });
 });
 </script>
-  <div class="footer">
-  		<!-- 友情链接 -->
-	  <div class="shopping"> 
-	  <!-- <div class="shopping_box">
+<div class="footer">
+	<!-- 友情链接 -->
+	<div class="shopping">
+		<!-- <div class="shopping_box">
 	  	#foreach($ac in $acs)
 	    <div class="shopone">
 	      <h3>$!ac.className</h3>
@@ -53,9 +53,9 @@ jQuery(document).ready(function(){
 	     <div class="shopping">
 	    <p class="footer_xb"><img src="$!webPath/resources/style/common/images/xiangbiao1.png"></p>
 	     </div> -->
-	   </div>
-  		
-		<!-- bottom -->
+	</div>
+
+	<!-- bottom -->
 	<!-- 	<div class="bottom_footer">
 		    <ul>
 		      #set($navs=$!navTools.queryNav(1,-1))
@@ -74,11 +74,13 @@ jQuery(document).ready(function(){
 		      <li>$!config.codeStat</li>
 		    </ul>
 	    </div> -->
-  </div>
-  
+</div>
+
 <!--返回最顶部-->
-<div id="back_box" style="position:fixed;z-index:999;width:40px;top:50%;height:118px; float:left; right:0; display:none; bottom:150px; _position:absolute;/*兼容IE6的代码*/
-_bottom:auto;/*兼容IE6的代码*/
-_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));">
-  <div class="back_top"><a id="toTop" href="#" bosszone="hometop" style="display: block;"  title="return to the top" target="_self" ></a></div>
+<div id="back_box"
+	style="position: fixed; z-index: 999; width: 40px; top: 50%; height: 118px; float: left; right: 0; display: none; bottom: 150px; _position: absolute; /*兼容IE6的代码*/ _bottom: auto; /*兼容IE6的代码*/ _top: expression(eval(document.documentElement.scrollTop + document.documentElement.clientHeight-this.offsetHeight- ( parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));">
+	<div class="back_top">
+		<a id="toTop" href="#" bosszone="hometop" style="display: block;"
+			title="return to the top" target="_self"></a>
+	</div>
 </div>

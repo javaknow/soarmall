@@ -7,15 +7,20 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/seller_apply.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script src="$!webPath/resources/js/ajaxfileupload.js" charset="utf-8"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/seller_apply.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+		<script src="$!webPath/resources/js/ajaxfileupload.js" charset="utf-8"></script>
+		<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+		<script>
 var tax_reg_photo_count=0;
 var tax_general_photo_count=0;
 var bank_permit_photo_count=0;
@@ -164,29 +169,49 @@ function image_del(mark){
 </script>
 </head>
 <body>
-$!httpInclude.include("$!webPath/top.htm")
-<div class="head">
-  <h1 class="logo" title=""> #if($!config.websiteLogo) <a href="$!webPath/koala_logout.htm"><img src="$!imageWebServer/$!config.websiteLogo.path/$!config.websiteLogo.name" border="0" width="209" height="70"/></a> #else <a href="$!webPath/index.htm"><img src="$!webPath/resources/style/system/front/default/images/logo.jpg" width="209" height="70"/> </a> #end </h1>
- <!--  <span class="head_into">商家入驻</span> <a href="$!webPath/doc.htm?mark=apply_help" target="_blank" class="head_help">入驻帮助</a> --> </div>
-<div class="nav_into">
-  <ul>
-    <li><a href="javascript:void(0)" onclick="backwards(1)">入驻协议</a></li>
-    <li><a href="javascript:void(0)" class="this">公司信息提交</a></li>
-    <li><a href="javascript:void(0)">店铺信息提交</a></li>
-    <li><a href="javascript:void(0)">审核日志查询</a></li>
-  </ul>
-</div>
-<div class="main">
-  <div class="settled_box">
-    <h3>
-      <div class="settled_step"><span><em class="setstep_light_blue"></em><b class="strong_light_two"></b><strong class="strong_blue">入驻须知</strong></span><span><em class="setstep_strong_blue"></em><b class="strong_blue_two"></b><strong class="strong_blue">公司信息认证</strong></span><span><em class="setstep_grey"></em><b class="strong_grey_three"></b><strong class="grey">店铺信息认证</strong></span><span><em class="setstep_grey"></em><b class="strong_grey_four"></b><strong class="grey">等待审核</strong></span></div>
-      <span class="settled_title">公司信息提交</span></h3>
-    <div class="settled_white">
-    <form action="$!webPath/seller_apply_step4_save.htm" method="post" id="theForm">
-      <div class="settled_white_box">
-        <div class="settled_warning"><span>以下所需要上传电子版资质仅支持JPG、GIF、PNG格式的图片，大小不超过1M。</span></div>
-        <input name="step" type="hidden" id="step" value="5" />
-      <!--   <div class="settled_form">
+	$!httpInclude.include("$!webPath/top.htm")
+	<div class="head">
+		<h1 class="logo" title="">
+			#if($!config.websiteLogo) <a href="$!webPath/koala_logout.htm"><img
+				src="$!imageWebServer/$!config.websiteLogo.path/$!config.websiteLogo.name"
+				border="0" width="209" height="70" /></a> #else <a
+				href="$!webPath/index.htm"><img
+				src="$!webPath/resources/style/system/front/default/images/logo.jpg"
+				width="209" height="70" /> </a> #end
+		</h1>
+		<!--  <span class="head_into">商家入驻</span> <a href="$!webPath/doc.htm?mark=apply_help" target="_blank" class="head_help">入驻帮助</a> -->
+	</div>
+	<div class="nav_into">
+		<ul>
+			<li><a href="javascript:void(0)" onclick="backwards(1)">入驻协议</a></li>
+			<li><a href="javascript:void(0)" class="this">公司信息提交</a></li>
+			<li><a href="javascript:void(0)">店铺信息提交</a></li>
+			<li><a href="javascript:void(0)">审核日志查询</a></li>
+		</ul>
+	</div>
+	<div class="main">
+		<div class="settled_box">
+			<h3>
+				<div class="settled_step">
+					<span><em class="setstep_light_blue"></em><b
+						class="strong_light_two"></b><strong class="strong_blue">入驻须知</strong></span><span><em
+						class="setstep_strong_blue"></em><b class="strong_blue_two"></b><strong
+						class="strong_blue">公司信息认证</strong></span><span><em
+						class="setstep_grey"></em><b class="strong_grey_three"></b><strong
+						class="grey">店铺信息认证</strong></span><span><em class="setstep_grey"></em><b
+						class="strong_grey_four"></b><strong class="grey">等待审核</strong></span>
+				</div>
+				<span class="settled_title">公司信息提交</span>
+			</h3>
+			<div class="settled_white">
+				<form action="$!webPath/seller_apply_step4_save.htm" method="post"
+					id="theForm">
+					<div class="settled_white_box">
+						<div class="settled_warning">
+							<span>以下所需要上传电子版资质仅支持JPG、GIF、PNG格式的图片，大小不超过1M。</span>
+						</div>
+						<input name="step" type="hidden" id="step" value="5" />
+						<!--   <div class="settled_form">
           <h4>税务登记证<b></b></h4>
           <table width="630" border="0" cellpadding="0" cellspacing="0" class="settled_table">
             <tr>
@@ -262,30 +287,39 @@ $!httpInclude.include("$!webPath/top.htm")
             </tr>
           </table>
           <span class="license"><b><a href="$!webPath/resources/style/system/front/default/images/3.jpg" target="_blank"><em><img src="$!webPath/resources/style/system/front/default/images/3.jpg" width="310" height="220"/></em>查看大图</a></b></span> </div> -->
-        <div class="settled_form">
-          <h4>开户银行许可证<b></b></h4>
-          <table width="630" border="0" cellpadding="0" cellspacing="0" class="settled_table">
-            <tr>
-              <td align="right" width="150" valign="top"><span class="sred_span">银行开户名：</span><strong class="sred">*</strong></td>
-              <td><input name="bank_account_name" type="text"  class="size200" id="bank_account_name" value="$!store.bank_account_name"/>
-                <b class="settedtab_b"></b></td>
-            </tr>
-          <!--   <tr>
+						<div class="settled_form">
+							<h4>
+								开户银行许可证<b></b>
+							</h4>
+							<table width="630" border="0" cellpadding="0" cellspacing="0"
+								class="settled_table">
+								<tr>
+									<td align="right" width="150" valign="top"><span
+										class="sred_span">银行开户名：</span><strong class="sred">*</strong></td>
+									<td><input name="bank_account_name" type="text"
+										class="size200" id="bank_account_name"
+										value="$!store.bank_account_name" /> <b class="settedtab_b"></b></td>
+								</tr>
+								<!--   <tr>
               <td align="right" width="150" valign="top"><span class="sred_span">公司银行账号：</span><strong class="sred">*</strong></td>
               <td><input name="bank_c_account" type="text"  class="size200" id="bank_c_account" value="$!store.bank_c_account"/>
                 <b class="settedtab_b"></b></td>
             </tr> -->
-            <tr>
-              <td align="right" width="150" valign="top"><span class="sred_span">开户银行支行名称：</span><strong class="sred">*</strong></td>
-              <td><input name="bank_name" type="text"  class="size200" id="bank_name" value="$!store.bank_name"/>
-                <b class="settedtab_b"></b></td>
-            </tr>
-           <tr>
-              <td align="right" width="150" valign="top"><span class="sred_span">对公账户：</span><strong class="sred">*</strong></td>
-              <td><input name="bank_line_num" type="text"  class="size200" id="bank_line_num" value="$!store.bank_line_num"/>
-                <b class="settedtab_b"></b></td>
-            </tr>
-            <!-- <tr>
+								<tr>
+									<td align="right" width="150" valign="top"><span
+										class="sred_span">开户银行支行名称：</span><strong class="sred">*</strong></td>
+									<td><input name="bank_name" type="text" class="size200"
+										id="bank_name" value="$!store.bank_name" /> <b
+										class="settedtab_b"></b></td>
+								</tr>
+								<tr>
+									<td align="right" width="150" valign="top"><span
+										class="sred_span">对公账户：</span><strong class="sred">*</strong></td>
+									<td><input name="bank_line_num" type="text"
+										class="size200" id="bank_line_num"
+										value="$!store.bank_line_num" /> <b class="settedtab_b"></b></td>
+								</tr>
+								<!-- <tr>
               <td align="right" width="150" valign="top"><span class="sred_span">开户银行支行所在地：</span><strong class="sred">*</strong></td>
               <td>
               	#if($!store.bank_area)
@@ -335,36 +369,46 @@ $!httpInclude.include("$!webPath/top.htm")
                 #end
               </td>
             </tr> -->
-            <tr>
-              <td align="right" width="160" valign="top"><span class="sred_span">银行开户许可证电子版：</span><strong class="sred">*</strong></td>
-              <td>
-              	<span class="setable_img3" #if(!$!store.bank_permit_image)style="display:none"#end>
-                	<span id="bank_permit_name"></span>
-                    <b class="setable_b">
-                        <a href="$!imageWebServer/$!store.bank_permit_image.path/$!store.bank_permit_image.name" id="bank_permit_show" target="_blank">
-                        <img src="$!imageWebServer/$!store.bank_permit_image.path/$!store.bank_permit_image.name" width="100" height="60" id="bank_permit_img" />
-                        查看</a>
-                        |<a href="javascript:void(0);" onclick="image_del('bank_permit')" id="bank_permit_del">删除</a>
-                    </b>
-                </span>
-                
-                <span class="upload_button">
-                <span class="upload_button_up"><input style="cursor:pointer;" name="bank_permit_img_a" id="bank_permit_img_a"  mark="bank_permit" type="file" /></span>
-                <span class="upload_button_b"><a href=""><img src="$!webPath/resources/style/system/front/default/images/upload.png" /></a></span>
-                </span>
-                <b class="settedtab_b"><img style="display:none" id="bank_permit_wait" src="$!wenPath/resources/style/system/manage/blue/images/photo/loader.gif" /></b>
-                 <span>
-                <input type="hidden" value="$!store.bank_permit_image.id" name="bank_permit" id="bank_permit"/><b class="settedtab_b"></b>	
-                </span>				
-              </td>
-            </tr>
-          </table>
-          <!-- <span class="license"><b><a href="$!webPath/resources/style/system/front/default/images/4.jpg" target="_blank"><em><img src="$!webPath/resources/style/system/front/default/images/4.jpg" width="310" height="220"/></em>查看大图</a></b></span> --> </div>
-      </div>
-      <div class="settled_bottom"><span><a href="javascript:void(0)" class="up_step_btn" onclick="backwards(3)">上一步</a><a onclick="saveForm()" href="javascript:void(0)" class="settled_btn"><b><em>下一步，完善店铺信息</em></b></a></span></div>
-     </form>
-    </div>
-  </div>
-</div>
+								<tr>
+									<td align="right" width="160" valign="top"><span
+										class="sred_span">银行开户许可证电子版：</span><strong class="sred">*</strong></td>
+									<td><span class="setable_img3"
+										#if(!$!store.bank_permit_image)style="display: none" #end>
+											<span id="bank_permit_name"></span> <b class="setable_b">
+												<a
+												href="$!imageWebServer/$!store.bank_permit_image.path/$!store.bank_permit_image.name"
+												id="bank_permit_show" target="_blank"> <img
+													src="$!imageWebServer/$!store.bank_permit_image.path/$!store.bank_permit_image.name"
+													width="100" height="60" id="bank_permit_img" /> 查看
+											</a> |<a href="javascript:void(0);"
+												onclick="image_del('bank_permit')" id="bank_permit_del">删除</a>
+										</b>
+									</span> <span class="upload_button"> <span
+											class="upload_button_up"><input
+												style="cursor: pointer;" name="bank_permit_img_a"
+												id="bank_permit_img_a" mark="bank_permit" type="file" /></span> <span
+											class="upload_button_b"><a href=""><img
+													src="$!webPath/resources/style/system/front/default/images/upload.png" /></a></span>
+									</span> <b class="settedtab_b"><img style="display: none"
+											id="bank_permit_wait"
+											src="$!wenPath/resources/style/system/manage/blue/images/photo/loader.gif" /></b>
+										<span> <input type="hidden"
+											value="$!store.bank_permit_image.id" name="bank_permit"
+											id="bank_permit" /><b class="settedtab_b"></b>
+									</span></td>
+								</tr>
+							</table>
+							<!-- <span class="license"><b><a href="$!webPath/resources/style/system/front/default/images/4.jpg" target="_blank"><em><img src="$!webPath/resources/style/system/front/default/images/4.jpg" width="310" height="220"/></em>查看大图</a></b></span> -->
+						</div>
+					</div>
+					<div class="settled_bottom">
+						<span><a href="javascript:void(0)" class="up_step_btn"
+							onclick="backwards(3)">上一步</a><a onclick="saveForm()"
+							href="javascript:void(0)" class="settled_btn"><b><em>下一步，完善店铺信息</em></b></a></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

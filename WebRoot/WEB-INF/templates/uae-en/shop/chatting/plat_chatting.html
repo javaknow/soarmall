@@ -7,15 +7,19 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/im/css/im.css" rel="stylesheet" type="text/css" />
-<link href="$!webPath/resources/style/common/css/jquery.bigcolorpicker.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
-<script src="$!webPath/resources/js/jquery.bigcolorpicker.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link href="$!webPath/resources/style/im/css/im.css" rel="stylesheet"
+			type="text/css" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery.bigcolorpicker.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
+		<script src="$!webPath/resources/js/jquery.bigcolorpicker.js"></script>
+		<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+		<script>
 var uid="";
 jQuery(document).ready(function(){
 jQuery("#font_colour").bigColorpicker(function(el,color){
@@ -284,179 +288,209 @@ function ajaxPage(url,currentPage,obj){
 		})
   } 
 </script>
-<script>
+		<script>
     jQuery(document).keyup(function(e){
         var key =  e.which;
 		if(key==13){
 			send_Message();
 			}
     });
-</script>	
+</script>
 </head>
 <body>
-<div class="im_wrap">
+	<div class="im_wrap">
 
-  <!--im-头部-->
-  <div class="im_head">
-    <div class="im_head_box">
-      <div class="im_head_left"> <span class="im_portrait">
-      <img src="$!webPath/resources/style/im/images/im_portrait.png" width="52" height="52"/>
-      </span> <span class="im_name">当前没有联系人</span> </div>
-      <div class="im_head_right">  </div>
-    </div>
-  </div>
-  <!--im-主体-->
-  <div class="im_main">
-    <div class="im_main_box">
-      <!--im-主体-左侧-->
-      <div class="im_main_left" style=" margin-right:310px;">
-        <div class="im_chat_list" id="div_log">
-        <ul></ul>
-        </div>
-	    <div class="im_chat_list img_chat_img" id="div_history" style=" display:none"> 
+		<!--im-头部-->
+		<div class="im_head">
+			<div class="im_head_box">
+				<div class="im_head_left">
+					<span class="im_portrait"> <img
+						src="$!webPath/resources/style/im/images/im_portrait.png"
+						width="52" height="52" />
+					</span> <span class="im_name">当前没有联系人</span>
+				</div>
+				<div class="im_head_right"></div>
+			</div>
 		</div>
-        <!--im-主体-输入框-->
-        <div class="im_edit">
-          <div class="im_edit_h1">
-            <ul>
-              <li><a href="javascript:void(0);"><img src="$!webPath/resources/style/im/images/im_edit_01.png" width="33" height="29" id="chatting_font" mark="font" /></a>
-                <!--字体弹出层-->
-                <div class="im_font_tier" style="display:none;" mark="chatting_font">
-                  <select class="im_family" id="font">
-                    <option value="宋体">宋体</option>
-                    <option value="黑体">黑体</option>
-                    <option value="微软雅黑">微软雅黑</option>
-                    <option value="楷体">楷体</option>
-                  </select>
-                  <select class="im_size" id="font_size">
-                    <option value="12">12</option>
-                    <option value="14">14</option>
-                    <option value="16">16</option>
-                    <option value="18">18</option>
-                    <option value="20">20</option>
-                    <option value="22">22</option>
-                    <option value="24">24</option>
-                    <option value="26">26</option>
-                    <option value="28">28</option>
-                    <option value="30">30</option>
-                  </select>
-                 <span class="im_color">字体颜色：<input name="font_colour" type="text" id="font_colour" value="$!chattingConfig.font_colour" style="cursor:pointer" readonly="readonly"/></span> </div>
-              </li>
-              <li><a href="javascript:void(0);"><img src="$!webPath/resources/style/im/images/im_edit_02.png" width="33" height="29" id="chatting_emo" mark="emo" /></a> 
-              <!--表情弹出层-->
-              <div class="im_satis_tier" style="display:none" mark="chatting_emo">
-              	<ul class="im_emo_ul">
-                #foreach($count in [1..98])
-                	<li><a href="javascript:void(0);"><img src="$!webPath/resources/style/im/images/emo/$!{count}.gif" emoNum="$!{count}"/></a></li>
-               	#end
-                </ul>
-              </div>
-              </li>
-              
-              <li><a href="javascript:void(0);" title="图片上传" class="file_img_a"><img src="$!webPath/resources/style/im/images/im_edit_03.png" width="33" height="29" id="chatting_img" mark="img"/><input  name="image" id="image" value=""  type="file" class="file_img_upload"/></a></li>
-              <li><a href="javascript:void(0);" title="聊天记录"><img src="$!webPath/resources/style/im/images/im_edit_06.png" width="33" height="29" id="chatting_history" mark="history"/></a></li>
-              <li><a href="javascript:void(0);"><i><img src="$!webPath/resources/style/im/images/im_edit_07.png" id="chatting_set" mark="set"  /></i></a>
-                <!--满意度弹出层-->
-                <div class="im_satis_tier" mark="chatting_set" style=" display:none">
-                  <div class="im_choose">
-                  <span class="im_satis_span">客服名称：</span>
-                  <span class="im_satis_span_ta"> <input class="im_input220" id="kf_name" name="kf_name" type="text" value="$!chattingConfig.kf_name" /></span>
-                  </div>
-                  <div class="im_satis_textarea">
-                  <span class="im_satis_span">自动回复：</span>
-                  <span class="im_satis_span_ta"><textarea placeholder="可编辑自动回复信息" style="resize: none;" id="quick_reply_content" name="quick_reply_content">$!chattingConfig.quick_reply_content</textarea></span>
-                  </div>
-                  <div class="im_statis_sub">
-                    <input onclick="set_chatting()" type="button" value="提 交" />
-                     </div>
-                </div>
-              </li>
-              #if($!chattingConfig.quick_reply_open==0)
-              <li mark="relpy_open"><a href="javascript:void(0);"><i class="im_off"><img src="$!webPath/resources/style/im/images/im_off.png" mark="1"/></i><b>自动回复</b></a>
-              </li>  
-              #else
-                 <li mark="relpy_open"><a href="javascript:void(0);"><i class="im_off"><img src="$!webPath/resources/style/im/images/im_on.png" mark="0"/></i><b>自动回复</b></a>
-              </li>  
-			  #end
-            </ul>
-          </div>
-          <div class="im_textarea_box">
-          	<div class="im_textarea" style="overflow:auto;">
-            <div id="content" style="width:100%; height:100%;font-size:$!{chattingConfig.font_size}px; color:$!{chattingConfig.font_colour};font-family:$!{chattingConfig.font};" contenteditable="true"></div>
-            </div>
-          </div>
-          <div class="im_area_btn">
-           <a class="im_save" href="javascript:void(0);" onclick="send_Message()">发 送</a> 
-            <a class="im_over" href="javascript:void(0);"  onclick="if(confirm('是否要关闭聊天窗口？'))window.close();">结束对话</a>
-            <span class="im_limit">还可以输入<b>360</b>字</span> </div>
-        </div>
-      </div>
-      <!--im-主体-右侧-->
-      <!--im-主体-商家右侧-->
-            <div class="im_main_right im_main_seller" style=" width:300px;">
-            	<div class="im_tab">
-                	<ul>
-                    	<li class="this" mark="0"><a href="javascript:void(0);">全部联系人</a></li>
-                    </ul>
-                </div>
-                  <div class="im_right_detail" style=" width:100%;">
-                <div style="height:65%; overflow:auto;">
-                	<div class="im_seller_list">
-                    	<ul>
-                                  <!--未读信息-->
-                           #foreach($chatt in $chattings)
-                           #set($new=0)
-                           #foreach($log in $logs)
-                           #if(${log.chatting.id}==$!{chatt.id})
-                           #set($new=$!{new} + 1)
-                           #end
-                           #end
-                            <li cid="$!chatt.id">
-                            	<div style="width:87%; float:left;" onclick="open_new_chatting(this)" cid="$!chatt.id" status="false">
-                                <span><a href="javascript:void(0);">$!CommUtil.substring("$!chatt.user_name",15)</a></span>
-                                #if($!{new}>0)
-                                <script type="">
+		<!--im-主体-->
+		<div class="im_main">
+			<div class="im_main_box">
+				<!--im-主体-左侧-->
+				<div class="im_main_left" style="margin-right: 310px;">
+					<div class="im_chat_list" id="div_log">
+						<ul></ul>
+					</div>
+					<div class="im_chat_list img_chat_img" id="div_history"
+						style="display: none"></div>
+					<!--im-主体-输入框-->
+					<div class="im_edit">
+						<div class="im_edit_h1">
+							<ul>
+								<li><a href="javascript:void(0);"><img
+										src="$!webPath/resources/style/im/images/im_edit_01.png"
+										width="33" height="29" id="chatting_font" mark="font" /></a> <!--字体弹出层-->
+									<div class="im_font_tier" style="display: none;"
+										mark="chatting_font">
+										<select class="im_family" id="font">
+											<option value="宋体">宋体</option>
+											<option value="黑体">黑体</option>
+											<option value="微软雅黑">微软雅黑</option>
+											<option value="楷体">楷体</option>
+										</select> <select class="im_size" id="font_size">
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+											<option value="18">18</option>
+											<option value="20">20</option>
+											<option value="22">22</option>
+											<option value="24">24</option>
+											<option value="26">26</option>
+											<option value="28">28</option>
+											<option value="30">30</option>
+										</select> <span class="im_color">字体颜色：<input name="font_colour"
+											type="text" id="font_colour"
+											value="$!chattingConfig.font_colour" style="cursor: pointer"
+											readonly="readonly" /></span>
+									</div></li>
+								<li><a href="javascript:void(0);"><img
+										src="$!webPath/resources/style/im/images/im_edit_02.png"
+										width="33" height="29" id="chatting_emo" mark="emo" /></a> <!--表情弹出层-->
+									<div class="im_satis_tier" style="display: none"
+										mark="chatting_emo">
+										<ul class="im_emo_ul">
+											#foreach($count in [1..98])
+											<li><a href="javascript:void(0);"><img
+													src="$!webPath/resources/style/im/images/emo/$!{count}.gif"
+													emoNum="$!{count}" /></a></li> #end
+										</ul>
+									</div></li>
+
+								<li><a href="javascript:void(0);" title="图片上传"
+									class="file_img_a"><img
+										src="$!webPath/resources/style/im/images/im_edit_03.png"
+										width="33" height="29" id="chatting_img" mark="img" /><input
+										name="image" id="image" value="" type="file"
+										class="file_img_upload" /></a></li>
+								<li><a href="javascript:void(0);" title="聊天记录"><img
+										src="$!webPath/resources/style/im/images/im_edit_06.png"
+										width="33" height="29" id="chatting_history" mark="history" /></a></li>
+								<li><a href="javascript:void(0);"><i><img
+											src="$!webPath/resources/style/im/images/im_edit_07.png"
+											id="chatting_set" mark="set" /></i></a> <!--满意度弹出层-->
+									<div class="im_satis_tier" mark="chatting_set"
+										style="display: none">
+										<div class="im_choose">
+											<span class="im_satis_span">客服名称：</span> <span
+												class="im_satis_span_ta"> <input class="im_input220"
+												id="kf_name" name="kf_name" type="text"
+												value="$!chattingConfig.kf_name" /></span>
+										</div>
+										<div class="im_satis_textarea">
+											<span class="im_satis_span">自动回复：</span> <span
+												class="im_satis_span_ta"><textarea
+													placeholder="可编辑自动回复信息" style="resize: none;"
+													id="quick_reply_content" name="quick_reply_content">$!chattingConfig.quick_reply_content</textarea></span>
+										</div>
+										<div class="im_statis_sub">
+											<input onclick="set_chatting()" type="button" value="提 交" />
+										</div>
+									</div></li> #if($!chattingConfig.quick_reply_open==0)
+								<li mark="relpy_open"><a href="javascript:void(0);"><i
+										class="im_off"><img
+											src="$!webPath/resources/style/im/images/im_off.png" mark="1" /></i><b>自动回复</b></a>
+								</li> #else
+								<li mark="relpy_open"><a href="javascript:void(0);"><i
+										class="im_off"><img
+											src="$!webPath/resources/style/im/images/im_on.png" mark="0" /></i><b>自动回复</b></a>
+								</li> #end
+							</ul>
+						</div>
+						<div class="im_textarea_box">
+							<div class="im_textarea" style="overflow: auto;">
+								<div id="content"
+									style="width: 100%; height: 100%; font-size: $!{chattingConfig.font_size"
+									contenteditable="true"></div>
+							</div>
+						</div>
+						<div class="im_area_btn">
+							<a class="im_save" href="javascript:void(0);"
+								onclick="send_Message()">发 送</a> <a class="im_over"
+								href="javascript:void(0);"
+								onclick="if(confirm('是否要关闭聊天窗口？'))window.close();">结束对话</a> <span
+								class="im_limit">还可以输入<b>360</b>字
+							</span>
+						</div>
+					</div>
+				</div>
+				<!--im-主体-右侧-->
+				<!--im-主体-商家右侧-->
+				<div class="im_main_right im_main_seller" style="width: 300px;">
+					<div class="im_tab">
+						<ul>
+							<li class="this" mark="0"><a href="javascript:void(0);">全部联系人</a></li>
+						</ul>
+					</div>
+					<div class="im_right_detail" style="width: 100%;">
+						<div style="height: 65%; overflow: auto;">
+							<div class="im_seller_list">
+								<ul>
+									<!--未读信息-->
+									#foreach($chatt in $chattings) #set($new=0) #foreach($log in
+									$logs) #if(${log.chatting.id}==$!{chatt.id}) #set($new=$!{new}
+									+ 1) #end #end
+									<li cid="$!chatt.id">
+										<div style="width: 87%; float: left;"
+											onclick="open_new_chatting(this)" cid="$!chatt.id"
+											status="false">
+											<span><a href="javascript:void(0);">$!CommUtil.substring("$!chatt.user_name",15)</a></span>
+											#if($!{new}>0)
+											<script type="">
 								console.log("$!{new}")
 							</script>
-                                <span class="im_seller_horn" mark="notthis"><img src="$!webPath/resources/style/im/images/im_horn.gif" /></span>
-                                #end
-                                <span class="im_seller_horn" mark="this" style="display:none"><img src="$!webPath/resources/style/im/images/im_this.png" /></span>
-                                </div>
-                                <span class="im_seller_close"><a href="javascript:void(0);"><img mark="close" chatting_id="$!chatt.id" src="$!webPath/resources/style/im/images/im_close.gif" width="23" height="17" /></a></span>
-                            </li>
-              				#end
-                        </ul>
-                    </div>
-                </div>
-                <div class="im_right_goods">
-                    	<h1>最近咨询商品</h1>
-                        <table width="100%">
-                        	<tr>
-                          <td width="100%" align="center">最近没有咨询的商品！</td>
-                            </tr>
-                        </table>
-                    </div>
-                    </div>
-           	
-            <input id="chatt_id" name="chatt_id" value="" type="hidden"/>
-    </div>
-  </div>
-</div>
+											<span class="im_seller_horn" mark="notthis"><img
+												src="$!webPath/resources/style/im/images/im_horn.gif" /></span>
+											#end <span class="im_seller_horn" mark="this"
+												style="display: none"><img
+												src="$!webPath/resources/style/im/images/im_this.png" /></span>
+										</div> <span class="im_seller_close"><a
+											href="javascript:void(0);"><img mark="close"
+												chatting_id="$!chatt.id"
+												src="$!webPath/resources/style/im/images/im_close.gif"
+												width="23" height="17" /></a></span>
+									</li> #end
+								</ul>
+							</div>
+						</div>
+						<div class="im_right_goods">
+							<h1>最近咨询商品</h1>
+							<table width="100%">
+								<tr>
+									<td width="100%" align="center">最近没有咨询的商品！</td>
+								</tr>
+							</table>
+						</div>
+					</div>
 
-<div class="white_content_opa" style="display:none" ></div>
-<div class="white_content_im" style="display:none">
-	<a class="white_close" href="javascript:void(0);" onclick="jQuery('.white_content_im,.white_content_opa').fadeOut();"></a>
-    <div class="white_box_im">
-    	<table width="100%" height="100%">
-        	<tbody>
-            	<tr>
-                	<td valign="middle"></td>
-                </tr>
-        	</tbody>
-        </table>
-    </div>
-</div> 
-<div id="div_session" session="true" style="display:none"></div>   
+					<input id="chatt_id" name="chatt_id" value="" type="hidden" />
+				</div>
+			</div>
+		</div>
+
+		<div class="white_content_opa" style="display: none"></div>
+		<div class="white_content_im" style="display: none">
+			<a class="white_close" href="javascript:void(0);"
+				onclick="jQuery('.white_content_im,.white_content_opa').fadeOut();"></a>
+			<div class="white_box_im">
+				<table width="100%" height="100%">
+					<tbody>
+						<tr>
+							<td valign="middle"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="div_session" session="true" style="display: none"></div>
 </body>
 </body>
 </html>

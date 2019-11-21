@@ -104,8 +104,6 @@ public class GoodsTypeManageAction {
 				this.userConfigService.getUserConfig(), 0, request, response);
 		GoodsTypeQueryObject qo = new GoodsTypeQueryObject(currentPage, mv,
 				orderBy, orderType);
-		WebForm wf = new WebForm();
-		wf.toQueryPo(request, qo, GoodsType.class, mv);
 		qo.setOrderBy("sequence");
 		qo.setOrderType("asc");
 		IPageList pList = this.goodsTypeService.list(qo);

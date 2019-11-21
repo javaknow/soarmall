@@ -1,7 +1,5 @@
 package com.metoo.manage.admin.action;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -23,9 +21,6 @@ import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.EnoughReduce;
-import com.metoo.foundation.domain.GoodsBrand;
-import com.metoo.foundation.domain.GoodsClass;
-import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.EnoughReduceQueryObject;
 import com.metoo.foundation.domain.query.GoodsQueryObject;
 import com.metoo.foundation.service.IEnoughReduceService;

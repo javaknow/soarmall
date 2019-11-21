@@ -7,12 +7,16 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/login.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/login.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+		<script>
 jQuery(document).ready(function(){
 	jQuery(".Current").click(function(){
 		if(jQuery(this).siblings().is(':focus')){
@@ -156,112 +160,145 @@ jQuery(document).ready(function(){
  //
 });
 </script>
-<style>
-html,body{background-color: #fff;}
+		<style>
+html, body {
+	background-color: #fff;
+}
 </style>
 </head>
 <body>
-$!httpInclude.include("/top.htm")
-<div class="login_head">
-  <h1><span>#if($!config.websiteLogo) <a href="$!webPath/index.htm"> <img src="$!imageWebServer/$!config.websiteLogo.path/$!config.websiteLogo.name" border="0" style=" height: 70px;width: 210px;" /> </a> #else <a href="$!webPath/index.htm"><img src="$!webPath/resources/style/system/front/default/images/logo.jpg"  style=" height: 70px;width: 210px;"  /> </a> #end</span></h1>
-</div>
-<div class="regist_box">
-  <!-- <div class="regist_box_tab"><span class="regist_login">我已经注册，现在就<a href="$!webPath/user/login.htm">登录</a></span>
+	$!httpInclude.include("/top.htm")
+	<div class="login_head">
+		<h1>
+			<span>#if($!config.websiteLogo) <a href="$!webPath/index.htm">
+					<img
+					src="$!imageWebServer/$!config.websiteLogo.path/$!config.websiteLogo.name"
+					border="0" style="height: 70px; width: 210px;" />
+			</a> #else <a href="$!webPath/index.htm"><img
+					src="$!webPath/resources/style/system/front/default/images/logo.jpg"
+					style="height: 70px; width: 210px;" /> </a> #end
+			</span>
+		</h1>
+	</div>
+	<div class="regist_box">
+		<!-- <div class="regist_box_tab"><span class="regist_login">我已经注册，现在就<a href="$!webPath/user/login.htm">登录</a></span>
     <ul class="regist_box_ul">
       <li class="this">个人用户注册</li>
       <li><a href="$!webPath/company/register.htm">企业用户注册</a></li>
     </ul>
   </div> -->
-  <p class="Sign_text">Create your account</p>
-  <p class="Sign_up_text">Do you have an account? Sign In  <a href="$!webPath/user_login.json" style="color:#3866df;">Sign In</a></p>
-  <div class="regist_box_content">
-    <div class="regist_common">
-      <form action="$!webPath/register_finish.htm" method="post" name="theForm" id="theForm">
-        <table width="" border="0" cellpadding="0" cellspacing="0" class="regist_common_table" style="margin: 5px auto; ">
-          <tr>
-            <td colspan="2">
-	            <div class="regist_form_txt regist_form_input">
-	            	<lable class="Current">UserName</lable>
-	            	<input name="userName" type="text" id="userName" class="input_register regist_txt" />
-	            </div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-            	<div class="regist_form_txt regist_form_input">
-	            	<lable class="Current">password</lable>
-	            	<input name="password" type="password" id="password" class="input_register regist_txt passwords" />
-            	</div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-	            <div class="regist_form_txt regist_form_input">
-	            	<lable class="Current">repassword</lable>
-	            	<input name="repassword" type="password" id="repassword"  class="input_register regist_txt repasswords" />
-	            </div>
-            </td>
-          </tr>
-          #if($!config.securityCodeRegister)
-              <script>
+		<p class="Sign_text">Create your account</p>
+		<p class="Sign_up_text">
+			Do you have an account? Sign In <a href="$!webPath/user_login.json"
+				style="color: #3866df;">Sign In</a>
+		</p>
+		<div class="regist_box_content">
+			<div class="regist_common">
+				<form action="$!webPath/register_finish.htm" method="post"
+					name="theForm" id="theForm">
+					<table width="" border="0" cellpadding="0" cellspacing="0"
+						class="regist_common_table" style="margin: 5px auto;">
+						<tr>
+							<td colspan="2">
+								<div class="regist_form_txt regist_form_input">
+									<lable class="Current">UserName</lable>
+									<input name="userName" type="text" id="userName"
+										class="input_register regist_txt" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div class="regist_form_txt regist_form_input">
+									<lable class="Current">password</lable>
+									<input name="password" type="password" id="password"
+										class="input_register regist_txt passwords" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div class="regist_form_txt regist_form_input">
+									<lable class="Current">repassword</lable>
+									<input name="repassword" type="password" id="repassword"
+										class="input_register regist_txt repasswords" />
+								</div>
+							</td>
+						</tr>
+						#if($!config.securityCodeRegister)
+						<script>
                  function refreshCode(){
 	                 jQuery("#code_img").attr("src","$!webPath/verify.json?d"+new Date().getTime());
                  }
              </script>
-          <tr colspan="2">
-            <td  align="right">Verification code：</td>
-            <td>
-            <div class="regist_form_txt"><input name="code" type="text" class="regist_code" id="code" /></div>
-             #if($!config.securityCodeType=='voice')
-            <script>
+						<tr colspan="2">
+							<td align="right">Verification code：</td>
+							<td>
+								<div class="regist_form_txt">
+									<input name="code" type="text" class="regist_code" id="code" />
+								</div> #if($!config.securityCodeType=='voice') <script>
 				   function readCode(id){
                          var  s = "<embed id='sound_play' name='sound_play' src='$!webPath/resources/flash/soundPlayer.swf?" + (new Date().getTime()) + "' FlashVars='url=$!webPath"+ "' width='0'   height='0' allowScriptAccess='always' type='application/x-shockwave-flash' pluginspage='http://www.macromedia.com/go/getflashplayer' /></embed>";
                     jQuery("#"+id).html(s);
                     }
-			 </script>
-              <b class="regist_code_img"><img id="code_img" src="$!webPath/verify.json" width="59" height="27" style="display:none;" /></b>
-              <a href="javascript:void(0);" onclick="readCode('player')" title="朗读验证码" class="code_speech"></a>
-              <a href="javascript:void(0);" onclick="refreshCode();"  class="code_refresh"></a>
-              <span id="player"></span>
-             #else
-               <b class="regist_code_img"><img id="code_img" src="$!webPath/verify.json" width="59" height="27" /></b><a href="javascript:void(0);" onclick="refreshCode();" class="code_refresh"></a>
-             #end  
-               </td>
-          </tr>
-          #end
-          <tr>
-            <td>&nbsp;</td>
-            <td class="font12">
-            <div class="regist_form_txt">
-                <input name="agree" type="checkbox" class="regist_check" id="agree" value="true" checked="checked" />
-                <label for="agree">I have read and agree </label>
-              <a href="javascript:void(0);" onclick="jQuery('#agree_article').show();"  class="blue2">《Shop Online Services Agreement》</a></div>              
-              </td>
-          </tr>
-          <tr>
-            <td colspan="2"><input name="" type="submit"  class="regist_btn" value="Create an account"/></td>
-          </tr>
-        </table>
-      </form>
-    </div>
-    <!-- <div class="regist_common_right"><img src="$!webPath/resources/style/system/front/default/images/login/register.jpg" width="300" height="227" /></div> -->
-  </div>
-</div>
-<div style="display:none;" id="agree_article">
-  <div class="white_content" > </div>
-  <div class="white_content_box"> <a href="javascript:void(0);"  onclick="jQuery('#agree_article').hide();" class="white_close"><img src="$!webPath/resources/style/system/front/default/images/login/close.gif" width="16" height="16" /></a>
-    <div class="white_con">
-      <h3 class="white_title"><span>User registration agreement</span></h3>
-      <div class="white_box">
-        <div class="white_box_contant"> $!doc.content </div>
-      </div>
-      <div class="white_box_btn">
-        <input name="" type="button" value="Agree and continue" onclick="jQuery('#agree_article').hide();" />
-      </div>
-    </div>
-  </div>
-  <div class="black_overlay"></div>
-</div>
+			 </script> <b class="regist_code_img"><img id="code_img"
+									src="$!webPath/verify.json" width="59" height="27"
+									style="display: none;" /></b> <a href="javascript:void(0);"
+								onclick="readCode('player')" title="朗读验证码" class="code_speech"></a>
+								<a href="javascript:void(0);" onclick="refreshCode();"
+								class="code_refresh"></a> <span id="player"></span> #else <b
+								class="regist_code_img"><img id="code_img"
+									src="$!webPath/verify.json" width="59" height="27" /></b><a
+								href="javascript:void(0);" onclick="refreshCode();"
+								class="code_refresh"></a> #end
+							</td>
+						</tr>
+						#end
+						<tr>
+							<td>&nbsp;</td>
+							<td class="font12">
+								<div class="regist_form_txt">
+									<input name="agree" type="checkbox" class="regist_check"
+										id="agree" value="true" checked="checked" /> <label
+										for="agree">I have read and agree </label> <a
+										href="javascript:void(0);"
+										onclick="jQuery('#agree_article').show();" class="blue2">《Shop
+										Online Services Agreement》</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><input name="" type="submit"
+								class="regist_btn" value="Create an account" /></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+			<!-- <div class="regist_common_right"><img src="$!webPath/resources/style/system/front/default/images/login/register.jpg" width="300" height="227" /></div> -->
+		</div>
+	</div>
+	<div style="display: none;" id="agree_article">
+		<div class="white_content"></div>
+		<div class="white_content_box">
+			<a href="javascript:void(0);"
+				onclick="jQuery('#agree_article').hide();" class="white_close"><img
+				src="$!webPath/resources/style/system/front/default/images/login/close.gif"
+				width="16" height="16" /></a>
+			<div class="white_con">
+				<h3 class="white_title">
+					<span>User registration agreement</span>
+				</h3>
+				<div class="white_box">
+					<div class="white_box_contant">$!doc.content</div>
+				</div>
+				<div class="white_box_btn">
+					<input name="" type="button" value="Agree and continue"
+						onclick="jQuery('#agree_article').hide();" />
+				</div>
+			</div>
+		</div>
+		<div class="black_overlay"></div>
+	</div>
 
 </body>
 </body>

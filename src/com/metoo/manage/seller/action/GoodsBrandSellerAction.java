@@ -1,6 +1,5 @@
 package com.metoo.manage.seller.action;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;

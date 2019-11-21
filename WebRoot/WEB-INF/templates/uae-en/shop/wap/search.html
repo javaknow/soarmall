@@ -144,34 +144,48 @@ function clickSearch(){
 			width="25" height="25" />
 		</a>
 		-->
-		<form name="theForm" id="theForm" action="$!webPath/wap/search_goods.htm"
-			method="post">
+		<form name="theForm" id="theForm"
+			action="$!webPath/wap/search_goods.htm" method="post">
 			<div class="search_line">
 				<span> <input type="text" placeholder="输入商品名称" name="keyword"
-					id="keyword" value="$!keyword" style="height: 32px;" /> </span>
+					id="keyword" value="$!keyword" style="height: 32px;" />
+				</span>
 			</div>
-			<a href="javascript:void(0);" onclick="clickSearch();">
-				<img align="right" style="margin :10px;" id="search_btn" 
-					src="$!webPath/resources/style/system/front/wap/v2.0/images/search.png">
+			<a href="javascript:void(0);" onclick="clickSearch();"> <img
+				align="right" style="margin: 10px;" id="search_btn"
+				src="$!webPath/resources/style/system/front/wap/v2.0/images/search.png">
 			</a>
 		</form>
 	</div>
 	<div class="main">
 		<div class="mt50"></div>
 		<!-- 热门搜索 -->
-		<div style="width: 100%;height:40px;line-height: 40px;border-bottom: 1px solid #f0f0f0;background-color:#fff;"> 
-			<span style="margin-left: 30px;font-size: 14px;">热门搜索</span></div>
-		<div class="hot_search" style="width:100%;height:80px;background-color:#fff;">
-			<div style="width:80px;float: left;"><a href="$!webPath/wap/search_goods.htm?keyword=空调席">空调席</a></div>
-			<div style="width:80px;float: left;"><a href="$!webPath/wap/search_goods.htm?keyword=360U型枕">360U型枕</a></div>
-			<div style="width:80px;float: left;"><a href="$!webPath/wap/search_goods.htm?keyword=野营垫">野营垫</a></div>
-			<div style="width:130px;float: left;"><a href="$!webPath/wap/search_goods.htm?keyword=多功能食物处理器">多功能食物处理器</a></div>
-			<div style="width:110px;float: left;"><a href="$!webPath/wap/search_goods.htm?keyword=收纳四件套">收纳四件套</a></div>
-			
+		<div
+			style="width: 100%; height: 40px; line-height: 40px; border-bottom: 1px solid #f0f0f0; background-color: #fff;">
+			<span style="margin-left: 30px; font-size: 14px;">热门搜索</span>
 		</div>
-		
+		<div class="hot_search"
+			style="width: 100%; height: 80px; background-color: #fff;">
+			<div style="width: 80px; float: left;">
+				<a href="$!webPath/wap/search_goods.htm?keyword=空调席">空调席</a>
+			</div>
+			<div style="width: 80px; float: left;">
+				<a href="$!webPath/wap/search_goods.htm?keyword=360U型枕">360U型枕</a>
+			</div>
+			<div style="width: 80px; float: left;">
+				<a href="$!webPath/wap/search_goods.htm?keyword=野营垫">野营垫</a>
+			</div>
+			<div style="width: 130px; float: left;">
+				<a href="$!webPath/wap/search_goods.htm?keyword=多功能食物处理器">多功能食物处理器</a>
+			</div>
+			<div style="width: 110px; float: left;">
+				<a href="$!webPath/wap/search_goods.htm?keyword=收纳四件套">收纳四件套</a>
+			</div>
+
+		</div>
+
 		<!-- 历史搜索 -->
-	<!--
+		<!--
 		<div style="background-color: #ddd;width: 100%;height:40px;line-height: 40px;"> 
 			<span style="margin-left: 30px;font-size: 14px;">历史搜索</span></div>
 		<div id="search_history" class="search_history">
@@ -180,7 +194,7 @@ function clickSearch(){
 		</div>
 		-->
 		<div class="mt50"></div>
-		
+
 		$!httpInclude.include("/wap/footer.htm?op=search")
 	</div>
 </body>

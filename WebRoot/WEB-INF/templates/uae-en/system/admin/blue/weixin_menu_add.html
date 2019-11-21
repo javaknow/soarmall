@@ -1,4 +1,5 @@
-<link href="$!webPath/resources/style/common/css/window.css" type="text/css" rel="stylesheet" />
+<link href="$!webPath/resources/style/common/css/window.css"
+	type="text/css" rel="stylesheet" />
 <script>
 jQuery(document).ready(function(){
     jQuery("#theForm").validate({
@@ -57,56 +58,61 @@ function plat_menu_save(){
 	jQuery("#theForm").submit();
 }
 </script>
-<form action="$!webPath/admin/weixin_menu_save.htm" method="post" id="theForm">
-  <div class="edit">
-    <div class="editul setcont">
-      <ul class="set1">
-        <li class="setcont_bg">鑿滃崟鍚嶇О锛�</li>
-        <li><span class="size200">
-          <input name="menu_name" type="text" id="menu_name" value="$!obj.menu_name"  />
-          <input name="menu_id" type="hidden" id="menu_id" value="$!obj.id" />
-          <input name="pmenu_id" type="hidden" id="pmenu_id" value="$!pmenu_id" />
-          </span> </li>
-      </ul>
-      <ul class="set1">
-        <li class="setcont_bg">鑿滃崟搴忓彿锛�</li>
-        <li><span class="size200">
-          <input name="menu_sequence" type="text" id="menu_sequence" value="$!obj.menu_sequence" style="width:200px;" />
-          </span> 姝ｅ簭鎺掑垪 </li>
-      </ul>
-      <ul class="set1">
-        <li class="setcont_bg">鑿滃崟绫诲瀷锛�</li>
-        <li>
-          <label> <span class="use_code"><strong>
-            <input name="menu_type" type="radio" id="menu_type" value="click" checked="checked" />
-            </strong><strong class="usecode"> 鐐瑰嚮浜嬩欢</strong></span> </label>
-          <label> <span class="use_code"><strong>
-            <input type="radio" name="menu_type" id="menu_type" value="view" />
-            </strong><strong class="usecode"> URL璇锋眰</strong></span> </label>
-        </li>
-      </ul>
-      <ul class="set1">
-        <li class="setcont_bg">鑿滃崟URL锛�</li>
-        <li><span class="size200">
-          <input name="menu_url" type="text" id="menu_url" value="$!obj.menu_url"  />
-          </span> </li>
-      </ul>
-      <ul class="set1">
-        <li class="setcont_bg">鑿滃崟Key锛�</li>
-        <li><span class="size200">
-          <input name="menu_key" type="text" id="menu_key" value="$!obj.menu_key" />
-          </span> </li>
-      </ul>
-      <ul class="set1">
-        <li class="setcont_bg">鑿滃崟Key鍐呭锛�</li>
-        <li>
-          <textarea name="menu_key_content" type="text" id="menu_key_content"style="width:200px; height:80px" >$!obj.menu_key_content</textarea>
-        </li>
-      </ul>
-      <div class="submit"><span class="pad120">
-        <input type="button" onclick="plat_menu_save()" value="淇濆瓨" style="cursor:pointer;"/>
-        <input name="鎸夐挳" onclick="menu_remove();" type="button" style="cursor:pointer;" value="鍒犻櫎"/>
-        </span></div>
-    </div>
-  </div>
+<form action="$!webPath/admin/weixin_menu_save.htm" method="post"
+	id="theForm">
+	<div class="edit">
+		<div class="editul setcont">
+			<ul class="set1">
+				<li class="setcont_bg">鑿滃崟鍚嶇О锛�</li>
+				<li><span class="size200"> <input name="menu_name"
+						type="text" id="menu_name" value="$!obj.menu_name" /> <input
+						name="menu_id" type="hidden" id="menu_id" value="$!obj.id" /> <input
+						name="pmenu_id" type="hidden" id="pmenu_id" value="$!pmenu_id" />
+				</span></li>
+			</ul>
+			<ul class="set1">
+				<li class="setcont_bg">鑿滃崟搴忓彿锛�</li>
+				<li><span class="size200"> <input name="menu_sequence"
+						type="text" id="menu_sequence" value="$!obj.menu_sequence"
+						style="width: 200px;" />
+				</span> 姝ｅ簭鎺掑垪</li>
+			</ul>
+			<ul class="set1">
+				<li class="setcont_bg">鑿滃崟绫诲瀷锛�</li>
+				<li><label> <span class="use_code"><strong>
+								<input name="menu_type" type="radio" id="menu_type"
+								value="click" checked="checked" />
+						</strong><strong class="usecode"> 鐐瑰嚮浜嬩欢</strong></span>
+				</label> <label> <span class="use_code"><strong> <input
+								type="radio" name="menu_type" id="menu_type" value="view" />
+						</strong><strong class="usecode"> URL璇锋眰</strong></span>
+				</label></li>
+			</ul>
+			<ul class="set1">
+				<li class="setcont_bg">鑿滃崟URL锛�</li>
+				<li><span class="size200"> <input name="menu_url"
+						type="text" id="menu_url" value="$!obj.menu_url" />
+				</span></li>
+			</ul>
+			<ul class="set1">
+				<li class="setcont_bg">鑿滃崟Key锛�</li>
+				<li><span class="size200"> <input name="menu_key"
+						type="text" id="menu_key" value="$!obj.menu_key" />
+				</span></li>
+			</ul>
+			<ul class="set1">
+				<li class="setcont_bg">鑿滃崟Key鍐呭锛�</li>
+				<li><textarea name="menu_key_content" type="text"
+						id="menu_key_content" style="width: 200px; height: 80px">$!obj.menu_key_content</textarea>
+				</li>
+			</ul>
+			<div class="submit">
+				<span class="pad120"> <input type="button"
+					onclick="plat_menu_save()" value="淇濆瓨" style="cursor: pointer;" />
+					<input name="鎸夐挳" onclick="menu_remove();" type="button"
+					style="cursor: pointer;" value="鍒犻櫎" />
+				</span>
+			</div>
+		</div>
+	</div>
 </form>

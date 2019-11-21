@@ -8,15 +8,12 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.commons.httpclient.protocol.Protocol;
 import org.nutz.json.Json;
 
-import com.metoo.core.constant.Globals;
 import com.metoo.core.tools.CommUtil;
-import com.metoo.foundation.domain.User;
 import com.metoo.plug.login.action.MySecureProtocolSocketFactory;
 
 public class HttpClientTest {

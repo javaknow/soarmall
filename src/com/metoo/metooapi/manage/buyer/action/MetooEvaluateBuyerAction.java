@@ -21,7 +21,6 @@ import com.metoo.core.annotation.SecurityMapping;
 import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.Accessory;
 import com.metoo.foundation.domain.Evaluate;

@@ -1,6 +1,5 @@
 package com.metoo.manage.admin.action;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -25,9 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.metoo.core.annotation.SecurityMapping;
 import com.metoo.core.mv.JModelAndView;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
-import com.metoo.core.tools.database.DatabaseTools;
 import com.metoo.foundation.domain.GoodsBrand;
 import com.metoo.foundation.domain.GoodsClass;
 import com.metoo.foundation.domain.GoodsLog;

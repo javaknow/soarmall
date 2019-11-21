@@ -34,7 +34,6 @@ import com.metoo.foundation.domain.SysConfig;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.VerifyCode;
 import com.metoo.foundation.service.IAlbumService;
-import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.IDocumentService;
 import com.metoo.foundation.service.IIntegralLogService;
 import com.metoo.foundation.service.IRoleService;

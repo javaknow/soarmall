@@ -86,55 +86,53 @@ jQuery(document).ready(function(){
 });
 </script>
 <div class="shopping_address_one_top_add" style="display:;">
-<form action="$!webPath/cart_address_save.htm" method="post" name="theForm" id="theForm">
-  <div class="shopping_address_one_top_input">
-    <ul>
-      <li class="shopping_address_one_top_i">
-        <lable> Name</lable>
-      	<input name="id" type="hidden" id="id" value="$!obj.id" />
-        <input name="trueName" type="text" id="trueName" value="$!obj.trueName" placeholder="Please fill in the name"  />
-      </li>
-<!--       <li class="shopping_address_one_tel_i">
+	<form action="$!webPath/cart_address_save.htm" method="post"
+		name="theForm" id="theForm">
+		<div class="shopping_address_one_top_input">
+			<ul>
+				<li class="shopping_address_one_top_i"><lable> Name</lable> <input
+					name="id" type="hidden" id="id" value="$!obj.id" /> <input
+					name="trueName" type="text" id="trueName" value="$!obj.trueName"
+					placeholder="Please fill in the name" /></li>
+				<!--       <li class="shopping_address_one_tel_i">
       	<lable>电话</lable>
         <input name="telephone" type="text" id="telephone" value="$!obj.telephone" placeholder=" Please fill in the number "  />
       </li> -->
-      <li class="shopping_address_one_tel_i">
-      	<lable>Phone number</lable>
-        <input name="mobile" type="text" id="mobile" value="$!obj.mobile" placeholder=" Please fill in the mobile phone number"  />  
-      </li>
-      <li class="shopping_address_one_address_i">
-      	<lable style="display: block;">Region</lable>
-        <select name="area1" id="area1" level="2">
-          <option value=""> Province/municipality</option>
-          #foreach($area in $areas)           
-          <option value="$!area.id" #if($!area.id==$!obj.area.parent.parent.id) selected="true" #end>$!area.areaName</option>
-           #end          
-        </select>
-        <select name="area2" id="area2" level="3">
-         #foreach($area in $obj.area.parent.parent.childs)                     
-          <option value="$!area.id" #if($!area.id==$!obj.area.parent.id) selected="true"#end>$!area.areaName</option>
-         #end                    
-        </select>
-        <select name="area3" id="area3" level="4">
-         #foreach($area in $$obj.area.parent.childs)                     
-          <option value="$!area.id" #if($!area.id==$!obj.area.id) selected="true"#end>$!area.areaName</option>
-         #end                    
-        </select>
-        <input id="area_id" name="area_id" type="hidden" value="$!obj.area.id" />
-      </li>
-      <li class="shopping_address_one_address_a_i">
-        <lable> Detailed Address</lable>
-        <textarea name="area_info" cols="2" rows="" id="area_info" placeholder=" Street name or street address, house number">$!obj.area_info</textarea>
-        </textarea>
-      </li>
-      <li class="shopping_address_one_coding_i">
-        <input name="zip" type="text" id="zip" value="$!obj.zip" placeholder=" ZIP"  />
-       
-      </li>
-      <li class="shopping_address_one_left"><a href="javascript:void(0);">Cancel </a></li>
-      <li class="shopping_address_one_right"><a href="javascript:void(0);">Confirm</a></li>
-    </ul>
-  </div>
-</form>
+				<li class="shopping_address_one_tel_i"><lable>Phone
+					number</lable> <input name="mobile" type="text" id="mobile"
+					value="$!obj.mobile"
+					placeholder=" Please fill in the mobile phone number" /></li>
+				<li class="shopping_address_one_address_i"><lable
+						style="display: block;">Region</lable> <select name="area1"
+					id="area1" level="2">
+						<option value="">Province/municipality</option> #foreach($area in
+						$areas)
+						<option value="$!area.id"
+							#if($!area.id==$!obj.area.parent.parent.id) selected="true" #end>$!area.areaName</option>
+						#end
+				</select> <select name="area2" id="area2" level="3"> #foreach($area
+						in $obj.area.parent.parent.childs)
+						<option value="$!area.id" #if($!area.id==$!obj.area.parent.id)
+							selected="true" #end>$!area.areaName</option> #end
+				</select> <select name="area3" id="area3" level="4"> #foreach($area
+						in $$obj.area.parent.childs)
+						<option value="$!area.id" #if($!area.id==$!obj.area.id)
+							selected="true" #end>$!area.areaName</option> #end
+				</select> <input id="area_id" name="area_id" type="hidden"
+					value="$!obj.area.id" /></li>
+				<li class="shopping_address_one_address_a_i"><lable>
+					Detailed Address</lable> <textarea name="area_info" cols="2" rows=""
+						id="area_info"
+						placeholder=" Street name or street address, house number">$!obj.area_info</textarea>
+					</textarea></li>
+				<li class="shopping_address_one_coding_i"><input name="zip"
+					type="text" id="zip" value="$!obj.zip" placeholder=" ZIP" /></li>
+				<li class="shopping_address_one_left"><a
+					href="javascript:void(0);">Cancel </a></li>
+				<li class="shopping_address_one_right"><a
+					href="javascript:void(0);">Confirm</a></li>
+			</ul>
+		</div>
+	</form>
 </div>
 #end

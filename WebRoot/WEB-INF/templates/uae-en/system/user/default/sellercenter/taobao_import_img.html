@@ -7,17 +7,23 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/swfupload.js"></script>
-<script src="$!webPath/resources/js/swfupload.queue.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type=text/css rel=stylesheet>
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
+			<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+			<script src="$!webPath/resources/js/swfupload.js"></script>
+			<script src="$!webPath/resources/js/swfupload.queue.js"></script>
+			<script>
 var swf_upload;
 var already_upload=0;
 jQuery(document).ready(function(){	
@@ -104,62 +110,72 @@ function upload_img(){
 </script>
 </head>
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-  <div class="seller_center">
-    <div class="seller_center_left"> $!httpInclude.include("/seller/nav.htm?op=taobao") </div>
-    <div class="seller_right">
-      <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>商品管理</b>><b>淘宝导入</b></span></div>
-      <div class="seller_list">
-        <div class="seller_list_title">
-          <ul class="seller_title_ul">
-            <li class="this"><a href="$!webPath/seller/taobao.htm"><i></i>淘宝导入</a></li>
-          </ul>
-        </div>
-        <div class="add_usercenter">
-          <form action="$!webPath/seller/taobao_import_csv.htm" method="post" name="theForm" id="theForm" enctype="multipart/form-data">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_base_table">
-              <tr>
-                <td width="195" align="left"><div class="productmain">
-            <div class="step">
-            <div class="step1">
-                <h1><span class="add"></span>第一步：导入CSV文件成功,已成功导入$!{already_import_count}件商品，$!{no_import_count}件导入失败。</h1>
-            </div>
-            <div class="step1 this">
-                <h1>第二步：导入图片文件,请上传与csv文件同级的images目录(或与csv文件同名的目录)内的tbi文件。</h1>
-              </div>
-            <div class="step1">
-                <h1>第三步：整理数据</h1>
-              </div>
-              <div class="step2">
-                <ul>
-                  <li>导入相册：<span>
-                     <select name="upload_album_id" id="upload_album_id">
-                      #foreach($album in $alubms)
-                      <option value="$!album.id">$!album.album_name</option>
-                      #end
-                    </select>
-                    </span></li>
-                  <li style="padding-top:10px;">
-                  	<i style="float:left; margin-top:5px;margin-right: 4px;">导入图片：</i>
-                  	<span class="upload" id="upload_imgs"></span> <img src="$!webPath/resources/style/common/images/wait.gif" style="display:none;" id="upload_wait" />
-                  </li>
-                  <li><span id="img_desc_info"></span></li>
-                  <li style="padding-top:10px;"><span class="import">
-                    <input type="button" value="上传图片" onclick="upload_img();" />
-                    </span></li>
-                </ul>
-              </div>
-            </div>
-          </div></td>
-              </tr>
-            </table>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			<div class="seller_center_left">
+				$!httpInclude.include("/seller/nav.htm?op=taobao")</div>
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>商品管理</b>><b>淘宝导入</b></span>
+				</div>
+				<div class="seller_list">
+					<div class="seller_list_title">
+						<ul class="seller_title_ul">
+							<li class="this"><a href="$!webPath/seller/taobao.htm"><i></i>淘宝导入</a></li>
+						</ul>
+					</div>
+					<div class="add_usercenter">
+						<form action="$!webPath/seller/taobao_import_csv.htm"
+							method="post" name="theForm" id="theForm"
+							enctype="multipart/form-data">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0"
+								class="user_base_table">
+								<tr>
+									<td width="195" align="left"><div class="productmain">
+											<div class="step">
+												<div class="step1">
+													<h1>
+														<span class="add"></span>第一步：导入CSV文件成功,已成功导入$!{already_import_count}件商品，$!{no_import_count}件导入失败。
+													</h1>
+												</div>
+												<div class="step1 this">
+													<h1>第二步：导入图片文件,请上传与csv文件同级的images目录(或与csv文件同名的目录)内的tbi文件。</h1>
+												</div>
+												<div class="step1">
+													<h1>第三步：整理数据</h1>
+												</div>
+												<div class="step2">
+													<ul>
+														<li>导入相册：<span> <select name="upload_album_id"
+																id="upload_album_id"> #foreach($album in
+																	$alubms)
+																	<option value="$!album.id">$!album.album_name</option>
+																	#end
+															</select>
+														</span></li>
+														<li style="padding-top: 10px;"><i
+															style="float: left; margin-top: 5px; margin-right: 4px;">导入图片：</i>
+															<span class="upload" id="upload_imgs"></span> <img
+															src="$!webPath/resources/style/common/images/wait.gif"
+															style="display: none;" id="upload_wait" /></li>
+														<li><span id="img_desc_info"></span></li>
+														<li style="padding-top: 10px;"><span class="import">
+																<input type="button" value="上传图片"
+																onclick="upload_img();" />
+														</span></li>
+													</ul>
+												</div>
+											</div>
+										</div></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

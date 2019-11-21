@@ -18,7 +18,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +30,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.metoo.core.annotation.SecurityMapping;
-import com.metoo.core.dao.IGenericDAO;
 import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;

@@ -10,11 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.metoo.core.tools.CommUtil;
-import com.metoo.foundation.domain.Store;
 import com.metoo.foundation.domain.virtual.FootPointView;
 import com.metoo.foundation.service.IFootPointService;
 import com.metoo.foundation.service.IGoodsService;
-import com.metoo.foundation.service.IGoodsSpecPropertyService;
 import com.metoo.foundation.service.IStoreService;
 
 /**

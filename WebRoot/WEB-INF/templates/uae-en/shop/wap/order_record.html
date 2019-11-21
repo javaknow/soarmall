@@ -2,21 +2,27 @@
 <html lang="zh">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-	<meta name="apple-wap-web-app-capable" content="yes">
-	<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
-	<title>Change Password</title>
-	<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
-	<link href="$!webPath/resources/style/system/front/wap/v2.0/css/v2.0style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="$!webPath/resources/wap/css/index_left.css">
-    <link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
-	<script src="$!webPath/resources/js/wap/jquery-1.10.2.min.js"></script>
-	<script src="$!webPath/resources/js/TouchSlide.1.1.js"></script>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style"
+	content="black-translucent">
+<title>Change Password</title>
+<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
+<link
+	href="$!webPath/resources/style/system/front/wap/v2.0/css/v2.0style.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index_left.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
+<script src="$!webPath/resources/js/wap/jquery-1.10.2.min.js"></script>
+<script src="$!webPath/resources/js/TouchSlide.1.1.js"></script>
 
-    <script>
+<script>
     jQuery(document).ready(function(){
     	var currentPage = 2;
     	var  ret = 1;
@@ -58,77 +64,81 @@
 <body>
 
 	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
-        <!--侧滑菜单部分-->
-        <aside id="offCanvasSide" class="mui-off-canvas-left">
-            <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-                <div class="mui-scroll">
-                 	  $!httpInclude.include("/wap/index_left.htm")
-                </div>
-            </div>
-        </aside>
-        <!--主界面部分-->
-        <div class="mui-inner-wrap">
-            <header class="mui-bar mui-bar-nav">
-                $!httpInclude.include("/wap/top.htm")
-            </header>
- 			<!-- 主题内容 -->
-            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
-		 		<!-- 主体内容 -->
-	            <div class="mui-scroll">
-	            	<a href="javascript:history.back(-1);" class="mui-icon mui-icon-left-nav " style="font-size: 15px;padding-left: 4px;    padding-top: 24px;">return</a>
-	            	<div class="group_infro_con">
-#if($!$eva_objs.size()>0)
-	<div class="group_infro_box">
-    	<table cellpadding="0" cellspacing="0">
-        	<tbody id="c">
-            	<tr>
-                	<th width="20%">买家</th>
-                    <th width="20%">商品价格</th>
-                    <th width="20%">商品规格</th>
-                    <th width="20%">购买数量</th>
-                    <th>成交时间</th>
-                </tr>
-                #foreach($obj in $order_objs)
-                <tr>
-                	<td align="center">$!{obj.evaluate_user.userName}</td>
-                    <td align="center">¥$!{obj.goods_price}</td>
-                    <td align="center">$!obj.goods_spec</td>
-                    <td align="center">$!obj.goods_num</td>
-                    <td align="center">$!CommUtil.formatLongDate($!obj.addTime)</td>
-                </tr>
-                #end
-            
-        </table>
-    </div>
-#else   
-    <div class="main">
-          <div class="mt50" style="height:49px;"></div>
-          <div class="error_page1"  style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
-            <span class="error_img"><img src="$!webPath/resources/style/system/front/default/images/nothing.png" /></span>
-            <p>暂无记录！</p>
-          </div>
-        </div>
-#end
-<div class="loading" id="loading" style="display:none">
-<ul>
-  <li><img src="$!webPath/resources/style/system/front/wap/images/loading.gif" width="16" height="16"></li>
-  <li>正在加载....</li>
-</ul>
-</div>
-<div class="loading" id="loading_none" style="display:none">
-<ul>
-  <li>没有更多了....</li>
-</ul>
-</div> 
-</div>
-                    <div style="margin-top:100px;display:block;"></div>
-                </div>
-            </div>
-            <!-- off-canvas backdrop -->
-            <div class="mui-off-canvas-backdrop"></div>
-        </div>
-	
-    </div>
+		<!--侧滑菜单部分-->
+		<aside id="offCanvasSide" class="mui-off-canvas-left">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/index_left.htm")</div>
+			</div>
+		</aside>
+		<!--主界面部分-->
+		<div class="mui-inner-wrap">
+			<header class="mui-bar mui-bar-nav">
+				$!httpInclude.include("/wap/top.htm") </header>
+			<!-- 主题内容 -->
+			<div id="offCanvasContentScroll"
+				class="mui-content mui-scroll-wrapper">
+				<!-- 主体内容 -->
+				<div class="mui-scroll">
+					<a href="javascript:history.back(-1);"
+						class="mui-icon mui-icon-left-nav "
+						style="font-size: 15px; padding-left: 4px; padding-top: 24px;">return</a>
+					<div class="group_infro_con">
+						#if($!$eva_objs.size()>0)
+						<div class="group_infro_box">
+							<table cellpadding="0" cellspacing="0">
+								<tbody id="c">
+									<tr>
+										<th width="20%">买家</th>
+										<th width="20%">商品价格</th>
+										<th width="20%">商品规格</th>
+										<th width="20%">购买数量</th>
+										<th>成交时间</th>
+									</tr>
+									#foreach($obj in $order_objs)
+									<tr>
+										<td align="center">$!{obj.evaluate_user.userName}</td>
+										<td align="center">¥$!{obj.goods_price}</td>
+										<td align="center">$!obj.goods_spec</td>
+										<td align="center">$!obj.goods_num</td>
+										<td align="center">$!CommUtil.formatLongDate($!obj.addTime)</td>
+									</tr>
+									#end
+							</table>
+						</div>
+						#else
+						<div class="main">
+							<div class="mt50" style="height: 49px;"></div>
+							<div class="error_page1"
+								style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+								<span class="error_img"><img
+									src="$!webPath/resources/style/system/front/default/images/nothing.png" /></span>
+								<p>暂无记录！</p>
+							</div>
+						</div>
+						#end
+						<div class="loading" id="loading" style="display: none">
+							<ul>
+								<li><img
+									src="$!webPath/resources/style/system/front/wap/images/loading.gif"
+									width="16" height="16"></li>
+								<li>正在加载....</li>
+							</ul>
+						</div>
+						<div class="loading" id="loading_none" style="display: none">
+							<ul>
+								<li>没有更多了....</li>
+							</ul>
+						</div>
+					</div>
+					<div style="margin-top: 100px; display: block;"></div>
+				</div>
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
+		</div>
+
+	</div>
 
 	<script src="$!webPath/resources/wap/mui.js"></script>
 	<script>

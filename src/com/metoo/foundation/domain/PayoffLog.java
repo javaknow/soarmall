@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import com.metoo.core.annotation.Lock;
 import com.metoo.core.constant.Globals;
 import com.metoo.core.domain.IdEntity;
 

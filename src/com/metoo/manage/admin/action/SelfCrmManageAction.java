@@ -20,7 +20,6 @@ import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.CustomerRelMana;
-import com.metoo.foundation.domain.Store;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.CustomerRelManaQueryObject;
 import com.metoo.foundation.service.IConsultService;

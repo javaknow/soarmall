@@ -1,4 +1,4 @@
-ï»¿<script>
+<script>
 jQuery(function(){ 
    jQuery(".consultation_top_nav li").css("cursor","pointer");
    jQuery(".consultation_top_nav li").removeClass("this");
@@ -7,44 +7,67 @@ jQuery(function(){
 </script>
 
 <div class="consultation_top_nav">
-  <ul>
-    <li class="this" consult_type="">å…¨éƒ¨å’¨è¯¢<i>ï¼ˆ$!consultViewTools.queryByType("","$!goods_id").size()ï¼‰</i></li>
-    <li consult_type="äº§å“å’¨è¯¢">äº§å“å’¨è¯¢<i>ï¼ˆ$!consultViewTools.queryByType("äº§å“å’¨è¯¢","$!goods_id").size()ï¼‰</i></li>
-    <li consult_type="åº“å­˜åŠé…é€">åº“å­˜åŠé…é€<i>ï¼ˆ$!consultViewTools.queryByType("åº“å­˜åŠé…é€","$!goods_id").size()ï¼‰</i></li>
-    <li consult_type="æ”¯ä»˜åŠå‘ç¥¨">æ”¯ä»˜åŠå‘ç¥¨<i>ï¼ˆ$!consultViewTools.queryByType("æ”¯ä»˜åŠå‘ç¥¨","$!goods_id").size()ï¼‰</i></li>
-    <li consult_type="å”®åå’¨è¯¢">å”®åå’¨è¯¢<i>ï¼ˆ$!consultViewTools.queryByType("å”®åå’¨è¯¢","$!goods_id").size()ï¼‰</i></li>
-    <li consult_type="ä¿ƒé”€æ´»åŠ¨">ä¿ƒé”€æ´»åŠ¨<i>ï¼ˆ$!consultViewTools.queryByType("ä¿ƒé”€æ´»åŠ¨","$!goods_id").size()ï¼‰</i></li>
-  </ul>
+	<ul>
+		<li class="this" consult_type="">È«²¿×ÉÑ¯<i>£¨$!consultViewTools.queryByType("","$!goods_id").size()£©</i></li>
+		<li consult_type="²úÆ·×ÉÑ¯">²úÆ·×ÉÑ¯<i>£¨$!consultViewTools.queryByType("²úÆ·×ÉÑ¯","$!goods_id").size()£©</i></li>
+		<li consult_type="¿â´æ¼°ÅäËÍ">¿â´æ¼°ÅäËÍ<i>£¨$!consultViewTools.queryByType("¿â´æ¼°ÅäËÍ","$!goods_id").size()£©</i></li>
+		<li consult_type="Ö§¸¶¼°·¢Æ±">Ö§¸¶¼°·¢Æ±<i>£¨$!consultViewTools.queryByType("Ö§¸¶¼°·¢Æ±","$!goods_id").size()£©</i></li>
+		<li consult_type="ÊÛºó×ÉÑ¯">ÊÛºó×ÉÑ¯<i>£¨$!consultViewTools.queryByType("ÊÛºó×ÉÑ¯","$!goods_id").size()£©</i></li>
+		<li consult_type="´ÙÏú»î¶¯">´ÙÏú»î¶¯<i>£¨$!consultViewTools.queryByType("´ÙÏú»î¶¯","$!goods_id").size()£©</i></li>
+	</ul>
 </div>
-<div class="consultation_top"  >
-  <div class="pro_prompt">
-    <div class="pro_prompt_word">å› å‚å®¶æ›´æ”¹å•†å“åŒ…è£…ã€åœºåœ°ã€é™„é…ä»¶ç­‰ä¸åšæå‰é€šçŸ¥ï¼Œä¸”æ¯ä½å’¨è¯¢è€…è´­ä¹°ã€æé—®æ—¶é—´ç­‰ä¸åŒã€‚ä¸ºæ­¤ï¼Œå®¢æœç»™åˆ°çš„å›å¤ä»…å¯¹æé—®è€…3å¤©å†…æœ‰æ•ˆï¼Œå…¶ä»–ç½‘å‹ä»…ä¾›å‚è€ƒï¼ç»™æ‚¨å¸¦æ¥çš„ä¸å˜è¿˜è¯·è°…è§£ï¼Œè°¢è°¢ </div>
-    <div class="consultation_top_t"><span>å¦‚æœ‰è´­ä¹°é—®é¢˜ï¼Œè¯·å‘å–å®¶å’¨è¯¢ï¼</span><i> #if($!config.visitorConsult) <a class="inte_login_btn" href="javascript:void(0)" dialog_uri="$!webPath/goods_consult_win.htm?goods_id=$!goods_id" dialog_title="äº§å“å’¨è¯¢" dialog_width="430" dialog_height="100" dialog_id="goods_cousult_win"> æˆ‘è¦å’¨è¯¢</a> #else
-      #if(!$!user) <a class="inte_login_btn" href="javascript:void(0)" dialog_uri="$!webPath/user_dialog_login.htm" dialog_title="ä¼šå‘˜ç™»å½•" dialog_width="430" dialog_height="100" dialog_id="goods_cousult_win"> æˆ‘è¦å’¨è¯¢</a> #else <a class="inte_login_btn" href="javascript:void(0)" dialog_uri="$!webPath/goods_consult_win.htm?goods_id=$!goods_id" dialog_title="äº§å“å’¨è¯¢" dialog_width="430" dialog_height="100" dialog_id="goods_cousult_win"> æˆ‘è¦å’¨è¯¢</a> #end 
-      #end </i></div>
-  </div>
-  #if($!consult_objs.size()==0)
-  <div class="novalue"> è¿˜æ²¡æœ‰å’¨è¯¢å†…å®¹ </div>
-  #else
-  <div class="consultation_top_center"> #foreach($obj in $consult_objs)
-    <div class="consultation_top_center_one">
-      <div class="consultation_top_center_one_ask">
-        <div class="consultation_top_center_one_ask_user">$!obj.consult_user_name</div>
-        <div class="consultation_top_center_one_ask_word">$!obj.consult_content</div>
-        <div class="consultation_top_center_one_ask_time">$!CommUtil.formatLongDate($!obj.addTime)</div>
-      </div>
-      #if($!obj.consult_reply)
-      <div class="consultation_top_center_one_answer">
-        <div class="consultation_top_center_one_answer_user">$!obj.reply_user_name</div>
-        <div class="consultation_top_center_one_answer_word">$!obj.consult_reply</div>
-      </div>
-      #end
-      <div class="consultation_top_center_one_bottom">
-        <div class="consultation_top_center_one_bottom_yes"><a href="javascript:void(0);" onclick="satisfy('$!obj.id',this)">æ»¡æ„ ($!obj.satisfy)</a></div>
-        <div class="consultation_top_center_one_bottom_no"><a href="javascript:void(0);" onclick="unsatisfy('$!obj.id',this)">ä¸æ»¡æ„ ($!obj.unsatisfy)</a></div>
-      </div>
-    </div>
-    #end
-    <div class="details_discus_page"> <span target_id="goods_consult_list">$!consult_gotoPageAjaxHTML</span> </div>
-  </div>
-  #end </div>
+<div class="consultation_top">
+	<div class="pro_prompt">
+		<div class="pro_prompt_word">Òò³§¼Ò¸ü¸ÄÉÌÆ·°ü×°¡¢³¡µØ¡¢¸½Åä¼şµÈ²»×öÌáÇ°Í¨Öª£¬ÇÒÃ¿Î»×ÉÑ¯Õß¹ºÂò¡¢ÌáÎÊÊ±¼äµÈ²»Í¬¡£Îª´Ë£¬¿Í·ş¸øµ½µÄ»Ø¸´½ö¶ÔÌáÎÊÕß3ÌìÄÚÓĞĞ§£¬ÆäËûÍøÓÑ½ö¹©²Î¿¼£¡¸øÄú´øÀ´µÄ²»±ä»¹ÇëÁÂ½â£¬Ğ»Ğ»
+		</div>
+		<div class="consultation_top_t">
+			<span>ÈçÓĞ¹ºÂòÎÊÌâ£¬ÇëÏòÂô¼Ò×ÉÑ¯£¡</span><i> #if($!config.visitorConsult) <a
+				class="inte_login_btn" href="javascript:void(0)"
+				dialog_uri="$!webPath/goods_consult_win.htm?goods_id=$!goods_id"
+				dialog_title="²úÆ·×ÉÑ¯" dialog_width="430" dialog_height="100"
+				dialog_id="goods_cousult_win"> ÎÒÒª×ÉÑ¯</a> #else #if(!$!user) <a
+				class="inte_login_btn" href="javascript:void(0)"
+				dialog_uri="$!webPath/user_dialog_login.htm" dialog_title="»áÔ±µÇÂ¼"
+				dialog_width="430" dialog_height="100" dialog_id="goods_cousult_win">
+					ÎÒÒª×ÉÑ¯</a> #else <a class="inte_login_btn" href="javascript:void(0)"
+				dialog_uri="$!webPath/goods_consult_win.htm?goods_id=$!goods_id"
+				dialog_title="²úÆ·×ÉÑ¯" dialog_width="430" dialog_height="100"
+				dialog_id="goods_cousult_win"> ÎÒÒª×ÉÑ¯</a> #end #end
+			</i>
+		</div>
+	</div>
+	#if($!consult_objs.size()==0)
+	<div class="novalue">»¹Ã»ÓĞ×ÉÑ¯ÄÚÈİ</div>
+	#else
+	<div class="consultation_top_center">
+		#foreach($obj in $consult_objs)
+		<div class="consultation_top_center_one">
+			<div class="consultation_top_center_one_ask">
+				<div class="consultation_top_center_one_ask_user">$!obj.consult_user_name</div>
+				<div class="consultation_top_center_one_ask_word">$!obj.consult_content</div>
+				<div class="consultation_top_center_one_ask_time">$!CommUtil.formatLongDate($!obj.addTime)</div>
+			</div>
+			#if($!obj.consult_reply)
+			<div class="consultation_top_center_one_answer">
+				<div class="consultation_top_center_one_answer_user">$!obj.reply_user_name</div>
+				<div class="consultation_top_center_one_answer_word">$!obj.consult_reply</div>
+			</div>
+			#end
+			<div class="consultation_top_center_one_bottom">
+				<div class="consultation_top_center_one_bottom_yes">
+					<a href="javascript:void(0);" onclick="satisfy('$!obj.id',this)">ÂúÒâ
+						($!obj.satisfy)</a>
+				</div>
+				<div class="consultation_top_center_one_bottom_no">
+					<a href="javascript:void(0);" onclick="unsatisfy('$!obj.id',this)">²»ÂúÒâ
+						($!obj.unsatisfy)</a>
+				</div>
+			</div>
+		</div>
+		#end
+		<div class="details_discus_page">
+			<span target_id="goods_consult_list">$!consult_gotoPageAjaxHTML</span>
+		</div>
+	</div>
+	#end
+</div>

@@ -44,7 +44,6 @@ import com.metoo.foundation.domain.GroupLifeGoods;
 import com.metoo.foundation.domain.OrderForm;
 import com.metoo.foundation.domain.SalesLog;
 import com.metoo.foundation.domain.Store;
-import com.metoo.foundation.domain.SysConfig;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.UserGoodsClass;
 import com.metoo.foundation.domain.query.GroupGoodsQueryObject;

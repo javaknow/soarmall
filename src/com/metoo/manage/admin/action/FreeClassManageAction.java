@@ -25,7 +25,6 @@ import com.metoo.core.query.support.IPageList;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.FreeClass;
-import com.metoo.foundation.domain.GoodsClass;
 import com.metoo.foundation.domain.query.FreeClassQueryObject;
 import com.metoo.foundation.service.IFreeClassService;
 import com.metoo.foundation.service.ISysConfigService;

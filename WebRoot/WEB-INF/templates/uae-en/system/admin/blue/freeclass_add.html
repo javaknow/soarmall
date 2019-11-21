@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 </head>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
 <script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
 <script src="$!webPath/resources/js/jquery.validate.min.js"></script>
 <script>
@@ -57,36 +59,40 @@ function saveForm(){
 }
 </script>
 <body>
-<form action="$!webPath/admin/freeclass_save.htm" method="post" name="theForm" id="theForm">
- <input name="id" type="hidden" id="id" value="$!obj.id"/>
-  <div class="cont">
-    <h1 class="seth">0元试用分类</h1>
-    <div class="nav_list">
-      <ul>
-       <li><a href="$!webPath/admin/freeclass_list.htm"><b>管理</b></a></li>
-        <li><a href="$!webPath/admin/freeclass_add.htm" class="this"><b>新增</b></a></li>
-      </ul>
-    </div>
-    <div class="edit">
-      <div class="editul setcont" id="base">
-        <ul class="set1">
-          <li class="setcont_bg"><strong class="sred">*</strong>名称</li>
-          <li><span class="webname">
-            <input name="className" type="text" id="className" value="$!obj.className"  />
-            </span></li>
-        </ul>
-        <ul class="set1">
-          <li class="setcont_bg">排序</li>
-          <li><span class="webname">
-            <input name="sequence" type="text" id="sequence" value="$!obj.sequence" reg="^-?\d+$" tip="只能为整数"/>
-            </span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="submit"> <span class="pad120">
-    <input name="" type="button" value="提交" onclick="saveForm();"/>
-    </span> </div>
-</form>
+	<form action="$!webPath/admin/freeclass_save.htm" method="post"
+		name="theForm" id="theForm">
+		<input name="id" type="hidden" id="id" value="$!obj.id" />
+		<div class="cont">
+			<h1 class="seth">0元试用分类</h1>
+			<div class="nav_list">
+				<ul>
+					<li><a href="$!webPath/admin/freeclass_list.htm"><b>管理</b></a></li>
+					<li><a href="$!webPath/admin/freeclass_add.htm" class="this"><b>新增</b></a></li>
+				</ul>
+			</div>
+			<div class="edit">
+				<div class="editul setcont" id="base">
+					<ul class="set1">
+						<li class="setcont_bg"><strong class="sred">*</strong>名称</li>
+						<li><span class="webname"> <input name="className"
+								type="text" id="className" value="$!obj.className" />
+						</span></li>
+					</ul>
+					<ul class="set1">
+						<li class="setcont_bg">排序</li>
+						<li><span class="webname"> <input name="sequence"
+								type="text" id="sequence" value="$!obj.sequence" reg="^-?\d+$"
+								tip="只能为整数" />
+						</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="submit">
+			<span class="pad120"> <input name="" type="button" value="提交"
+				onclick="saveForm();" />
+			</span>
+		</div>
+	</form>
 </body>
 </html>

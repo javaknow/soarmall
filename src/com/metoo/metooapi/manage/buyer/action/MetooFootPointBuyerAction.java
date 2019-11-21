@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,10 +22,8 @@ import com.metoo.core.annotation.SecurityMapping;
 import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.FootPoint;
-import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.FootPointQueryObject;
 import com.metoo.foundation.domain.virtual.FootPointView;

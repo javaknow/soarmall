@@ -1,46 +1,37 @@
-ï»¿#foreach($obj in $returnlogs)
+#foreach($obj in $returnlogs)
 <table cellpadding="0" cellspacing="0" border="0">
-<tbody>
-<tr>
-<td width="30%" class="im_dt">é€€å•ç¼–å·ï¼š</td>
-<td class="im_dd">$!obj.return_service_id</td>
-</tr>
-#set($status="é€€è´§ç”³è¯·ä¸­")
-#if($!obj.goods_return_status==-1)
-#set($status="é€€è´§ç”³è¯·è¢«æ‹’ç»")
-#end
-#if($!obj.goods_return_status==5)
-#set($status="é€€è´§ç”³è¯·ä¸­")
-#end
-#if($!obj.goods_return_status==6)
-#set($status="é€€è´§ç”³è¯·å®¡æ ¸é€šè¿‡")
-#end
-#if($!obj.goods_return_status==7)
-#set($status="ä¹°å®¶é€€è´§ä¸­")
-#end
-#if($!obj.goods_return_status==10)
-#set($status="é€€è´§å®Œæˆ")
-#end
-<tr>
-<td class="im_dt">å½“å‰çŠ¶æ€ï¼š</td>
-<td class="im_dd">$!{status}</td>
-</tr>
-<tr>
-<td class="im_dt">ç”³è¯·æ—¶é—´ï¼š</td>
-<td class="im_dd">$!CommUtil.formatLongDate($!obj.addTime)</td>
-</tr>
-<tr>
-<td class="im_dt">é€€è´§å•†å“ï¼š</td>
-<td class="im_dd">$!obj.goods_name</td>
-</tr>
-<tr>
-<td class="im_dt">å•†å“å•ä»·ï¼š</td>
-<td class="im_dd">$!obj.goods_price ï¼ˆå…ƒï¼‰</td>
-</tr>
-<tr>
-<td class="im_dt">é€€è´§æ€»ä»·ï¼š</td>
-<td class="im_dd">$!{obj.goods_price} X $!{obj.goods_count} =  $!{obj.goods_all_price} ï¼ˆå…ƒï¼‰</td>
-</tr>
-</tbody>
+	<tbody>
+		<tr>
+			<td width="30%" class="im_dt">ÍËµ¥±àºÅ£º</td>
+			<td class="im_dd">$!obj.return_service_id</td>
+		</tr>
+		#set($status="ÍË»õÉêÇëÖĞ") #if($!obj.goods_return_status==-1)
+		#set($status="ÍË»õÉêÇë±»¾Ü¾ø") #end #if($!obj.goods_return_status==5)
+		#set($status="ÍË»õÉêÇëÖĞ") #end #if($!obj.goods_return_status==6)
+		#set($status="ÍË»õÉêÇëÉóºËÍ¨¹ı") #end #if($!obj.goods_return_status==7)
+		#set($status="Âò¼ÒÍË»õÖĞ") #end #if($!obj.goods_return_status==10)
+		#set($status="ÍË»õÍê³É") #end
+		<tr>
+			<td class="im_dt">µ±Ç°×´Ì¬£º</td>
+			<td class="im_dd">$!{status}</td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÉêÇëÊ±¼ä£º</td>
+			<td class="im_dd">$!CommUtil.formatLongDate($!obj.addTime)</td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÍË»õÉÌÆ·£º</td>
+			<td class="im_dd">$!obj.goods_name</td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÉÌÆ·µ¥¼Û£º</td>
+			<td class="im_dd">$!obj.goods_price £¨Ôª£©</td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÍË»õ×Ü¼Û£º</td>
+			<td class="im_dd">$!{obj.goods_price} X $!{obj.goods_count} =
+				$!{obj.goods_all_price} £¨Ôª£©</td>
+		</tr>
+	</tbody>
 </table>
 #end

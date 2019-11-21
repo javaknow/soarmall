@@ -14,8 +14,6 @@ import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.Evaluate;
-import com.metoo.foundation.domain.Store;
-import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.EvaluateQueryObject;
 import com.metoo.foundation.service.IEvaluateService;
 import com.metoo.foundation.service.IStoreService;

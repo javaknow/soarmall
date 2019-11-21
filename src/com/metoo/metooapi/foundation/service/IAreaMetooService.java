@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.metoo.foundation.domain.Address;
 import com.metoo.foundation.domain.Area;
 
 public interface IAreaMetooService {

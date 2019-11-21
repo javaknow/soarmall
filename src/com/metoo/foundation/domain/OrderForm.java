@@ -123,6 +123,9 @@ public class OrderForm extends IdEntity {
 	private String express_info;// 物流公司信息json{"express_company_id":1,"express_company_name":"顺丰快递","express_company_mark":"shunfeng","express_company_type":"EXPRESS"}
 	private String receiver_Name;// 收货人姓名,确认订单后，将买家的收货地址所有信息添加到订单中，该订单与买家收货地址没有任何关联
 	private String receiver_area;// 收货人地区,例如：辽宁省沈阳市铁西区
+	private String receiver_state;// 收货人国家
+	private String receiver_city;// 收货人城市
+	private String receiver_street;//收货人街道
 	private String receiver_area_info;// 收货人详细地址，例如：凌空二街56-1号，4单元2楼1号
 	private String receiver_zip;// 收货人邮政编码
 	private String receiver_telephone;// 收货人联系电话
@@ -196,6 +199,30 @@ public class OrderForm extends IdEntity {
 	private String sex;     //性别    0:男  1:女
 	@Column(columnDefinition = "LongText")
 	private String snapshooot;
+
+	public String getReceiver_state(String string) {
+		return receiver_state;
+	}
+
+	public void setReceiver_state(String receiver_state) {
+		this.receiver_state = receiver_state;
+	}
+
+	public String getReceiver_city() {
+		return receiver_city;
+	}
+
+	public void setReceiver_city(String receiver_city) {
+		this.receiver_city = receiver_city;
+	}
+
+	public String getReceiver_street() {
+		return receiver_street;
+	}
+
+	public void setReceiver_street(String receiver_street) {
+		this.receiver_street = receiver_street;
+	}
 
 	public String getSnapshooot() {
 		return snapshooot;

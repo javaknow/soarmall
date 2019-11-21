@@ -19,13 +19,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSON;
 import com.iskyshop.core.tools.CommUtil;
 import com.metoo.buyer.domain.Result;
 import com.metoo.core.mv.JModelAndView;
-import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.GoodsBrand;
-import com.metoo.foundation.domain.GoodsBrandCategory;
 import com.metoo.foundation.service.IGoodsBrandCategoryService;
 import com.metoo.foundation.service.IGoodsBrandService;
 import com.metoo.foundation.service.ISysConfigService;

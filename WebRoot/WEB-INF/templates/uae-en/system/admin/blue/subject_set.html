@@ -3,17 +3,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type="text/css" rel="stylesheet">
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/overlay.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
-<script src="$!webPath/resources/js/jquery.imgareaselect.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+	type="text/css" rel="stylesheet">
+	<link
+		href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/overlay.css"
+		type="text/css" rel="stylesheet" />
+	<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+	<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
+	<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+	<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
+	<script src="$!webPath/resources/js/jquery.imgareaselect.js"></script>
+	<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+	<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+	<script>
 jQuery(document).ready(function(){								
 	jQuery('img[id^=bigImg_]').imgAreaSelect({
 			onSelectEnd: function (img, selection) {
@@ -200,40 +206,64 @@ function edit_hot_area(coords,url,obj){
 </script>
 </head>
 <body>
-<div class="cont">
-  <h1 class="seth">专题设计</h1>
-  <div class="about_box">
-    <!-- 专题 start -->
-    <div class="subject">
-    
+	<div class="cont">
+		<h1 class="seth">专题设计</h1>
+		<div class="about_box">
+			<!-- 专题 start -->
+			<div class="subject">
 
-      <!--商品div-->
-        #foreach($obj_goods in $objs)
-          #if($!obj_goods.type=="goods")
-      <div class="subject_center">
-         	#foreach($goods in $!SubjectTools.getGoodsInfos("$!obj_goods.goods_ids"))
-        <div class="subject_center_one">
-          <div class="subject_center_one_img"><img src="$!imageWebServer/$!{goods.img}" width="232px" height="232px"/></div>
-          <div class="subject_center_one_name">$!{goods.name}</div>
-          <div class="subject_center_one_price">价格：￥$!{goods.price}</div>
-        </div>
-             #end
-        <div class="subject_one_nav" style="display:none; width:140px">   <span style="cursor:pointer"><a href="javascript:void(0);" dialog_uri="$!webPath/admin/subject_goods.htm?id=$!{obj.id}&goods_ids=$!{obj_goods.goods_ids}" dialog_title="专题商品" dialog_width="735" dialog_top="120" dialog_height="200" dialog_id="subject_goods"><img src="$!webPath/resources/style/system/manage/blue/images/edit.png"/></a></span> <span style="cursor:pointer" onclick="dele_div('$!{obj_goods.goods_ids}','$!obj_goods.type');"><a href="javascript:void(0);"><img src="$!webPath/resources/style/system/manage/blue/images/del.png"/></a></span></div>
-      </div>
-            #end
-        #end
-      
-      #foreach($obj in $objs) 
-      #if($!obj.type=="img")
-      <!--图片div-->
-      <div class="subject_one" obj_id="$!obj.id">
-        <div class="subject_one_m">
-          <div style="position:relative; background-color:#999; margin:0 auto;"> <span><img style="max-width:100%" src="$!imageWebServer/$!{obj.img_url}" id="bigImg_$!{obj.id}" img_id="$!{obj.id}" usemap="#map_$!{obj.id}"/></span> #if($!obj.areaInfo)
-            #foreach($area in $!SubjectTools.getAreaInfo("$!{obj.areaInfo}"))
-            <div class="subject_one_map_center" style="top:$!{area.top}px;left:$!{area.left}px;width:$!{area.width}px; height:$!{area.height}px"><b onclick="dele_hot_area('$!{area.coords}','$!{area.url}',this);" style="display:none" id="hot_dele_$!{obj.id}_$!{velocityCount}">X</b><div class="subject_one_edit"><a style="display:none" href="javascript:void(0);" onclick="edit_hot_area('$!{area.coords}','$!{area.url}',this);" id="hot_edit_$!{obj.id}_$!{velocityCount}">编辑</a></div></div>
-            #end
-            #end </div>
-   <!--       <script>
+
+				<!--商品div-->
+				#foreach($obj_goods in $objs) #if($!obj_goods.type=="goods")
+				<div class="subject_center">
+					#foreach($goods in
+					$!SubjectTools.getGoodsInfos("$!obj_goods.goods_ids"))
+					<div class="subject_center_one">
+						<div class="subject_center_one_img">
+							<img src="$!imageWebServer/$!{goods.img}" width="232px"
+								height="232px" />
+						</div>
+						<div class="subject_center_one_name">$!{goods.name}</div>
+						<div class="subject_center_one_price">价格：￥$!{goods.price}</div>
+					</div>
+					#end
+					<div class="subject_one_nav" style="display: none; width: 140px">
+						<span style="cursor: pointer"><a href="javascript:void(0);"
+							dialog_uri="$!webPath/admin/subject_goods.htm?id=$!{obj.id}&goods_ids=$!{obj_goods.goods_ids}"
+							dialog_title="专题商品" dialog_width="735" dialog_top="120"
+							dialog_height="200" dialog_id="subject_goods"><img
+								src="$!webPath/resources/style/system/manage/blue/images/edit.png" /></a></span>
+						<span style="cursor: pointer"
+							onclick="dele_div('$!{obj_goods.goods_ids}','$!obj_goods.type');"><a
+							href="javascript:void(0);"><img
+								src="$!webPath/resources/style/system/manage/blue/images/del.png" /></a></span>
+					</div>
+				</div>
+				#end #end #foreach($obj in $objs) #if($!obj.type=="img")
+				<!--图片div-->
+				<div class="subject_one" obj_id="$!obj.id">
+					<div class="subject_one_m">
+						<div
+							style="position: relative; background-color: #999; margin: 0 auto;">
+							<span><img style="max-width: 100%"
+								src="$!imageWebServer/$!{obj.img_url}" id="bigImg_$!{obj.id}"
+								img_id="$!{obj.id}" usemap="#map_$!{obj.id}" /></span>
+							#if($!obj.areaInfo) #foreach($area in
+							$!SubjectTools.getAreaInfo("$!{obj.areaInfo}"))
+							<div class="subject_one_map_center" style="top: $!{area.top">
+								<b
+									onclick="dele_hot_area('$!{area.coords}','$!{area.url}',this);"
+									style="display: none"
+									id="hot_dele_$!{obj.id}_$!{velocityCount}">X</b>
+								<div class="subject_one_edit">
+									<a style="display: none" href="javascript:void(0);"
+										onclick="edit_hot_area('$!{area.coords}','$!{area.url}',this);"
+										id="hot_edit_$!{obj.id}_$!{velocityCount}">编辑</a>
+								</div>
+							</div>
+							#end #end
+						</div>
+						<!--       <script>
 		  jQuery(document).ready(function(){
 			     jQuery("img[id^='bigImg_']").each(function(){
 				  var width = jQuery(this).width();									   
@@ -242,20 +272,41 @@ function edit_hot_area(coords,url,obj){
 										  
 			 });
             </script>-->
-          <div class="subject_tbox_no"></div>
-          <div class="subject_one_nav" style="display:none"> <span style="cursor:pointer" onclick="show_hot_area('$!obj.id');"><a href="javascript:void(0);"><img src="$!webPath/resources/style/system/manage/blue/images/hotspot.png"/></a></span> <span style="cursor:pointer" onclick="img_href_edit('$!obj.id','$!obj.img_href');"><a href="javascript:void(0);" #if($!obj.img_href)title="当前链接：$!{obj.img_href}"#else title="编辑图片链接"#end><img src="$!webPath/resources/style/system/manage/blue/images/url.png"/></a></span> <span style="cursor:pointer" onclick="show_add_img('$!{obj.id}');"><a href="javascript:void(0);"><img src="$!webPath/resources/style/system/manage/blue/images/edit.png"/></a></span> <span style="cursor:pointer" onclick="dele_div('$!{obj.id}','$!obj.type');"><a href="javascript:void(0);"><img src="$!webPath/resources/style/system/manage/blue/images/del.png"/></a></span> </div>
-        </div>
-      </div>
-      #end
-      #end
-      <div class="subject_select">
-      <a href="javascript:void(0);" dialog_uri="$!webPath/admin/subject_goods.htm?id=$!obj.id" dialog_title="专题商品" dialog_width="735" dialog_top="120" dialog_height="200" dialog_id="subject_goods">
-        <div class="subject_select_left"></div>
-        </a>
-        <div class="subject_select_right" onclick="show_add_img();"></div>
-      </div>
-    </div>
-  </div>
-</div>
+						<div class="subject_tbox_no"></div>
+						<div class="subject_one_nav" style="display: none">
+							<span style="cursor: pointer"
+								onclick="show_hot_area('$!obj.id');"><a
+								href="javascript:void(0);"><img
+									src="$!webPath/resources/style/system/manage/blue/images/hotspot.png" /></a></span>
+							<span style="cursor: pointer"
+								onclick="img_href_edit('$!obj.id','$!obj.img_href');"><a
+								href="javascript:void(0);"
+								#if($!obj.img_href)title="当前链接：$!{obj.img_href}" #else
+								title="编辑图片链接" #end><img
+									src="$!webPath/resources/style/system/manage/blue/images/url.png" /></a></span>
+							<span style="cursor: pointer"
+								onclick="show_add_img('$!{obj.id}');"><a
+								href="javascript:void(0);"><img
+									src="$!webPath/resources/style/system/manage/blue/images/edit.png" /></a></span>
+							<span style="cursor: pointer"
+								onclick="dele_div('$!{obj.id}','$!obj.type');"><a
+								href="javascript:void(0);"><img
+									src="$!webPath/resources/style/system/manage/blue/images/del.png" /></a></span>
+						</div>
+					</div>
+				</div>
+				#end #end
+				<div class="subject_select">
+					<a href="javascript:void(0);"
+						dialog_uri="$!webPath/admin/subject_goods.htm?id=$!obj.id"
+						dialog_title="专题商品" dialog_width="735" dialog_top="120"
+						dialog_height="200" dialog_id="subject_goods">
+						<div class="subject_select_left"></div>
+					</a>
+					<div class="subject_select_right" onclick="show_add_img();"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

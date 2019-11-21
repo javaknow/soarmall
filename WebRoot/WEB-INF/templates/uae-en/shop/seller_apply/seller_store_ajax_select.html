@@ -1,7 +1,7 @@
-ï»¿<select name="$!mark" id="$!mark">
-	  <option value="">$!level</option>
-      #foreach($a in $area.childs)
-      <option value="$!a.id">$!a.areaName</option>
-      #end
-      
-</select>#if($!level=="å·žåŽ¿")<b class="settedtab_b">#end</b>
+<select name="$!mark" id="$!mark">
+	<option value="">$!level</option> #foreach($a in $area.childs)
+	<option value="$!a.id">$!a.areaName</option> #end
+
+</select>
+#if($!level=="ÖÝÏØ")
+<b class="settedtab_b">#end</b>

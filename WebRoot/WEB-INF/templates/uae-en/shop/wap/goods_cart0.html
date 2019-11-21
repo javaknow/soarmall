@@ -5,107 +5,111 @@
 <html lang="zh">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-	<meta name="apple-wap-web-app-capable" content="yes">
-	<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
-	<title>$!config.title</title>
-	<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/index_left.css">
-    <link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
-       <link
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style"
+	content="black-translucent">
+<title>$!config.title</title>
+<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index_left.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
+<link
 	href="$!webPath/resources/style/system/front/wap/css/style_170228_bak.css"
 	rel="stylesheet" type="text/css" />
 <script src="$!webPath/resources/js/wap/defined.js"></script>
 <script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-        <style>
-        .red_submit a, .red_submit input{
-        	background:#1E90FF;
-        }
-        .mui-bar-nav~.mui-content,body{
-        	height:100%;
-        }
-            input,
-            button,
-            .mui-btn {
-                margin: 5px 15px 10px 5px;
-                
-            }
-            .mui-spinner {
-                display: inline-block;
-                width: 24px;
-                height: 24px;
-                -webkit-transform-origin: 50%;
-                transform-origin: 50%;
-                -webkit-animation: spinner-spin 1s step-end infinite;
-                animation: spinner-spin 1s step-end infinite;
-            }
-            
-            .mui-spinner:after {
-                display: block;
-                content: "";
-                width: 100%;
-                height: 100%;
-                background-position: 50%;
-                background-size: 100%;
-                background-repeat: no-repeat;
-            }
-            
-            .mui-spinner-custom:after {
-                background-image: url("data:image/svg+xml;charset=utf-8,<svg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><line id='l' x1='60' x2='60' y1='7' y2='27' stroke='red' stroke-width='11' stroke-linecap='round'/></defs><g><use xlink:href='%23l' opacity='.27'/><use xlink:href='%23l' opacity='.27' transform='rotate(30 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(60 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(90 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(120 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(150 60,60)'/><use xlink:href='%23l' opacity='.37' transform='rotate(180 60,60)'/><use xlink:href='%23l' opacity='.46' transform='rotate(210 60,60)'/><use xlink:href='%23l' opacity='.56' transform='rotate(240 60,60)'/><use xlink:href='%23l' opacity='.66' transform='rotate(270 60,60)'/><use xlink:href='%23l' opacity='.75' transform='rotate(300 60,60)'/><use xlink:href='%23l' opacity='.85' transform='rotate(330 60,60)'/></g></svg>");
-            }
-        </style>
+<style>
+.red_submit a, .red_submit input {
+	background: #1E90FF;
+}
+
+.mui-bar-nav ~.mui-content, body {
+	height: 100%;
+}
+
+input, button, .mui-btn {
+	margin: 5px 15px 10px 5px;
+}
+
+.mui-spinner {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	-webkit-transform-origin: 50%;
+	transform-origin: 50%;
+	-webkit-animation: spinner-spin 1s step-end infinite;
+	animation: spinner-spin 1s step-end infinite;
+}
+
+.mui-spinner:after {
+	display: block;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-position: 50%;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.mui-spinner-custom:after {
+	background-image:
+		url("data:image/svg+xml;charset=utf-8,<svg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><line id='l' x1='60' x2='60' y1='7' y2='27' stroke='red' stroke-width='11' stroke-linecap='round'/></defs><g><use xlink:href='%23l' opacity='.27'/><use xlink:href='%23l' opacity='.27' transform='rotate(30 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(60 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(90 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(120 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(150 60,60)'/><use xlink:href='%23l' opacity='.37' transform='rotate(180 60,60)'/><use xlink:href='%23l' opacity='.46' transform='rotate(210 60,60)'/><use xlink:href='%23l' opacity='.56' transform='rotate(240 60,60)'/><use xlink:href='%23l' opacity='.66' transform='rotate(270 60,60)'/><use xlink:href='%23l' opacity='.75' transform='rotate(300 60,60)'/><use xlink:href='%23l' opacity='.85' transform='rotate(330 60,60)'/></g></svg>");
+}
+</style>
 </head>
 
 <body>
 
 	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
-        <!--侧滑菜单部分-->
-        <aside id="offCanvasSide" class="mui-off-canvas-left">
-            <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-                <div class="mui-scroll">
-               		 $!httpInclude.include("/wap/index_left.htm")
-                </div>
-            </div>
-        </aside>
-        <!--主界面部分-->
-        <div class="mui-inner-wrap">
-            <header class="mui-bar mui-bar-nav">
-                $!httpInclude.include("/wap/top.htm")
-            </header>
- 			<!-- 主题内容 -->
-            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
-             
-		 		<!-- 主体内容 -->
-	            <div class="mui-scroll">
-	            
-		<div class="error_page1">
-			<p>购物车添加成功！</p>
-		</div>
-
-	<div class="red_submit">
-		<a class="back" href="javascript:history.go(-1);">返回</a><a
-			class="back" href="$!webPath/wap/goods_cart1.htm">查看购物车</a>
-	</div>
-				
-		          <div style="margin-top:100px;display:block;"></div>
-                  </div>
-            </div>
-            <!-- off-canvas backdrop -->
-            <div class="mui-off-canvas-backdrop"></div>
-        </div>
-        <!--购物车列表-->
-        <aside id="offCanvasSides" class="mui-off-canvas-right" style="background:#fff;">
-				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						$!httpInclude.include("/wap/cart_right.htm")
-					</div>
-				</div>
+		<!--侧滑菜单部分-->
+		<aside id="offCanvasSide" class="mui-off-canvas-left">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/index_left.htm")</div>
+			</div>
 		</aside>
-    </div>
-		<script src="$!webPath/resources/wap/mui.js"></script>
+		<!--主界面部分-->
+		<div class="mui-inner-wrap">
+			<header class="mui-bar mui-bar-nav">
+				$!httpInclude.include("/wap/top.htm") </header>
+			<!-- 主题内容 -->
+			<div id="offCanvasContentScroll"
+				class="mui-content mui-scroll-wrapper">
+
+				<!-- 主体内容 -->
+				<div class="mui-scroll">
+
+					<div class="error_page1">
+						<p>购物车添加成功！</p>
+					</div>
+
+					<div class="red_submit">
+						<a class="back" href="javascript:history.go(-1);">返回</a><a
+							class="back" href="$!webPath/wap/goods_cart1.htm">查看购物车</a>
+					</div>
+
+					<div style="margin-top: 100px; display: block;"></div>
+				</div>
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
+		</div>
+		<!--购物车列表-->
+		<aside id="offCanvasSides" class="mui-off-canvas-right"
+			style="background: #fff;">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/cart_right.htm")</div>
+			</div>
+		</aside>
+	</div>
+	<script src="$!webPath/resources/wap/mui.js"></script>
 	<script>
 	mui.init({
         swipeBack: true //启用右滑关闭功能

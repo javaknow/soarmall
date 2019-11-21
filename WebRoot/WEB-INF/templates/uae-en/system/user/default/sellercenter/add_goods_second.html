@@ -7,23 +7,30 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type="text/css" rel="stylesheet">
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js"  charset="utf-8"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script src="$!webPath/resources/js/jquery.metadata.js"></script>
-#if($!store.grade.add_funciton)
-<script charset="utf-8" src="$!webPath/resources/editor/kindeditor.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/lang/zh_CN.js"></script>
-#end
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type="text/css" rel="stylesheet">
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
+			<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+			<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+			<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+			<script src="$!webPath/resources/js/jquery.metadata.js"></script>
+			#if($!store.grade.add_funciton) <script charset="utf-8"
+				src="$!webPath/resources/editor/kindeditor.js"></script>
+			<script charset="utf-8"
+				src="$!webPath/resources/editor/lang/zh_CN.js"></script>
+			#end <script>
 jQuery.validator.addMethod("profix", function(value, element) {
     return /^[0-9a-zA-Z]{0,6}$/.test(value);
 }, "前缀必须是6字之内字母数字的组合");
@@ -925,12 +932,11 @@ jQuery(":radio[id='publish_goods_status'][value='$!{obj.publish_goods_status}']"
 /* jQuery(":radio[id='site'][value='$!{obj.site}']").attr("checked",true); */
 jQuery(":radio[id='number_days'][value='$!{obj.number_days}']").attr("checked",true);
 </script>
-
 </head>
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-<!--   <div class="seller_right_nav">
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<!--   <div class="seller_right_nav">
     <div class="seller_right_nav_center">
       <ul>
         <li class="seller_right_nav_top">页面导航</li>
@@ -944,80 +950,90 @@ $!httpInclude.include("/seller/top.htm")
       </ul>
     </div>
   </div> -->
-  <div class="seller_center">
-    <div><a href="$!webPath/seller/index.htm">商家中心</a>><span>商品管理</span>><span>添加新商品</span></div>
-    <div class="navdetail"> <span class="navadd1 addcolor">选择商品所在分类</span> <span class="navadd2 white">填写商品详细信息</span> <span class="navadd3 addcolor">商品发布成功</span> </div>
-    <div class="adddetail">
-      <form action="$!webPath/seller/add_goods_finish.htm" method="post" enctype="multipart/form-data" name="theForm" id="theForm">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabledetail" >
-          <tr id="goods_base">
-            <td colspan="2" class="tableh1">基本信息
-              <input name="id" type="hidden" id="id" value="$!obj.id" /></td>
-          </tr>
-          <tr>
-            <td width="18%" align="right"><strong class="redstr">*</strong>商品分类：</td>
-            <td><span>$!goods_class_info</span><span class="editbtn">
-              <input name="goods_class_id" type="hidden" id="goods_class_id" value="$!{goods_class.id}" />
-              <input name="user_class_ids" type="hidden" id="user_class_ids" />
-              <input name="goods_spec_ids" type="hidden" id="goods_spec_ids" />
-              <input name="goods_properties" type="hidden" id="goods_properties" />
-              <input type="hidden" name="intentory_details" id="intentory_details" />
-              <input name="edit_class" type="button" id="edit_class" value="编辑" style="cursor:pointer;" onclick="window.location.href='$!webPath/seller/add_goods_first.htm?id=$!{obj.id}'" />
-              </span></td>
-          </tr>
-          <tr>
-          
-          <!-- 商品货号 -->
-            <td align="right" valign="top"><strong class="redstr">*</strong>SKU：</td>
-            <td class="sptable"><span class="tabtxt1 size2" >
-              <input name="goods_serial" type="text" id="goods_serial" value="$!obj.goods_serial" style="width:200px;"/>
-              </span><span class="hui2">SKU只能由英文和中文组成</span> <!-- <span class="hui2">
+		<div class="seller_center">
+			<div>
+				<a href="$!webPath/seller/index.htm">商家中心</a>><span>商品管理</span>><span>添加新商品</span>
+			</div>
+			<div class="navdetail">
+				<span class="navadd1 addcolor">选择商品所在分类</span> <span
+					class="navadd2 white">填写商品详细信息</span> <span
+					class="navadd3 addcolor">商品发布成功</span>
+			</div>
+			<div class="adddetail">
+				<form action="$!webPath/seller/add_goods_finish.htm" method="post"
+					enctype="multipart/form-data" name="theForm" id="theForm">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0"
+						class="tabledetail">
+						<tr id="goods_base">
+							<td colspan="2" class="tableh1">基本信息 <input name="id"
+								type="hidden" id="id" value="$!obj.id" /></td>
+						</tr>
+						<tr>
+							<td width="18%" align="right"><strong class="redstr">*</strong>商品分类：</td>
+							<td><span>$!goods_class_info</span><span class="editbtn">
+									<input name="goods_class_id" type="hidden" id="goods_class_id"
+									value="$!{goods_class.id}" /> <input name="user_class_ids"
+									type="hidden" id="user_class_ids" /> <input
+									name="goods_spec_ids" type="hidden" id="goods_spec_ids" /> <input
+									name="goods_properties" type="hidden" id="goods_properties" />
+									<input type="hidden" name="intentory_details"
+									id="intentory_details" /> <input name="edit_class"
+									type="button" id="edit_class" value="编辑"
+									style="cursor: pointer;"
+									onclick="window.location.href='$!webPath/seller/add_goods_first.htm?id=$!{obj.id}'" />
+							</span></td>
+						</tr>
+						<tr>
+
+							<!-- 商品货号 -->
+							<td align="right" valign="top"><strong class="redstr">*</strong>SKU：</td>
+							<td class="sptable"><span class="tabtxt1 size2"> <input
+									name="goods_serial" type="text" id="goods_serial"
+									value="$!obj.goods_serial" style="width: 200px;" />
+							</span><span class="hui2">SKU只能由英文和中文组成</span> <!-- <span class="hui2">
               <ul class="tableli">
                 <li>商品货号是指商家个人管理商品的编号，买家不可见</li>
                 <li>最多可输入20个字符，支持输入中文、字母、数字、_、/、-和小数点</li>
               </ul>
               </span> --></td>
-          </tr>
-          <tr>
-            <td align="right" valign="top"><strong class="redstr">*</strong>商品名称：</td>
-            <td class="sptable"><span class="tabtxt1 size1">
-              <input name="goods_name" type="text" id="goods_name" value="$!obj.goods_name" />
-              </span><span class="hui2">商品标题名称长度至少3个字符，最长100个英文字母</span></td>
-          </tr>
-         
-   		<tr style="display:none;">
-            <td align="right" valign="top">商品类型：</td>
-            <td class="sptable"><label>
-                <input name="goods_choice_type" type="radio" id="goods_choice_type" value="0" checked="checked" />
-                实物商品 </label>
-              <label>
-                <input type="radio" name="goods_choice_type" id="goods_choice_type" value="1" />
-                虚拟商品 </label>
-              <span class="hui2">充值卡、消费券等属于虚拟商品</span></td>
-          </tr>
-          <tr style="display:none;">
-            <td align="right" valign="top">货到付款：</td>
-            <td class="sptable"><label>
-                <input name="goods_cod" type="radio" id="goods_cod" value="0" checked="checked" />
-                支持 </label>
-              <label>
-                <input type="radio" name="goods_cod" id="goods_cod" value="-1" />
-                不支持 </label>
-              <span class="hui2">该商品是否支持货到付款</span></td>
-          </tr>
-          <tr style="display:none;">
-            <td align="right" valign="top">增值税发票：</td>
-            <td class="sptable"><label>
-                <input name="tax_invoice" type="radio" id="tax_invoice" value="1" checked="checked" />
-                支持 </label>
-              <label>
-                <input type="radio" name="tax_invoice" id="tax_invoice" value="0" />
-                不支持 </label>
-              <span class="hui2">该商品是否可以开具增值税发票</span></td>
-          </tr>
-          
-    
-      	<!-- #if($!goods_spec_list.size()>0)
+						</tr>
+						<tr>
+							<td align="right" valign="top"><strong class="redstr">*</strong>商品名称：</td>
+							<td class="sptable"><span class="tabtxt1 size1"> <input
+									name="goods_name" type="text" id="goods_name"
+									value="$!obj.goods_name" />
+							</span><span class="hui2">商品标题名称长度至少3个字符，最长100个英文字母</span></td>
+						</tr>
+
+						<tr style="display: none;">
+							<td align="right" valign="top">商品类型：</td>
+							<td class="sptable"><label> <input
+									name="goods_choice_type" type="radio" id="goods_choice_type"
+									value="0" checked="checked" /> 实物商品
+							</label> <label> <input type="radio" name="goods_choice_type"
+									id="goods_choice_type" value="1" /> 虚拟商品
+							</label> <span class="hui2">充值卡、消费券等属于虚拟商品</span></td>
+						</tr>
+						<tr style="display: none;">
+							<td align="right" valign="top">货到付款：</td>
+							<td class="sptable"><label> <input name="goods_cod"
+									type="radio" id="goods_cod" value="0" checked="checked" /> 支持
+							</label> <label> <input type="radio" name="goods_cod"
+									id="goods_cod" value="-1" /> 不支持
+							</label> <span class="hui2">该商品是否支持货到付款</span></td>
+						</tr>
+						<tr style="display: none;">
+							<td align="right" valign="top">增值税发票：</td>
+							<td class="sptable"><label> <input
+									name="tax_invoice" type="radio" id="tax_invoice" value="1"
+									checked="checked" /> 支持
+							</label> <label> <input type="radio" name="tax_invoice"
+									id="tax_invoice" value="0" /> 不支持
+							</label> <span class="hui2">该商品是否可以开具增值税发票</span></td>
+						</tr>
+
+
+						<!-- #if($!goods_spec_list.size()>0)
       		<script>
       	jQuery(".pri").show();
       	</script>
@@ -1026,9 +1042,9 @@ $!httpInclude.include("/seller/top.htm")
       	jQuery(".pri").hide();
       	</script>
       	#end -->
-         
-           
-         <!--  <script>
+
+
+						<!--  <script>
           function spec_add(id){
 	    		 jQuery.ajax({
 	    			type:'POST',
@@ -1044,43 +1060,46 @@ $!httpInclude.include("/seller/top.htm")
         		 showdiv();
         	}
           </script> -->
-         
-             #if($!goods_spec_list.size() > 0)
-      
-	       <tr>
-	            <td align="right" valign="top">规格选择：</td>
-	            <td class="sptable">
-	             <label>
-	                <input name="inventory_type" id="inventory_type" type="radio" value="all"  checked="checked" />
-	                单规格配置 </label> <label>
-	                <input type="radio" name="inventory_type" id="inventory_type" value="spec"/>
-	                 多规格配置 </label>
-	              <span class="hui2">
-	             <!--  <ul class="tableli">
+
+						#if($!goods_spec_list.size() > 0)
+
+						<tr>
+							<td align="right" valign="top">规格选择：</td>
+							<td class="sptable"><label> <input
+									name="inventory_type" id="inventory_type" type="radio"
+									value="all" checked="checked" /> 单规格配置
+							</label> <label> <input type="radio" name="inventory_type"
+									id="inventory_type" value="spec" /> 多规格配置
+							</label> <span class="hui2"> <!--  <ul class="tableli">
 	                <li>单规格表示单独库存、价格配置</li>
 	                <li>多规格需要配置对应属性的库存、价格</li>
 	              </ul> -->
-	              </span></td>
-	          </tr>
-	          #else
-	          <tr style="display:none">
-	          	<td> <input name="inventory_type" id="inventory_type" type="radio" value="all"  checked="checked" /></td>
-	          </tr>
-           #end
-          <tr id="specSelect" style="display:none">
-            <td align="right" valign="top" style="position: relative;">
-            	<p>选择规格：</p>
-            	<!--  <input type="button" value="新增" style="width:50px; cursor:pointer;" onclick='spec_add($!{gs.id})'/> -->
-            	<input type="button" value="生成商品" onclick="specOk()" style="position: absolute;bottom:5px;right:-1010px; cursor:pointer;border:none;width:70px;height: 24px;background: url($!webPath/resources/style/system/front/default/images/usercenter/edit.jpg) no-repeat;" />
-            	
-            </td> 
-     		<td class="sptable" style="padding-top:0px;padding-bottom:35px;">
-             #foreach($gs in $goods_spec_list)
-	            <div id="gs_$!{gs.id}" gs_name="$!{gs.name}"  style="border-top: 1px solid #ebebeb;margin-top: -1px;">
-	            	<p style="height:30px;line-height:30px;font-size:14px; width:100%;">$!{gs.name}：</p>
-		            <ul style="padding:5px 0;display: flex;justify-content: flex-start;width: 100%; flex-wrap: wrap;">
-		                #foreach($gsp in $!gs.properties)
-		      <!--     
+							</span></td>
+						</tr>
+						#else
+						<tr style="display: none">
+							<td><input name="inventory_type" id="inventory_type"
+								type="radio" value="all" checked="checked" /></td>
+						</tr>
+						#end
+						<tr id="specSelect" style="display: none">
+							<td align="right" valign="top" style="position: relative;">
+								<p>选择规格：</p> <!--  <input type="button" value="新增" style="width:50px; cursor:pointer;" onclick='spec_add($!{gs.id})'/> -->
+								<input type="button" value="生成商品" onclick="specOk()"
+								style="position: absolute; bottom: 5px; right: -1010px; cursor: pointer; border: none; width: 70px; height: 24px; background: url($!webPath/resources/style/system/front/default/images/usercenter/edit.jpg) no-repeat;" />
+
+							</td>
+							<td class="sptable"
+								style="padding-top: 0px; padding-bottom: 35px;">
+								#foreach($gs in $goods_spec_list)
+								<div id="gs_$!{gs.id}" gs_name="$!{gs.name}"
+									style="border-top: 1px solid #ebebeb; margin-top: -1px;">
+									<p
+										style="height: 30px; line-height: 30px; font-size: 14px; width: 100%;">$!{gs.name}：</p>
+									<ul
+										style="padding: 5px 0; display: flex; justify-content: flex-start; width: 100%; flex-wrap: wrap;">
+										#foreach($gsp in $!gs.properties)
+										<!--     
 		                 #if($!{velocityCount} == 1)
 		                	<script>
 		                jQuery(document).ready(function(){
@@ -1089,118 +1108,134 @@ $!httpInclude.include("/seller/top.htm")
 		                	</script>
 		                
 		                #end  -->
-		                <li style="margin-right: 10px;min-width:60px;margin-bottom: 10px;display: flex; justify-content: flex-start;"> 
-		                	<span class="cc_sp1" style="margin-right: 5px;">
-		                  <input name="spec_$!{gsp.id}" type="checkbox" id="spec_$!{gsp.id}" gs_id="$!gs.id"  gsp_val="$!gsp.value" value="$!gsp.id" />
-		                  </span>
-		                  <label for="spec_$!{gsp.id}"> #if($!gs.type=="img") <span class="cc_sp2"> <img src="$!imageWebServer/$!{gsp.specImage.path}/$!{gsp.specImage.name}" width="16" height="16" /> </span> #end <span class="cc_sp3">$!gsp.value</span> </label>
-		                </li>
-		                #end
-		              </ul>
-	              </div> 
-                 #end
-           </td>
-          </tr>
-         
-         
-          <tr id="inventory_detail" style="display:none;">
-            <td align="right" valign="top" style="position: relative;">
-            	<div>详细库存：</div>
-	            <div style="position: absolute; top:10px;right:-1010px;width:1000px">
-					<p style="float:left;">注意：批量修改支持加法（“+”）、减法（“-”）操作，例如在批量管理输入框内输入“+20”，确认后该列所有数值全部增加20。</p>	
-					<input type="button" value="修改规格" onclick="specEdit()" style="float:right; cursor:pointer;border:none;width:70px;height: 24px;background: url($!webPath/resources/style/system/front/default/images/usercenter/edit.jpg) no-repeat;" />
-				</div>
-            </td>
-            <td class="sptable">
-            	<div id="inventory_detail_content" style="margin-top:30px;width:1050px;height:auto;overflow:auto;"></div>
-            </td>
-          </tr>
-         
- 
-           <tr class="spec_price">
-            <td align="right" valign="top"><strong class="redstr">*</strong>商品原价：</td>
-            <td class="sptable"><span class="element_center">
-              <input name="goods_price" type="text" id="goods_price" value="$!obj.goods_price" />
-              <i class="element">AED</i></span> </span><!-- <span class="element_tipe">商品原价必须是0.01~1000000之间的数字</span> --></td>
-          </tr>
-           <tr class="spec_price" >
-            <td align="right" valign="top">折后价格：</td>
-            <td class="sptable"><span class="element_center">
-              <input name="store_price" type="text" id="store_price" value="$!obj.store_price" />
-              <i class="element">AED</i> </span> <span class="hui2">
-             <ul class="tableli">
-              <li style="color:red">折后价格不能大于商品原价</li>
-                  <!--<li>折后价格必须是0.01~1000000之间的数字</li>
+										<li
+											style="margin-right: 10px; min-width: 60px; margin-bottom: 10px; display: flex; justify-content: flex-start;">
+											<span class="cc_sp1" style="margin-right: 5px;"> <input
+												name="spec_$!{gsp.id}" type="checkbox" id="spec_$!{gsp.id}"
+												gs_id="$!gs.id" gsp_val="$!gsp.value" value="$!gsp.id" />
+										</span> <label for="spec_$!{gsp.id}"> #if($!gs.type=="img") <span
+												class="cc_sp2"> <img
+													src="$!imageWebServer/$!{gsp.specImage.path}/$!{gsp.specImage.name}"
+													width="16" height="16" />
+											</span> #end <span class="cc_sp3">$!gsp.value</span>
+										</label>
+										</li> #end
+									</ul>
+								</div> #end
+							</td>
+						</tr>
+
+
+						<tr id="inventory_detail" style="display: none;">
+							<td align="right" valign="top" style="position: relative;">
+								<div>详细库存：</div>
+								<div
+									style="position: absolute; top: 10px; right: -1010px; width: 1000px">
+									<p style="float: left;">注意：批量修改支持加法（“+”）、减法（“-”）操作，例如在批量管理输入框内输入“+20”，确认后该列所有数值全部增加20。</p>
+									<input type="button" value="修改规格" onclick="specEdit()"
+										style="float: right; cursor: pointer; border: none; width: 70px; height: 24px; background: url($!webPath/resources/style/system/front/default/images/usercenter/edit.jpg) no-repeat;" />
+								</div>
+							</td>
+							<td class="sptable">
+								<div id="inventory_detail_content"
+									style="margin-top: 30px; width: 1050px; height: auto; overflow: auto;"></div>
+							</td>
+						</tr>
+
+
+						<tr class="spec_price">
+							<td align="right" valign="top"><strong class="redstr">*</strong>商品原价：</td>
+							<td class="sptable"><span class="element_center"> <input
+									name="goods_price" type="text" id="goods_price"
+									value="$!obj.goods_price" /> <i class="element">AED</i></span> </span> <!-- <span class="element_tipe">商品原价必须是0.01~1000000之间的数字</span> --></td>
+						</tr>
+						<tr class="spec_price">
+							<td align="right" valign="top">折后价格：</td>
+							<td class="sptable"><span class="element_center"> <input
+									name="store_price" type="text" id="store_price"
+									value="$!obj.store_price" /> <i class="element">AED</i>
+							</span> <span class="hui2">
+									<ul class="tableli">
+										<li style="color: red">折后价格不能大于商品原价</li>
+										<!--<li>折后价格必须是0.01~1000000之间的数字</li>
                 <li>若启用了库存配置，请在下方商品库存区域进行管理</li>
                 <li>商品规格库存表中如有价格差异，折后价格显示为价格区间形式</li>-->
-              </ul> 
-              
-              </span></td>
-          </tr>
-   		 <tr  class="spec_price">
-            <td align="right" valign="top">商品库存：</td>
-            <td class="sptable"><span class="element_center">
-              <input name="goods_inventory" type="text" id="goods_inventory" value="$!obj.goods_inventory" />
-              <i class="element">件</i> </span> <span class="hui2">
-              <!-- <ul class="tableli">
+									</ul>
+
+							</span></td>
+						</tr>
+						<tr class="spec_price">
+							<td align="right" valign="top">商品库存：</td>
+							<td class="sptable"><span class="element_center"> <input
+									name="goods_inventory" type="text" id="goods_inventory"
+									value="$!obj.goods_inventory" /> <i class="element">件</i>
+							</span> <span class="hui2"> <!-- <ul class="tableli">
                 <li>商铺库存数量必须为1~1000000000之间的整数</li>
                 <li>若启用了规格配置，则系统自动计算商品的总数，此处无需商家填写</li>
               </ul> -->
-              </span></td>
-          </tr>
-          
-          <tr class="spec_price">
-          <td align="right" valign="top">商品重量：</td>
-            <td class="sptable"><span class="element_center">
-              <input name="goods_weight" type="text" id="goods_weight" value="$!obj.goods_weight" />
-              <i class="element">g</i> </span></td>
-          </tr>
-          <tr class="spec_price">
-            <td align="right" valign="top">商品体积：</td>
-            <td class="sptable"><!-- <span class="element_center">
+							</span></td>
+						</tr>
+
+						<tr class="spec_price">
+							<td align="right" valign="top">商品重量：</td>
+							<td class="sptable"><span class="element_center"> <input
+									name="goods_weight" type="text" id="goods_weight"
+									value="$!obj.goods_weight" /> <i class="element">g</i>
+							</span></td>
+						</tr>
+						<tr class="spec_price">
+							<td align="right" valign="top">商品体积：</td>
+							<td class="sptable">
+								<!-- <span class="element_center">
               <input name="goods_volume" type="text" id="goods_volume" value="$!obj.goods_volume" />
-              <i class="element">cm</i> </span> --></td>
-          </tr>
-          
-           <tr class="spec_price">
-            <td align="right" valign="top"><strong class="redstr">*</strong>长：</td>
-            <td class="sptable"><span class="element_center">
-              <input name="goods_length" type="text" id="goods_length" value="$!obj.goods_length" />
-              <i class="element">cm</i> </span></td>
-          </tr>
-          
-           <tr class="spec_price">
-            <td align="right" valign="top"><strong class="redstr">*</strong>宽：</td>
-            <td class="sptable"><span class="element_center">
-              <input name="goods_width" type="text" id="goods_width" value="$!obj.goods_width" />
-              <i class="element">cm</i> </span></td>
-          </tr>
-          
-           <tr class="spec_price">
-            <td align="right" valign="top"><strong class="redstr">*</strong>高：</td>
-            <td class="sptable"><span class="element_center">
-              <input name="goods_high" type="text" id="goods_high" value="$!obj.goods_high" />
-              <i class="element">cm</i> </span></td>
-          </tr>
-          
-          
-          <tr style="display:none;">
-            <td align="right" valign="top">预警数量：</td>
-            <td class="sptable"><span class="element_center">
-              <input name="goods_warn_inventory" type="text" id="goods_warn_inventory" value="$!obj.goods_warn_inventory" />
-              <i class="element">件</i> </span> <span class="hui2">
-              <ul class="tableli">
-                <li>预警数量必须为1~1000000000之间的整数</li>
-                <li>库存少于预警数量，商品会以红色标题靠前显示</li>
-              </ul>
-              </span></td>
-          </tr>
-          
-          
-         
-          <tr>
-            <td align="right" valign="top">商品图片：</td>
-            <script>
+              <i class="element">cm</i> </span> -->
+							</td>
+						</tr>
+
+						<tr class="spec_price">
+							<td align="right" valign="top"><strong class="redstr">*</strong>长：</td>
+							<td class="sptable"><span class="element_center"> <input
+									name="goods_length" type="text" id="goods_length"
+									value="$!obj.goods_length" /> <i class="element">cm</i>
+							</span></td>
+						</tr>
+
+						<tr class="spec_price">
+							<td align="right" valign="top"><strong class="redstr">*</strong>宽：</td>
+							<td class="sptable"><span class="element_center"> <input
+									name="goods_width" type="text" id="goods_width"
+									value="$!obj.goods_width" /> <i class="element">cm</i>
+							</span></td>
+						</tr>
+
+						<tr class="spec_price">
+							<td align="right" valign="top"><strong class="redstr">*</strong>高：</td>
+							<td class="sptable"><span class="element_center"> <input
+									name="goods_high" type="text" id="goods_high"
+									value="$!obj.goods_high" /> <i class="element">cm</i>
+							</span></td>
+						</tr>
+
+
+						<tr style="display: none;">
+							<td align="right" valign="top">预警数量：</td>
+							<td class="sptable"><span class="element_center"> <input
+									name="goods_warn_inventory" type="text"
+									id="goods_warn_inventory" value="$!obj.goods_warn_inventory" />
+									<i class="element">件</i>
+							</span> <span class="hui2">
+									<ul class="tableli">
+										<li>预警数量必须为1~1000000000之间的整数</li>
+										<li>库存少于预警数量，商品会以红色标题靠前显示</li>
+									</ul>
+							</span></td>
+						</tr>
+
+
+
+						<tr>
+							<td align="right" valign="top">商品图片：</td>
+							<script>
 		    function photo_switch(clz,obj){	
 			 if(clz=="tab_body_b"){
 			 var album_id = jQuery(obj).attr("album_id");
@@ -1223,103 +1258,188 @@ $!httpInclude.include("/seller/top.htm")
 				}		
 			}	
 		  </script>
-            <td><!--商品图片上传 -->
-              
-              <div class="tab_body">
-                <ul class="tabbody_ul">
-                  <li class="this" style="cursor:pointer;" onclick="show_album('tab_body_a',this)">上传图片</li>
-                  <li style="cursor:pointer;" onclick="show_album('tab_body_b',this)">从用户相册选择</li>
-                </ul>
-                <div class="tabbodys">
-                  <div class="tab_body_b"></div>
-                  <div class="tab_body_a">
-                    <div class="upload_pictures">
-                      <div class="upload_pictures_top">
-                        <div class="upload_pictures_top_img">
-                        <img #if($!obj.goods_main_photo) src="$!imageWebServer/$!{obj.goods_main_photo.path}/$!{obj.goods_main_photo.name}"  #end /></div>
-                      </div>
-                      <div class="upload_pictures_bottom">
-                        <ul id="show_img">
-                          #if($!obj.goods_main_photo)
-                          <li> <span class="upload_pictures_bottom_i"><img src="$!imageWebServer/$!{obj.goods_main_photo.path}/$!{obj.goods_main_photo.name}" img_id="$!{obj.goods_main_photo.id}" title="可拖动" /></span> <span class="upload_pictures_bottom_del"> <a href="javascript:void(0)" onclick="del_goods_image('$!{obj.goods_main_photo.id}',this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" title="删除图片文件" /></a> <a href="javascript:void(0)" onclick="remove_goods_image(this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" title="删除图片数据" /></a> </span> </li>
-                          #end
-                          #foreach($img in $obj.goods_photos)
-                          #if($velocityCount==1)
-                          #set($img2="$!imageWebServer/$!{img.path}/$!{img.name}")
-                          #set($img2_id="$!img.id")
-                          <li><span class="upload_pictures_bottom_i"><img src="$!{img2}" img_id="$!{img2_id}" title="可拖动" /></span> <span class="upload_pictures_bottom_del"> <a href="javascript:void(0)" onclick="del_goods_image('$!{img2_id}',this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" title="删除图片文件" /></a> <a href="javascript:void(0)" onclick="remove_goods_image(this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" title="删除图片数据" /></a> </span></li>
-                          #end
-                          #if($velocityCount==2)
-                          #set($img3="$!imageWebServer/$!{img.path}/$!{img.name}")
-                          #set($img3_id="$!img.id")
-                          <li><span class="upload_pictures_bottom_i"><img src="$!{img3}" img_id="$!{img3_id}" title="可拖动" /></span> <span class="upload_pictures_bottom_del"> <a href="javascript:void(0)" onclick="del_goods_image('$!{img3_id}',this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" title="删除图片文件" /></a> <a href="javascript:void(0)" onclick="remove_goods_image(this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" title="删除图片数据" /></a> </span></li>
-                          #end
-                          #if($velocityCount==3)
-                          #set($img4="$!imageWebServer/$!{img.path}/$!{img.name}")
-                          #set($img4_id="$!img.id")
-                          <li><span class="upload_pictures_bottom_i"><img src="$!{img4}" img_id="$!{img4_id}" title="可拖动" /></span> <span class="upload_pictures_bottom_del"> <a href="javascript:void(0)" onclick="del_goods_image('$!{img4_id}',this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" title="删除图片文件" /></a> <a href="javascript:void(0)" onclick="remove_goods_image(this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" title="删除图片数据" /></a> </span></li>
-                          #end
-                          #if($velocityCount==4)
-                          #set($img5="$!imageWebServer/$!{img.path}/$!{img.name}")
-                          #set($img5_id="$!img.id")
-                          <li><span class="upload_pictures_bottom_i"><img src="$!{img5}" img_id="$!{img5_id}" title="可拖动" /></span> <span class="upload_pictures_bottom_del"> <a href="javascript:void(0)" onclick="del_goods_image('$!{img5_id}',this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" title="删除图片文件" /></a> <a href="javascript:void(0)" onclick="remove_goods_image(this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" title="删除图片数据" /></a> </span></li>
-                          #end
-                            #if($velocityCount==5)
-                          #set($img6="$!imageWebServer/$!{img.path}/$!{img.name}")
-                          #set($img6_id="$!img.id")
-                          <li><span class="upload_pictures_bottom_i"><img src="$!{img6}" img_id="$!{img6_id}" title="可拖动" /></span> <span class="upload_pictures_bottom_del"> <a href="javascript:void(0)" onclick="del_goods_image('$!{img6_id}',this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" title="删除图片文件" /></a> <a href="javascript:void(0)" onclick="remove_goods_image(this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" title="删除图片数据" /></a> </span></li>
-                          #end
-                            #if($velocityCount==6)
-                          #set($img7="$!imageWebServer/$!{img.path}/$!{img.name}")
-                          #set($img7_id="$!img.id")
-                          <li><span class="upload_pictures_bottom_i"><img src="$!{img7}" img_id="$!{img7_id}" title="可拖动" /></span> <span class="upload_pictures_bottom_del"> <a href="javascript:void(0)" onclick="del_goods_image('$!{img7_id}',this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" title="删除图片文件" /></a> <a href="javascript:void(0)" onclick="remove_goods_image(this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" title="删除图片数据" /></a> </span></li>
-                          #end
-                            #if($velocityCount==7)
-                          #set($img8="$!imageWebServer/$!{img.path}/$!{img.name}")
-                          #set($img8_id="$!img.id")
-                          <li><span class="upload_pictures_bottom_i"><img src="$!{img8}" img_id="$!{img8_id}" title="可拖动" /></span> <span class="upload_pictures_bottom_del"> <a href="javascript:void(0)" onclick="del_goods_image('$!{img8_id}',this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" title="删除图片文件" /></a> <a href="javascript:void(0)" onclick="remove_goods_image(this)"><img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" title="删除图片数据" /></a> </span></li>
-                          #end
-                          #end
-                        </ul>
-                        <ul>
-                          <li class="add_img" #if($!obj.goods_photos.size()>=7) style="display:none" #end > <span class="upload_pictures_bottom_w">
-                            <input name="imgFile" type="file" id="imgFile" onchange="upload_goods_img()"/>
-                            </span> </li>
-                        </ul>
-                        <input name="image_ids" type="hidden" id="image_ids" />
-                        <input name="goods_main_img_id" type="hidden" id="goods_main_img_id" />
-                      </div>
-                    </div>
-                    <!--说明 -->
-                    <div class="upload_pictures_statement">
-                      <div class="upload_pictures_statement_c"> <img src="$!imageWebServer/resources/style/system/front/default/images/upload_right.png" /> <span>1、最多可发布 <b style="color:#F00">8</b> 张商品图片<br />
-                        2、商品主图下方小图可<b style="color:#F00">拖动</b>以便调整顺序<br />
-                        3、支持格式：$!{imageSuffix}<br />
-                        4、建议选择尺寸<b style="color:#F00">800x800</b>、大小1M内的图片<br />
-                        5、<i id="img_remain_size">#if($!{img_remain_size})#if($!{img_remain_size}>0)图片空间剩余: <b style="color:#F00"> $!{img_remain_size} </b> MB #end#if($!{img_remain_size}<=0)<b style="color:#F00">空间不足 </b> #end
-                        #else空间大小不受限制
-                        #end </i> <br />
-                        6、空间不足时将无法上传图片<br />
-                        7、 <img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" /> 表示从服务器删除图片文件，不可恢复 <br />
-                        8、 <img src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" /> 表示删除该商品的图片数据 </span> </div>
-                    </div>
-                  </div>
-                </div>
-              </div></td>
-          </tr>
-         
-         
-          <tr>
-            <td rowspan="2" align="right" valign="middle">运费：</td>
-            <td><label>
-                <input name="goods_transfee" type="radio" id="goods_transfee" value="1" checked="checked" />
-                商家承担运费</label></td>
-          </tr>
-          <tr>
-            <td><label>
-                <input name="goods_transfee" type="radio" id="goods_transfee" value="0" />
-                买家承担运费</label>
-              <!-- <script>
+							<td>
+								<!--商品图片上传 -->
+
+								<div class="tab_body">
+									<ul class="tabbody_ul">
+										<li class="this" style="cursor: pointer;"
+											onclick="show_album('tab_body_a',this)">上传图片</li>
+										<li style="cursor: pointer;"
+											onclick="show_album('tab_body_b',this)">从用户相册选择</li>
+									</ul>
+									<div class="tabbodys">
+										<div class="tab_body_b"></div>
+										<div class="tab_body_a">
+											<div class="upload_pictures">
+												<div class="upload_pictures_top">
+													<div class="upload_pictures_top_img">
+														<img
+															#if($!obj.goods_main_photo) src="$!imageWebServer/$!{obj.goods_main_photo.path}/$!{obj.goods_main_photo.name}"
+															#end />
+													</div>
+												</div>
+												<div class="upload_pictures_bottom">
+													<ul id="show_img">
+														#if($!obj.goods_main_photo)
+														<li><span class="upload_pictures_bottom_i"><img
+																src="$!imageWebServer/$!{obj.goods_main_photo.path}/$!{obj.goods_main_photo.name}"
+																img_id="$!{obj.goods_main_photo.id}" title="可拖动" /></span> <span
+															class="upload_pictures_bottom_del"> <a
+																href="javascript:void(0)"
+																onclick="del_goods_image('$!{obj.goods_main_photo.id}',this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png"
+																	title="删除图片文件" /></a> <a href="javascript:void(0)"
+																onclick="remove_goods_image(this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png"
+																	title="删除图片数据" /></a>
+														</span></li> #end #foreach($img in $obj.goods_photos)
+														#if($velocityCount==1)
+														#set($img2="$!imageWebServer/$!{img.path}/$!{img.name}")
+														#set($img2_id="$!img.id")
+														<li><span class="upload_pictures_bottom_i"><img
+																src="$!{img2}" img_id="$!{img2_id}" title="可拖动" /></span> <span
+															class="upload_pictures_bottom_del"> <a
+																href="javascript:void(0)"
+																onclick="del_goods_image('$!{img2_id}',this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png"
+																	title="删除图片文件" /></a> <a href="javascript:void(0)"
+																onclick="remove_goods_image(this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png"
+																	title="删除图片数据" /></a>
+														</span></li> #end #if($velocityCount==2)
+														#set($img3="$!imageWebServer/$!{img.path}/$!{img.name}")
+														#set($img3_id="$!img.id")
+														<li><span class="upload_pictures_bottom_i"><img
+																src="$!{img3}" img_id="$!{img3_id}" title="可拖动" /></span> <span
+															class="upload_pictures_bottom_del"> <a
+																href="javascript:void(0)"
+																onclick="del_goods_image('$!{img3_id}',this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png"
+																	title="删除图片文件" /></a> <a href="javascript:void(0)"
+																onclick="remove_goods_image(this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png"
+																	title="删除图片数据" /></a>
+														</span></li> #end #if($velocityCount==3)
+														#set($img4="$!imageWebServer/$!{img.path}/$!{img.name}")
+														#set($img4_id="$!img.id")
+														<li><span class="upload_pictures_bottom_i"><img
+																src="$!{img4}" img_id="$!{img4_id}" title="可拖动" /></span> <span
+															class="upload_pictures_bottom_del"> <a
+																href="javascript:void(0)"
+																onclick="del_goods_image('$!{img4_id}',this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png"
+																	title="删除图片文件" /></a> <a href="javascript:void(0)"
+																onclick="remove_goods_image(this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png"
+																	title="删除图片数据" /></a>
+														</span></li> #end #if($velocityCount==4)
+														#set($img5="$!imageWebServer/$!{img.path}/$!{img.name}")
+														#set($img5_id="$!img.id")
+														<li><span class="upload_pictures_bottom_i"><img
+																src="$!{img5}" img_id="$!{img5_id}" title="可拖动" /></span> <span
+															class="upload_pictures_bottom_del"> <a
+																href="javascript:void(0)"
+																onclick="del_goods_image('$!{img5_id}',this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png"
+																	title="删除图片文件" /></a> <a href="javascript:void(0)"
+																onclick="remove_goods_image(this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png"
+																	title="删除图片数据" /></a>
+														</span></li> #end #if($velocityCount==5)
+														#set($img6="$!imageWebServer/$!{img.path}/$!{img.name}")
+														#set($img6_id="$!img.id")
+														<li><span class="upload_pictures_bottom_i"><img
+																src="$!{img6}" img_id="$!{img6_id}" title="可拖动" /></span> <span
+															class="upload_pictures_bottom_del"> <a
+																href="javascript:void(0)"
+																onclick="del_goods_image('$!{img6_id}',this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png"
+																	title="删除图片文件" /></a> <a href="javascript:void(0)"
+																onclick="remove_goods_image(this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png"
+																	title="删除图片数据" /></a>
+														</span></li> #end #if($velocityCount==6)
+														#set($img7="$!imageWebServer/$!{img.path}/$!{img.name}")
+														#set($img7_id="$!img.id")
+														<li><span class="upload_pictures_bottom_i"><img
+																src="$!{img7}" img_id="$!{img7_id}" title="可拖动" /></span> <span
+															class="upload_pictures_bottom_del"> <a
+																href="javascript:void(0)"
+																onclick="del_goods_image('$!{img7_id}',this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png"
+																	title="删除图片文件" /></a> <a href="javascript:void(0)"
+																onclick="remove_goods_image(this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png"
+																	title="删除图片数据" /></a>
+														</span></li> #end #if($velocityCount==7)
+														#set($img8="$!imageWebServer/$!{img.path}/$!{img.name}")
+														#set($img8_id="$!img.id")
+														<li><span class="upload_pictures_bottom_i"><img
+																src="$!{img8}" img_id="$!{img8_id}" title="可拖动" /></span> <span
+															class="upload_pictures_bottom_del"> <a
+																href="javascript:void(0)"
+																onclick="del_goods_image('$!{img8_id}',this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png"
+																	title="删除图片文件" /></a> <a href="javascript:void(0)"
+																onclick="remove_goods_image(this)"><img
+																	src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png"
+																	title="删除图片数据" /></a>
+														</span></li> #end #end
+													</ul>
+													<ul>
+														<li class="add_img"#if($!obj.goods_photos.size()>=7)
+															style="display:none" #end > <span
+															class="upload_pictures_bottom_w"> <input
+																name="imgFile" type="file" id="imgFile"
+																onchange="upload_goods_img()" />
+														</span>
+														</li>
+													</ul>
+													<input name="image_ids" type="hidden" id="image_ids" /> <input
+														name="goods_main_img_id" type="hidden"
+														id="goods_main_img_id" />
+												</div>
+											</div>
+											<!--说明 -->
+											<div class="upload_pictures_statement">
+												<div class="upload_pictures_statement_c">
+													<img
+														src="$!imageWebServer/resources/style/system/front/default/images/upload_right.png" />
+													<span>1、最多可发布 <b style="color: #F00">8</b> 张商品图片<br />
+														2、商品主图下方小图可<b style="color: #F00">拖动</b>以便调整顺序<br />
+														3、支持格式：$!{imageSuffix}<br /> 4、建议选择尺寸<b
+														style="color: #F00">800x800</b>、大小1M内的图片<br /> 5、<i
+														id="img_remain_size">#if($!{img_remain_size})#if($!{img_remain_size}>0)图片空间剩余:
+															<b style="color: #F00"> $!{img_remain_size} </b> MB
+															#end#if($!{img_remain_size}<=0)<b style="color: #F00">空间不足
+														</b> #end #else空间大小不受限制 #end
+													</i> <br /> 6、空间不足时将无法上传图片<br /> 7、 <img
+														src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_left.png" />
+														表示从服务器删除图片文件，不可恢复 <br /> 8、 <img
+														src="$!imageWebServer/resources/style/system/front/default/images/usercenter/del_right.png" />
+														表示删除该商品的图片数据
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+
+
+						<tr>
+							<td rowspan="2" align="right" valign="middle">运费：</td>
+							<td><label> <input name="goods_transfee"
+									type="radio" id="goods_transfee" value="1" checked="checked" />
+									商家承担运费
+							</label></td>
+						</tr>
+						<tr>
+							<td><label> <input name="goods_transfee"
+									type="radio" id="goods_transfee" value="0" /> 买家承担运费
+							</label> <!-- <script>
 			jQuery(document).ready(function(){
 				
 			    jQuery(":radio[id=goods_transfee]").click(function(){
@@ -1348,91 +1468,99 @@ $!httpInclude.include("/seller/top.htm")
 			   #end
 			});
 			</script> -->
-              <div id="buyer_transport_info" style=" display:none;width:80%;   margin-top:10px;padding-left:0px;">
-                <ul style="line-height:30px;">
-                  <li>
-                   <label >
-                      <input name="transport_type" type="hidden" id="transport_type" value="使用运费模板"  />
-                    </label> 
-                    <div id="transport_template_select" style="padding-left:30px;">
-                      <input type="hidden" value="$!obj.transport.id" name="transport_id" id="transport_id" />
-                      <span style="color:#06C;" id="transport_template_name">$!{obj.transport.trans_name}</span> <span style="display:block; width:70px; height:28px; text-align:center; border:#CCC solid 1px;"> <a href="javascript:void(0);" dialog_uri="$!webPath/seller/goods_transport.htm" dialog_title="选择运费模板" dialog_width="600" dialog_height="500" dialog_id="transport_template_frm">选择模板</a></span> </div>
-                  </li>
-                
-                </ul>
-              </div></td>
-          </tr> <tr id="goods_detail">
-            <td colspan="2" class="tableh1">产品亮点</td>
-          </tr>
-          <tr>
-            <td align="right" valign="middle">1：</td>
-            <td>
-             <input name="features_one" id="features_one" class="input_l" value="$!obj.features_one" type="text"  />
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="middle">2：</td>
-            <td>
-             <input name="features_two" id="features_two" class="input_l" value="$!obj.features_two" type="text"/>
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="middle">3：</td>
-            <td>
-             <input name="features_three" id="features_three" class="input_l" value="$!obj.features_three" type="text"/>
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="middle">4：</td>
-            <td>
-             <input name="features_four" id="features_four" class="input_l" value="$!obj.features_four" type="text"/>
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="middle">5：</td>
-            <td>
-             <input name="features_five" id="features_five" class="input_l" value="$!obj.features_five" type="text"/>
-            </td>
-          </tr>
-          <tr id="goods_detail">
-            <td colspan="2" class="tableh1">详情描述</td>
-          </tr>
-          <tr>
-            <td align="right" valign="middle">Brand：</td>
-            <td><select name="goods_brand_id" id="goods_brand_id">
-                <option value="">Other...</option>
-                
-			  #foreach($gb in $gbs)
-                
-                <option value="$!gb.id">$!gb.name</option>
-                
-  			  #end
-              
-              </select></td>
-          </tr>
+								<div id="buyer_transport_info"
+									style="display: none; width: 80%; margin-top: 10px; padding-left: 0px;">
+									<ul style="line-height: 30px;">
+										<li><label> <input name="transport_type"
+												type="hidden" id="transport_type" value="使用运费模板" />
+										</label>
+											<div id="transport_template_select"
+												style="padding-left: 30px;">
+												<input type="hidden" value="$!obj.transport.id"
+													name="transport_id" id="transport_id" /> <span
+													style="color: #06C;" id="transport_template_name">$!{obj.transport.trans_name}</span>
+												<span
+													style="display: block; width: 70px; height: 28px; text-align: center; border: #CCC solid 1px;">
+													<a href="javascript:void(0);"
+													dialog_uri="$!webPath/seller/goods_transport.htm"
+													dialog_title="选择运费模板" dialog_width="600"
+													dialog_height="500" dialog_id="transport_template_frm">选择模板</a>
+												</span>
+											</div></li>
 
-          <tr>
-            <td align="right" valign="top"> Description： </td>
-            <td><div style="width:862px;">
-               <!--  <div class="detail_td_web_nav" style="width:862px;">
+									</ul>
+								</div></td>
+						</tr>
+						<tr id="goods_detail">
+							<td colspan="2" class="tableh1">产品亮点</td>
+						</tr>
+						<tr>
+							<td align="right" valign="middle">1：</td>
+							<td><input name="features_one" id="features_one"
+								class="input_l" value="$!obj.features_one" type="text" /></td>
+						</tr>
+						<tr>
+							<td align="right" valign="middle">2：</td>
+							<td><input name="features_two" id="features_two"
+								class="input_l" value="$!obj.features_two" type="text" /></td>
+						</tr>
+						<tr>
+							<td align="right" valign="middle">3：</td>
+							<td><input name="features_three" id="features_three"
+								class="input_l" value="$!obj.features_three" type="text" /></td>
+						</tr>
+						<tr>
+							<td align="right" valign="middle">4：</td>
+							<td><input name="features_four" id="features_four"
+								class="input_l" value="$!obj.features_four" type="text" /></td>
+						</tr>
+						<tr>
+							<td align="right" valign="middle">5：</td>
+							<td><input name="features_five" id="features_five"
+								class="input_l" value="$!obj.features_five" type="text" /></td>
+						</tr>
+						<tr id="goods_detail">
+							<td colspan="2" class="tableh1">详情描述</td>
+						</tr>
+						<tr>
+							<td align="right" valign="middle">Brand：</td>
+							<td><select name="goods_brand_id" id="goods_brand_id">
+									<option value="">Other...</option> #foreach($gb in $gbs)
+
+									<option value="$!gb.id">$!gb.name</option> #end
+
+							</select></td>
+						</tr>
+
+						<tr>
+							<td align="right" valign="top">Description：</td>
+							<td><div style="width: 862px;">
+									<!--  <div class="detail_td_web_nav" style="width:862px;">
                   <div class="addphoto_c"><a id="detail_web" class="this" href="javascript:void(0);" onclick="switch_detail_editor('web');">电脑端</a></div>
                 <div> -->
-                <div id="goods_details_div_web" class="addphoto_c_textarea" style="float:left; margin-bottom:10px;">
-                  <textarea name="goods_details"   #if($!store.grade.add_funciton) style="width:100%;height:500px;visibility:hidden;" #else cols="140" rows="25"  style="resize:none" #end id="goods_details_web">$!obj.goods_details</textarea>
-                </div>
-                <div id="goods_details_div_app" class="addphoto_c_textarea" style="float:left; margin-bottom:10px;display:none">
-                  <textarea name="goods_details_mobile"  #if($!store.grade.add_funciton) style="width:100%;height:500px;visibility:hidden;" #else cols="140" rows="25"  style="resize:none" #end id="goods_details_app">
+									<div id="goods_details_div_web" class="addphoto_c_textarea"
+										style="float: left; margin-bottom: 10px;">
+										<textarea name="goods_details"
+											#if($!store.grade.add_funciton) style="width: 100%; height: 500px; visibility: hidden;"
+											#else cols="140" rows="25" style="resize:none" #end
+											id="goods_details_web">$!obj.goods_details</textarea>
+									</div>
+									<div id="goods_details_div_app" class="addphoto_c_textarea"
+										style="float: left; margin-bottom: 10px; display: none">
+										<textarea name="goods_details_mobile"
+											#if($!store.grade.add_funciton) style="width: 100%; height: 500px; visibility: hidden;"
+											#else cols="140" rows="25" style="resize:none" #end
+											id="goods_details_app">
                   $!obj.goods_details_mobile
                   </textarea>
-                </div>
-                <div id="goods_details_div_app_content" class="goods_details_div_app_right" style="display:none;">
-                  <li>手机端商品描述说明：</li>
-                  <li>1.手机端商品描述用于手机app，描述应该符合手机用户的使用场景。</li>
-                  <li>2.由于手机端的特殊性，建议只使用图片和文字来描述您的商品，并合理安排您的图片的数量和大小。</li>
-                </div>
-              </div>
-              #if($!store.grade.add_funciton) 
-              <script>
+									</div>
+									<div id="goods_details_div_app_content"
+										class="goods_details_div_app_right" style="display: none;">
+										<li>手机端商品描述说明：</li>
+										<li>1.手机端商品描述用于手机app，描述应该符合手机用户的使用场景。</li>
+										<li>2.由于手机端的特殊性，建议只使用图片和文字来描述您的商品，并合理安排您的图片的数量和大小。</li>
+									</div>
+								</div> #if($!store.grade.add_funciton) <script>
               function switch_editor_photo(obj){
 			     var album_id = jQuery(obj).attr("album_id");
 				 jQuery.post("$!webPath/seller/goods_img.htm",{"type":"goods_detail_album","album_id":album_id},function(text){
@@ -1455,27 +1583,31 @@ $!httpInclude.include("/seller/top.htm")
 				  }		
 			 }
             </script>
-              <div class="photoimg">
-                <div class="addphoto"><a id="album_switch" href="javascript:void(0);" onclick="switch_editor_album('');">打开相册图片</a></div>
-                <div class="editor_photo_detail" style="display:none;"> </div>
-              </div>
-              #end </td>
-          </tr>
-         <!--  <tr id="goods_pack">
+								<div class="photoimg">
+									<div class="addphoto">
+										<a id="album_switch" href="javascript:void(0);"
+											onclick="switch_editor_album('');">打开相册图片</a>
+									</div>
+									<div class="editor_photo_detail" style="display: none;">
+									</div>
+								</div> #end</td>
+						</tr>
+						<!--  <tr id="goods_pack">
             <td colspan="2" class="tableh1">包装及售后</td>
           </tr> -->
-         <!--  <tr>
+						<!--  <tr>
             <td align="right" valign="top">包装清单：</td>
             <td><textarea name="pack_details"   cols="140" rows="10"  style="resize:none" id="pack_details">$!obj.pack_details</textarea></td>
           </tr> -->
-          <tr style="display:none;">
-            <td align="right" valign="top">售后保障：</td>
-            <td><textarea name="goods_service"   cols="140" rows="10"  style="resize:none" id="goods_service">$!obj.goods_service</textarea></td>
-          </tr>
-          <tr id="goods_spec" style="display:none;">
-            <td colspan="2" class="tableh1">特殊商品</td>
-          </tr>
-<!--           #if(!$!obj)
+						<tr style="display: none;">
+							<td align="right" valign="top">售后保障：</td>
+							<td><textarea name="goods_service" cols="140" rows="10"
+									style="resize: none" id="goods_service">$!obj.goods_service</textarea></td>
+						</tr>
+						<tr id="goods_spec" style="display: none;">
+							<td colspan="2" class="tableh1">特殊商品</td>
+						</tr>
+						<!--           #if(!$!obj)
           <tr style="display:none;">
             <td align="right" valign="top"><input name="f_code_json" id="f_code_json" type="hidden" value="$!obj.goods_f_code" />
               F码商品：</td>
@@ -1620,58 +1752,48 @@ $!httpInclude.include("/seller/top.htm")
                 否 </label>
               <span class="hui2">该商品是否预售商品</span></td>
           </tr> -->
-          <tr id="advance_sale_1" style="display:none;">
-            <td align="right" valign="top">发货时间：</td>
-            <td class="sptable"><span class="tabtxt1 size2">
-              <input name="advance_date" id="advance_date" type="text" value="$!CommUtil.formatShortDate($!obj.advance_date)" />
-              </span></td>
-          </tr>
-          #else
-          <tr>
-            <td align="right" valign="top"></td>
-            <td class="sptable" style="color:#F00">【该商品已经参加$!{status}，不可编辑为F码商品或预售商品】</td>
-          </tr>
-          #end
-          #end
-          <tr id="goods_format" style="display:none;">
-            <td colspan="2" class="tableh1">商品版式</td>
-          </tr>
-          <tr style="display:none;">
-            <td align="right" valign="top">顶部版式：</td>
-            <td class="sptable"><select name="goods_top_format_id" id="goods_top_format_id">
-                <option value="">请选择...</option>
-                
-                #foreach($gf in $gfs)
-                  #if($!gf.gf_type==0)
-                
-                <option value="$!gf.id">$!gf.gf_name</option>
-                
-                  #end
-                #end
-              
-              </select>
-              <span class="hui2">商品详情固定的顶部内容</span></td>
-          </tr>
-          <tr style="display:none;">
-            <td align="right" valign="top">底部版式：</td>
-            <td class="sptable"><select name="goods_bottom_format_id" id="goods_bottom_format_id">
-                <option value="">请选择...</option>
-                
-                #foreach($gf in $gfs)
-                  #if($!gf.gf_type==1)
-                
-                <option value="$!gf.id">$!gf.gf_name</option>
-                
-                  #end
-                #end
-              
-              </select>
-              <span class="hui2">商品详情固定的底部内容</span></td>
-          </tr>
-          <tr id="goods_other">
-            <td colspan="2" class="tableh1">其他信息</td>
-          </tr>
-          <script>
+						<tr id="advance_sale_1" style="display: none;">
+							<td align="right" valign="top">发货时间：</td>
+							<td class="sptable"><span class="tabtxt1 size2"> <input
+									name="advance_date" id="advance_date" type="text"
+									value="$!CommUtil.formatShortDate($!obj.advance_date)" />
+							</span></td>
+						</tr>
+						#else
+						<tr>
+							<td align="right" valign="top"></td>
+							<td class="sptable" style="color: #F00">【该商品已经参加$!{status}，不可编辑为F码商品或预售商品】</td>
+						</tr>
+						#end #end
+						<tr id="goods_format" style="display: none;">
+							<td colspan="2" class="tableh1">商品版式</td>
+						</tr>
+						<tr style="display: none;">
+							<td align="right" valign="top">顶部版式：</td>
+							<td class="sptable"><select name="goods_top_format_id"
+								id="goods_top_format_id">
+									<option value="">请选择...</option> #foreach($gf in $gfs)
+									#if($!gf.gf_type==0)
+
+									<option value="$!gf.id">$!gf.gf_name</option> #end #end
+
+							</select> <span class="hui2">商品详情固定的顶部内容</span></td>
+						</tr>
+						<tr style="display: none;">
+							<td align="right" valign="top">底部版式：</td>
+							<td class="sptable"><select name="goods_bottom_format_id"
+								id="goods_bottom_format_id">
+									<option value="">请选择...</option> #foreach($gf in $gfs)
+									#if($!gf.gf_type==1)
+
+									<option value="$!gf.id">$!gf.gf_name</option> #end #end
+
+							</select> <span class="hui2">商品详情固定的底部内容</span></td>
+						</tr>
+						<tr id="goods_other">
+							<td colspan="2" class="tableh1">其他信息</td>
+						</tr>
+						<script>
 		  function add_goods_class(){
 		    var s="<select name='ugc_id_0' id='ugc_id_0'><option value=''>请选择...</option>#foreach($ugc in $ugcs)<option value='$!ugc.id'>$!ugc.className</option> #foreach($c_ugc in $ugc.childs) <option value='$!c_ugc.id'>&nbsp;&nbsp;$!c_ugc.className</option>#end #end </select>";
 			var reg=new RegExp("ugc_id_0","g");
@@ -1680,7 +1802,7 @@ $!httpInclude.include("/seller/top.htm")
 			user_goods_class_count++;
 		  }
 		</script>
-          <!-- <tr>
+						<!-- <tr>
             <td align="right" valign="top">本店分类：</td>
             <td><span> <span id="ugc_info"> #if(!$!obj||$!{obj.goods_ugcs.size()}==0)
               <select name="ugc_id_1" id="ugc_id_1">
@@ -1723,17 +1845,17 @@ $!httpInclude.include("/seller/top.htm")
               </ul>
               </span></td>
           </tr> -->
-        <!--   #if($!store.grade.gradeName == "Dubai")
+						<!--   #if($!store.grade.gradeName == "Dubai")
           <tr style="display:none">
             <td align="right" valign="top">发货地址：</td>
              <td><span class="base_sex">
               <label>
                <input type="radio" name="site" id="site" value="1"  checked="checked"/>广州</label></span><span class="base_sex"> -->
-<!--                 &nbsp&nbsp&nbsp<label>
+						<!--                 &nbsp&nbsp&nbsp<label>
                 <input type="radio" name="site" id="site" value="0" />深圳</label></span><span class="base_sex">
                &nbsp&nbsp&nbsp <label>
                 <input type="radio" name="site" id="site" value="-1" />香港</label></span></td> -->
-           <!--  <td class="prorelease"><select name="area1" id="area1" level="2">
+						<!--  <td class="prorelease"><select name="area1" id="area1" level="2">
                 <option value="">省份/自治区</option>
                 
           #foreach($area in $areas)            
@@ -1764,7 +1886,7 @@ $!httpInclude.include("/seller/top.htm")
               
               </select>
               <input id="delivery_area_id" name="delivery_area_id" type="hidden" value="$!obj.delivery_area_id" /></td> -->
-            <!-- </tr>
+						<!-- </tr>
           #else
           <tr>
             <td align="right" valign="top">发货地址：</td>
@@ -1808,23 +1930,25 @@ $!httpInclude.include("/seller/top.htm")
               <input id="delivery_area_id" name="delivery_area_id" type="hidden" value="$!obj.delivery_area_id" /></td> 
           </tr>
           #end-->
-          <tr>
-            <td align="right" valign="top">到仓时间：</td>
-             <td><span class="base_sex">
-              <label>
-               <input type="radio" name="number_days" id="radio" value="0" checked="checked"/>一天</label></span><span class="base_sex">
-                &nbsp&nbsp&nbsp<label>
-                <input type="radio" name="number_days" id="radio" value="1" />两天</label></span><span class="base_sex">
-                &nbsp&nbsp&nbsp <label>
-                <input type="radio" name="number_days" id="radio" value="2" />三天</label></span></td>
-               </tr>
-          <tr>
-            <td align="right" valign="top" style="display:none">商品发布：</td>
-       <td class="prorelease" style="display:none"><span>
-              <label style="cursor:pointer">
-                <input name="publish_goods_status" id="publish_goods_status" type="radio" value="0" checked="checked" />
-                &nbsp;立即发布 </label>
-              </span>    <!--  <span>
+						<tr>
+							<td align="right" valign="top">到仓时间：</td>
+							<td><span class="base_sex"> <label> <input
+										type="radio" name="number_days" id="radio" value="0"
+										checked="checked" />一天
+								</label></span><span class="base_sex"> &nbsp&nbsp&nbsp<label> <input
+										type="radio" name="number_days" id="radio" value="1" />两天
+								</label></span><span class="base_sex"> &nbsp&nbsp&nbsp <label> <input
+										type="radio" name="number_days" id="radio" value="2" />三天
+								</label></span></td>
+						</tr>
+						<tr>
+							<td align="right" valign="top" style="display: none">商品发布：</td>
+							<td class="prorelease" style="display: none"><span> <label
+									style="cursor: pointer"> <input
+										name="publish_goods_status" id="publish_goods_status"
+										type="radio" value="0" checked="checked" /> &nbsp;立即发布
+								</label>
+							</span> <!--  <span>
                <label style="cursor:pointer">
                 <input name="publish_goods_status" id="publish_goods_status" type="radio" value="1" />
                 &nbsp;放入仓库 </label>
@@ -1869,8 +1993,8 @@ $!httpInclude.include("/seller/top.htm")
                 <option value="45">45分</option>
               </select>
               分</span></td> -->
-          </tr>
-         <!--  <tr>
+						</tr>
+						<!--  <tr>
             <td valign="top" align="right">商品推荐：</td>
             <td class="prorelease"><span><strong>
               <label>
@@ -1882,7 +2006,7 @@ $!httpInclude.include("/seller/top.htm")
                 &nbsp;否 </label>
               </strong></span> <span class="hui2">被推荐的商品会显示在店铺首页<span class="sptable"></span></span></td>
           </tr> -->
-         <!--  <tr>
+						  <!-- <tr>
             <td align="right" valign="top">SEO关键字：</td>
             <td class="sptable"><span class="tabtxt1 size1">
               <input name="seo_keywords" type="text" id="seo_keywords" value="$!obj.seo_keywords" />
@@ -1895,27 +2019,32 @@ $!httpInclude.include("/seller/top.htm")
               <textarea name="seo_description" cols="" rows="" id="seo_description">$!obj.seo_description</textarea>
               </span> <span class="hui2 noteswidth">SEO描述 (Description) 出现在商品详细页面头部的 Meta 标签中， 
               用于记录本页面商品的的描述，建议80字左右，应该是该商品的最精确的简短的概述。</span></td>
-          </tr> -->
-         
-          <tr>
-            <td>&nbsp;</td>
-            <td><span class="submittable">
-              <input name="" type="button" id="save" value="提交" onclick="saveForm();" style="cursor:pointer;"/>
-              </span>
-              <input name="goods_session" type="hidden" id="goods_session" value="$!goods_session" /></td>
-              <input name="eid" type="hidden" id="eid" value="" /></td>
-              <input name="goods_id" type="hidden" id="goods_id" value="$!obj.id"/>
-              <input type="hidden" value="$!obj.transport.id" name="transport_id" id="transport_id" />
-              <input name="store_id" type="hidden" id="store_id" value="$!store.id"/>
-          </tr>
-        </table>
-      </form> 
-      <script>
+          </tr>  -->
+
+						<tr>
+							<td>&nbsp;</td>
+							<td><span class="submittable"> <input name=""
+									type="button" id="save" value="提交" onclick="saveForm();"
+									style="cursor: pointer;" />
+							</span> <input name="goods_session" type="hidden" id="goods_session"
+								value="$!goods_session" /></td>
+							<input name="eid" type="hidden" id="eid" value="" />
+							</td>
+							<input name="goods_id" type="hidden" id="goods_id"
+								value="$!obj.id" />
+							<input type="hidden" value="$!obj.transport.id"
+								name="transport_id" id="transport_id" />
+							<input name="store_id" type="hidden" id="store_id"
+								value="$!store.id" />
+						</tr>
+					</table>
+				</form>
+				<script>
           var id = "$!store.id";
          
           var eid = jQuery("#eid").val(id);
       </script>
- <!--      <div id="my_dialog" title="规格"  style="display: none" >
+				<!--      <div id="my_dialog" title="规格"  style="display: none" >
 	   #foreach($gs in $goods_spec_list)
           <tr id="gs_$!{gs.id}" gs_name="$!{gs.name}">
             <td align="right" valign="top">$!{gs.name}：</td>
@@ -1931,21 +2060,21 @@ $!httpInclude.include("/seller/top.htm")
           </tr>
           #end
     </div> -->
-    
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
-<style>
-	.input_l{
-  border:none;
-  border:1px solid #dadada;
-  width: 70%;
-  border-radius: 3px;
-     height: 28px;
-     line-height: 28px;
-     padding:0 5px;
- }
+
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
+	<style>
+.input_l {
+	border: none;
+	border: 1px solid #dadada;
+	width: 70%;
+	border-radius: 3px;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 5px;
+}
 </style>
 </body>
 </html>

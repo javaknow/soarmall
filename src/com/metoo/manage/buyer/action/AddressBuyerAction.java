@@ -1,51 +1,36 @@
 package com.metoo.manage.buyer.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.nutz.http.Request;
-import org.nutz.json.Json;
-import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import com.metoo.buyer.domain.Result;
 import com.metoo.core.annotation.SecurityMapping;
-import com.metoo.core.dao.IGenericDAO;
 import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
 import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
-import com.metoo.core.tools.JsonUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.Address;
 import com.metoo.foundation.domain.Area;
-import com.metoo.foundation.domain.StoreStat;
 import com.metoo.foundation.domain.query.AddressQueryObject;
-import com.metoo.foundation.domain.query.OrderFormQueryObject;
 import com.metoo.foundation.service.IAddressService;
 import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.IIntegralGoodsOrderService;
-import com.metoo.foundation.service.IStoreStatService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
-
-import net.sf.json.JsonConfig;
-import net.sf.json.util.CycleDetectionStrategy;
 
 /**
  * 

@@ -22,7 +22,6 @@ import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.Payment;
 import com.metoo.foundation.domain.Predeposit;
-import com.metoo.foundation.domain.PredepositLog;
 import com.metoo.foundation.domain.query.PredepositLogQueryObject;
 import com.metoo.foundation.domain.query.PredepositQueryObject;
 import com.metoo.foundation.service.IPaymentService;

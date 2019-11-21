@@ -1,7 +1,5 @@
 package com.metoo.foundation.test;
 
-import com.metoo.core.tools.CommUtil;
-
 public class TestVar {
 
 	/**

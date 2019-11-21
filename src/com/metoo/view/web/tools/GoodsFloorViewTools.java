@@ -12,7 +12,6 @@ import java.util.Set;
 import org.nutz.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.Accessory;

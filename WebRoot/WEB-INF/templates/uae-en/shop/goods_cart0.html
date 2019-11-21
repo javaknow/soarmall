@@ -7,15 +7,22 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/goods.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/public_auto.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/goods.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public_auto.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+		<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+		<script>
 jQuery(document).ready(function(){			
  //添加到购物车
    jQuery("a[id^=goods_cart_]").live("click",function(e){
@@ -81,109 +88,130 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-$!httpInclude.include("/top.htm")
-$!httpInclude.include("/head.htm")
-$!httpInclude.include("/nav.htm")
-<div class="main">
-  <div class="shopping_cart">
-    <div class="shopping_ok">
-    <span>The item has been added to the cart successfully</span>
-    <a href="$!webPath/goods_cart1.htm" class="car_total">Checkout</a>
-    <a href="$!{return_url}" class="go_on_buy">Continue</a>
-    </div>
-  </div>
-   <h3><strong>Customer also buy</strong></h3>
- <div class="shopping_other">
-   
-    <div class="shopping_other_list">
-      <div class="shopping_other_list_box"> 
-      #foreach($goods in $class_goods)
-        #if($!goods.goods_main_photo)
-        #set($small_img="$!imageWebServer/$!{goods.goods_main_photo.path}/$!{goods.goods_main_photo.name}_small.$!{goods.goods_main_photo.ext}")
-        #else
-        #set($small_img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-        #end
-        
-           #set($goods_url="$!webPath/goods_$!{goods.id}.htm")
-            #if($!config.second_domain_open && $!goods.goods_type==1 && $!goods.goods_store.store_second_domain!="")
-            #set($goods_url="http://$!{goods.goods_store.store_second_domain}.$!{domainPath}/goods_$!{goods.id}.htm")
-            #end 
-        
-        <dl>
-          <dt><a href="$!goods_url" target="_blank"><span class="img_cspan">
-            <p><img src="$!{small_img}" width="100" height="100" id="class_$!{goods.id}"/></p>
-            </span></a></dt>
-          <dd>
-            <h4><a href="$!goods_url" target="_blank">$!goods.goods_name</a></h4>
-            <strong>$!{goods.goods_current_price}<small>AED</small></strong>
-            
-             <em class="shopping_other_list_center_box_buy">
-              #if($!user)
-           		 #if($!goods.f_sale_type==1)
-            	<a href="javascript:void(0);" goods_id="$!goods.id" goods_type="$!goods.goods_type" user_id="$!goods.goods_store.user.id" type="class" id="f_goods_cart_$!{goods.id}">F to buy</a></a>
-                 #else
-                 <a href="javascript:void(0);" goods_id="$!goods.id" goods_type="$!goods.goods_type" user_id="$!goods.goods_store.user.id" type="class" id="goods_cart_$!{goods.id}">Add to carts</a>
-                 #end
-             #else
-            	 #if($!goods.f_sale_type==1)
-           		 <a href="javascript:void(0);" dialog_uri="$!current_webPath/user_dialog_login.htm" dialog_title="会员登录" dialog_width="430" dialog_height="100" dialog_id="user_login">F to buy</a>
-                 #else
-                 <a href="javascript:void(0);" goods_id="$!goods.id" goods_type="$!goods.goods_type" user_id="$!goods.goods_store.user.id" type="class" id="goods_cart_$!{goods.id}">Add to carts</a>
-                 #end
-             #end
-             </em>
-            </dd>
-            
-        </dl>
-        #end </div>
-    </div>
-  </div>
-  #if($!ztc_goods.size()>0) 
-   <h3><strong>You may also need other items</strong></h3>
-  <div class="shopping_other">
-   
-    <div class="shopping_other_list">
-      <div class="shopping_other_list_box"> #foreach($goods in $ztc_goods)
-        #if($!goods.goods_main_photo)
-        #set($small_img="$!imageWebServer/$!{goods.goods_main_photo.path}/$!{goods.goods_main_photo.name}_small.$!{goods.goods_main_photo.ext}")
-        #else
-        #set($small_img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-        #end
-        
-              #set($goods_url="$!webPath/goods_$!{goods.id}.htm")
-            #if($!config.second_domain_open && $!goods.goods_type==1 && $!goods.goods_store.store_second_domain!="")
-            #set($goods_url="http://$!{goods.goods_store.store_second_domain}.$!{domainPath}/goods_$!{goods.id}.htm")
-            #end 
-        <dl>
-          <dt><a href="$!goods_url" target="_blank"><span class="img_cspan">
-            <p><img src="$!{small_img}" width="100" height="100" id="ztc_$!{goods.id}"/></p>
-            </span></a></dt>
-          <dd>
-            <h4><a href="$!goods_url" target="_blank">$!goods.goods_name</a></h4>
-            <strong>$!{goods.goods_current_price}<small>AED</small></strong>
-            <em class="shopping_other_list_center_box_buy">
-            
-             #if($!user)
-           		 #if($!goods.f_sale_type==1)
-            	<a href="javascript:void(0);" goods_id="$!goods.id" goods_type="$!goods.goods_type" user_id="$!goods.goods_store.user.id" type="ztc" id="f_goods_cart_$!{goods.id}">F to buy</a></a>
-                 #else
-                 <a href="javascript:void(0);" goods_id="$!goods.id" goods_type="$!goods.goods_type" user_id="$!goods.goods_store.user.id" type="ztc" id="goods_cart_$!{goods.id}">Add to carts</a>
-                 #end
-             #else
-            	 #if($!goods.f_sale_type==1)
-           		 <a href="javascript:void(0);" dialog_uri="$!current_webPath/user_dialog_login.htm" dialog_title="会员登录" dialog_width="430" dialog_height="100" dialog_id="user_login">F to buy</a>
-                 #else
-                 <a href="javascript:void(0);" goods_id="$!goods.id" goods_type="$!goods.goods_type" user_id="$!goods.goods_store.user.id" type="ztc" id="goods_cart_$!{goods.id}">Add to carts</a>
-                 #end
-             #end
-            
-            </em>
-            </dd>
-        </dl>
-        #end </div>
-    </div>
-  </div>
-  #end
-  $!httpInclude.include("/footer.htm") </div>
+	$!httpInclude.include("/top.htm") $!httpInclude.include("/head.htm")
+	$!httpInclude.include("/nav.htm")
+	<div class="main">
+		<div class="shopping_cart">
+			<div class="shopping_ok">
+				<span>The item has been added to the cart successfully</span> <a
+					href="$!webPath/goods_cart1.htm" class="car_total">Checkout</a> <a
+					href="$!{return_url}" class="go_on_buy">Continue</a>
+			</div>
+		</div>
+		<h3>
+			<strong>Customer also buy</strong>
+		</h3>
+		<div class="shopping_other">
+
+			<div class="shopping_other_list">
+				<div class="shopping_other_list_box">
+					#foreach($goods in $class_goods) #if($!goods.goods_main_photo)
+					#set($small_img="$!imageWebServer/$!{goods.goods_main_photo.path}/$!{goods.goods_main_photo.name}_small.$!{goods.goods_main_photo.ext}")
+					#else
+					#set($small_img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+					#end #set($goods_url="$!webPath/goods_$!{goods.id}.htm")
+					#if($!config.second_domain_open && $!goods.goods_type==1 &&
+					$!goods.goods_store.store_second_domain!="")
+					#set($goods_url="http://$!{goods.goods_store.store_second_domain}.$!{domainPath}/goods_$!{goods.id}.htm")
+					#end
+
+					<dl>
+						<dt>
+							<a href="$!goods_url" target="_blank"><span class="img_cspan">
+									<p>
+										<img src="$!{small_img}" width="100" height="100"
+											id="class_$!{goods.id}" />
+									</p>
+							</span></a>
+						</dt>
+						<dd>
+							<h4>
+								<a href="$!goods_url" target="_blank">$!goods.goods_name</a>
+							</h4>
+							<strong>$!{goods.goods_current_price}<small>AED</small></strong>
+
+							<em class="shopping_other_list_center_box_buy"> #if($!user)
+								#if($!goods.f_sale_type==1) <a href="javascript:void(0);"
+								goods_id="$!goods.id" goods_type="$!goods.goods_type"
+								user_id="$!goods.goods_store.user.id" type="class"
+								id="f_goods_cart_$!{goods.id}">F to buy</a></a> #else <a
+								href="javascript:void(0);" goods_id="$!goods.id"
+								goods_type="$!goods.goods_type"
+								user_id="$!goods.goods_store.user.id" type="class"
+								id="goods_cart_$!{goods.id}">Add to carts</a> #end #else
+								#if($!goods.f_sale_type==1) <a href="javascript:void(0);"
+								dialog_uri="$!current_webPath/user_dialog_login.htm"
+								dialog_title="会员登录" dialog_width="430" dialog_height="100"
+								dialog_id="user_login">F to buy</a> #else <a
+								href="javascript:void(0);" goods_id="$!goods.id"
+								goods_type="$!goods.goods_type"
+								user_id="$!goods.goods_store.user.id" type="class"
+								id="goods_cart_$!{goods.id}">Add to carts</a> #end #end
+							</em>
+						</dd>
+
+					</dl>
+					#end
+				</div>
+			</div>
+		</div>
+		#if($!ztc_goods.size()>0)
+		<h3>
+			<strong>You may also need other items</strong>
+		</h3>
+		<div class="shopping_other">
+
+			<div class="shopping_other_list">
+				<div class="shopping_other_list_box">
+					#foreach($goods in $ztc_goods) #if($!goods.goods_main_photo)
+					#set($small_img="$!imageWebServer/$!{goods.goods_main_photo.path}/$!{goods.goods_main_photo.name}_small.$!{goods.goods_main_photo.ext}")
+					#else
+					#set($small_img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+					#end #set($goods_url="$!webPath/goods_$!{goods.id}.htm")
+					#if($!config.second_domain_open && $!goods.goods_type==1 &&
+					$!goods.goods_store.store_second_domain!="")
+					#set($goods_url="http://$!{goods.goods_store.store_second_domain}.$!{domainPath}/goods_$!{goods.id}.htm")
+					#end
+					<dl>
+						<dt>
+							<a href="$!goods_url" target="_blank"><span class="img_cspan">
+									<p>
+										<img src="$!{small_img}" width="100" height="100"
+											id="ztc_$!{goods.id}" />
+									</p>
+							</span></a>
+						</dt>
+						<dd>
+							<h4>
+								<a href="$!goods_url" target="_blank">$!goods.goods_name</a>
+							</h4>
+							<strong>$!{goods.goods_current_price}<small>AED</small></strong>
+							<em class="shopping_other_list_center_box_buy"> #if($!user)
+								#if($!goods.f_sale_type==1) <a href="javascript:void(0);"
+								goods_id="$!goods.id" goods_type="$!goods.goods_type"
+								user_id="$!goods.goods_store.user.id" type="ztc"
+								id="f_goods_cart_$!{goods.id}">F to buy</a></a> #else <a
+								href="javascript:void(0);" goods_id="$!goods.id"
+								goods_type="$!goods.goods_type"
+								user_id="$!goods.goods_store.user.id" type="ztc"
+								id="goods_cart_$!{goods.id}">Add to carts</a> #end #else
+								#if($!goods.f_sale_type==1) <a href="javascript:void(0);"
+								dialog_uri="$!current_webPath/user_dialog_login.htm"
+								dialog_title="会员登录" dialog_width="430" dialog_height="100"
+								dialog_id="user_login">F to buy</a> #else <a
+								href="javascript:void(0);" goods_id="$!goods.id"
+								goods_type="$!goods.goods_type"
+								user_id="$!goods.goods_store.user.id" type="ztc"
+								id="goods_cart_$!{goods.id}">Add to carts</a> #end #end
+
+							</em>
+						</dd>
+					</dl>
+					#end
+				</div>
+			</div>
+		</div>
+		#end $!httpInclude.include("/footer.htm")
+	</div>
 </body>
 </html>

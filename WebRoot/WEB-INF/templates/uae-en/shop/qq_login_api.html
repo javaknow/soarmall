@@ -3,12 +3,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>合作伙伴账号登录 - $!config.title</title>
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/goods.css" type="text/css" rel="stylesheet" />
+<link
+	href="$!webPath/resources/style/system/front/default/css/public.css"
+	type="text/css" rel="stylesheet" />
+<link
+	href="$!webPath/resources/style/system/front/default/css/goods.css"
+	type="text/css" rel="stylesheet" />
 <script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
 </head>
 <body>
-<script> 
+	<script> 
  var accessToken;
  function callback(user){
   window.location.href="$!webPath/qq_login_check.htm?qq_openid="+user.openid+"&accessToken="+accessToken;
@@ -37,15 +41,19 @@ if (window.location.hash.length == 0){
      document.body.appendChild(script);        
  }
  </script>
-$!httpInclude.include("/top.htm")
-<div class="main"> $!httpInclude.include("/head.htm")
-  $!httpInclude.include("/nav.htm")
-  <div class="index">
-    <div class="index2">
-      <div class="paywaiting"> <span> <img src="$!webPath/resources/style/common/images/loading.gif"  /></span> <span style="margin-top:10px;">正在进行第三方账号登录，请等待......</span></div>
-    </div>
-  </div>
- $!httpInclude.include("/footer.htm")
-</div>
+	$!httpInclude.include("/top.htm")
+	<div class="main">
+		$!httpInclude.include("/head.htm") $!httpInclude.include("/nav.htm")
+		<div class="index">
+			<div class="index2">
+				<div class="paywaiting">
+					<span> <img
+						src="$!webPath/resources/style/common/images/loading.gif" /></span> <span
+						style="margin-top: 10px;">正在进行第三方账号登录，请等待......</span>
+				</div>
+			</div>
+		</div>
+		$!httpInclude.include("/footer.htm")
+	</div>
 </body>
 </html>

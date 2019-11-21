@@ -3,7 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
 <script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
 <script src="$!webPath/resources/js/jquery.shop.common.js"></script>
 <script src="$!webPath/resources/js/jquery.validate.min.js"></script>
@@ -60,51 +62,61 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="cont">
-  <h1 class="seth">短消息管理</h1>
-  <div class="nav_list">
+	<div class="cont">
+		<h1 class="seth">短消息管理</h1>
+		<div class="nav_list">
 
-   <ul>
-    <li><a href="$!webPath/admin/sms_set.htm" class="this"><b>短消息设置</b></a></li>
-     <li> <a href="$!webPath/admin/sms_gold_log.htm"><b>短信购买记录</b></a></li>
-      <li> <a href="$!webPath/admin/sms_gold_log.htm?type=email"><b>邮件购买记录</b></a></li>
-      </ul>
-    
-       </div>
-  <form action="$!webPath/admin/sms_set_save.htm" method="post" id="theForm">
-    <div class="edit">
-    <div class="editul setcont">
-      <ul class="set1">
-        <li class="setcont_bg">短信购买状态</li>
-        <li><span class="webSwitch"><img id="sms_buy_img" src="$!webPath/resources/style/system/manage/$!{config.websiteCss}/images/on.jpg" width="61" height="23" style="cursor:pointer;" /></span><span id="nothis"><strong class="q"></strong><strong class="w">开启后商家可以使用金币购买平台短信服务</strong><strong class="c"></strong></span></li>
-      </ul>
-      <ul class="set1">
-        <li class="setcont_bg"><strong class="sred">*</strong>短信购买价格</li>
-        <li><span class="size100">
-          <input name="sms_buy_cost" type="text" id="sms_buy_cost" value="$!config.sms_buy_cost" />
-          </span><span style=" line-height:30px; padding-left:10px;">金币/100（条）</span></li>
-      </ul>
-      <ul class="set1">
-        <li class="setcont_bg">邮件购买状态</li>
-        <li><span class="webSwitch"><img id="email_buy_img" src="$!webPath/resources/style/system/manage/$!{config.websiteCss}/images/on.jpg" width="61" height="23" style="cursor:pointer;" /></span><span id="nothis"><strong class="q"></strong><strong class="w">开启后商家可以使用金币购买平台邮件服务</strong><strong class="c"></strong></span></li>
-      </ul>
-      <ul class="set1">
-        <li class="setcont_bg"><strong class="sred">*</strong>邮件购买价格</li>
-        <li><span class="size100">
-          <input name="email_buy_cost" type="text" id="email_buy_cost" value="$!config.email_buy_cost" />
-          </span><span style=" line-height:30px; padding-left:10px;">金币/100（封）</span></li>
-      </ul>
-    </div>
-    </div>
-    <div class="submit">
-      <span class="pad120">
-      <input name="" type="submit" value="提交" />
-       <input name="sms_buy" type="hidden" id="sms_buy" value="$!config.sms_buy" />
-       <input name="email_buy" type="hidden" id="email_buy" value="$!config.email_buy" />
-      <input name="id" type="hidden" id="id" value="$!config.id" />
-      </span>
-    </div>
-  </form>
-</div>
+			<ul>
+				<li><a href="$!webPath/admin/sms_set.htm" class="this"><b>短消息设置</b></a></li>
+				<li><a href="$!webPath/admin/sms_gold_log.htm"><b>短信购买记录</b></a></li>
+				<li><a href="$!webPath/admin/sms_gold_log.htm?type=email"><b>邮件购买记录</b></a></li>
+			</ul>
+
+		</div>
+		<form action="$!webPath/admin/sms_set_save.htm" method="post"
+			id="theForm">
+			<div class="edit">
+				<div class="editul setcont">
+					<ul class="set1">
+						<li class="setcont_bg">短信购买状态</li>
+						<li><span class="webSwitch"><img id="sms_buy_img"
+								src="$!webPath/resources/style/system/manage/$!{config.websiteCss}/images/on.jpg"
+								width="61" height="23" style="cursor: pointer;" /></span><span
+							id="nothis"><strong class="q"></strong><strong class="w">开启后商家可以使用金币购买平台短信服务</strong><strong
+								class="c"></strong></span></li>
+					</ul>
+					<ul class="set1">
+						<li class="setcont_bg"><strong class="sred">*</strong>短信购买价格</li>
+						<li><span class="size100"> <input name="sms_buy_cost"
+								type="text" id="sms_buy_cost" value="$!config.sms_buy_cost" />
+						</span><span style="line-height: 30px; padding-left: 10px;">金币/100（条）</span></li>
+					</ul>
+					<ul class="set1">
+						<li class="setcont_bg">邮件购买状态</li>
+						<li><span class="webSwitch"><img id="email_buy_img"
+								src="$!webPath/resources/style/system/manage/$!{config.websiteCss}/images/on.jpg"
+								width="61" height="23" style="cursor: pointer;" /></span><span
+							id="nothis"><strong class="q"></strong><strong class="w">开启后商家可以使用金币购买平台邮件服务</strong><strong
+								class="c"></strong></span></li>
+					</ul>
+					<ul class="set1">
+						<li class="setcont_bg"><strong class="sred">*</strong>邮件购买价格</li>
+						<li><span class="size100"> <input
+								name="email_buy_cost" type="text" id="email_buy_cost"
+								value="$!config.email_buy_cost" />
+						</span><span style="line-height: 30px; padding-left: 10px;">金币/100（封）</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="submit">
+				<span class="pad120"> <input name="" type="submit" value="提交" />
+					<input name="sms_buy" type="hidden" id="sms_buy"
+					value="$!config.sms_buy" /> <input name="email_buy" type="hidden"
+					id="email_buy" value="$!config.email_buy" /> <input name="id"
+					type="hidden" id="id" value="$!config.id" />
+				</span>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

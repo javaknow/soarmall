@@ -1,7 +1,6 @@
 package com.metoo.metooapi.manage.php.seller.action;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.metoo.buyer.domain.Result;
 import com.metoo.buyer.domain.SOAPUtils;
-import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.ddu.pojo.DduTaskRequest;
 import com.metoo.foundation.domain.Area;
@@ -37,8 +35,6 @@ import com.metoo.foundation.service.IStoreService;
 import com.metoo.foundation.service.IUserService;
 import com.metoo.manage.admin.tools.OrderFormTools;
 import com.metoo.msg.MsgTools;
-import com.metoo.pay.alipay.config.AlipayConfig;
-import com.metoo.pay.alipay.util.AlipaySubmit;
 
 @Controller
 public class PhpOrderSellerAction {

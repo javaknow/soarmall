@@ -1,15 +1,11 @@
 package com.metoo.manage.admin.action;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -20,15 +16,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONObject;
-
-
-import org.apache.http.client.methods.HttpPost;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFClientAnchor;
@@ -46,7 +37,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.metoo.buyer.domain.Http;
 import com.metoo.buyer.domain.SOAPUtils;
 import com.metoo.core.annotation.SecurityMapping;
 import com.metoo.core.domain.virtual.SysMap;
@@ -55,7 +45,6 @@ import com.metoo.core.query.support.IPageList;
 import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.Md5Encrypt;
-import com.metoo.core.weixin.utils.WeixinUtil;
 import com.metoo.ddu.pojo.DduTaskRequest;
 import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.ExpressCompany;
@@ -67,8 +56,6 @@ import com.metoo.foundation.domain.ShipAddress;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.OrderFormQueryObject;
 import com.metoo.foundation.domain.virtual.TransInfo;
-import com.metoo.foundation.domain.wechat.WeixinTemplate;
-import com.metoo.foundation.domain.wechat.WeixinTemplateParam;
 import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.IExpressCompanyCommonService;
 import com.metoo.foundation.service.IExpressCompanyService;
@@ -90,6 +77,8 @@ import com.metoo.manage.seller.tools.OrderTools;
 import com.metoo.msg.MsgTools;
 import com.metoo.pay.alipay.config.AlipayConfig;
 import com.metoo.pay.alipay.util.AlipaySubmit;
+
+import net.sf.json.JSONObject;
 
 /**
  * 

@@ -1,10 +1,11 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"  pageEncoding="utf-8"%>
-<%@page language="java" import="com.metoo.core.weixin.utils.WeixinUtil" %>
+<%@ page language="java" import="java.util.*"
+	contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@page language="java" import="com.metoo.core.weixin.utils.WeixinUtil"%>
 
 <%
        
-  %> 
- <!-- Map<String,Object>  ret = new HashMap<String,Object> ();
+  %>
+<!-- Map<String,Object>  ret = new HashMap<String,Object> ();
         ret=WeixinUtil.getWxConfig(request);
         request.setAttribute("appId", ret.get("appId"));
         request.setAttribute("timestamp", ret.get("timestamp"));

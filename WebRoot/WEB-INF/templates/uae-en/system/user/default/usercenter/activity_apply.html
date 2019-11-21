@@ -2,21 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>直通车申请 -  $!{config.poweredby}</title>
+<title>直通车申请 - $!{config.poweredby}</title>
 <meta name="keywords" content="$!config.keywords" />
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/public_auto.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public_auto.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type=text/css rel=stylesheet>
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+			<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+			<script>
 jQuery(document).ready(function(){
 //
 	jQuery("#theForm").validate({
@@ -57,65 +65,77 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-$!httpInclude.include("/top.htm")
-<div class="main">
-  $!httpInclude.include("/seller/nav_head.htm")
-  <div class="user_center">
-    <table width="1000" border="0" cellspacing="0" cellpadding="0" class="user_table">
-      <tr>
-        $!httpInclude.include("/seller/nav.htm?op=activity")
-        <td id="centerbg" valign="top">
-         <div class="buyer_position"><div class="buyer_p_box"><a href="$!webPath/seller/index.htm">商家中心</a> > <span>申请参加活动</span></div></div>
-        <div class="productmain">
-            <div class="ordernav">
-              <ul class="orderul">
-                <li class="other"><a href="$!webPath/seller/activity.htm">活动列表</a></li>
-                <li class="this"><a href="$!webPath/seller/activity_apply.htm?id=$!act.id">申请参加活动</a></li>
-              </ul>
-            </div>
-            <div class="ordercon">
-              <div class="addnav">
-                <form action="$!webPath/seller/activity_apply_save.htm" method="post" name="theForm" id="theForm">
-                  <table width="98%" border="0" cellspacing="0" cellpadding="0" class="addnavtable">
-                    <tr>
-                      <td align="right">活动名称：</td>
-                      <td class="px10">$!act.ac_title</td>
-                    </tr>
-					<tr>
-                      <td align="right">活动说明：</td>
-                      <td class="px10">$!act.ac_content</td>
-                    </tr>
-                    <tr>
-                      <td width="141" align="right">商品名称：</td>
-                      <td width="651" class="px10"><span class="setinput">
-                        <input name="goods_name" type="text" id="goods_name" />
-                        <input name="search" type="button" style="cursor:pointer;width:60px;"  value="搜索" onclick="activity_goods();" />
-                      </span></td>
-                    </tr>
-                    <tr>
-                      <td align="right" valign="top">&nbsp;</td>
-                      <td  class="px10">
-                      <select name="goods_ids" size="10" multiple="multiple" id="goods_ids" style="width:500px; height:200px;">
-                      </select>
-                      按住ctrl多选</td>
-                    </tr>
-                    <tr>
-                      <td>&nbsp;</td>
-                      <td class="px10"><span class="setsub">
-                        <input type="submit"  value="保存" style="cursor:pointer;"/>
-                        <input name="activity_session" type="hidden" id="activity_session" value="$!activity_session" />
-                        <input name="act_id" type="hidden" id="act_id" value="$!act.id" />
-                      </span></td>
-                    </tr>
-                  </table>
-                </form>
-              </div>
-            </div>
-          </div></td>
-      </tr>
-    </table>
-  </div>
-  $!httpInclude.include("/footer.htm")
-</div>
+	$!httpInclude.include("/top.htm")
+	<div class="main">
+		$!httpInclude.include("/seller/nav_head.htm")
+		<div class="user_center">
+			<table width="1000" border="0" cellspacing="0" cellpadding="0"
+				class="user_table">
+				<tr>
+					$!httpInclude.include("/seller/nav.htm?op=activity")
+					<td id="centerbg" valign="top">
+						<div class="buyer_position">
+							<div class="buyer_p_box">
+								<a href="$!webPath/seller/index.htm">商家中心</a> > <span>申请参加活动</span>
+							</div>
+						</div>
+						<div class="productmain">
+							<div class="ordernav">
+								<ul class="orderul">
+									<li class="other"><a href="$!webPath/seller/activity.htm">活动列表</a></li>
+									<li class="this"><a
+										href="$!webPath/seller/activity_apply.htm?id=$!act.id">申请参加活动</a></li>
+								</ul>
+							</div>
+							<div class="ordercon">
+								<div class="addnav">
+									<form action="$!webPath/seller/activity_apply_save.htm"
+										method="post" name="theForm" id="theForm">
+										<table width="98%" border="0" cellspacing="0" cellpadding="0"
+											class="addnavtable">
+											<tr>
+												<td align="right">活动名称：</td>
+												<td class="px10">$!act.ac_title</td>
+											</tr>
+											<tr>
+												<td align="right">活动说明：</td>
+												<td class="px10">$!act.ac_content</td>
+											</tr>
+											<tr>
+												<td width="141" align="right">商品名称：</td>
+												<td width="651" class="px10"><span class="setinput">
+														<input name="goods_name" type="text" id="goods_name" /> <input
+														name="search" type="button"
+														style="cursor: pointer; width: 60px;" value="搜索"
+														onclick="activity_goods();" />
+												</span></td>
+											</tr>
+											<tr>
+												<td align="right" valign="top">&nbsp;</td>
+												<td class="px10"><select name="goods_ids" size="10"
+													multiple="multiple" id="goods_ids"
+													style="width: 500px; height: 200px;">
+												</select> 按住ctrl多选</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td class="px10"><span class="setsub"> <input
+														type="submit" value="保存" style="cursor: pointer;" /> <input
+														name="activity_session" type="hidden"
+														id="activity_session" value="$!activity_session" /> <input
+														name="act_id" type="hidden" id="act_id" value="$!act.id" />
+												</span></td>
+											</tr>
+										</table>
+									</form>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		$!httpInclude.include("/footer.htm")
+	</div>
 </body>
 </html>

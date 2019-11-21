@@ -7,13 +7,19 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/public_auto.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/goods.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public_auto.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/goods.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+		<script>
 jQuery(document).ready(function(){
   jQuery("#theForm").validate({
     rules:{
@@ -29,24 +35,26 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="main">
- <form action="$!webPath/order_pay_payafter.htm" method="post" id="theForm">
-  <div class="payfor_box">
-    <h3>Cash on delivery</h3>
-    <h4>$!paymentTools.queryStorePayment("payafter").get("content")</h4>
-    <h5>Are you sure to use "cash on delivery"?</h5>
-    <h5>Explain：</h5>
-    <span class="payfor_textarea">
-    <textarea name="pay_msg" cols="" rows="6" id="pay_msg"></textarea>
-    </span>
-     <span class="payfor_btn">
-    <input name="" type="submit"  value="Submit" style="cursor:pointer;float:right;"/>
-     <input name="order_id" type="hidden" id="order_id" value="$!{order.id}" />
-            <input name="pay_session" type="hidden" id="pay_session" value="$!pay_session" />
-    </span> </div>
-    </form>
+	<div class="main">
+		<form action="$!webPath/order_pay_payafter.htm" method="post"
+			id="theForm">
+			<div class="payfor_box">
+				<h3>Cash on delivery</h3>
+				<h4>$!paymentTools.queryStorePayment("payafter").get("content")</h4>
+				<h5>Are you sure to use "cash on delivery"?</h5>
+				<h5>Explain：</h5>
+				<span class="payfor_textarea"> <textarea name="pay_msg"
+						cols="" rows="6" id="pay_msg"></textarea>
+				</span> <span class="payfor_btn"> <input name="" type="submit"
+					value="Submit" style="cursor: pointer; float: right;" /> <input
+					name="order_id" type="hidden" id="order_id" value="$!{order.id}" />
+					<input name="pay_session" type="hidden" id="pay_session"
+					value="$!pay_session" />
+				</span>
+			</div>
+		</form>
 
-</div>
-  $!httpInclude.include("/footer.htm")
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

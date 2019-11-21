@@ -2,108 +2,120 @@
 <html lang="zh">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-	<meta name="apple-wap-web-app-capable" content="yes">
-	<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
-	<title>Change Password</title>
-	<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/mian.css">
-    <link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
-    <link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
-    <link rel="stylesheet" href="$!webPath/resources/wap/css/animate.css">
-    <script src="$!webPath/resources/wap/jquery-3.1.1.min.js"></script>
-	<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-	<style>
-		.canvas-left-bottom{border:none;}
-		.mui-badge-danger{background-color:#007aff;}
-		.mui-table-view-divider{background-color:rgb(252, 251, 244);}
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style"
+	content="black-translucent">
+<title>Change Password</title>
+<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/css/mian.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/css/animate.css">
+<script src="$!webPath/resources/wap/jquery-3.1.1.min.js"></script>
+<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+<style>
+.canvas-left-bottom {
+	border: none;
+}
 
+.mui-badge-danger {
+	background-color: #007aff;
+}
 
-		.mui-bar .mui-pull-left .mui-icon {
-			padding-right: 5px;
-			font-size: 28px;
-		}
+.mui-table-view-divider {
+	background-color: rgb(252, 251, 244);
+}
 
-		.mui-bar .mui-btn {
-			font-weight: normal;
-			font-size: 17px;
-		}
+.mui-bar .mui-pull-left .mui-icon {
+	padding-right: 5px;
+	font-size: 28px;
+}
 
-		.mui-bar .mui-btn-link {
-			top: 1px;
-		}
-		.red_submit{
-		    padding: 10px;
-		    display: block;
-			margin:0px auto;
-			
-		}
-		.red_submit>a{
-			color:#fff;	
-		}
-		.mui-bar .mui-pull-left .mui-icon {
-			padding-right: 5px;
-			font-size: 28px;
-		}
+.mui-bar .mui-btn {
+	font-weight: normal;
+	font-size: 17px;
+}
 
-		.mui-bar .mui-btn {
-			font-weight: normal;
-			font-size: 17px;
-		}
+.mui-bar .mui-btn-link {
+	top: 1px;
+}
 
-		.mui-bar .mui-btn-link {
-			top: 1px;
-		}
-		
-		.mui-bar .mui-pull-left .mui-icon {
-			padding-right: 5px;
-			font-size: 28px;
-		}
+.red_submit {
+	padding: 10px;
+	display: block;
+	margin: 0px auto;
+}
 
-		.mui-bar .mui-btn {
-			font-weight: normal;
-			font-size: 17px;
-		}
+.red_submit>a {
+	color: #fff;
+}
 
-		.mui-bar .mui-btn-link {
-			top: 1px;
-		}
-		.red_submit{
-		    padding: 10px;
-		    display: block;
-			margin:0px auto;
-			
-		}
-		.red_submit>a{
-			color:#fff;	
-		}
-		
-		
-	</style>
+.mui-bar .mui-pull-left .mui-icon {
+	padding-right: 5px;
+	font-size: 28px;
+}
+
+.mui-bar .mui-btn {
+	font-weight: normal;
+	font-size: 17px;
+}
+
+.mui-bar .mui-btn-link {
+	top: 1px;
+}
+
+.mui-bar .mui-pull-left .mui-icon {
+	padding-right: 5px;
+	font-size: 28px;
+}
+
+.mui-bar .mui-btn {
+	font-weight: normal;
+	font-size: 17px;
+}
+
+.mui-bar .mui-btn-link {
+	top: 1px;
+}
+
+.red_submit {
+	padding: 10px;
+	display: block;
+	margin: 0px auto;
+}
+
+.red_submit>a {
+	color: #fff;
+}
+</style>
 </head>
 
 <body>
 
 	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
-        <!--侧滑菜单部分-->
-        <aside id="offCanvasSide" class="mui-off-canvas-left">
-            <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-                <div class="mui-scroll">
-                 	 $!httpInclude.include("/wap/buyer/nav.htm")
-                </div>
-            </div>
-        </aside>
-        <!--主界面部分-->
-        <div class="mui-inner-wrap">
-            <header class="mui-bar mui-bar-nav">
-                <a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
-               	<div class="mui-title">
-				<!-- 	<img src="$!webPath/images/logos.png" alt="" class="logo" > -->
+		<!--侧滑菜单部分-->
+		<aside id="offCanvasSide" class="mui-off-canvas-left">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/buyer/nav.htm")</div>
+			</div>
+		</aside>
+		<!--主界面部分-->
+		<div class="mui-inner-wrap">
+			<header class="mui-bar mui-bar-nav">
+				<a href="#offCanvasSide"
+					class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+				<div class="mui-title">
+					<!-- 	<img src="$!webPath/images/logos.png" alt="" class="logo" > -->
 				</div>
-				
-				<div class="meunright mui-pull-right" >
+
+				<div class="meunright mui-pull-right">
 					<!-- #if($!user.userName)
 			            <a class="meunright_a" href="$!webPath/wap/buyer/center.htm?op=center" >
 		                	<span class="" style="color:#007aff;font-size:18px;">
@@ -116,66 +128,74 @@
 		                		Log&nbsp;In
 			                </span>
 		                </a>
-		            #end    -->     
-		            <a href="$!webPath/wap/index.htm" style="color:#007aff">
-		                <span style="position:relative;" class="top_icon">
-		                	<i class="iconfont iconzhuye" style="font-size: 20px;"></i>
-		                </span>
-	                </a>
-		            &nbsp;&nbsp;&nbsp;
-	                <a href="$!webPath/wap/goods_cart1.htm?op=cart" style="color:#007aff">
-		                <span style="position:relative;" class="top_icon">
-		                	<i class="iconfont icongouwuche" style="font-size: 20px;"></i>
-		                	<i class="iconfont icondanseshixintubiao-" style="position: absolute;top: -11px;left: 23px;font-size: 18px;"></i>
-		                </span>
-	                </a>
+		            #end    -->
+					<a href="$!webPath/wap/index.htm" style="color: #007aff"> <span
+						style="position: relative;" class="top_icon"> <i
+							class="iconfont iconzhuye" style="font-size: 20px;"></i>
+					</span>
+					</a> &nbsp;&nbsp;&nbsp; <a href="$!webPath/wap/goods_cart1.htm?op=cart"
+						style="color: #007aff"> <span style="position: relative;"
+						class="top_icon"> <i class="iconfont icongouwuche"
+							style="font-size: 20px;"></i> <i
+							class="iconfont icondanseshixintubiao-"
+							style="position: absolute; top: -11px; left: 23px; font-size: 18px;"></i>
+					</span>
+					</a>
 				</div>
-            </header>
- 			<!-- 主题内容 -->
-            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
-		 		<!-- 主体内容 -->
-	            <div class="mui-scroll">
-	            	  <a href="$!webPath/wap/buyer/center.htm" class="mui-icon mui-icon-left-nav " style="font-size: 15px;padding-left: 4px;padding-bottom: 24px;padding-top: 24px;">Address Manage</a>
-					  #if($addrs.size()>0)
-						  <ul id="OA_task_1" class="mui-table-view">
-							#foreach($addr in $addrs)
-								<li class="mui-table-view-cell"  mark="$!{addr.id}">
-									<div class="mui-slider-left mui-disabled">
-										<a href="$!webPath/wap/buyer/address_del.htm?id=$!{addr.id}" class="mui-btn mui-btn-red">Delete</a>
-									</div>
-									<div class="mui-slider-handle">
-										<dl >
-									      <dt>
-									        <h3><b>$!addr.mobile</b><strong>$!addr.trueName</strong></h3>
-									        <span>$!areaViewTools.generic_area_info("$!{addr.area.id}")<br>$!{addr.area_info}</span>
-									      </dt>
-									    </dl>
-									</div>
-								</li>
-							#end
-						  </ul>
-					  #end
-					  <br />
-					  <br />
-					  #if($addrs.size()<=0)
-					  <div class="">
-						  <h2 class="hint_main_title">Where are your saved addresses?</h2>
-						  <h3 class="hint_annotation_title">Add an address so we can get cracking on the delivery!</h3>
-						  <a href="$!webPath/wap/buyer/address_add.htm" class="mui-action-back mui-icon hint_botton_title"><button class="hint_botton_title">+&nbsp;&nbsp;&nbsp;Add a New Address</button></a>
-						  
-					  </div>
-					  #end
-					  #if($addrs.size()>0)
-					   <a href="$!webPath/wap/buyer/address_add.htm" class="mui-action-back mui-icon hint_botton_title"><button class="hint_botton_title">+&nbsp;&nbsp;&nbsp;Add a New Address</button></a>
-                      #end
-                    <div style="margin-top:100px;display:block;"></div>
-                </div>
-            </div>
-            <!-- off-canvas backdrop -->
-            <div class="mui-off-canvas-backdrop"></div>
-        </div>
-	
-    </div>
+			</header>
+			<!-- 主题内容 -->
+			<div id="offCanvasContentScroll"
+				class="mui-content mui-scroll-wrapper">
+				<!-- 主体内容 -->
+				<div class="mui-scroll">
+					<a href="$!webPath/wap/buyer/center.htm"
+						class="mui-icon mui-icon-left-nav "
+						style="font-size: 15px; padding-left: 4px; padding-bottom: 24px; padding-top: 24px;">Address
+						Manage</a> #if($addrs.size()>0)
+					<ul id="OA_task_1" class="mui-table-view">
+						#foreach($addr in $addrs)
+						<li class="mui-table-view-cell" mark="$!{addr.id}">
+							<div class="mui-slider-left mui-disabled">
+								<a href="$!webPath/wap/buyer/address_del.htm?id=$!{addr.id}"
+									class="mui-btn mui-btn-red">Delete</a>
+							</div>
+							<div class="mui-slider-handle">
+								<dl>
+									<dt>
+										<h3>
+											<b>$!addr.mobile</b><strong>$!addr.trueName</strong>
+										</h3>
+										<span>$!areaViewTools.generic_area_info("$!{addr.area.id}")<br>$!{addr.area_info}
+										</span>
+									</dt>
+								</dl>
+							</div>
+						</li> #end
+					</ul>
+					#end <br /> <br /> #if($addrs.size()<=0)
+					<div class="">
+						<h2 class="hint_main_title">Where are your saved addresses?</h2>
+						<h3 class="hint_annotation_title">Add an address so we can
+							get cracking on the delivery!</h3>
+						<a href="$!webPath/wap/buyer/address_add.htm"
+							class="mui-action-back mui-icon hint_botton_title"><button
+								class="hint_botton_title">+&nbsp;&nbsp;&nbsp;Add a New
+								Address</button></a>
+
+					</div>
+					#end #if($addrs.size()>0) <a
+						href="$!webPath/wap/buyer/address_add.htm"
+						class="mui-action-back mui-icon hint_botton_title"><button
+							class="hint_botton_title">+&nbsp;&nbsp;&nbsp;Add a New
+							Address</button></a> #end
+					<div style="margin-top: 100px; display: block;"></div>
+				</div>
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
+		</div>
+
+	</div>
 
 	<script src="$!webPath/resources/wap/mui.js"></script>
 	<script>

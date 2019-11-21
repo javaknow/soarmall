@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +15,6 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.velocity.tools.config.Data;
 import org.nutz.json.Json;
 import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +32,6 @@ import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.core.tools.database.DatabaseTools;
 import com.metoo.foundation.domain.Accessory;
-import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.GoodsCart;
 import com.metoo.foundation.domain.GoodsClass;
@@ -51,7 +48,6 @@ import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
 import com.metoo.foundation.service.IUserService;
 import com.metoo.manage.admin.tools.StoreTools;
-import com.sun.xml.internal.fastinfoset.sax.Properties;
 
 /**
  * 

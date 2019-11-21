@@ -2,7 +2,6 @@ package com.metoo.module.weixin.manage.buyer.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -20,16 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.metoo.core.annotation.SecurityMapping;
-import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
-import com.metoo.core.query.support.IPageList;
 import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.Address;
 import com.metoo.foundation.domain.Area;
-import com.metoo.foundation.domain.User;
-import com.metoo.foundation.domain.query.AddressQueryObject;
 import com.metoo.foundation.service.IAddressService;
 import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.ISysConfigService;

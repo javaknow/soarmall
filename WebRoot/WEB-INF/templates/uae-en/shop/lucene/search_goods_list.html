@@ -3,22 +3,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>#if($!keyword) $!{keyword}  Search Results #else Search good #end - $!{config.poweredby}</title>
+<title>#if($!keyword) $!{keyword} Search Results #else Search
+	good #end - $!{config.poweredby}</title>
 <meta name="keywords" content="$!gc.seo_keywords" />
 <meta name="description" content="$!gc.seo_description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" ></meta>
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/goods.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/public_auto.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.lazyload.js"></script>
-<script src="$!webPath/resources/js/jquery.cookie.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/goods.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public_auto.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+		<script src="$!webPath/resources/js/jquery.lazyload.js"></script>
+		<script src="$!webPath/resources/js/jquery.cookie.js"></script>
+		<script>
 jQuery(document).ready(function(){ 
  //对比
  jQuery(".contrast a").click(function(e){								   
@@ -291,295 +299,455 @@ function search_gc_keyword(gc_id){
 </script>
 </head>
 <body>
-$!httpInclude.include("/top.htm")
-$!httpInclude.include("/head.htm")
-$!httpInclude.include("/nav.htm")
-<div class="main">
-  <div class="main_top">
-    <div class="position"><a href="$!webPath/index.htm"><b>Home Page</b></a><i>></i><a href="javascript:void(0)">All the results</a><i>></i><a href="javascript:void(0)" style=" width:1040px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; height:20px;">"$!keyword"</a></div>
-    <div class="main_left">
-      <div class="main_left_top">
-        <h3><strong>All categories</strong></h3>
-        <div class="main_leftop">
-          <ul class="main_leftop_ul">
-            #foreach($gc2 in $gcs)
-            <li> #set($gcs3=$goodsViewTools.query_GC_third("$!gc2.id",$!list_gc))
-              <div class="li_a"> #if($!gcs3.size()>0) <a class="img_a" href="javascript:void(0)"><i></i></a> #else <a class="img_a"></a> #end <a class="word_a" href="javascript:void(0)" onclick="search_gc_keyword('$!{gc2.id}')"> <b id="gc_$!{gc2.id}">$!{gc2.className}</b> </a> </div>
-              <ul style="display:none" id="ul_$!{gc2.id}" child_show="false">
-                #foreach($gc3 in $gcs3)
-                <li id="gc_$!{gc3.id}"><a href="javascript:void(0)" onclick="search_gc_keyword('$!{gc3.id}')">$!{gc3.className}</a></li>
-                #end
-              </ul>
-            </li>
-            #end
-          </ul>
-        </div>
-      </div>
-      #if($!$left_ztc_goods.size()>0)
-      <div class="left_buy">
-        <h3><strong> Promote goods</strong></h3>
-        <div class="left_buy_box"> #foreach($goods in $left_ztc_goods)
-          #if($!goods.goods_main_photo)
-          #set($bigimg="$!imageWebServer/$!{goods.goods_main_photo.path}/$!{goods.goods_main_photo.name}")
-          #set($img="$!{bigimg}_middle.$!{goods.goods_main_photo.ext}")
-          #else
-          #set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-          #end
-          
-          #set($goods_url="$!webPath/goods_$!{goods.id}.htm")
-          #if($!config.second_domain_open && $!goods.goods_type==1 && $!goods.goods_store.store_second_domain!="")
-          #set($goods_url="http://$!{goods.goods_store.store_second_domain}.$!{domainPath}/goods_$!{goods.id}.htm")
-          #end
-          <ul>
-            <li class="buy_one_img"><span>
-              <p><a href="$!goods_url" target="_blank"><img src="$!img" width="150" height="150" /></a></p>
-              </span></li>
-            <li class="buy_one_name"><a href="$!goods_url" target="_blank">$!goods.goods_name</a></li>
-            <li class="buy_one_price"> Price：<b>¥$!goods.goods_current_price</b></li>
-          </ul>
-          #end </div>
-      </div>
-      #end </div>
-    <form action="$!webPath/search.htm"  method="post" id="ListForm">
-      <div class="main_right"> #if($!stores.size()>0)
-        <div class="search_list_shop">
-          <div class="search_list_shop_center" id="search_list_shop_center"> #foreach($store in $stores)
-            <div class="search_shop" #if($!velocityCount!=1) style="display:none" #end> #if($!config.storeImage)
-              #set($logo="$!imageWebServer/$!config.storeImage.path/$!config.storeImage.name")
-              #end
-              #if($!store.store_logo)
-              #set($logo="$!imageWebServer/$!store.store_logo.path/$!store.store_logo.name")
-              #end
-              #set($store_url="$!webPath/store_$!{store.id}.htm")
-              #if($!config.second_domain_open && $!store.store_second_domain!="")
-              #set($store_url="http://$!{store.store_second_domain}.$!{domainPath}")
-              #end
-              <div class="search_shop_logo"><a target="_blank" href="$!store_url"><img src="$!logo"/></a></div>
-              <div class="search_shop_name"><a target="_blank" href="$!store_url">$!store.store_name</a></div>
-              <div class="search_shop_grade">
-                <div class="pro_shop_value_b"> <span> Comprehensive evaluation：</span> <em> 
-                  <!--评分改变width的百分数--> 
-                  #set($pecent=$!{store.point.store_evaluate}/5*100)
-                  <div class="scores_value"> <a class="scores_scroll_value" href="javascript:void(0);"> <span class="scroll_gray_value"></span> <span class="scroll_red_value" style="width:$!{pecent}%;"></span> </a> </div>
-                  </em><span class="scroll_red_value_no"><b style="color:#F00">$!store.point.store_evaluate分</b></span> </div>
-              </div>
-              <div class="search_shop_button"><a target="_blank" href="$!store_url">Enter the store</a></div>
-            </div>
-            #end </div>
-          #if($!stores.size()>1)
-          <div class="search_list_shop_button"><a href="javascript:void(0)"></a></div>
-          #end
-          <div class="search_list_shop_button_c" style="display:none;"><a href="javascript:void(0)"></a></div>
-        </div>
-        #end
-        #if($!top_ztc_goods.size()>0)
-        <div class="main_right_top">
-          <div class="top_hotbuy">
-            <h3><strong> Hot sale recommendation<i></i></strong></h3>
-            <div class="top_hotbuy_hid"> #foreach($top_goods in $top_ztc_goods)
-              #if($!top_goods.goods_main_photo)
-              #set($bigimg="$!imageWebServer/$!{top_goods.goods_main_photo.path}/$!{top_goods.goods_main_photo.name}")
-              #set($img="$!{bigimg}_middle.$!{top_goods.goods_main_photo.ext}")
-              #else
-              #set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-              #end
-              
-              #set($goods_url="$!webPath/goods_$!{top_goods.id}.htm")
-              #if($!config.second_domain_open && $!top_goods.goods_type==1 && $!top_goods.goods_store.store_second_domain!="")
-              #set($goods_url="http://$!{top_goods.goods_store.store_second_domain}.$!{domainPath}/goods_$!{top_goods.id}.htm")
-              #end
-              <dl class="top_hotbuy_dl">
-                <dt><a href="$!goods_url" target="_blank"><span>
-                  <p><img src="$!img" width="120" height="120" /></p>
-                  </span></a></dt>
-                <dd>
-                  <h4><a href="$!goods_url" target="_blank">$!top_goods.goods_name</a></h4>
-                  <i> Reference price：$!top_goods.goods_price AED</i><em> Reference price：<b>$!top_goods.goods_current_price AED</b></em><a class="panic" href="$!webPath/goods_$!{top_goods.id}.htm" target="_blank"> Buy immediately</a></dd>
-              </dl>
-              #end </div>
-          </div>
-        </div>
-        #end
-        <div class="main_list_box">
-          <div class="main_list_function">
-            <div class="main_list_bar"><span class="list_fenye"><b class="list_fenya_b">#if($!allCount) Related commodity total$!allCount #else  Related commodity total 0 #end</b></span> <b class="list_bar_px">Sort：</b> <b class="list_bar_a"> <a href="javascript:void(0);" orderBy="default"  orderType="desc"> Default<i class="this"></i></a> <a href="javascript:void(0);" orderBy="goods_salenum" orderType="desc">Sales volume<i></i></a> <a href="javascript:void(0);" orderBy="goods_collect" orderType="desc">Popularity<i></i></a> <a href="javascript:void(0);" orderBy="well_evaluate" orderType="desc"> Praise<i></i></a> <a href="javascript:void(0);" orderBy="goods_current_price"  orderType="asc"> Price<i class="price"></i></a> 
-              <!--price为默认状态,up为由低到高,down为由高到低--> 
-              </b></div>
-            <div class="main_list_barb"> <i class="listbar_n_a"> Inventory：</i> <b class="listbar_check"> <i>
-              <label style="cursor:pointer">
-                <input name="goods_inventory" type="radio" id="goods_inventory" value="-1" checked="checked" />
-                 All</label>
-              </i> <i>
-              <label style="cursor:pointer">
-                <input name="goods_inventory" type="radio" id="goods_inventory" value="0" />
-                 Only available </label>
-              </i> </b> <b class="listbar_class"><i>Product Types：</i> <i>
-              <label style="cursor:pointer">
-                <input name="goods_type" type="radio" id="goods_type" value="-1" checked="checked" />
-                All </label>
-              </i> <i>
-              <label style="cursor:pointer">
-                <input name="goods_type" id="goods_type" type="radio" value="0" />
-                 Self-support</label style="cursor:pointer">
-              </i> <i>
-              <label style="cursor:pointer">
-                <input name="goods_type" id="goods_type" type="radio" value="1" />
-                 Seller goods </label>
-              </i> </b> <b class="listbar_pay"> <i>
-              <label style="cursor:pointer">
-                <input name="goods_cod" id="goods_cod" type="checkbox" value="0" />
-                 Pay on delivery </label style="cursor:pointer">
-              </i> <i>
-              <label style="cursor:pointer">
-                <input name="goods_transfee" id="goods_transfee" type="checkbox" value="1" />
-                Free Shipping </label>
-              </i> </b> </div>
-          </div>
-          #if($!objs.size()>0)
-          <div class="pro_list"> #foreach($obj in $objs)
-            <div class="pro_list_one" data-bind="$!obj.vo_id">
-              <ul class="">
-                <li class="pro_list_img"> #set($goods_url="$!webPath/goods_$!{obj.vo_id}.htm")
-                  #set($store=$!goodsViewTools.query_LuceneVo_goods_store("$!obj.vo_id"))
-                  #if($!config.second_domain_open && $!obj.vo_goods_type==1 && $!store.store_second_domain!="")
-                  #set($goods_url="http://$!{store.store_second_domain}.$!{domainPath}/goods_$!{obj.vo_id}.htm")
-                  #end 
-                  #if($!obj.vo_main_photo_url!='')
-                  #set($main_photos_url=$!obj.vo_main_photo_url)
-                  #else
-                  #set($main_photos_url="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-                  #end <a href="$!goods_url" target="_blank"> <span class="img_cspan">
-                  <p> <img id="$!{obj.vo_id}_main_img" src="$!webPath/resources/style/common/images/loader.gif" original="$!main_photos_url" onerror="this.src='$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}';" width="28" height="28" /> </p>
-                  </span> </a> </li>
-                <li class="pro_them">
-                  <div class="pro_them_team">
-                    <p style="position:absolute; width:700px; left:0px;display:block;"> <b class="pro_team_b this_b" goods_id="$!{obj.vo_id}" middle_img="$!imageWebServer/$!main_photos_url"> <img src="$!webPath/resources/style/common/images/loader.gif" original="$!imageWebServer/$!main_photos_url"  width="30" height="30"   onerror="this.src='$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}';"/> <i class="team_san"></i></b> #set($photos_url=$!goodsViewTools.query_LuceneVo_photos_url($obj.vo_photos_url)) 
-                      #foreach($img in $photos_url) <b class="pro_team_b" goods_id="$!{obj.vo_id}" middle_img="$!imageWebServer/$!img"> <img original="$!imageWebServer/$!img" src="$!webPath/resources/style/common/images/loader.gif"   onerror="this.src='$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}';" width="28" height="28" /> <i class="team_san" style="display:none"></i></b> #end </p>
-                  </div>
-                </li>
-                <li class="pro_list_name"><a href="$!goods_url" target="_blank">$!{obj.vo_title}</a></li>
-                <li class="pro_list_price"><b>$!{obj.vo_cost_price} AED</b>
-                  #if($!goodsViewTools.query_activity_status("$!obj.vo_id","group_buy")=="true")<i>Group purchase</i>#end
-                  #if($!goodsViewTools.query_activity_status("$!obj.vo_id","activity_status")=="true")<i>Promotion</i>#end
-                  #if($!goodsViewTools.query_activity_status("$!obj.vo_id","combin_status")=="true")<i> Goods of joint </i>#end
-                  #if($!goodsViewTools.query_activity_status("$!obj.vo_id","order_enough_give_status")=="true")<i>满送</i>#end
-                  #if($!goodsViewTools.query_activity_status("$!obj.vo_id","enough_reduce")=="true")<i>Full reduction</i>#end
-                  #if($!goodsViewTools.query_activity_status("$!obj.vo_id","f_sale_type")=="true")<i>F码</i>#end
-                  #if($!goodsViewTools.query_activity_status("$!obj.vo_id","advance_sale_type")=="true")<i>预售</i>#end
-                  </li>
-                <li class="pro_list_evaluate" style="display:none;">
-                  <dl>
-                    <dt>$!{obj.vo_goods_salenum}</dt>
-                    <dd>Sales Volume</dd>
-                  </dl>
-                  <dl>
-                    <dt>$!{obj.vo_goods_evas}</dt>
-                    <dd> Comment$!{obj.vo_goods_class}</dd>
-                  </dl>
-                  <dl style=" border-right:none;">
-                    #if($!obj.vo_goods_type==0)
-                    #if($!userTools.adminOnLine()=="true")
-                    <dt class="content"  #if(!$!user)dialog_uri="$!current_webPath/user_dialog_login.htm" dialog_title="会员登录" dialog_width="430" dialog_height="100" dialog_id="user_login" #else onclick="open_im('$!obj.vo_id','$!webPath','user','plat','');" #end ></dt>
-                    <dd>Online customer service</dd>
-                    #else
-                    <dt class="content_unonline" #if(!$!user)dialog_uri="$!current_webPath/user_dialog_login.htm" dialog_title="会员登录" dialog_width="430" dialog_height="100" dialog_id="user_login" #else onclick="open_im('$!obj.vo_id','$!webPath','user','plat','');" #end ></dt>
-                    <ddOnline>customer service</dd>
-                    #end
-                    #else
-                    #set($store=$!goodsViewTools.query_LuceneVo_goods_store("$!obj.vo_id"))
-                    #if($!userTools.userOnLine('$!obj.vo_store_userName')=="true")
-                    <dt class="content"  #if(!$!user)dialog_uri="$!current_webPath/user_dialog_login.htm" dialog_title="会员登录" dialog_width="430" dialog_height="100" dialog_id="user_login" #else onclick="open_im('$!obj.vo_id','$!webPath','user','store','$!store.id');" #end ></dt>
-                    <dd> Online customer service</dd>
-                    #else
-                    <dt class="content_unonline" #if(!$!user)dialog_uri="$!current_webPath/user_dialog_login.htm" dialog_title="会员登录" dialog_width="430" dialog_height="100" dialog_id="user_login" #else onclick="open_im('$!obj.vo_id','$!webPath','user','store','$!store.id');" #end ></dt>
-                    <dd> Online customer service</dd>
-                    #end
-                    #end
-                  </dl>
-                </li>
-                <li class="list_contrast" style="display:none;">
-                  #if($!user)
-                  #if($!obj.vo_f_sale_type==1)
-                  <div class="list_contrast_buy"><a href="javascript:void(0);" goods_id="$!obj.vo_id" goods_type="$!obj.vo_goods_type"  id="f_goods_cart_$!{obj.vo_id}"> F码购买</a></div>
-                  #else
-                  <div class="list_contrast_buy"><a href="javascript:void(0);" goods_id="$!obj.vo_id" goods_type="$!obj.vo_goods_type" id="goods_cart_$!{obj.vo_id}">Add to cart</a></div>
-                  #end
-                  #else
-                  #if($!obj.vo_f_sale_type==1)
-                  <div class="list_contrast_buy"><a href="javascript:void(0);" dialog_uri="$!current_webPath/user_dialog_login.htm" dialog_title="会员登录" dialog_width="430" dialog_height="100" dialog_id="user_login" class="add_car_btn">F码购买</a></div>
-                  #else
-                  <div class="list_contrast_buy"><a href="javascript:void(0);" goods_id="$!obj.vo_id" goods_type="$!obj.vo_goods_type" id="goods_cart_$!{obj.vo_id}">Add to cart</a></div>
-                  #end
-                  #end
-                  
-                  #set($compare_display="block")
-                  #set($cancel_compare_display="none")
-                  #foreach($c_goods in $goods_compare_list)
-                  #if($c_goods.id==$!obj.id)
-                  #set($compare_display="none")
-                  #set($cancel_compare_display="block")
-                  #end
-                  #end
-                 <!--  <div class="contrast" style="display:$!{compare_display}"><i></i><a goods_id="$!obj.vo_id" goods_main_img="$!imageWebServer/$!main_photos_url" href="javascript:void(0);">加入对比</a></div>
+	$!httpInclude.include("/top.htm") $!httpInclude.include("/head.htm")
+	$!httpInclude.include("/nav.htm")
+	<div class="main">
+		<div class="main_top">
+			<div class="position">
+				<a href="$!webPath/index.htm"><b>Home Page</b></a><i>></i><a
+					href="javascript:void(0)">All the results</a><i>></i><a
+					href="javascript:void(0)"
+					style="width: 1040px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; height: 20px;">"$!keyword"</a>
+			</div>
+			<div class="main_left">
+				<div class="main_left_top">
+					<h3>
+						<strong>All categories</strong>
+					</h3>
+					<div class="main_leftop">
+						<ul class="main_leftop_ul">
+							#foreach($gc2 in $gcs)
+							<li>
+								#set($gcs3=$goodsViewTools.query_GC_third("$!gc2.id",$!list_gc))
+								<div class="li_a">
+									#if($!gcs3.size()>0) <a class="img_a" href="javascript:void(0)"><i></i></a>
+									#else <a class="img_a"></a> #end <a class="word_a"
+										href="javascript:void(0)"
+										onclick="search_gc_keyword('$!{gc2.id}')"> <b
+										id="gc_$!{gc2.id}">$!{gc2.className}</b>
+									</a>
+								</div>
+								<ul style="display: none" id="ul_$!{gc2.id}" child_show="false">
+									#foreach($gc3 in $gcs3)
+									<li id="gc_$!{gc3.id}"><a href="javascript:void(0)"
+										onclick="search_gc_keyword('$!{gc3.id}')">$!{gc3.className}</a></li>
+									#end
+								</ul>
+							</li> #end
+						</ul>
+					</div>
+				</div>
+				#if($!$left_ztc_goods.size()>0)
+				<div class="left_buy">
+					<h3>
+						<strong> Promote goods</strong>
+					</h3>
+					<div class="left_buy_box">
+						#foreach($goods in $left_ztc_goods) #if($!goods.goods_main_photo)
+						#set($bigimg="$!imageWebServer/$!{goods.goods_main_photo.path}/$!{goods.goods_main_photo.name}")
+						#set($img="$!{bigimg}_middle.$!{goods.goods_main_photo.ext}")
+						#else
+						#set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+						#end #set($goods_url="$!webPath/goods_$!{goods.id}.htm")
+						#if($!config.second_domain_open && $!goods.goods_type==1 &&
+						$!goods.goods_store.store_second_domain!="")
+						#set($goods_url="http://$!{goods.goods_store.store_second_domain}.$!{domainPath}/goods_$!{goods.id}.htm")
+						#end
+						<ul>
+							<li class="buy_one_img"><span>
+									<p>
+										<a href="$!goods_url" target="_blank"><img src="$!img"
+											width="150" height="150" /></a>
+									</p>
+							</span></li>
+							<li class="buy_one_name"><a href="$!goods_url"
+								target="_blank">$!goods.goods_name</a></li>
+							<li class="buy_one_price">Price：<b>¥$!goods.goods_current_price</b></li>
+						</ul>
+						#end
+					</div>
+				</div>
+				#end
+			</div>
+			<form action="$!webPath/search.htm" method="post" id="ListForm">
+				<div class="main_right">
+					#if($!stores.size()>0)
+					<div class="search_list_shop">
+						<div class="search_list_shop_center" id="search_list_shop_center">
+							#foreach($store in $stores)
+							<div class="search_shop" #if($!velocityCount!=1)
+								style="display: none" #end>
+								#if($!config.storeImage)
+								#set($logo="$!imageWebServer/$!config.storeImage.path/$!config.storeImage.name")
+								#end #if($!store.store_logo)
+								#set($logo="$!imageWebServer/$!store.store_logo.path/$!store.store_logo.name")
+								#end #set($store_url="$!webPath/store_$!{store.id}.htm")
+								#if($!config.second_domain_open &&
+								$!store.store_second_domain!="")
+								#set($store_url="http://$!{store.store_second_domain}.$!{domainPath}")
+								#end
+								<div class="search_shop_logo">
+									<a target="_blank" href="$!store_url"><img src="$!logo" /></a>
+								</div>
+								<div class="search_shop_name">
+									<a target="_blank" href="$!store_url">$!store.store_name</a>
+								</div>
+								<div class="search_shop_grade">
+									<div class="pro_shop_value_b">
+										<span> Comprehensive evaluation：</span> <em> <!--评分改变width的百分数-->
+											#set($pecent=$!{store.point.store_evaluate}/5*100)
+											<div class="scores_value">
+												<a class="scores_scroll_value" href="javascript:void(0);">
+													<span class="scroll_gray_value"></span> <span
+													class="scroll_red_value" style="width: $!{pecent"></span>
+												</a>
+											</div>
+										</em><span class="scroll_red_value_no"><b
+											style="color: #F00">$!store.point.store_evaluate分</b></span>
+									</div>
+								</div>
+								<div class="search_shop_button">
+									<a target="_blank" href="$!store_url">Enter the store</a>
+								</div>
+							</div>
+							#end
+						</div>
+						#if($!stores.size()>1)
+						<div class="search_list_shop_button">
+							<a href="javascript:void(0)"></a>
+						</div>
+						#end
+						<div class="search_list_shop_button_c" style="display: none;">
+							<a href="javascript:void(0)"></a>
+						</div>
+					</div>
+					#end #if($!top_ztc_goods.size()>0)
+					<div class="main_right_top">
+						<div class="top_hotbuy">
+							<h3>
+								<strong> Hot sale recommendation<i></i></strong>
+							</h3>
+							<div class="top_hotbuy_hid">
+								#foreach($top_goods in $top_ztc_goods)
+								#if($!top_goods.goods_main_photo)
+								#set($bigimg="$!imageWebServer/$!{top_goods.goods_main_photo.path}/$!{top_goods.goods_main_photo.name}")
+								#set($img="$!{bigimg}_middle.$!{top_goods.goods_main_photo.ext}")
+								#else
+								#set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+								#end #set($goods_url="$!webPath/goods_$!{top_goods.id}.htm")
+								#if($!config.second_domain_open && $!top_goods.goods_type==1 &&
+								$!top_goods.goods_store.store_second_domain!="")
+								#set($goods_url="http://$!{top_goods.goods_store.store_second_domain}.$!{domainPath}/goods_$!{top_goods.id}.htm")
+								#end
+								<dl class="top_hotbuy_dl">
+									<dt>
+										<a href="$!goods_url" target="_blank"><span>
+												<p>
+													<img src="$!img" width="120" height="120" />
+												</p>
+										</span></a>
+									</dt>
+									<dd>
+										<h4>
+											<a href="$!goods_url" target="_blank">$!top_goods.goods_name</a>
+										</h4>
+										<i> Reference price：$!top_goods.goods_price AED</i><em>
+											Reference price：<b>$!top_goods.goods_current_price AED</b>
+										</em><a class="panic" href="$!webPath/goods_$!{top_goods.id}.htm"
+											target="_blank"> Buy immediately</a>
+									</dd>
+								</dl>
+								#end
+							</div>
+						</div>
+					</div>
+					#end
+					<div class="main_list_box">
+						<div class="main_list_function">
+							<div class="main_list_bar">
+								<span class="list_fenye"><b class="list_fenya_b">#if($!allCount)
+										Related commodity total$!allCount #else Related commodity
+										total 0 #end</b></span> <b class="list_bar_px">Sort：</b> <b
+									class="list_bar_a"> <a href="javascript:void(0);"
+									orderBy="default" orderType="desc"> Default<i class="this"></i></a>
+									<a href="javascript:void(0);" orderBy="goods_salenum"
+									orderType="desc">Sales volume<i></i></a> <a
+									href="javascript:void(0);" orderBy="goods_collect"
+									orderType="desc">Popularity<i></i></a> <a
+									href="javascript:void(0);" orderBy="well_evaluate"
+									orderType="desc"> Praise<i></i></a> <a
+									href="javascript:void(0);" orderBy="goods_current_price"
+									orderType="asc"> Price<i class="price"></i></a> <!--price为默认状态,up为由低到高,down为由高到低-->
+								</b>
+							</div>
+							<div class="main_list_barb">
+								<i class="listbar_n_a"> Inventory：</i> <b class="listbar_check">
+									<i> <label style="cursor: pointer"> <input
+											name="goods_inventory" type="radio" id="goods_inventory"
+											value="-1" checked="checked" /> All
+									</label>
+								</i> <i> <label style="cursor: pointer"> <input
+											name="goods_inventory" type="radio" id="goods_inventory"
+											value="0" /> Only available
+									</label>
+								</i>
+								</b> <b class="listbar_class"><i>Product Types：</i> <i> <label
+										style="cursor: pointer"> <input name="goods_type"
+											type="radio" id="goods_type" value="-1" checked="checked" />
+											All
+									</label>
+								</i> <i> <label style="cursor: pointer"> <input
+											name="goods_type" id="goods_type" type="radio" value="0" />
+											Self-support
+									</label style="cursor:pointer">
+								</i> <i> <label style="cursor: pointer"> <input
+											name="goods_type" id="goods_type" type="radio" value="1" />
+											Seller goods
+									</label>
+								</i> </b> <b class="listbar_pay"> <i> <label
+										style="cursor: pointer"> <input name="goods_cod"
+											id="goods_cod" type="checkbox" value="0" />  Pay on delivery
+									</label style="cursor:pointer">
+								</i> <i> <label style="cursor: pointer"> <input
+											name="goods_transfee" id="goods_transfee" type="checkbox"
+											value="1" /> Free Shipping
+									</label>
+								</i>
+								</b>
+							</div>
+						</div>
+						#if($!objs.size()>0)
+						<div class="pro_list">
+							#foreach($obj in $objs)
+							<div class="pro_list_one" data-bind="$!obj.vo_id">
+								<ul class="">
+									<li class="pro_list_img">
+										#set($goods_url="$!webPath/goods_$!{obj.vo_id}.htm")
+										#set($store=$!goodsViewTools.query_LuceneVo_goods_store("$!obj.vo_id"))
+										#if($!config.second_domain_open && $!obj.vo_goods_type==1 &&
+										$!store.store_second_domain!="")
+										#set($goods_url="http://$!{store.store_second_domain}.$!{domainPath}/goods_$!{obj.vo_id}.htm")
+										#end #if($!obj.vo_main_photo_url!='')
+										#set($main_photos_url=$!obj.vo_main_photo_url) #else
+										#set($main_photos_url="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+										#end <a href="$!goods_url" target="_blank"> <span
+											class="img_cspan">
+												<p>
+													<img id="$!{obj.vo_id}_main_img"
+														src="$!webPath/resources/style/common/images/loader.gif"
+														original="$!main_photos_url"
+														onerror="this.src='$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}';"
+														width="28" height="28" />
+												</p>
+										</span>
+									</a>
+									</li>
+									<li class="pro_them">
+										<div class="pro_them_team">
+											<p
+												style="position: absolute; width: 700px; left: 0px; display: block;">
+												<b class="pro_team_b this_b" goods_id="$!{obj.vo_id}"
+													middle_img="$!imageWebServer/$!main_photos_url"> <img
+													src="$!webPath/resources/style/common/images/loader.gif"
+													original="$!imageWebServer/$!main_photos_url" width="30"
+													height="30"
+													onerror="this.src='$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}';" />
+													<i class="team_san"></i></b>
+												#set($photos_url=$!goodsViewTools.query_LuceneVo_photos_url($obj.vo_photos_url))
+												#foreach($img in $photos_url) <b class="pro_team_b"
+													goods_id="$!{obj.vo_id}"
+													middle_img="$!imageWebServer/$!img"> <img
+													original="$!imageWebServer/$!img"
+													src="$!webPath/resources/style/common/images/loader.gif"
+													onerror="this.src='$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}';"
+													width="28" height="28" /> <i class="team_san"
+													style="display: none"></i></b> #end
+											</p>
+										</div>
+									</li>
+									<li class="pro_list_name"><a href="$!goods_url"
+										target="_blank">$!{obj.vo_title}</a></li>
+									<li class="pro_list_price"><b>$!{obj.vo_cost_price}
+											AED</b>
+										#if($!goodsViewTools.query_activity_status("$!obj.vo_id","group_buy")=="true")<i>Group
+											purchase</i>#end
+										#if($!goodsViewTools.query_activity_status("$!obj.vo_id","activity_status")=="true")<i>Promotion</i>#end
+										#if($!goodsViewTools.query_activity_status("$!obj.vo_id","combin_status")=="true")<i>
+											Goods of joint </i>#end
+										#if($!goodsViewTools.query_activity_status("$!obj.vo_id","order_enough_give_status")=="true")<i>满送</i>#end
+										#if($!goodsViewTools.query_activity_status("$!obj.vo_id","enough_reduce")=="true")<i>Full
+											reduction</i>#end
+										#if($!goodsViewTools.query_activity_status("$!obj.vo_id","f_sale_type")=="true")<i>F码</i>#end
+										#if($!goodsViewTools.query_activity_status("$!obj.vo_id","advance_sale_type")=="true")<i>预售</i>#end
+									</li>
+									<li class="pro_list_evaluate" style="display: none;">
+										<dl>
+											<dt>$!{obj.vo_goods_salenum}</dt>
+											<dd>Sales Volume</dd>
+										</dl>
+										<dl>
+											<dt>$!{obj.vo_goods_evas}</dt>
+											<dd>Comment$!{obj.vo_goods_class}</dd>
+										</dl>
+										<dl style="border-right: none;">
+											#if($!obj.vo_goods_type==0)
+											#if($!userTools.adminOnLine()=="true")
+											<dt class="content"
+												#if(!$!user)dialog_uri="$!current_webPath/user_dialog_login.htm"
+												dialog_title="会员登录" dialog_width="430" dialog_height="100"
+												dialog_id="user_login" #else
+												onclick="open_im('$!obj.vo_id','$!webPath','user','plat','');"
+												#end></dt>
+											<dd>Online customer service</dd>
+											#else
+											<dt class="content_unonline"
+												#if(!$!user)dialog_uri="$!current_webPath/user_dialog_login.htm"
+												dialog_title="会员登录" dialog_width="430" dialog_height="100"
+												dialog_id="user_login" #else
+												onclick="open_im('$!obj.vo_id','$!webPath','user','plat','');"
+												#end></dt>
+											<ddOnline>customer service
+											</dd>
+											#end #else
+											#set($store=$!goodsViewTools.query_LuceneVo_goods_store("$!obj.vo_id"))
+											#if($!userTools.userOnLine('$!obj.vo_store_userName')=="true")
+											<dt class="content"
+												#if(!$!user)dialog_uri="$!current_webPath/user_dialog_login.htm"
+												dialog_title="会员登录" dialog_width="430" dialog_height="100"
+												dialog_id="user_login" #else
+												onclick="open_im('$!obj.vo_id','$!webPath','user','store','$!store.id');"
+												#end></dt>
+											<dd>Online customer service</dd>
+											#else
+											<dt class="content_unonline"
+												#if(!$!user)dialog_uri="$!current_webPath/user_dialog_login.htm"
+												dialog_title="会员登录" dialog_width="430" dialog_height="100"
+												dialog_id="user_login" #else
+												onclick="open_im('$!obj.vo_id','$!webPath','user','store','$!store.id');"
+												#end></dt>
+											<dd>Online customer service</dd>
+											#end #end 
+										</dl>
+									</li>
+									<li class="list_contrast" style="display: none;">
+										#if($!user) #if($!obj.vo_f_sale_type==1)
+										<div class="list_contrast_buy">
+											<a href="javascript:void(0);" goods_id="$!obj.vo_id"
+												goods_type="$!obj.vo_goods_type"
+												id="f_goods_cart_$!{obj.vo_id}"> F码购买</a>
+										</div> #else
+										<div class="list_contrast_buy">
+											<a href="javascript:void(0);" goods_id="$!obj.vo_id"
+												goods_type="$!obj.vo_goods_type"
+												id="goods_cart_$!{obj.vo_id}">Add to cart</a>
+										</div> #end #else #if($!obj.vo_f_sale_type==1)
+										<div class="list_contrast_buy">
+											<a href="javascript:void(0);"
+												dialog_uri="$!current_webPath/user_dialog_login.htm"
+												dialog_title="会员登录" dialog_width="430" dialog_height="100"
+												dialog_id="user_login" class="add_car_btn">F码购买</a>
+										</div> #else
+										<div class="list_contrast_buy">
+											<a href="javascript:void(0);" goods_id="$!obj.vo_id"
+												goods_type="$!obj.vo_goods_type"
+												id="goods_cart_$!{obj.vo_id}">Add to cart</a>
+										</div> #end #end #set($compare_display="block")
+										#set($cancel_compare_display="none") #foreach($c_goods in
+										$goods_compare_list) #if($c_goods.id==$!obj.id)
+										#set($compare_display="none")
+										#set($cancel_compare_display="block") #end #end <!--  <div class="contrast" style="display:$!{compare_display}"><i></i><a goods_id="$!obj.vo_id" goods_main_img="$!imageWebServer/$!main_photos_url" href="javascript:void(0);">加入对比</a></div>
                   <div class="contrast_off"  style="display:$!{cancel_compare_display};"><i></i><a goods_id="$!obj.vo_id" href="javascript:void(0);">取消对比</a></div> -->
-                </li>
-                <li class="pro_list_shop" style="display:none;"> #if($!obj.vo_goods_type==1)
-                  #set($store=$!goodsViewTools.query_LuceneVo_goods_store("$!obj.vo_id"))
-                  #set($store_url="$!webPath/store_"+$!store.id+".htm")
-                  #if($!config.second_domain_open)
-                  #set($store_url="http://$!{store.store_second_domain}.$!{domainPath}")
-                  #end <a href="$!store_url" target="_blank">$!{store.store_name}</a> #else
-                 Ebuyair
-                  #end </li>
-              </ul>
-            </div>
-            #end </div>
-          <div class="fenye"><span> $!gotoPageFormHTML</span></div>
-          #else
-          <div class="main_list_box">
-            <div class="main_list_none"> <span class="main_none_box"> <i></i>
-              <p>Sorry, we can't find the products<a href="$!webPath/index.htm"> View all products</a></p>
-              </span></div>
-          </div>
-          #end </div>
-      </div>
-      <input name="keyword" type="hidden" id="keyword" value="$!keyword" />
-      <input name="currentPage" type="hidden" id="currentPage" value="$!currentPage" />
-      <input name="orderBy" type="hidden" id="orderBy" value="$!orderBy" />
-      <input name="orderType" type="hidden" id="orderType" value="$!orderType" />
-      <input name="gc_id" type="hidden" id="gc_id" value="$!gc_id" />
-    </form>
-    <!--右侧对比 -->
-    <div class="contrast_center" #if($!goods_compare_list.size()==0)style="display:none;"#end>
-      <div class="contrast_center_top"><span>对比栏<i><a href="javascript:void(0);" onclick="jQuery('.contrast_center').hide();jQuery('.contrast_center_nothing').show();">隐藏</a></i></span></div>
-      <div class="contrast_center_center">
-        <div id="goods_compare_cart"> #foreach($goods_compare in $goods_compare_list)
-          <dl>
-            #if($!goods_compare.goods_main_photo)
-            #set($small_img="$!imageWebServer/$!{goods_compare.goods_main_photo.path}/$!{goods_compare.goods_main_photo.name}_small.$!{goods_compare.goods_main_photo.ext}")
-            #else
-            #set($small_img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
-            #end
-            <dt><a href="$!webPath/goods_$!{goods_compare.id}.htm" target="_blank"><img src="$!small_img" /></a></dt>
-            <span class="contrast_center_center_close" goods_id="$!goods_compare.id"></span>
-            <dd><a href="$!webPath/goods_$!{goods_compare.id}.htm" target="_blank">$!goods_compare.goods_name</a></dd>
-          </dl>
-          #end </div>
-        <div class="contrast_center_center_nothing"  #if($!goods_compare_list.size()>0) style="display:none;" #end></div>
-        <!--没有数据 display:none -->
-        <div class="contrast_b"> #if($goods_compare_list.size()>1)
-          <div class="contrast_b_yes"><a href="$!webPath/goods_compare.htm" target="_blank">对比</a></div>
-          #else
-          <div class="contrast_b_yes"><a href="javascript:void(0);" style="background:#CCC;">对比</a></div>
-          #end
-          <div class="contrast_b_clear"><a href="javascript:void(0);">清空</a></div>
-        </div>
-      </div>
-    </div>
-    <!--对比隐藏 -->
-    <!-- <div class="contrast_center_nothing" #if($!goods_compare_list.size()>0)style="display:none;"#end onclick="jQuery('.contrast_center').show();jQuery('.contrast_center_nothing').hide();"><a href="javascript:void(0);">对比栏</a></div> -->
-  </div>
-  $!httpInclude.include("/goods_list_bottom.htm") 
-  $!httpInclude.include("/footer.htm") </div>
+									</li>
+									<li class="pro_list_shop" style="display: none;">
+										#if($!obj.vo_goods_type==1)
+										#set($store=$!goodsViewTools.query_LuceneVo_goods_store("$!obj.vo_id"))
+										#set($store_url="$!webPath/store_"+$!store.id+".htm")
+										#if($!config.second_domain_open)
+										#set($store_url="http://$!{store.store_second_domain}.$!{domainPath}")
+										#end <a href="$!store_url" target="_blank">$!{store.store_name}</a>
+										#else Ebuyair #end
+									</li>
+								</ul>
+							</div>
+							#end
+						</div>
+						<div class="fenye">
+							<span> $!gotoPageFormHTML</span>
+						</div>
+						#else
+						<div class="main_list_box">
+							<div class="main_list_none">
+								<span class="main_none_box"> <i></i>
+									<p>
+										Sorry, we can't find the products<a href="$!webPath/index.htm">
+											View all products</a>
+									</p>
+								</span>
+							</div>
+						</div>
+						#end
+					</div>
+				</div>
+				<input name="keyword" type="hidden" id="keyword" value="$!keyword" />
+				<input name="currentPage" type="hidden" id="currentPage"
+					value="$!currentPage" /> <input name="orderBy" type="hidden"
+					id="orderBy" value="$!orderBy" /> <input name="orderType"
+					type="hidden" id="orderType" value="$!orderType" /> <input
+					name="gc_id" type="hidden" id="gc_id" value="$!gc_id" />
+			</form>
+			<!--右侧对比 -->
+			<div class="contrast_center"
+				#if($!goods_compare_list.size()==0)style= "display:none;"#end>
+				<div class="contrast_center_top">
+					<span>对比栏<i><a href="javascript:void(0);"
+							onclick="jQuery('.contrast_center').hide();jQuery('.contrast_center_nothing').show();">隐藏</a></i></span>
+				</div>
+				<div class="contrast_center_center">
+					<div id="goods_compare_cart">
+						#foreach($goods_compare in $goods_compare_list)
+						<dl>
+							#if($!goods_compare.goods_main_photo)
+							#set($small_img="$!imageWebServer/$!{goods_compare.goods_main_photo.path}/$!{goods_compare.goods_main_photo.name}_small.$!{goods_compare.goods_main_photo.ext}")
+							#else
+							#set($small_img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
+							#end
+							<dt>
+								<a href="$!webPath/goods_$!{goods_compare.id}.htm"
+									target="_blank"><img src="$!small_img" /></a>
+							</dt>
+							<span class="contrast_center_center_close"
+								goods_id="$!goods_compare.id"></span>
+							<dd>
+								<a href="$!webPath/goods_$!{goods_compare.id}.htm"
+									target="_blank">$!goods_compare.goods_name</a>
+							</dd>
+						</dl>
+						#end
+					</div>
+					<div class="contrast_center_center_nothing"#if($!goods_compare_list.size()>0)
+						style="display:none;" #end></div>
+					<!--没有数据 display:none -->
+					<div class="contrast_b">
+						#if($goods_compare_list.size()>1)
+						<div class="contrast_b_yes">
+							<a href="$!webPath/goods_compare.htm" target="_blank">对比</a>
+						</div>
+						#else
+						<div class="contrast_b_yes">
+							<a href="javascript:void(0);" style="background: #CCC;">对比</a>
+						</div>
+						#end
+						<div class="contrast_b_clear">
+							<a href="javascript:void(0);">清空</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--对比隐藏 -->
+			<!-- <div class="contrast_center_nothing" #if($!goods_compare_list.size()>0)style="display:none;"#end onclick="jQuery('.contrast_center').show();jQuery('.contrast_center_nothing').hide();"><a href="javascript:void(0);">对比栏</a></div> -->
+		</div>
+		$!httpInclude.include("/goods_list_bottom.htm")
+		$!httpInclude.include("/footer.htm")
+	</div>
 </body>
 </html>

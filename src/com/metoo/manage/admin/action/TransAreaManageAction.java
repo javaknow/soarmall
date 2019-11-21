@@ -27,7 +27,6 @@ import com.metoo.core.query.support.IPageList;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.TransArea;
-import com.metoo.foundation.domain.query.AreaQueryObject;
 import com.metoo.foundation.domain.query.TransAreaQueryObject;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.ITransAreaService;

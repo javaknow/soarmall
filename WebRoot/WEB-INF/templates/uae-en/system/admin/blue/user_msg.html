@@ -3,7 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
 <script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
 <script src="$!webPath/resources/js/jquery.validate.min.js"></script>
 <script src="$!webPath/resources/js/jquery.shop.common.js"></script>
@@ -46,70 +48,74 @@ function saveForm(){
 </head>
 
 <body>
-<div class="cont">
-  <h1 class="seth">会员通知</h1>
-  <div class="nav_list">
-    <ul>
-      <li><a href="$!webPath/admin/user_msg.htm" class="this"><b>发送通知</b></a></li>
-    </ul>
-  </div>
-  <form name="theForm" id="theForm" action="$!webPath/admin/user_msg_send.htm" method=post>
-    <input name="list_url" type="hidden" id="list_url" #if($!list_url) value="$!list_url" #else value="$!webPath/admin/user_msg.htm" #end />
-    <div class="setcont">
-      <ul class="set1">
-        <li>发送对象 </li>
-        <li>
-          <label> <span class="use_code"><strong>
-            <input name="type" type="radio" id="type"  value="all_user" checked="checked"/>
-            </strong><strong class="usecode"> 所有会员</strong></span> </label>
-        </li>
-        <li>
-          <label> <span class="use_code"><strong>
-            <input name="type" id="type" type="radio" value="the_user" />
-            </strong><strong class="usecode"> 指定会员</strong></span> </label>
-        </li>
-        <li>
-        <label> <span class="use_code"><strong>
-          <input name="type" id="type" type="radio"  value="all_store"/>
-          </strong><strong class="usecode"> 所有店铺</strong></span> </label>
-        </li>
-        <li>
-          <label> <span class="use_code"><strong>
-            <input name="type" id="type" type="radio" style="border:none;width:16px;height:16px;" value="the_store"/>
-            </strong><strong class="usecode">指定店铺类型</strong></span> </label>
-        </li>
-      </ul>
-      <ul class="set1" id="the_store_list" style="display:none;">
-        <li  class="setcont_bg"><strong class="sred">*</strong>指定店铺类型</li>
-        <li><span class="webname">
-          <select name="grades" size="6" multiple="multiple" id="grades" style="width:270px;">
-            
-		   #foreach($grade in $grades)
-            
-            <option value="$!grade.id">$!grade.gradeName</option>
-            
-           #end		  
-          
-          </select>
-          </span><span id="nothis"><strong class="q"></strong><strong class="w">可以按住ctrl进行多选</strong><strong class="c"></strong></span> </li>
-      </ul>
-      <ul class="set1" id="the_user_list" style="display:none;">
-        <li  class="setcont_bg"><strong class="sred">*</strong>会员列表</li>
-        <li><span class="webname">
-          <textarea name="users" cols="40" rows="6" id="users">$!userName</textarea>
-          </span><span id="nothis"><strong class="q"></strong><strong class="w">输入会员名，每行一个</strong><strong class="c"></strong></span></li>
-      </ul>
-      <ul class="set1">
-        <li  class="setcont_bg"><strong class="sred">*</strong>通知内容</li>
-        <li><span class="webname">
-          <textarea name="content" cols="40" rows="6" id="content"></textarea>
-          </span></li>
-      </ul>
-    </div>
-  </form>
-  <div class="submit"> <span class="pad80">
-    <input name="save" type="button" value="提交" onclick="saveForm()" />
-    </span> </div>
-</div>
+	<div class="cont">
+		<h1 class="seth">会员通知</h1>
+		<div class="nav_list">
+			<ul>
+				<li><a href="$!webPath/admin/user_msg.htm" class="this"><b>发送通知</b></a></li>
+			</ul>
+		</div>
+		<form name="theForm" id="theForm"
+			action="$!webPath/admin/user_msg_send.htm" method=post>
+			<input name="list_url" type="hidden" id="list_url"
+				#if($!list_url) value="$!list_url" #else
+				value="$!webPath/admin/user_msg.htm" #end />
+			<div class="setcont">
+				<ul class="set1">
+					<li>发送对象</li>
+					<li><label> <span class="use_code"><strong>
+									<input name="type" type="radio" id="type" value="all_user"
+									checked="checked" />
+							</strong><strong class="usecode"> 所有会员</strong></span>
+					</label></li>
+					<li><label> <span class="use_code"><strong>
+									<input name="type" id="type" type="radio" value="the_user" />
+							</strong><strong class="usecode"> 指定会员</strong></span>
+					</label></li>
+					<li><label> <span class="use_code"><strong>
+									<input name="type" id="type" type="radio" value="all_store" />
+							</strong><strong class="usecode"> 所有店铺</strong></span>
+					</label></li>
+					<li><label> <span class="use_code"><strong>
+									<input name="type" id="type" type="radio"
+									style="border: none; width: 16px; height: 16px;"
+									value="the_store" />
+							</strong><strong class="usecode">指定店铺类型</strong></span>
+					</label></li>
+				</ul>
+				<ul class="set1" id="the_store_list" style="display: none;">
+					<li class="setcont_bg"><strong class="sred">*</strong>指定店铺类型</li>
+					<li><span class="webname"> <select name="grades"
+							size="6" multiple="multiple" id="grades" style="width: 270px;">
+
+								#foreach($grade in $grades)
+
+								<option value="$!grade.id">$!grade.gradeName</option> #end
+
+						</select>
+					</span><span id="nothis"><strong class="q"></strong><strong
+							class="w">可以按住ctrl进行多选</strong><strong class="c"></strong></span></li>
+				</ul>
+				<ul class="set1" id="the_user_list" style="display: none;">
+					<li class="setcont_bg"><strong class="sred">*</strong>会员列表</li>
+					<li><span class="webname"> <textarea name="users"
+								cols="40" rows="6" id="users">$!userName</textarea>
+					</span><span id="nothis"><strong class="q"></strong><strong
+							class="w">输入会员名，每行一个</strong><strong class="c"></strong></span></li>
+				</ul>
+				<ul class="set1">
+					<li class="setcont_bg"><strong class="sred">*</strong>通知内容</li>
+					<li><span class="webname"> <textarea name="content"
+								cols="40" rows="6" id="content"></textarea>
+					</span></li>
+				</ul>
+			</div>
+		</form>
+		<div class="submit">
+			<span class="pad80"> <input name="save" type="button"
+				value="提交" onclick="saveForm()" />
+			</span>
+		</div>
+	</div>
 </body>
 </html>

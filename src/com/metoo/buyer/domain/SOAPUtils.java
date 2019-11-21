@@ -10,21 +10,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.xpath.DefaultXPath;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.metoo.core.domain.virtual.SysMap;
-import com.metoo.core.security.support.SecurityUserHolder;
-import com.metoo.core.tools.CommUtil;
 import com.metoo.ddu.pojo.DduTaskRequest;
-import com.metoo.foundation.domain.Area;
-import com.metoo.foundation.service.IAreaService;
 /**
  * <p>
  * Title: SOAPUtils.java

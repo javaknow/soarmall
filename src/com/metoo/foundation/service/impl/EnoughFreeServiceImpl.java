@@ -15,7 +15,6 @@ import com.metoo.core.query.PageObject;
 import com.metoo.core.query.support.IPageList;
 import com.metoo.core.query.support.IQueryObject;
 import com.metoo.foundation.domain.EnoughFree;
-import com.metoo.foundation.domain.EnoughReduce;
 import com.metoo.foundation.service.IEnoughFreeService;
 
 @Service
@@ -98,7 +97,7 @@ public class EnoughFreeServiceImpl implements IEnoughFreeService{
 	public boolean update(EnoughFree instance) {
 		// TODO Auto-generated method stub
 		try {
-			this.update(instance);
+			this.enoughFreeDao.update(instance);
 			return true;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

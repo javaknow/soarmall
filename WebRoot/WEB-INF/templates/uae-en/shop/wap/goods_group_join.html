@@ -11,14 +11,21 @@
 <link
 	href="$!webPath/resources/style/system/front/wap/css/style_170228_bak.css"
 	rel="stylesheet" type="text/css" />
-<link href="$!webPath/resources/style/system/front/wap/v2.0/css/v2.0style.css" rel="stylesheet" type="text/css" />
-<style type="text/css">   
-    .mask {     
-            position: absolute; top: 0px; filter: alpha(opacity=80); background-color: #777;   
-            z-index: 1002; left: 0px;   
-            opacity:0.8; -moz-opacity:0.8;   
-        }   
-</style>  
+<link
+	href="$!webPath/resources/style/system/front/wap/v2.0/css/v2.0style.css"
+	rel="stylesheet" type="text/css" />
+<style type="text/css">
+.mask {
+	position: absolute;
+	top: 0px;
+	filter: alpha(opacity = 80);
+	background-color: #777;
+	z-index: 1002;
+	left: 0px;
+	opacity: 0.8;
+	-moz-opacity: 0.8;
+}
+</style>
 <script src="$!webPath/resources/js/wap/defined.js"></script>
 <script src="$!webPath/resources/js/wap/jquery-1.10.2.min.js"></script>
 <script src="$!webPath/resources/js/TouchSlide.1.1.js"></script>
@@ -277,27 +284,35 @@ if(add){
 
 </script>
 
-<style type="text/css">   
-.mask {     
-		position: absolute; top: 0px; filter: alpha(opacity=80); background-color: #ccc;   
-		z-index: 1002; left: 0px;   
-		opacity:0.8; -moz-opacity:0.5;
-		display: none;
-}   
-</style>  
+<style type="text/css">
+.mask {
+	position: absolute;
+	top: 0px;
+	filter: alpha(opacity = 80);
+	background-color: #ccc;
+	z-index: 1002;
+	left: 0px;
+	opacity: 0.8;
+	-moz-opacity: 0.5;
+	display: none;
+}
+</style>
 </head>
 #set($url = "/wap/share.htm?good_id=${obj.id}")
 $!httpInclude.include($url)
-<body class="index_bg"> 
-<div id="shareDiv" class="mask">
-	<img src="$!webPath/resources/style/system/front/wap/images/weixin_share.png" width="100%">  
-</div> 
+<body class="index_bg">
+	 
+	<div id="shareDiv" class="mask">
+		<img
+			src="$!webPath/resources/style/system/front/wap/images/weixin_share.png"
+			width="100%">  
+	</div>
 
 	<div class="phone_hd">
 		<a class="back" href="javascript:history.go(-1);"><img
 			src="$!webPath/resources/style/system/front/wap/images/back.png"
-			width="25" height="25" />
-		</a> 商品详情 <a class="search home" href="$!webPath/wap/index.htm"><img
+			width="25" height="25" /> </a> 商品详情 <a class="search home"
+			href="$!webPath/wap/index.htm"><img
 			src="$!webPath/resources/style/system/front/wap/images/home.png"
 			width="25" height="25" /> </a>
 	</div>
@@ -341,39 +356,47 @@ $!httpInclude.include($url)
 						#end
 						<li class="details_price_money"><strong id="store_price">¥$!{act_price}
 								$!obj.activity_price</strong></li> #else
-						<li class="details_price_money">
-							<strong id="store_price" style="float: left;">¥$!{obj.store_price}</strong>
-							<span style="text-decoration: line-through;padding-top: 15px;padding-left: 10px;" >¥$!{obj.goods_price}</span>
+						<li class="details_price_money"><strong id="store_price"
+							style="float: left;">¥$!{obj.store_price}</strong> <span
+							style="text-decoration: line-through; padding-top: 15px; padding-left: 10px;">¥$!{obj.goods_price}</span>
 						</li> #end
 					</ul>
-					<span><!--  <a
+					<span> <!--  <a
 						href="#if(!$!user) $!webPath/wap/login.htm #else javascript:void(0); #end"
 						class="details_star"><img
 							src="$!webPath/resources/style/system/front/wap/images/star_bg.png"
-							mark="0"> </a>  -->
-					<a href="javascript:void(0);" id="coverPic">
-					<img src="$!webPath/resources/style/system/front/wap/images/share.png" style="width: 25px;height: 29px;margin: 5px;"> </a> 
+							mark="0"> </a>  --> <a href="javascript:void(0);" id="coverPic">
+							<img
+							src="$!webPath/resources/style/system/front/wap/images/share.png"
+							style="width: 25px; height: 29px; margin: 5px;">
+					</a>
 					</span>
-					
+
 				</div>
 				<div>
-					<ul>	
-						<li class="details_remark"><span>快递：免运费</span><span>$!{obj.goods_salenum}人已购买</span><span><!-- $!{obj.delivery_area} --></span></li>
+					<ul>
+						<li class="details_remark"><span>快递：免运费</span><span>$!{obj.goods_salenum}人已购买</span><span>
+								<!-- $!{obj.delivery_area} -->
+						</span></li>
 					</ul>
 				</div>
-				
+
 			</section>
 			#if($!{obj.activity_status}==2)
 			<div class="name">当前商品为促销商品，用户登录后方可享受促销价格！</div>
 			#end #if($!{obj.group_buy}==2)
 			<div class="name">
-					<strong id="store_price" style="float: left;color:red;font-size:18px;margin-left:14px;margin-top: 10px;">¥$!{obj.goods_current_price}</strong>
-					<div style="color:gray;font-size:14px;margin-top: 10px;">【5人团.拼团须知】
-					<div style="float: right;margin-right: 10px;color:red;font-size:18px">马上开团</div>
-					#if ($!group_child_flag == 'yes') 
-						<div style="float: right;margin-right: 10px;color:red;font-size:18px">马上参团</div>
+				<strong id="store_price"
+					style="float: left; color: red; font-size: 18px; margin-left: 14px; margin-top: 10px;">¥$!{obj.goods_current_price}</strong>
+				<div style="color: gray; font-size: 14px; margin-top: 10px;">
+					【5人团.拼团须知】
+					<div
+						style="float: right; margin-right: 10px; color: red; font-size: 18px">马上开团</div>
+					#if ($!group_child_flag == 'yes')
+					<div
+						style="float: right; margin-right: 10px; color: red; font-size: 18px">马上参团</div>
 					#end
-					</div>
+				</div>
 			</div>
 			#end
 			#if($!{obj.buyGift_id}&&$!{obj.order_enough_give_status}==1&&$!isGift)
@@ -384,7 +407,7 @@ $!httpInclude.include($url)
 			<div class="name">$!enoughreduce.ertag</div>
 			#end
 		</div>
-		
+
 
 		<!--商品规格及配送-->
 
@@ -392,17 +415,18 @@ $!httpInclude.include($url)
 			<!-- 积分规则说明 -->
 			<dl class="stand">
 				<dt style="padding-left: 15px;">
-					<a href="$!webPath/wap/doc.htm?mark=user_point">
-					<span class="fl"> <img src="$!webPath/resources/style/system/front/wap/images/tick.png" width="14" height="14"></span>
-					<span class="fl" style="font-size: 12px;color: #aaa;padding-left: 10px;">全额支付现金集3000积分</span>
-					<span class="fr" style="padding-right: 15px;"><img
+					<a href="$!webPath/wap/doc.htm?mark=user_point"> <span
+						class="fl"> <img
+							src="$!webPath/resources/style/system/front/wap/images/tick.png"
+							width="14" height="14"></span> <span class="fl"
+						style="font-size: 12px; color: #aaa; padding-left: 10px;">全额支付现金集3000积分</span>
+						<span class="fr" style="padding-right: 15px;"><img
 							src="$!webPath/resources/style/system/front/wap/images/details_right.gif"
-							width="9" height="18" />
-					</span>
+							width="9" height="18" /> </span>
 					</a>
 				</dt>
 			</dl>
-		
+
 			#if($!goodsViewTools.getCombinPlans("$!obj.id","suit").size()>0)
 			<dl class="act">
 
@@ -411,9 +435,7 @@ $!httpInclude.include($url)
 						class="fl">促销：<b>组合套装</b>
 					</span><span class="fr"><img
 							src="$!webPath/resources/style/system/front/wap/images/details_right.gif"
-							width="9" height="18" />
-					</span>
-					</a>
+							width="9" height="18" /> </span> </a>
 				</dt>
 
 
@@ -426,14 +448,13 @@ $!httpInclude.include($url)
 						$!{spec.name} #end #end &nbsp;&nbsp;&nbsp;<span id="show_count"></span>
 					</span> <span class="fr"><img id="img_spec"
 						src="$!webPath/resources/style/system/front/wap/images/details_right.gif"
-						width="9" height="18" />
-					</span>
+						width="9" height="18" /> </span>
 				</dt>
-				<dd id="spec_count" style="display:none;">
+				<dd id="spec_count" style="display: none;">
 					<ul>
 						#foreach($spec in $goodsViewTools.generic_spec("$!obj.id"))
 						<li mark="spec_$!{spec_id}"><span class="fl">$!{spec.name}：</span>
-						<p>
+							<p>
 								#foreach($gsp in $obj.goods_specs)
 								#if($!{gsp.spec.id}==$!spec.id) <a href="javascript:void(0);"
 									onClick="goods_spec_set(this);" sname="$!gsp.value"
@@ -445,9 +466,7 @@ $!httpInclude.include($url)
 						<li><span class="fl">数量：</span><span class="num"><a
 								class="minus" href="javascript:void(0);" onClick="minus()">－</a><input
 								type="text" id="count" name="count" value="1" /><a class="plus"
-								href="javascript:void(0);" onClick="plus()">+</a>
-						</span>
-						</li>
+								href="javascript:void(0);" onClick="plus()">+</a> </span></li>
 						<script>
 jQuery(function(){
 jQuery("#count").keyup(function(e) {
@@ -514,13 +533,11 @@ if(goods_cod=="0"){
 							width="9" height="18" />
 					</span>
 					</a> -->
-					<div style="width:100%;height:20px;">
-					<span
-						class="fl">商品详情</span><span class="fr">
-					</span>
+					<div style="width: 100%; height: 20px;">
+						<span class="fl">商品详情</span><span class="fr"> </span>
 					</div>
-					<div style="width:100%;text-align: center;">
-  					 <div class="integral_infro">$!obj.goods_details_mobile</div>
+					<div style="width: 100%; text-align: center;">
+						<div class="integral_infro">$!obj.goods_details_mobile</div>
 					</div>
 				</dt>
 			</dl>
@@ -551,26 +568,24 @@ if(goods_cod=="0"){
 			</dl>-->
 		</div>
 		<!--评价等-->
-		#set($well_evaluate = $!CommUtil.null2Double($!{obj.well_evaluate})*100)
-		#set($well="$!{well_evaluate}%") 
-		#set($middle_evaluate = $!CommUtil.null2Double($!{obj.middle_evaluate})*100)
-		#set($middle="$!{middle_evaluate}%") 
-		#set($bad_evaluate = $!CommUtil.null2Double($!{obj.bad_evaluate})*100)
+		#set($well_evaluate =
+		$!CommUtil.null2Double($!{obj.well_evaluate})*100)
+		#set($well="$!{well_evaluate}%") #set($middle_evaluate =
+		$!CommUtil.null2Double($!{obj.middle_evaluate})*100)
+		#set($middle="$!{middle_evaluate}%") #set($bad_evaluate =
+		$!CommUtil.null2Double($!{obj.bad_evaluate})*100)
 		#set($bad="$!{bad_evaluate}%")
 		<div class="evaluation_top">
 			<div class="evaluation_top_box">
-				<b>好评度：</b><span><i style="width:$!{well}"></i></span><strong>$!{well}</strong>
+				<b>好评度：</b><span><i style="width: $!{well"></i></span><strong>$!{well}</strong>
 			</div>
 			<ul>
 				<li class="this"><span>好评：<br /> <i>$!well</i>
-				</span>
-				</li>
+				</span></li>
 				<li><span>中评：<br /> <i>$!middle</i>
-				</span>
-				</li>
+				</span></li>
 				<li><span>差评：<br /> <i>$!bad</i>
-				</span>
-				</li>
+				</span></li>
 			</ul>
 		</div>
 		<div class="evaluation_box">
@@ -581,50 +596,48 @@ if(goods_cod=="0"){
 			#if($!objs.size()>0) #foreach($obj in $!objs)
 			<ul>
 				<li>
-					<h3>$!{obj.evaluate_user.userName}</h3></li>
+					<h3>$!{obj.evaluate_user.userName}</h3>
+				</li>
 				#set($img="$!imageWebServer/$!config.memberIcon.path/$!config.memberIcon.name")
 				#if($!obj.evaluate_user.photo)
 				#set($img="$!imageWebServer/$!obj.evaluate_user.photo.path/$!obj.evaluate_user.photo.name")
 				#end
 				<li class="evalua_ruler"><img src="$!img" width="45"
-					height="45" />
-				</li>
+					height="45" /></li>
 				<li class="evalua_con">评价：$!{obj.evaluate_info}</li>
 				<li class="evalua_ruler"><b>购买日期：$!CommUtil.formatShortDate($!obj.addTime)</b>
 				</li>
 			</ul>
 			#end #else
-			<div style="line-height:40px; text-align:center">还没有评价内容</div>
+			<div style="line-height: 40px; text-align: center">还没有评价内容</div>
 			#end
 		</div>
-		<div class="loading" id="loading" style="display:none">
+		<div class="loading" id="loading" style="display: none">
 			<ul>
 				<li><img
 					src="$!webPath/resources/style/system/front/wap/images/loading.gif"
-					width="16" height="16">
-				</li>
+					width="16" height="16"></li>
 				<li>正在加载....</li>
 			</ul>
 		</div>
-		<div class="loading" id="loading_none" style="display:none">
+		<div class="loading" id="loading_none" style="display: none">
 			<ul>
 				<li>没有更多了....</li>
 			</ul>
 		</div>
-		<div style="height:10px;"></div>
+		<div style="height: 10px;"></div>
 		<div class="details_total">
 			<a href="$!webPath/wap/goods_cart1.htm" class="details_enjoy"><img
 				src="$!webPath/resources/style/system/front/wap/images/enjoy.png"
-				width="35" height="35">#if($!carts.size())<i class="car_num">$!carts.size()</i> #end</a>  
-				<a href="javascript:void(0)" onClick="add_cart()" class="add_car">加入购物车</a> 
-				<a href="javascript:void(0)" onClick="buy_goods()" class="atonce">立即购买</a>
+				width="35" height="35">#if($!carts.size())<i class="car_num">$!carts.size()</i>
+				#end</a> <a href="javascript:void(0)" onClick="add_cart()"
+				class="add_car">加入购物车</a> <a href="javascript:void(0)"
+				onClick="buy_goods()" class="atonce">立即购买</a>
 		</div>
-		
-		
+
+
 	</div>
-	
+
 </body>
-<div class="detail_join_group">
-		slsldlslls
-		</div>
+<div class="detail_join_group">slsldlslls</div>
 </html>

@@ -1,10 +1,5 @@
 package com.metoo.core.weixin.test;
 
-import java.util.HashMap;
-import java.util.Map.Entry;
-
-import org.junit.Test;
-
 import com.metoo.core.weixin.action.WeixinAction;
 import com.metoo.core.weixin.pojo.SNSUserInfo;
 import com.metoo.core.weixin.utils.CommonUtil;

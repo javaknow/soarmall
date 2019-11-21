@@ -1,6 +1,5 @@
 package com.metoo.manage.admin.action;
 
-import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -24,19 +23,15 @@ import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.DeliveryAddress;
-import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.Role;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.DeliveryAddressQueryObject;
-import com.metoo.foundation.domain.query.GoodsBrandQueryObject;
 import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.IDeliveryAddressService;
 import com.metoo.foundation.service.IRoleService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
 import com.metoo.foundation.service.IUserService;
-import com.metoo.lucene.LuceneUtil;
-import com.metoo.lucene.LuceneVo;
 import com.metoo.manage.admin.tools.AreaManageTools;
 import com.metoo.manage.delivery.tools.DeliveryAddressTools;
 

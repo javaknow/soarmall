@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,10 +42,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.metoo.buyer.domain.Result;
 import com.metoo.core.annotation.SecurityMapping;
-import com.metoo.core.beans.BeanUtils;
-import com.metoo.core.beans.BeanWrapper;
 import com.metoo.core.domain.virtual.SysMap;
 import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.qrcode.QRCodeUtil;
@@ -71,8 +67,6 @@ import com.metoo.foundation.domain.GoodsSpecification;
 import com.metoo.foundation.domain.GroupGoods;
 import com.metoo.foundation.domain.Store;
 import com.metoo.foundation.domain.StoreGrade;
-import com.metoo.foundation.domain.StoreSlide;
-import com.metoo.foundation.domain.SysConfig;
 import com.metoo.foundation.domain.Transport;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.UserGoodsClass;
@@ -1000,14 +994,13 @@ public class GoodsSellerAction {
 					goods = (Goods) wf.toPo(request, obj);
 					goods.setPrice_history(old_price);
 				}
-				//[组合销售商品，0为无组合销售，1为有组合销售，当该商品参加组合销售时（无论组合商品是否通过审核），该状态为1，当组合时间到期或者组合方案完全删除后该商品状态变为0]
-				//[活动状态，0为无活动，1为待审核，2为审核通过，3为活动已经过期活结束，审核未通过时状态为0]
+				
 				if (goods.getCombin_status() == 2
 						|| goods.getActivity_status() == 2) {
 				} else {
 					goods.setGoods_current_price(goods.getStore_price());
 				}
-				// 商品名称不可以带有任何html字样，进行过滤
+			
 				goods.setGoods_name(Jsoup.clean(goods.getGoods_name(),
 						Whitelist.none()));
 				// 商品详情不可以带有违规标签，如script等等
@@ -1387,7 +1380,7 @@ public class GoodsSellerAction {
 									.getId()), uploadFilePath, goods
 									.getGoods_main_photo().getId());*/
 					// 添加lucene索引 添加商品去除商品索引添加，后台审核商品时添加商品索引 获取项目运行路径 
-					String goods_lucene_path = System.getProperty("metoob2b2c.root")
+				/*	String goods_lucene_path = System.getProperty("metoob2b2c.root")
 							+ File.separator + "luence" + File.separator
 							+ "goods";
 					File file = new File(goods_lucene_path);
@@ -1400,7 +1393,7 @@ public class GoodsSellerAction {
 					LuceneUtil lucene = LuceneUtil.instance();
 					lucene.setConfig(config);
 					lucene.setIndex_path(goods_lucene_path);
-					lucene.writeIndex(vo);
+					lucene.writeIndex(vo);*/
 				} else {
 					// 更新lucene索引 更新索引会导致需要审核的店铺，发布商品等待平台审核时，可以被搜索
 					String goods_lucene_path = System.getProperty("metoob2b2c.root")
@@ -1409,7 +1402,7 @@ public class GoodsSellerAction {
 					if ("0".equals(obj_status)
 							&& "0".equals(publish_goods_status)) {// 编辑后直接上架
 						// 更新lucene索引
-						File file = new File(goods_lucene_path);
+					/*	File file = new File(goods_lucene_path);
 						if (!file.exists()) {
 							CommUtil.createFolder(goods_lucene_path);
 						}
@@ -1417,13 +1410,17 @@ public class GoodsSellerAction {
 								.updateGoodsIndex(goods);
 						LuceneUtil lucene = LuceneUtil.instance();
 						lucene.setIndex_path(goods_lucene_path);
-						lucene.update(CommUtil.null2String(goods.getId()), vo);
+						lucene.update(CommUtil.null2String(goods.getId()), vo);*/
+						// 删除lucene索引
+						LuceneUtil lucene = LuceneUtil.instance();
+						lucene.setIndex_path(goods_lucene_path);
+						lucene.delete_index(id);
 						
 					}
 					if ("-5".equals(obj_status)
 							&& "0".equals(publish_goods_status)) {// (未审核)在仓库中编辑后上架
 						// 更新lucene索引
-						File file = new File(goods_lucene_path);
+						/*File file = new File(goods_lucene_path);
 						if (!file.exists()) {
 							CommUtil.createFolder(goods_lucene_path);
 						}
@@ -1431,7 +1428,11 @@ public class GoodsSellerAction {
 								.updateGoodsIndex(goods);
 						LuceneUtil lucene = LuceneUtil.instance();
 						lucene.setIndex_path(goods_lucene_path);
-						lucene.update(CommUtil.null2String(goods.getId()), vo);
+						lucene.update(CommUtil.null2String(goods.getId()), vo);*/
+						// 删除lucene索引
+						LuceneUtil lucene = LuceneUtil.instance();
+						lucene.setIndex_path(goods_lucene_path);
+						lucene.delete_index(id);
 						
 					}
 					if ("0".equals(obj_status)

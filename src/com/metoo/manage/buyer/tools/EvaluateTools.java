@@ -1,32 +1,16 @@
 package com.metoo.manage.buyer.tools;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.nutz.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.Evaluate;
-import com.metoo.foundation.domain.ExpressCompany;
-import com.metoo.foundation.domain.Goods;
-import com.metoo.foundation.domain.GoodsSpecProperty;
-import com.metoo.foundation.domain.IntegralGoodsCart;
-import com.metoo.foundation.domain.IntegralGoodsOrder;
-import com.metoo.foundation.domain.OrderForm;
-import com.metoo.foundation.domain.Store;
 import com.metoo.foundation.domain.SysConfig;
-import com.metoo.foundation.domain.virtual.TransContent;
-import com.metoo.foundation.domain.virtual.TransInfo;
 import com.metoo.foundation.service.IEvaluateService;
 import com.metoo.foundation.service.IExpressCompanyService;
 import com.metoo.foundation.service.IGoodsService;
@@ -36,7 +20,6 @@ import com.metoo.foundation.service.IOrderFormService;
 import com.metoo.foundation.service.IStoreService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserService;
-import com.metoo.kuaidi100.domain.ExpressInfo;
 import com.metoo.kuaidi100.service.IExpressInfoService;
 
 /**

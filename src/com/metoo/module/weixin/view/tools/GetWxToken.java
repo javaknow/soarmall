@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.nutz.json.Json;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.metoo.core.tools.CommUtil;
-import com.metoo.foundation.domain.Payment;
 import com.metoo.foundation.service.IPaymentService;
 import com.metoo.foundation.service.ISysConfigService;
 

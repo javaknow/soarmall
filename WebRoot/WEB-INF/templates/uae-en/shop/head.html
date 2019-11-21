@@ -3,86 +3,107 @@
     <script src="$!webPath/resources/js/css3-mediaqueries.js"></script>
 <![endif]-->
 <style>
-.en_text{
-    display: block;
-    text-align: center;
-    padding: 5px 0px;
-    
+.en_text {
+	display: block;
+	text-align: center;
+	padding: 5px 0px;
 }
-#entext{
-position: absolute;background-color: #fff; height: auto; border-radius: 3px;width: 168px;top: 44px;left: 0px;
-}
-.sanjio{
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 10px solid #fff;
-    position: absolute;
-    top: 34px;
-    left: 10px;
-}
-.entext_content{
 
+#entext {
+	position: absolute;
+	background-color: #fff;
+	height: auto;
+	border-radius: 3px;
+	width: 168px;
+	top: 44px;
+	left: 0px;
 }
-.top_user_ul li a{
-	color:#ff9900;
+
+.sanjio {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 10px solid #fff;
+	position: absolute;
+	top: 34px;
+	left: 10px;
 }
-.top_user_hb{
-	left:-1px;
+
+.entext_content {
+	
 }
-.top_user_browse span a{
-    width: 71px;
-    margin: 3px 3px;
-    height: 71px;
+
+.top_user_ul li a {
+	color: #ff9900;
 }
-.top_user_browse span a img{
-	width:100%;
+
+.top_user_hb {
+	left: -1px;
+}
+
+.top_user_browse span a {
+	width: 71px;
+	margin: 3px 3px;
+	height: 71px;
+}
+
+.top_user_browse span a img {
+	width: 100%;
 	height: inherit;
 }
-.top_user_browse span{
-	height:auto;
+
+.top_user_browse span {
+	height: auto;
 }
-.top_user_sp_this{
-	padding-left:40px;
+
+.top_user_sp_this {
+	padding-left: 40px;
 }
+
 .head_seartxt_s {
 	position: relative;
 }
-.login_bt{
+
+.login_bt {
 	background-color: #ff9900;
-    border-radius: 3px;
-    color: #FFF !important;
-    width: 68%;
-    margin: 13px auto !important;
-    display: block;
-    font-size: 15px;
-    text-align: center;
-    padding: 8px;
-    overflow: hidden;
-    font-weight: 550;
+	border-radius: 3px;
+	color: #FFF !important;
+	width: 68%;
+	margin: 13px auto !important;
+	display: block;
+	font-size: 15px;
+	text-align: center;
+	padding: 8px;
+	overflow: hidden;
+	font-weight: 550;
 }
-.top_user_width{
-	width:234px !important;
+
+.top_user_width {
+	width: 234px !important;
 }
-.top_ul_list,.top_user_width,.top_user_browse span,.top_user_browse,.top_user{
-	padding:0px;
-	width:auto;
+
+.top_ul_list, .top_user_width, .top_user_browse span, .top_user_browse,
+	.top_user {
+	padding: 0px;
+	width: auto;
 }
-.top_ul_list>li{
-	display:block;
+
+.top_ul_list>li {
+	display: block;
 	font-size: 12.5px;
 	padding: 10px 13.5px;
-	width:100%;
-	background:transparent;
-	border-bottom:1px solid #F0F0F0;
+	width: 100%;
+	background: transparent;
+	border-bottom: 1px solid #F0F0F0;
 }
-.top_user_hb{
-	padding:0px;
-}
-.top_ul_list>li:hover{
-	background-color:#F0F0F0;
 
+.top_user_hb {
+	padding: 0px;
+}
+
+.top_ul_list>li:hover {
+	background-color: #F0F0F0;
 }
 /* .top_ul_list>li>a:hover{
 	color:#ff9900;
@@ -94,12 +115,16 @@ position: absolute;background-color: #fff; height: auto; border-radius: 3px;widt
 	right: 27px;
 	color: #f90;
 }
-#keyword:focus{ border: 1px solid #dcdcdc; outline:none;}
+
+#keyword:focus {
+	border: 1px solid #dcdcdc;
+	outline: none;
+}
 
 .sousuo {
-    border-top: 1px solid #dcdcdc;
-    border-right: 1px solid #dcdcdc;
-    border-bottom: 1px solid #dcdcdc;
+	border-top: 1px solid #dcdcdc;
+	border-right: 1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
 	position: absolute;
 	right: 0px;
 	top: 0px;
@@ -109,8 +134,16 @@ position: absolute;background-color: #fff; height: auto; border-radius: 3px;widt
 	height: 35px !important;
 	width: auto !important;
 }
-..head_seartxt_s{box-shadow: 0 1px 2px 0 rgba(0,0,0,.08);}
-.top_user_browse{margin-bottom: 10px; background: transparent;}
+
+.
+.head_seartxt_s {
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .08);
+}
+
+.top_user_browse {
+	margin-bottom: 10px;
+	background: transparent;
+}
 </style>
 <link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
 <div class="head_width" id="head_h">
@@ -132,30 +165,33 @@ position: absolute;background-color: #fff; height: auto; border-radius: 3px;widt
 		<form action="$!webPath/search.htm" method="post" target="_blank"
 			id="searchForm">
 			<input name="type" type="hidden" id="type" value="$!type" />
-			<div class="head_search" id="head_search" style="width: 665px; margin-left: 0px;">
+			<div class="head_search" id="head_search"
+				style="width: 665px; margin-left: 0px;">
 				<span class="head_seartxt_s head_seartxt"> <input
 					name="keyword" type="text" id="keyword"
 					placeholder="What are you looking for?" x-webkit-speech
 					lang="zh-CN" onwebkitspeechchange="jQuery('#searchForm').submit()"
-					class="h_sear_txt" style="padding-left: 22px; width: 641px; font-size: 14px;"
+					class="h_sear_txt"
+					style="padding-left: 22px; width: 641px; font-size: 14px;"
 					autocomplete="off" />
 					<div class="sousuo">
 						<input name="" type="submit" class="h_sear_btn " value="" />
 					</div> <i class="iconfont icon-sousuo" id="soubt"></i>
-				</span>
-				<span class="head_searstr">#if($!config.hotSearch!="")Hot search�?#foreach($info
-					in $CommUtil.splitByChar("$!config.hotSearch",",")) <a
+				</span> <span class="head_searstr">#if($!config.hotSearch!="")Hot
+					search�?#foreach($info in
+					$CommUtil.splitByChar("$!config.hotSearch",",")) <a
 					href="javascript:void(0);" onclick="search_form('$info','goods');">$!info</a>
 					#end #end
-				</span> 
+				</span>
 				<!--搜索历史 -->
 				<div class="head_search_history" id="head_search_history"
 					style="display: none">
 					<dl>
 						<dt>
 							<ul>
-								<li class="head_search_history_top"><span>Search History</span><i><a
-										href="javascript:void(0)" onclick="search_data_del_all()">Delete All</a></i></li>
+								<li class="head_search_history_top"><span>Search
+										History</span><i><a href="javascript:void(0)"
+										onclick="search_data_del_all()">Delete All</a></i></li>
 							</ul>
 						</dt>
 						<dd>
@@ -176,8 +212,8 @@ position: absolute;background-color: #fff; height: auto; border-radius: 3px;widt
 					<dl>
 						<dt>
 							<ul>
-								<li class="head_search_history_top"><span>Search History</span><i><a
-										href=""> Delete All</a></i></li>
+								<li class="head_search_history_top"><span>Search
+										History</span><i><a href=""> Delete All</a></i></li>
 							</ul>
 						</dt>
 						<dd>
@@ -196,57 +232,49 @@ position: absolute;background-color: #fff; height: auto; border-radius: 3px;widt
 		</form>
 		<!--语言-->
 		<div class="top_uae">
-			<span class="top_pull"> 
-		    	<a href="#">العربية</a> 
-		    </span>
-	    </div>
+			<span class="top_pull"> <a href="#">العربية</a>
+			</span>
+		</div>
 		<!--用户中心�?�?-->
 		<div class="top_user" id="top_user">
-			<span class="top_user_sp" style="display:flex; align-items:enter; height: 100%;" id="top_user_sp">
-				<a href="$!webPath/buyer/index.htm" style="display: flex;align-items: center;justify-content: center;">
-					<span>
-						<strong class="top_col">
-						#if($!user.userName) 
-							<span >$!{user.userName}</span>
-						#else 
-							<span >Hello,Login</span>
-						#end
-						</strong>
-						<i class="iconfont icon-xiala"></i>
-					</span>
-				</a>
+			<span class="top_user_sp"
+				style="display: flex; align-items: enter; height: 100%;"
+				id="top_user_sp"> <a href="$!webPath/buyer/index.htm"
+				style="display: flex; align-items: center; justify-content: center;">
+					<span> <strong class="top_col">
+							#if($!user.userName) <span>$!{user.userName}</span> #else <span>Hello,Login</span>
+							#end
+					</strong> <i class="iconfont icon-xiala"></i>
+				</span>
+			</a>
 			</span>
-			<div class="top_user_hid" id="top_user_hid" style="display: none; z-index:999;"></div>
+			<div class="top_user_hid" id="top_user_hid"
+				style="display: none; z-index: 999;"></div>
 		</div>
-		
+
 		<!--购物车结-->
-		  <div class="goodscar" id="goodscar">
-   <span class="goodscar_sp" id="goodscar_sp"> 
-  #if($!user)
-    <span>  
-    <a href="$!webPath/goods_cart1.htm" style="padding-left: 12px;">
-     <em class="goodscar_num"><b id="cart_goods_count_top">$!carts.size()</b></em>
-     
-      <strong>
-      <!-- <i class="iconfont icon-gouwuche1" style="font-size: 32px;"></i> -->
-      <img src='$!webPath/resources/style/system/front/default/images/gouwuche.png' style="height: 28px;padding-right:5px;">
-      </strong>
-     </a>
-    </span>
-    #else
-    <span>  
-    <a href="$!webPath/user_login.json" style="padding-left: 12px;">
-     <em class="goodscar_num"><b id="cart_goods_count_top">$!carts.size()</b></em>
-     
-      <strong>
-      <!-- <i class="iconfont icon-gouwuche1" style="font-size: 32px;"></i> -->
-      <img src='$!webPath/resources/style/system/front/default/images/gouwuche.png' style="height: 28px;padding-right:5px;">
-      </strong>
-     </a>
-    </span>
-    #end
-   </span>
-  </div>
+		<div class="goodscar" id="goodscar">
+			<span class="goodscar_sp" id="goodscar_sp"> #if($!user) <span>
+					<a href="$!webPath/goods_cart1.htm" style="padding-left: 12px;">
+						<em class="goodscar_num"><b id="cart_goods_count_top">$!carts.size()</b></em>
+
+						<strong> <!-- <i class="iconfont icon-gouwuche1" style="font-size: 32px;"></i> -->
+							<img
+							src='$!webPath/resources/style/system/front/default/images/gouwuche.png'
+							style="height: 28px; padding-right: 5px;">
+					</strong>
+				</a>
+			</span> #else <span> <a href="$!webPath/user_login.json"
+					style="padding-left: 12px;"> <em class="goodscar_num"><b
+							id="cart_goods_count_top">$!carts.size()</b></em> <strong> <!-- <i class="iconfont icon-gouwuche1" style="font-size: 32px;"></i> -->
+							<img
+							src='$!webPath/resources/style/system/front/default/images/gouwuche.png'
+							style="height: 28px; padding-right: 5px;">
+					</strong>
+				</a>
+			</span> #end
+			</span>
+		</div>
 		<!-- 语言切换 -->
 		<!-- <div class="top_uae" id="uae_en" style="right: 34px;">
 			<p><strong>EN</strong>&nbsp;&nbsp;&nbsp;<i class="iconfont iconyuyan"></i></p>

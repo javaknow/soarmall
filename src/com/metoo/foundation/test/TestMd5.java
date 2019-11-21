@@ -1,8 +1,5 @@
 package com.metoo.foundation.test;
 
-import java.util.Date;
-
-import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.Md5Encrypt;
 
 public class TestMd5 {

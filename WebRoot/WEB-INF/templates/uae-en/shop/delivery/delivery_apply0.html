@@ -7,18 +7,21 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link rel="stylesheet" type="text/css" href="$!webPath/resources/style/system/front/default/css/delivery.css"/>
-<link rel="stylesheet" type="text/css" href="$!webPath/resources/style/system/front/default/css/public.css"/>
-<link rel="stylesheet" type="text/css" href="$!webPath/resources/style/system/front/default/css/public_auto.css"/>
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.cookie.js"></script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link rel="stylesheet" type="text/css"
+			href="$!webPath/resources/style/system/front/default/css/delivery.css" />
+		<link rel="stylesheet" type="text/css"
+			href="$!webPath/resources/style/system/front/default/css/public.css" />
+		<link rel="stylesheet" type="text/css"
+			href="$!webPath/resources/style/system/front/default/css/public_auto.css" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery.cookie.js"></script>
 </head>
 
 <body>
-$!httpInclude.include("/top.htm")
-<!--head-->
-<script>
+	$!httpInclude.include("/top.htm")
+	<!--head-->
+	<script>
 jQuery(document).ready(function(){
 	search_history_data();
 	var head_h=jQuery("#head_h").height();
@@ -284,87 +287,110 @@ function search_form(){
          },"json");
        }
 </script>
-<div class="head_width" id="head_h">
-  <div class="head"> #if($!config.websiteLogo)
-    #set($img="$!imageWebServer/$!{config.websiteLogo.path}/$!{config.websiteLogo.name}")
-    #else
-    #set($img="$!webPath/resources/style/system/front/default/images/logo.jpg")
-    #end
-    <h1 class="logo"><span>
-      <p><a href="$!webPath/index.htm"> <img src="$!img" border="0" /> </a></p>
-      </span></h1>
-    <form action="$!webPath/search.htm" method="post" target="_blank" id="searchForm">
-      <input name="type" type="hidden" id="type" value="$!type" />
-      <div class="head_search" id="head_search" style="width:705px; margin-left:0px;"> <span class="head_seartxt">
-        <input style="width:618px;" name="keyword" type="text" id="keyword" placeholder="试试搜索，更加方便！" x-webkit-speech lang="zh-CN" onwebkitspeechchange="jQuery('#searchForm').submit()" class="h_sear_txt" style="padding-left:5px;" autocomplete="off"/>
-        <input name="" type="submit"  class="h_sear_btn" value="搜索"/>
-        </span><span class="head_searstr">#if($!config.hotSearch!="")热门搜索：#foreach($info in $CommUtil.splitByChar("$!config.hotSearch",",")) <a href="javascript:void(0);" onclick="search_form('$info','goods');">$!info</a> #end #end</span>
-      	<!--搜索历史 -->
-    	<div class="head_search_history" id="head_search_history" style="display:none">
-    	<dl>
-        	<dt>
-            	<ul>
-                	<li class="head_search_history_top"><span>搜索历史</span><i ><a href="javascript:void(0)" onclick="search_data_del_all()">清除全部</a></i></li>
-                </ul>
-            </dt>
-            <dd><span  class="head_search_history_hot">热门搜索...</span>
-            	<ul>
-                	
-                    #if($!config.hotSearch!="")
-                    #foreach($info in $CommUtil.splitByChar("$!config.hotSearch",","))
-                	<li><a href="javascript:void(0);" onclick="search_form('$info','goods');">$!info</a></li>
-                    #end
-                    #end
-                </ul>
-            </dd>
-        </dl>
-    </div>  
-        <!--搜索历史 -->
-        <div class="head_search_history_up" id="head_search_history_up" style="display:none">
-    	<dl>
-        	<dt>
-            	<ul>
-                	<li class="head_search_history_top"><span>搜索历史</span><i ><a href="">清除全部</a></i></li>
-                </ul>
-            </dt>
-            <dd><span  class="head_search_history_hot">热门搜索...</span>
-            	<ul>
-                	
-                    #if($!config.hotSearch!="")
-                    #foreach($info in $CommUtil.splitByChar("$!config.hotSearch",","))
-                	<li><a href="javascript:void(0);" onclick="search_form('$info','goods');">$!info</a></li>
-                    #end
-                    #end
-                </ul>
-            </dd>
-        </dl>
-    </div>    	
-      </div>
-    </form>
-    <!--用户中心开始-->
-    <div class="top_user" id="top_user">
-      <span class="top_user_sp" id="top_user_sp"><a href="$!webPath/buyer/index.htm">用户中心</a><s></s></span>
-      <div class="top_user_hid" id="top_user_hid" style="display:none"> </div>
-    </div>
-    <div class="goodscar" id="goodscar">
-    
-    
-      <span class="goodscar_sp" id="goodscar_sp">
-      <span>
-      <i class="goodscar_img"></i>
-      <em class="goodscar_num"><b id="cart_goods_count_top">$!carts.size()</b></em><a href="$!webPath/goods_cart1.htm">去购物车结算</a>
-      </span>
-      </span>
-      
+	<div class="head_width" id="head_h">
+		<div class="head">
+			#if($!config.websiteLogo)
+			#set($img="$!imageWebServer/$!{config.websiteLogo.path}/$!{config.websiteLogo.name}")
+			#else
+			#set($img="$!webPath/resources/style/system/front/default/images/logo.jpg")
+			#end
+			<h1 class="logo">
+				<span>
+					<p>
+						<a href="$!webPath/index.htm"> <img src="$!img" border="0" />
+						</a>
+					</p>
+				</span>
+			</h1>
+			<form action="$!webPath/search.htm" method="post" target="_blank"
+				id="searchForm">
+				<input name="type" type="hidden" id="type" value="$!type" />
+				<div class="head_search" id="head_search"
+					style="width: 705px; margin-left: 0px;">
+					<span class="head_seartxt"> <input style="width: 618px;"
+						name="keyword" type="text" id="keyword" placeholder="试试搜索，更加方便！"
+						x-webkit-speech lang="zh-CN"
+						onwebkitspeechchange="jQuery('#searchForm').submit()"
+						class="h_sear_txt" style="padding-left:5px;" autocomplete="off" />
+						<input name="" type="submit" class="h_sear_btn" value="搜索" />
+					</span><span class="head_searstr">#if($!config.hotSearch!="")热门搜索：#foreach($info
+						in $CommUtil.splitByChar("$!config.hotSearch",",")) <a
+						href="javascript:void(0);" onclick="search_form('$info','goods');">$!info</a>
+						#end #end
+					</span>
+					<!--搜索历史 -->
+					<div class="head_search_history" id="head_search_history"
+						style="display: none">
+						<dl>
+							<dt>
+								<ul>
+									<li class="head_search_history_top"><span>搜索历史</span><i><a
+											href="javascript:void(0)" onclick="search_data_del_all()">清除全部</a></i></li>
+								</ul>
+							</dt>
+							<dd>
+								<span class="head_search_history_hot">热门搜索...</span>
+								<ul>
 
-      <div class="goodscar_con_box" id="goodscar_con_box" style="display:none" mark="none"> </div>
-    </div>
-    <!--购物车结束-->
-  </div>
-</div>
-<!--head-->
-<!--nav1-->
-<script>
+									#if($!config.hotSearch!="") #foreach($info in
+									$CommUtil.splitByChar("$!config.hotSearch",","))
+									<li><a href="javascript:void(0);"
+										onclick="search_form('$info','goods');">$!info</a></li> #end #end
+								</ul>
+							</dd>
+						</dl>
+					</div>
+					<!--搜索历史 -->
+					<div class="head_search_history_up" id="head_search_history_up"
+						style="display: none">
+						<dl>
+							<dt>
+								<ul>
+									<li class="head_search_history_top"><span>搜索历史</span><i><a
+											href="">清除全部</a></i></li>
+								</ul>
+							</dt>
+							<dd>
+								<span class="head_search_history_hot">热门搜索...</span>
+								<ul>
+
+									#if($!config.hotSearch!="") #foreach($info in
+									$CommUtil.splitByChar("$!config.hotSearch",","))
+									<li><a href="javascript:void(0);"
+										onclick="search_form('$info','goods');">$!info</a></li> #end #end
+								</ul>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</form>
+			<!--用户中心开始-->
+			<div class="top_user" id="top_user">
+				<span class="top_user_sp" id="top_user_sp"><a
+					href="$!webPath/buyer/index.htm">用户中心</a><s></s></span>
+				<div class="top_user_hid" id="top_user_hid" style="display: none">
+				</div>
+			</div>
+			<div class="goodscar" id="goodscar">
+
+
+				<span class="goodscar_sp" id="goodscar_sp"> <span> <i
+						class="goodscar_img"></i> <em class="goodscar_num"><b
+							id="cart_goods_count_top">$!carts.size()</b></em><a
+						href="$!webPath/goods_cart1.htm">去购物车结算</a>
+				</span>
+				</span>
+
+
+				<div class="goodscar_con_box" id="goodscar_con_box"
+					style="display: none" mark="none"></div>
+			</div>
+			<!--购物车结束-->
+		</div>
+	</div>
+	<!--head-->
+	<!--nav1-->
+	<script>
 jQuery(document).ready(function(){
   jQuery("#navul li").each(function(){
     var original_url=jQuery(this).attr("original_url");
@@ -436,103 +462,137 @@ jQuery(document).ready(function(){
    });	 
 });
 </script>
-<style type="text/css">
-.left_menu_con_center_left dd a { font-weight:normal; font-size:12px;}
-.nav ul li a:hover{ color:#0086C6;}
-.head_seartxt .h_sear_btn{background: none repeat scroll 0% 0% #1F96CF;}
-.head_seartxt .h_sear_txt{border: 3px solid #1F96CF;}
-.nav_left{ background:#0086C6}
-.nav{border-bottom: 3px solid #0086C6;}
+	<style type="text/css">
+.left_menu_con_center_left dd a {
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.nav ul li a:hover {
+	color: #0086C6;
+}
+
+.head_seartxt .h_sear_btn {
+	background: none repeat scroll 0% 0% #1F96CF;
+}
+
+.head_seartxt .h_sear_txt {
+	border: 3px solid #1F96CF;
+}
+
+.nav_left {
+	background: #0086C6
+}
+
+.nav {
+	border-bottom: 3px solid #0086C6;
+}
 </style>
-<div class="nav">
-<div class="nav_center">
-  <div class="nav_left">
-    <h2><a href="$!webPath/goods_class.htm"><span>全部分类<em><img src="$!webPath/resources/style/system/front/default/images/nav_top.gif" width="7" height="4" /></em></span></a>
-    <div class="other_menu" style="display:none" id="other_menu">
-      <div class="left_menu" id="left_menu">
-      #foreach($gc in $!gcs)
-      #set($icon_img="$!webPath/resources/style/common/images/icon/default_icon.png")
-        <dl #if($!velocityCount%2==0)class="left_menu_dl double"  #else class="left_menu_dl" #end child_count="$!gc.childs.size()" #if($!{gc.gc_color}) gc_color="$!{gc.gc_color}" #else gc_color="#E60012" #end id="$!gc.id" style="position:relative;">
-            <!--left_menu_this经过状态，和left_menu_dt不经状态过交换-->
-            #if($!gc.icon_type==0)
-            #if($!gc.icon_sys!="")
-            #set($icon_img="$!webPath/resources/style/common/images/icon/icon_$!{gc.icon_sys}.png")
-            #end
-            #else
-            #if($!gc.icon_acc)
-            #set($icon_img="$!imageWebServer/$!gc.icon_acc.path/$!gc.icon_acc.name")
-            #end
-            #end
-             <!-- 鼠标经过父级时添加style="border:1px solid #F00; border-left:3px solid #F00;"添加底层颜色-->
-            <dt class="left_menu_dt" id="dts_$!gc.id"><i class="left_menu_i"><img src="$!icon_img" width="16" height="16" /></i><strong class="left_menu_str"><a href="$!webPath/store_goods_list_$!{gc.id}.htm">$!gc.className</a></strong><b class="left_menu_str_b">#foreach($child_gc in $gcViewTools.query_third_rec("$!gc.id",4))<a href="$!webPath/store_goods_list_$!{child_gc.id}.htm">$!{child_gc.className}</a>  #end</b></dt>
-            <dd class="left_menu_dd" style="display:none" id="child_$!gc.id">
-            <!--存在广告时left_menu_con this   鼠标经过父级时添加style="border:1px solid #F00; border-left:3px solid #F00;"添加底层颜色-->
-             #set($adv_map=$!gcViewTools.query_gc_advert("$!gc.id","$!webPath"))
-              <div class="left_menu_con #if($!adv_map.get('advert_img')!="") this #end" id="left_menu_con_$!{gc.id}">
-              #set($gbs=$gcViewTools.query_gc_brand("$!gc.id"))
-              #if($!gbs.size()>0)
-              <div class="menu_con_right_top">
-                	<dl>
-                    	<dt>
-                        #foreach($map in $gbs)
-                            <span><a href="$!webPath/store_goods_list_$!{gc.id}.htm?brand_ids=$!{map.get('id')}">$!{map.get('name')}</a></span>
-                    	#end	
-                       </dt>  
-                    </dl>
-                </div>
-              #end  
-              <span class="left_menu_sp">
-                 	
-                <div class="left_menu_con_center">
-                 #foreach($gc1 in $gc.childs)
-                	<div class="left_menu_con_center_left">
-                    	<dl>
-                        	<dt><a href="$!webPath/store_goods_list_$!{gc1.id}.htm">$!gc1.className</a></dt>
-                            #foreach($gc2 in $!gc1.childs)
-                            <dd><a href="$!webPath/store_goods_list_$!{gc2.id}.htm">$!gc2.className</a></dd>
-                  			#end
-                        </dl>
-                    </div>
-                    #end 
-                    <script>
+	<div class="nav">
+		<div class="nav_center">
+			<div class="nav_left">
+				<h2>
+					<a href="$!webPath/goods_class.htm"><span>全部分类<em><img
+								src="$!webPath/resources/style/system/front/default/images/nav_top.gif"
+								width="7" height="4" /></em></span></a>
+					<div class="other_menu" style="display: none" id="other_menu">
+						<div class="left_menu" id="left_menu">
+							#foreach($gc in $!gcs)
+							#set($icon_img="$!webPath/resources/style/common/images/icon/default_icon.png")
+							<dl #if($!velocityCount%2==0)class= "left_menu_dl double"  #else
+								class="left_menu_dl" #end child_count="$!gc.childs.size()"
+								#if($!{gc.gc_color}) gc_color="$!{gc.gc_color}" #else
+								gc_color="#E60012" #end id="$!gc.id" style="position: relative;">
+								<!--left_menu_this经过状态，和left_menu_dt不经状态过交换-->
+								#if($!gc.icon_type==0) #if($!gc.icon_sys!="")
+								#set($icon_img="$!webPath/resources/style/common/images/icon/icon_$!{gc.icon_sys}.png")
+								#end #else #if($!gc.icon_acc)
+								#set($icon_img="$!imageWebServer/$!gc.icon_acc.path/$!gc.icon_acc.name")
+								#end #end
+								<!-- 鼠标经过父级时添加style="border:1px solid #F00; border-left:3px solid #F00;"添加底层颜色-->
+								<dt class="left_menu_dt" id="dts_$!gc.id">
+									<i class="left_menu_i"><img src="$!icon_img" width="16"
+										height="16" /></i><strong class="left_menu_str"><a
+										href="$!webPath/store_goods_list_$!{gc.id}.htm">$!gc.className</a></strong><b
+										class="left_menu_str_b">#foreach($child_gc in
+										$gcViewTools.query_third_rec("$!gc.id",4))<a
+										href="$!webPath/store_goods_list_$!{child_gc.id}.htm">$!{child_gc.className}</a>
+										#end
+									</b>
+								</dt>
+								<dd class="left_menu_dd" style="display: none"
+									id="child_$!gc.id">
+									<!--存在广告时left_menu_con this   鼠标经过父级时添加style="border:1px solid #F00; border-left:3px solid #F00;"添加底层颜色-->
+									#set($adv_map=$!gcViewTools.query_gc_advert("$!gc.id","$!webPath"))
+									<div class="left_menu_con #if($!adv_map.get('advert_img')!="
+										") this #end" id="left_menu_con_$!{gc.id}">
+										#set($gbs=$gcViewTools.query_gc_brand("$!gc.id"))
+										#if($!gbs.size()>0)
+										<div class="menu_con_right_top">
+											<dl>
+												<dt>
+													#foreach($map in $gbs) <span><a
+														href="$!webPath/store_goods_list_$!{gc.id}.htm?brand_ids=$!{map.get('id')}">$!{map.get('name')}</a></span>
+													#end
+												</dt>
+											</dl>
+										</div>
+										#end <span class="left_menu_sp">
+
+											<div class="left_menu_con_center">
+												#foreach($gc1 in $gc.childs)
+												<div class="left_menu_con_center_left">
+													<dl>
+														<dt>
+															<a href="$!webPath/store_goods_list_$!{gc1.id}.htm">$!gc1.className</a>
+														</dt>
+														#foreach($gc2 in $!gc1.childs)
+														<dd>
+															<a href="$!webPath/store_goods_list_$!{gc2.id}.htm">$!gc2.className</a>
+														</dd>
+														#end
+													</dl>
+												</div>
+												#end
+												<script>
                     jQuery(document).ready(function(){
 					var height =jQuery(".left_menu_con_center_left").height();
 					
 						});
                     </script>
-                </div>
-                #if($!adv_map.get('advert_img')!="" && $!adv_map.get('advert_img')!='null')
-                <div class="right_menu_con_right_img">
-                #set($adv_url=$!adv_map.get('advert_url'))
-                	<a #if($!{adv_url}!="") href="$!adv_map.get('advert_url')" target="_blank" #else href="javascript:void(0);" #end><img src="$!adv_map.get('advert_img')"/></a>
-                </div>
-                #end
-                </span> 
-             </div>
-            </dd>
-          </dl>
-      #end
-      </div>
-    </div></h2>
-  </div>
-  <ul id="navul">
-  #set($navs=$!navTools.queryNav(0,-1))
-  #foreach($nav in $navs)
-    #if($!CommUtil.indexOf("$!nav.url","http://")>=0)
-      #set($url="$!nav.url")
-    #else
-      #set($url="$!webPath/$!{nav.url}")
-    #end
-    <li #if($!mark&&$!mark==$!nav.url) class="this" #end><a href="$!url" id="$!nav.id" #if($!nav.new_win==1)target="_blank"#end original_url="$!nav.original_url"><span>$!{nav.title}</span></a></li>
-    #end
-  </ul>
-  </div>
-</div>
-<!--nav1-->
+											</div> #if($!adv_map.get('advert_img')!="" &&
+											$!adv_map.get('advert_img')!='null')
+											<div class="right_menu_con_right_img">
+												#set($adv_url=$!adv_map.get('advert_url')) <a
+													#if($!{adv_url}!="" ) href="$!adv_map.get('advert_url')"
+													target="_blank" #else href="javascript:void(0);" #end><img
+													src="$!adv_map.get('advert_img')" /></a>
+											</div> #end
+										</span>
+									</div>
+								</dd>
+							</dl>
+							#end
+						</div>
+					</div>
+				</h2>
+			</div>
+			<ul id="navul">
+				#set($navs=$!navTools.queryNav(0,-1)) #foreach($nav in $navs)
+				#if($!CommUtil.indexOf("$!nav.url","http://")>=0)
+				#set($url="$!nav.url") #else #set($url="$!webPath/$!{nav.url}") #end
+				<li #if($!mark&&$!mark==$!nav.url) class="this" #end><a
+					href="$!url" id="$!nav.id" #if($!nav.new_win==1)target=
+					"_blank"#end original_url="$!nav.original_url"><span>$!{nav.title}</span></a></li>
+				#end
+			</ul>
+		</div>
+	</div>
+	<!--nav1-->
 
 
-<!-- 专题主体-->
-<script>
+	<!-- 专题主体-->
+	<script>
 jQuery(document).ready(function(){
 		var pro =jQuery("#pro_ul").find("li:first");
 		set_province(pro);	
@@ -582,35 +642,41 @@ function ajaxPage(url,currentPage,obj){
 		})
   }
 </script>
-<div class="self_place">
-	<div class="self_place_banner"><img src="$!webPath/resources/style/system/front/default/images/self_place_all_box_center.png" /></div>
-  	<div class="self_place_banner_b"></div>
-    <div class="self_place_main">
-    <div class="main_center_particular_join">       
-            <a href="$!webPath/delivery/index.htm">自提点管理</a>
-             	<a href="$!webPath/delivery_apply1.htm">加入自提点</a>
-        </div>
-    	<div class="self_place_main_top">自提点查询</div>
-        
-        <div class="self_place_main_center">
-        	<ul id="pro_ul">
-            #foreach($area in $areas)
-            	<li obj_id="$!area.id" onclick="set_province(this);"><a href="javascript:void(0);">$!area.areaName</a></li>
-            #end   
-            </ul>
-        </div>
-        <div class="self_place_main_center_b">
-        	<ul id="city_ul">
-            </ul>
-        </div>
-        <div class="self_place_main_center_particular" style=" min-height:200px">
-        	<h3>当前查询城市：<b id="current_city">暂无数据</b></h3>
-            <div class="main_center_particular_place" id="delivery_list">
-            </div>
-        </div>
-    </div>
-  $!httpInclude.include("/footer.htm")
-</div>
-  
+	<div class="self_place">
+		<div class="self_place_banner">
+			<img
+				src="$!webPath/resources/style/system/front/default/images/self_place_all_box_center.png" />
+		</div>
+		<div class="self_place_banner_b"></div>
+		<div class="self_place_main">
+			<div class="main_center_particular_join">
+				<a href="$!webPath/delivery/index.htm">自提点管理</a> <a
+					href="$!webPath/delivery_apply1.htm">加入自提点</a>
+			</div>
+			<div class="self_place_main_top">自提点查询</div>
+
+			<div class="self_place_main_center">
+				<ul id="pro_ul">
+					#foreach($area in $areas)
+					<li obj_id="$!area.id" onclick="set_province(this);"><a
+						href="javascript:void(0);">$!area.areaName</a></li> #end
+				</ul>
+			</div>
+			<div class="self_place_main_center_b">
+				<ul id="city_ul">
+				</ul>
+			</div>
+			<div class="self_place_main_center_particular"
+				style="min-height: 200px">
+				<h3>
+					当前查询城市：<b id="current_city">暂无数据</b>
+				</h3>
+				<div class="main_center_particular_place" id="delivery_list">
+				</div>
+			</div>
+		</div>
+		$!httpInclude.include("/footer.htm")
+	</div>
+
 </body>
 </html>

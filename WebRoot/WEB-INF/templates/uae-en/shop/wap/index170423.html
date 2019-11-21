@@ -14,7 +14,8 @@
 <script src="$!webPath/resources/js/wap/jquery-1.10.2.min.js"></script>
 <script src="$!webPath/resources/js/TouchSlide.1.1.js"></script>
 <script src="$!webPath/resources/js/jquery.SuperSlide.2.1.1.js"></script>
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript"
+	src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
 $(function(){
 	
@@ -35,20 +36,22 @@ function isWeiXin(){
 </head>
 <body>
 	<div class="phone_main">
-		<div class="main_top" >
-			<div class="top_bg" >
+		<div class="main_top">
+			<div class="top_bg">
 				<form name="theForm" id="theForm" action="$!webPath/wap/search.htm"
 					method="post">
 					<div class="search_line">
 						<input type="text" placeholder="搜索商品" name="keyword" id="keyword" />
 					</div>
 				</form>
-				
+
 			</div>
-			<div class="logo_line"> 
-				<img alt="$!webPath/resources/style/system/front/wap/images/new/profile.png" src="$!user.headImgUrl" width="32px;" height="32px;">
-			
-<!-- <img  src="$!webPath/resources/style/system/front/wap/images/new/profile.png" width="32px;" height="32px;">	
+			<div class="logo_line">
+				<img
+					alt="$!webPath/resources/style/system/front/wap/images/new/profile.png"
+					src="$!user.headImgUrl" width="32px;" height="32px;">
+
+				<!-- <img  src="$!webPath/resources/style/system/front/wap/images/new/profile.png" width="32px;" height="32px;">	
 		  #if($!config.store_weixin_logo)
 	    #set($img="$!imageWebServer/$!{config.store_weixin_logo.path}/$!{config.store_weixin_logo.name}")
 	    #else
@@ -57,7 +60,7 @@ function isWeiXin(){
 	    					#else <a class="log_after" href="$!webPath/wap/buyer/center.htm">$!user.userName</a> #end 
 	  
 	  	 -->
-	   </div>
+			</div>
 
 		</div>
 		<div class="main_center">
@@ -91,8 +94,7 @@ function isWeiXin(){
 				<table class="advert_table" border="1">
 					<tr>
 						<td rowspan="2"><script
-								src="$!webPath/advert_invoke.htm?id=14"></script>
-						</td>
+								src="$!webPath/advert_invoke.htm?id=14"></script></td>
 						<td><script src="$!webPath/advert_invoke.htm?id=15"></script>
 						</td>
 						<td><script src="$!webPath/advert_invoke.htm?id=16"></script>
@@ -127,11 +129,10 @@ function isWeiXin(){
 							#else
 							#set($img="$!imageWebServer/$!{config.goodsImage.path}/$!{config.goodsImage.name}")
 							#end
-							<li>
-								<a href="$!webPath/wap/goods.htm?id=$!goods.id"> <img
+							<li><a href="$!webPath/wap/goods.htm?id=$!goods.id"> <img
 									src="$!img" /><span class="re_name">$!{goods.goods_name}</span>
-									<span class="bg"></span> </a>
-							</li> #end
+									<span class="bg"></span>
+							</a></li> #end
 						</ul>
 					</div>
 				</div>
@@ -141,7 +142,7 @@ function isWeiXin(){
 		</div>
 
 		<!-- 空白区域 -->
-		<div style="width: 100%;height: 60px;background-color: #ffffff;"></div>
+		<div style="width: 100%; height: 60px; background-color: #ffffff;"></div>
 		<!-- 手机端底部 -->
 		<div class="main_bottom">
 			<div class="bottom_menu">
@@ -149,16 +150,20 @@ function isWeiXin(){
 					<ul>
 						<li><a href="#" style="color: #F94D4D"> <img
 								src="$!webPath/resources/style/system/front/wap/images/new/home-focus.png">
-								<span>首页</span> </a></li>
+								<span>首页</span>
+						</a></li>
 						<li><a href="$!webPath/wap/goodsclass.htm"> <img
 								src="$!webPath/resources/style/system/front/wap/images/new/menu.png">
-								<span>分类</span> </a></li>
+								<span>分类</span>
+						</a></li>
 						<li><a href="$!webPath/wap/goods_cart1.htm"> <img
 								src="$!webPath/resources/style/system/front/wap/images/new/cart.png">
-								<span>购物车</span> </a></li>
+								<span>购物车</span>
+						</a></li>
 						<li><a href="$!webPath/wap/buyer/center.htm"> <img
 								src="$!webPath/resources/style/system/front/wap/images/new/center.png">
-								<span>个人中心</span> </a></li>
+								<span>个人中心</span>
+						</a></li>
 					</ul>
 				</div>
 			</div>

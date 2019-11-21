@@ -13,7 +13,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.nutz.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +27,6 @@ import com.metoo.core.query.support.IPageList;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.core.tools.WebForm;
 import com.metoo.foundation.domain.Accessory;
-import com.metoo.foundation.domain.Area;
 import com.metoo.foundation.domain.Article;
 import com.metoo.foundation.domain.ArticleClass;
 import com.metoo.foundation.domain.GoodsClass;

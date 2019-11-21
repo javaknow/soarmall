@@ -22,12 +22,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.metoo.core.tools.CommUtil;
-import com.metoo.foundation.domain.CGoods;
-import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.Store;
 import com.metoo.foundation.domain.User;
-import com.metoo.foundation.service.ICGoodsService;
-import com.metoo.foundation.service.IGoodsService;
 import com.metoo.foundation.service.IGroupService;
 import com.metoo.foundation.service.IStoreService;
 import com.metoo.foundation.service.IUserService;

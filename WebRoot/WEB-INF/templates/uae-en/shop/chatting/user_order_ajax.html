@@ -1,112 +1,87 @@
-ï»¿#foreach($obj in $orders)
+#foreach($obj in $orders)
 <table cellpadding="0" cellspacing="0" border="0">
-<tbody>
-<tr>
-<td width="30%" class="im_dt">è®¢å•çŠ¶æ€ï¼š</td>
-#if($!obj.order_status==0)
-#set($status="å·²å–æ¶ˆ")
-#end
-
-#if($!obj.order_status==10)
-#set($status="å¾…ä»˜æ¬¾")
-#end
-
-#if($!obj.order_status==16)
-#set($status="è´§åˆ°ä»˜æ¬¾å¾…å‘è´§")
-#end
-
-#if($!obj.order_status==20)
-#set($status="å·²ä»˜æ¬¾")
-#end
-
-#if($!obj.order_status==30)
-#set($status="å·²å‘è´§")        
-#end 
-
-#if($!obj.order_status==40)
-#set($status="å·²æ”¶è´§")
-#end
-
-#if($!obj.order_status==50)
-#set($status="å·²å®Œæˆ,å·²è¯„ä»·")                                              
-#end
-
-#if($!obj.order_status==60)
-#set($status="å·²ç»“æŸ")                                              
-#end 
-
-#if($!obj.order_status==65)
-#set($status="å·²ç»“æŸï¼Œä¸å¯è¯„ä»·")                                              
-#end
-<td class="im_dd">$!{status}</td>
-</tr>
-<tr>
-<td class="im_dt">è®¢å•ç¼–å·ï¼š</td>
-<td class="im_dd">$!obj.order_id</td>
-</tr>
-#if($!obj.order_cat==0)
-<tr>
-<td class="im_dt">ä¸‹å•å•†å“ï¼š</td>
-<td class="im_dd"><ul class="im_order_goods">
-#foreach($map in $!orderformTools.queryGoodsInfo("$!obj.goods_info"))
-#set($goods_mainphoto_path = "$!{map.get('goods_mainphoto_path')}")
-#set($img="$!imageWebServer/$!{goods_mainphoto_path}")
-#set($goods_count = "$!{map.get('goods_count')}")
-#set($goods_price = "$!{map.get('goods_price')}")
-#set($goods_gsp_val = "$!{map.get('goods_gsp_val')}")
-<li><img src="$!img" width="50" height="50" /></li>
-#end	
-</ul></td>
-</tr>
-<tr>
-<td class="im_dt">å•†å“å•ä»·ï¼š</td>
-<td class="im_dd">$!goods_price ï¼ˆå…ƒï¼‰</td>
-</tr>
-<tr>
-<td class="im_dt">ä¸‹å•æ•°é‡ï¼š</td>
-<td class="im_dd">$!goods_count</td>
-</tr>
-<tr>
-<td class="im_dt">è®¢å•è¿è´¹ï¼š</td>
-<td class="im_dd">$!obj.ship_price ï¼ˆå…ƒï¼‰</td>
-</tr>
-<tr>
-<td class="im_dt">è®¢å•æ€»ä»·ï¼š</td>
-#set($map=$!orderformTools.queryCouponInfo("$!obj.coupon_info"))
-<td class="im_dd">$!obj.totalPriceï¼ˆå…ƒï¼‰#if($!obj.coupon_info!="")ä½¿ç”¨ä¼˜æƒ åˆ¸æŠµæ¶ˆ$!{map.get('coupon_amount')} å…ƒã€‘ #end</td>
-</tr>
-#end
-#if($!obj.order_cat==2)
-<tr>
-<td class="im_dt">ä¸‹å•å•†å“ï¼š</td>
-<td class="im_dd"><ul class="im_order_goods">
-#set($map=$!orderformTools.queryGroupInfo("$!obj.group_info"))
-#set($goods_mainphoto_path = "$!{map.get('goods_mainphoto_path')}")
-#set($img="$!imageWebServer/$!{goods_mainphoto_path}")
-#set($goods_count = "$!{map.get('goods_count')}")
-#set($goods_price = "$!{map.get('goods_price')}")
-#set($goods_name = "$!{map.get('goods_name')}")
-<li><img src="$!img" width="50" height="50" /></li>	
-</ul></td>
-</tr>
-<tr>
-<td class="im_dt">å•†å“åç§°ï¼š</td>
-<td class="im_dd">$!goods_name</td>
-</tr>
-<tr>
-<td class="im_dt">å•†å“å•ä»·ï¼š</td>
-<td class="im_dd">$!goods_price ï¼ˆå…ƒï¼‰</td>
-</tr>
-<tr>
-<td class="im_dt">ä¸‹å•æ•°é‡ï¼š</td>
-<td class="im_dd">$!goods_count</td>
-</tr>
-<tr>
-<td class="im_dt">è®¢å•æ€»ä»·ï¼š</td>
-#set($map=$!orderformTools.queryCouponInfo("$!obj.coupon_info"))
-<td class="im_dd">$!obj.totalPriceï¼ˆå…ƒï¼‰#if($!obj.coupon_info!="")ä½¿ç”¨ä¼˜æƒ åˆ¸æŠµæ¶ˆ$!{map.get('coupon_amount')} å…ƒã€‘ #end</td>
-</tr>
-#end
-</tbody>
+	<tbody>
+		<tr>
+			<td width="30%" class="im_dt">¶©µ¥×´Ì¬£º</td> #if($!obj.order_status==0)
+			#set($status="ÒÑÈ¡Ïû") #end #if($!obj.order_status==10)
+			#set($status="´ı¸¶¿î") #end #if($!obj.order_status==16)
+			#set($status="»õµ½¸¶¿î´ı·¢»õ") #end #if($!obj.order_status==20)
+			#set($status="ÒÑ¸¶¿î") #end #if($!obj.order_status==30)
+			#set($status="ÒÑ·¢»õ") #end #if($!obj.order_status==40)
+			#set($status="ÒÑÊÕ»õ") #end #if($!obj.order_status==50)
+			#set($status="ÒÑÍê³É,ÒÑÆÀ¼Û") #end #if($!obj.order_status==60)
+			#set($status="ÒÑ½áÊø") #end #if($!obj.order_status==65)
+			#set($status="ÒÑ½áÊø£¬²»¿ÉÆÀ¼Û") #end
+			<td class="im_dd">$!{status}</td>
+		</tr>
+		<tr>
+			<td class="im_dt">¶©µ¥±àºÅ£º</td>
+			<td class="im_dd">$!obj.order_id</td>
+		</tr>
+		#if($!obj.order_cat==0)
+		<tr>
+			<td class="im_dt">ÏÂµ¥ÉÌÆ·£º</td>
+			<td class="im_dd"><ul class="im_order_goods">
+					#foreach($map in
+					$!orderformTools.queryGoodsInfo("$!obj.goods_info"))
+					#set($goods_mainphoto_path = "$!{map.get('goods_mainphoto_path')}")
+					#set($img="$!imageWebServer/$!{goods_mainphoto_path}")
+					#set($goods_count = "$!{map.get('goods_count')}") #set($goods_price
+					= "$!{map.get('goods_price')}") #set($goods_gsp_val =
+					"$!{map.get('goods_gsp_val')}")
+					<li><img src="$!img" width="50" height="50" /></li> #end
+				</ul></td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÉÌÆ·µ¥¼Û£º</td>
+			<td class="im_dd">$!goods_price £¨Ôª£©</td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÏÂµ¥ÊıÁ¿£º</td>
+			<td class="im_dd">$!goods_count</td>
+		</tr>
+		<tr>
+			<td class="im_dt">¶©µ¥ÔË·Ñ£º</td>
+			<td class="im_dd">$!obj.ship_price £¨Ôª£©</td>
+		</tr>
+		<tr>
+			<td class="im_dt">¶©µ¥×Ü¼Û£º</td>
+			#set($map=$!orderformTools.queryCouponInfo("$!obj.coupon_info"))
+			<td class="im_dd">$!obj.totalPrice£¨Ôª£©#if($!obj.coupon_info!="")Ê¹ÓÃÓÅ»İÈ¯µÖÏû$!{map.get('coupon_amount')}
+				Ôª¡¿ #end</td>
+		</tr>
+		#end #if($!obj.order_cat==2)
+		<tr>
+			<td class="im_dt">ÏÂµ¥ÉÌÆ·£º</td>
+			<td class="im_dd"><ul class="im_order_goods">
+					#set($map=$!orderformTools.queryGroupInfo("$!obj.group_info"))
+					#set($goods_mainphoto_path = "$!{map.get('goods_mainphoto_path')}")
+					#set($img="$!imageWebServer/$!{goods_mainphoto_path}")
+					#set($goods_count = "$!{map.get('goods_count')}") #set($goods_price
+					= "$!{map.get('goods_price')}") #set($goods_name =
+					"$!{map.get('goods_name')}")
+					<li><img src="$!img" width="50" height="50" /></li>
+				</ul></td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÉÌÆ·Ãû³Æ£º</td>
+			<td class="im_dd">$!goods_name</td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÉÌÆ·µ¥¼Û£º</td>
+			<td class="im_dd">$!goods_price £¨Ôª£©</td>
+		</tr>
+		<tr>
+			<td class="im_dt">ÏÂµ¥ÊıÁ¿£º</td>
+			<td class="im_dd">$!goods_count</td>
+		</tr>
+		<tr>
+			<td class="im_dt">¶©µ¥×Ü¼Û£º</td>
+			#set($map=$!orderformTools.queryCouponInfo("$!obj.coupon_info"))
+			<td class="im_dd">$!obj.totalPrice£¨Ôª£©#if($!obj.coupon_info!="")Ê¹ÓÃÓÅ»İÈ¯µÖÏû$!{map.get('coupon_amount')}
+				Ôª¡¿ #end</td>
+		</tr>
+		#end
+	</tbody>
 </table>
 #end

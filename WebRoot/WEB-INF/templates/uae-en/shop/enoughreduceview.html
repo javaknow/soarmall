@@ -7,20 +7,28 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/goods.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/public_auto.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<style type="text/css">
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/goods.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public_auto.css"
+			type="text/css" rel="stylesheet" />
+		<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+		<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+		<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+		<style type="text/css">
 body, td, th {
-	font-family: "Microsoft Yahei", "Lucida Grande", Verdana, Lucida, Helvetica, Arial, Simsun, sans-serif;
+	font-family: "Microsoft Yahei", "Lucida Grande", Verdana, Lucida,
+		Helvetica, Arial, Simsun, sans-serif;
 }
 </style>
-<script>
+		<script>
 //添加到购物车
    jQuery("a[id^=goods_cart_]").live("click",function(e){
 	  var goods_id=jQuery(this).attr("goods_id");
@@ -92,43 +100,62 @@ jQuery("a[id^=buy_]").live("click",function(e){
 </head>
 
 <body bgcolor="#FFFFFF">
-$!httpInclude.include("/top.htm") 
-$!httpInclude.include("/head.htm") 
-$!httpInclude.include("/nav1.htm")
-<div class="main">
-  <div class="main_top">
-    <div class="main_right_s">
-      <div class="search_list_shop_tipe"><strong style=" font-size:16px; line-height:40px;">$!er.ertitle</strong><br />
-        <span style="color:#F00; line-height:30px;">$!er.ertag</span><br />
-        <strong style="line-height:30px;">活动时间：</strong> $!CommUtil.formatShortDate($!er.erbegin_time)至$!CommUtil.formatShortDate($!er.erend_time)<br />
-        <strong>活动说明：</strong>$!er.ercontent</div>
-      <div class="main_search_mid_s">
-        <form action="$!webPath/enoughreduce/index.htm" method="post" id="ListForm">
-          <input type="hidden" name="id" id="id" value="$!er.id" />
-          <input type="hidden" name="currentPage" id="currentPage" value="$!currentPage" />
-          <div class="pro_list"> #foreach($obj in $objs)  
-            #if($!obj.goods_main_photo)
-            #set($goods="$!imageWebServer/$!obj.goods_main_photo.path/$!obj.goods_main_photo.name")
-            #else
-            #set($goods="$!imageWebServer/$!config.goodsImage.path/$!config.goodsImage.name")
-            #end
-            #set($goods_url="$!webPath/goods_$!{obj.id}.htm")
-            #if($!config.second_domain_open && $!obj.goods_store.store_second_domain!="")
-            #set($goods_url="http://$!{obj.goods_store.store_second_domain}.$!{domainPath}/goods_$!{obj.id}.htm")
-            #end
-            <div class="search_list_one" data-bind="$!obj.id">
-              <div class="search_list_one_img"><a href="$!goods_url" target="_blank"><img src="$!goods" id="$!{obj.id}_main_img"/></a></div>
-              <div class="search_list_one_word"><a href="$!goods_url" target="_blank">$!obj.goods_name</a></div>
-              <div class="search_list_one_price">¥$!obj.goods_current_price</div>
-              <div class="search_list_one_buy"> <a href="javascript:void(0);" goods_id="$!obj.id" goods_type="$!obj.goods_type" user_id="$!obj.goods_store.user.id" id="goods_cart_$!{obj.id}">加入购物车</a> <a href="javascript:void(0);" goods_id="$!obj.id" goods_type="$!obj.goods_type" user_id="$!obj.goods_store.user.id" id="buy_$!{obj.id}">立即购买</a></div>
-            </div>
-            #end </div>
-          <div class="fenye"><span>$!gotoPageFormHTML</span></div>
-        </form>
-      </div>
-    </div>
-  </div>
-  $!httpInclude.include("/footer.htm")
-</div>
+	$!httpInclude.include("/top.htm") $!httpInclude.include("/head.htm")
+	$!httpInclude.include("/nav1.htm")
+	<div class="main">
+		<div class="main_top">
+			<div class="main_right_s">
+				<div class="search_list_shop_tipe">
+					<strong style="font-size: 16px; line-height: 40px;">$!er.ertitle</strong><br />
+					<span style="color: #F00; line-height: 30px;">$!er.ertag</span><br />
+					<strong style="line-height: 30px;">活动时间：</strong>
+					$!CommUtil.formatShortDate($!er.erbegin_time)至$!CommUtil.formatShortDate($!er.erend_time)<br />
+					<strong>活动说明：</strong>$!er.ercontent
+				</div>
+				<div class="main_search_mid_s">
+					<form action="$!webPath/enoughreduce/index.htm" method="post"
+						id="ListForm">
+						<input type="hidden" name="id" id="id" value="$!er.id" /> <input
+							type="hidden" name="currentPage" id="currentPage"
+							value="$!currentPage" />
+						<div class="pro_list">
+							#foreach($obj in $objs) #if($!obj.goods_main_photo)
+							#set($goods="$!imageWebServer/$!obj.goods_main_photo.path/$!obj.goods_main_photo.name")
+							#else
+							#set($goods="$!imageWebServer/$!config.goodsImage.path/$!config.goodsImage.name")
+							#end #set($goods_url="$!webPath/goods_$!{obj.id}.htm")
+							#if($!config.second_domain_open &&
+							$!obj.goods_store.store_second_domain!="")
+							#set($goods_url="http://$!{obj.goods_store.store_second_domain}.$!{domainPath}/goods_$!{obj.id}.htm")
+							#end
+							<div class="search_list_one" data-bind="$!obj.id">
+								<div class="search_list_one_img">
+									<a href="$!goods_url" target="_blank"><img src="$!goods"
+										id="$!{obj.id}_main_img" /></a>
+								</div>
+								<div class="search_list_one_word">
+									<a href="$!goods_url" target="_blank">$!obj.goods_name</a>
+								</div>
+								<div class="search_list_one_price">¥$!obj.goods_current_price</div>
+								<div class="search_list_one_buy">
+									<a href="javascript:void(0);" goods_id="$!obj.id"
+										goods_type="$!obj.goods_type"
+										user_id="$!obj.goods_store.user.id" id="goods_cart_$!{obj.id}">加入购物车</a>
+									<a href="javascript:void(0);" goods_id="$!obj.id"
+										goods_type="$!obj.goods_type"
+										user_id="$!obj.goods_store.user.id" id="buy_$!{obj.id}">立即购买</a>
+								</div>
+							</div>
+							#end
+						</div>
+						<div class="fenye">
+							<span>$!gotoPageFormHTML</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		$!httpInclude.include("/footer.htm")
+	</div>
 </body>
 </html>

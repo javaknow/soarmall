@@ -3,15 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script src="$!webPath/resources/js/charts/highcharts.js"></script>
-<script src="$!webPath/resources/js/charts/modules/exporting.js"></script>
-<script>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+	type=text/css rel=stylesheet>
+	<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+	<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+	<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+	<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+	<script src="$!webPath/resources/js/charts/highcharts.js"></script>
+	<script src="$!webPath/resources/js/charts/modules/exporting.js"></script>
+	<script>
 jQuery(document).ready(function(){
   jQuery('#beginTime').datepicker({
 	  dateFormat:"yy-mm-dd",
@@ -86,49 +90,53 @@ jQuery(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="cont">
-  <h3 class="seth">商城统计</h3>
-  <div class="nav_list">
-    <ul>
-      <li><a href="javascript:void(0);" class="this"><b>用户统计</b></a></li>
-    </ul>
-  </div>
-  <form action="$!webPath/admin/stat_user_done.htm" method="post" id="queryForm" >
-    <div class="search">
-      <ul>
-        <li> <span>统计区间</span><span class="size100">
-          <input name="beginTime" type="text" id="beginTime"  readonly="readonly" placeholder="开始时间" />
-          </span><span>—</span><span class="size100">
-          <input name="endTime" type="text" id="endTime" readonly="readonly" placeholder="结束时间" />
-          </span><span >
-          <input type="submit"  value="开始统计" style="cursor:pointer;" class="search_btn"/>
-          </span> </li>
-      </ul>
-    </div>
-  </form>
-  <div class="fshoptb" id="container"> </div>
-  <div class="fshoptb">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="fshop_table">
-      <tr>
-        <th width="15%"><span class="form_btna">统计日期</span></th>
-        <th width="15%"><span class="form_btna">用户总数</span></th>
-        <th width="10%"><span class="form_btna">新增用户数</span></th>
-        <th  width="20%"><span class="form_btna">活跃用户数</span></th>
-        <th  width="9%"><span class="form_btna">总下单用户数</span></th>
-        <th width="8%">当日注册下单用户数</th>
-      </tr>
-      #foreach($obj in $objs)
-      <tr>
-        <td align="center">#if($!obj.order_form==0) $!obj.store_name #else 【自营商品】 #end</td>
-        <td align="center">$!obj.order_id</td>
-        <td align="center">$!obj.user_name</td>
-        <td align="center">$!CommUtil.formatLongDate($!obj.addTime)</td>
-        <td align="center">$!obj.totalPrice</td>       
-        <td align="center">$!payment</td>
-      </tr>
-     #end
-    </table>
-  </div>
-</div>
+	<div class="cont">
+		<h3 class="seth">商城统计</h3>
+		<div class="nav_list">
+			<ul>
+				<li><a href="javascript:void(0);" class="this"><b>用户统计</b></a></li>
+			</ul>
+		</div>
+		<form action="$!webPath/admin/stat_user_done.htm" method="post"
+			id="queryForm">
+			<div class="search">
+				<ul>
+					<li><span>统计区间</span><span class="size100"> <input
+							name="beginTime" type="text" id="beginTime" readonly="readonly"
+							placeholder="开始时间" />
+					</span><span>—</span><span class="size100"> <input name="endTime"
+							type="text" id="endTime" readonly="readonly" placeholder="结束时间" />
+					</span><span> <input type="submit" value="开始统计"
+							style="cursor: pointer;" class="search_btn" />
+					</span></li>
+				</ul>
+			</div>
+		</form>
+		<div class="fshoptb" id="container"></div>
+		<div class="fshoptb">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				class="fshop_table">
+				<tr>
+					<th width="15%"><span class="form_btna">统计日期</span></th>
+					<th width="15%"><span class="form_btna">用户总数</span></th>
+					<th width="10%"><span class="form_btna">新增用户数</span></th>
+					<th width="20%"><span class="form_btna">活跃用户数</span></th>
+					<th width="9%"><span class="form_btna">总下单用户数</span></th>
+					<th width="8%">当日注册下单用户数</th>
+				</tr>
+				#foreach($obj in $objs)
+				<tr>
+					<td align="center">#if($!obj.order_form==0) $!obj.store_name
+						#else 【自营商品】 #end</td>
+					<td align="center">$!obj.order_id</td>
+					<td align="center">$!obj.user_name</td>
+					<td align="center">$!CommUtil.formatLongDate($!obj.addTime)</td>
+					<td align="center">$!obj.totalPrice</td>
+					<td align="center">$!payment</td>
+				</tr>
+				#end
+			</table>
+		</div>
+	</div>
 </body>
 </html>

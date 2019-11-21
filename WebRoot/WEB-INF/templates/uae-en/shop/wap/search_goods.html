@@ -4,21 +4,28 @@
 <html lang="zh">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-	<meta name="apple-wap-web-app-capable" content="yes">
-	<meta name="apple-wap-web-app-status-bar-style" content="black-translucent">
-	<title>$!config.title</title>
-	<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet" type="text/css" />
-	<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
-	<link rel="stylesheet" href="$!webPath/resources/wap/css/index_left.css">
-	<link href="$!webPath/resources/style/system/front/wap/css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
-	<link href="$!webPath/resources/style/system/front/wap/v2.0/css/v2.0style.css" rel="stylesheet" type="text/css" />
-	<script src="$!webPath/resources/js/wap/jquery-1.10.2.min.js"></script>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-wap-web-app-capable" content="yes">
+<meta name="apple-wap-web-app-status-bar-style"
+	content="black-translucent">
+<title>$!config.title</title>
+<link href="$!webPath/resources/wap/css/mui.min.css" rel="stylesheet"
+	type="text/css" />
+<link href="$!webPath/resources/wap/fonts/mui.ttf" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index.css">
+<link rel="stylesheet" href="$!webPath/resources/wap/css/index_left.css">
+<link href="$!webPath/resources/style/system/front/wap/css/style.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="$!webPath/resources/wap/fonts/iconfont.css">
+<link
+	href="$!webPath/resources/style/system/front/wap/v2.0/css/v2.0style.css"
+	rel="stylesheet" type="text/css" />
+<script src="$!webPath/resources/js/wap/jquery-1.10.2.min.js"></script>
 
-	<script>
+<script>
 	jQuery(document).ready(function(){
 		   jQuery("#top_$!{orderBy}").addClass("this");
 		   if("$!{orderBy}"=="store_price"){
@@ -67,138 +74,140 @@
 				  
 		});<!--end-->
 	</script>
-	<style>
-		input[type=search]:focus{
-			text-align:center;
-		}
-		.group_top ul{
-			display:flex;
-		}
-		.group_top ul li{
-			flex:1;
-		}
-		.group_top{
-			height:38px;
-		}
-	</style>
+<style>
+input[type=search]:focus {
+	text-align: center;
+}
+
+.group_top ul {
+	display: flex;
+}
+
+.group_top ul li {
+	flex: 1;
+}
+
+.group_top {
+	height: 38px;
+}
+</style>
 </head>
 
 <body>
 
 	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
-        <!--侧滑菜单部分-->
-        <aside id="offCanvasSide" class="mui-off-canvas-left">
-            <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-                <div class="mui-scroll">
-               		 $!httpInclude.include("/wap/index_left.htm")
-                </div>
-            </div>
-        </aside>
-        <!--主界面部分-->
-        <div class="mui-inner-wrap">
-            <header class="mui-bar mui-bar-nav">
-                $!httpInclude.include("/wap/top.htm")
-            </header>
- 			<!-- 主题内容 -->
-            <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
-             
-		 		<!-- 主体内容 -->
-	            <div class="mui-scroll">
-	            
-	            		<div class="sousuo_content">
-					 		<form name="theForm" id="theForm" action="$!webPath/wap/search_goods.htm"
-									method="post">
-						 		  <div class="sousuo_class" id="search_box">
-						 		  	
-										
-									    <input type="search" id="keyword" value="$!keyword" class="sousuo_class_input" name="keyword" placeholder="What are you looking for?" autocomplete="off" tabindex="-1"> 
-										<div class="sousuo_class_buttom" id="search_btn">
-									      <i class="iconfont iconsousuo"></i>
-									    </div>
-									  	<div class="search-auto-results hide"></div>
-								  </div>
-							  </form>
-				 		</div> 
-	            
-	             	 	
-						<div class="main">
-							
-							 <div class="group_top">
-								<ul>
-									<li id="top_goods_salenum"><a href="javascript:void(0)"><span>销量</span>
-									</a>
-									</li>
-									<li id="top_goods_collect"><a href="javascript:void(0)"><span>人气</span>
-									</a>
-									</li>
-									<li id="top_store_price"><a href="javascript:void(0)"><span>价格</span>
-									</a>
-									</li>
-								</ul>
-							</div> 
-							<div class="group_list">
-								
-								#if($!objs.size()>0) #foreach($obj in $objs) <a
-									href="$!webPath/wap/goods.htm?id=$!{obj.vo_id}">
-									<dl>
-										<dt>
-											<img width="90" height="90"
-												src="$!imageWebServer/$!obj.vo_main_photo_url">
-										</dt>
-										<dd>
-											<h3>
-												<b>$!obj.vo_title#if($!goodsViewTools.query_activity_status("$!obj.vo_id","group_buy")=="true")<i>团购</i>#end
-													#if($!goodsViewTools.query_activity_status("$!obj.vo_id","activity_status")=="true")<i>促销</i>#end
-													#if($!goodsViewTools.query_activity_status("$!obj.vo_id","combin_status")=="true")<i>组合</i>#end
-													#if($!goodsViewTools.query_activity_status("$!obj.vo_id","order_enough_give_status")=="true")<i>满送</i>#end
-													#if($!goodsViewTools.query_activity_status("$!obj.vo_id","enough_reduce")=="true")<i>满减</i>#end
-													#if($!goodsViewTools.query_activity_status("$!obj.vo_id","f_sale_type")=="true")<i>F码</i>#end
-													#if($!goodsViewTools.query_activity_status("$!obj.vo_id","advance_sale_type")=="true")<i>预售</i>#end</b>
-											</h3>
-											<span><strong>¥$!obj.vo_store_price</strong>
-											</span> <em>销量:$!{obj.vo_goods_salenum}</em>
-										</dd>
-									</dl> </a> #end #else
-								<div class="loading">
-									<ul>
-										<li>暂无数据....</li>
-									</ul>
-								</div>
-								#end
-							</div>
-							<div class="loading" id="loading" style="display:none">
-								<ul>
-									<li><img
-										src="$!webPath/resources/style/system/front/wap/images/loading.gif"
-										width="16" height="16">
-									</li>
-									<li>正在加载....</li>
-								</ul>
-							</div>
-							<div class="loading" id="loading_none" style="display:none">
-								<ul>
-									<li>没有更多了....</li>
-								</ul>
-							</div>
-						</div>
-				  
-				
-		          <div style="margin-top:100px;display:block;"></div>
-                  </div>
-            </div>
-            <!-- off-canvas backdrop -->
-            <div class="mui-off-canvas-backdrop"></div>
-        </div>
-        <!--购物车列表-->
-        <aside id="offCanvasSides" class="mui-off-canvas-right" style="background:#fff;">
-				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						$!httpInclude.include("/wap/cart_right.htm")
-					</div>
-				</div>
+		<!--侧滑菜单部分-->
+		<aside id="offCanvasSide" class="mui-off-canvas-left">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/index_left.htm")</div>
+			</div>
 		</aside>
-    </div>
-		<script src="$!webPath/resources/wap/mui.js"></script>
+		<!--主界面部分-->
+		<div class="mui-inner-wrap">
+			<header class="mui-bar mui-bar-nav">
+				$!httpInclude.include("/wap/top.htm") </header>
+			<!-- 主题内容 -->
+			<div id="offCanvasContentScroll"
+				class="mui-content mui-scroll-wrapper">
+
+				<!-- 主体内容 -->
+				<div class="mui-scroll">
+
+					<div class="sousuo_content">
+						<form name="theForm" id="theForm"
+							action="$!webPath/wap/search_goods.htm" method="post">
+							<div class="sousuo_class" id="search_box">
+
+
+								<input type="search" id="keyword" value="$!keyword"
+									class="sousuo_class_input" name="keyword"
+									placeholder="What are you looking for?" autocomplete="off"
+									tabindex="-1">
+								<div class="sousuo_class_buttom" id="search_btn">
+									<i class="iconfont iconsousuo"></i>
+								</div>
+								<div class="search-auto-results hide"></div>
+							</div>
+						</form>
+					</div>
+
+
+					<div class="main">
+
+						<div class="group_top">
+							<ul>
+								<li id="top_goods_salenum"><a href="javascript:void(0)"><span>销量</span>
+								</a></li>
+								<li id="top_goods_collect"><a href="javascript:void(0)"><span>人气</span>
+								</a></li>
+								<li id="top_store_price"><a href="javascript:void(0)"><span>价格</span>
+								</a></li>
+							</ul>
+						</div>
+						<div class="group_list">
+
+							#if($!objs.size()>0) #foreach($obj in $objs) <a
+								href="$!webPath/wap/goods.htm?id=$!{obj.vo_id}">
+								<dl>
+									<dt>
+										<img width="90" height="90"
+											src="$!imageWebServer/$!obj.vo_main_photo_url">
+									</dt>
+									<dd>
+										<h3>
+											<b>$!obj.vo_title#if($!goodsViewTools.query_activity_status("$!obj.vo_id","group_buy")=="true")<i>团购</i>#end
+												#if($!goodsViewTools.query_activity_status("$!obj.vo_id","activity_status")=="true")<i>促销</i>#end
+												#if($!goodsViewTools.query_activity_status("$!obj.vo_id","combin_status")=="true")<i>组合</i>#end
+												#if($!goodsViewTools.query_activity_status("$!obj.vo_id","order_enough_give_status")=="true")<i>满送</i>#end
+												#if($!goodsViewTools.query_activity_status("$!obj.vo_id","enough_reduce")=="true")<i>满减</i>#end
+												#if($!goodsViewTools.query_activity_status("$!obj.vo_id","f_sale_type")=="true")<i>F码</i>#end
+												#if($!goodsViewTools.query_activity_status("$!obj.vo_id","advance_sale_type")=="true")<i>预售</i>#end
+											</b>
+										</h3>
+										<span><strong>¥$!obj.vo_store_price</strong> </span> <em>销量:$!{obj.vo_goods_salenum}</em>
+									</dd>
+								</dl>
+							</a> #end #else
+							<div class="loading">
+								<ul>
+									<li>暂无数据....</li>
+								</ul>
+							</div>
+							#end
+						</div>
+						<div class="loading" id="loading" style="display: none">
+							<ul>
+								<li><img
+									src="$!webPath/resources/style/system/front/wap/images/loading.gif"
+									width="16" height="16"></li>
+								<li>正在加载....</li>
+							</ul>
+						</div>
+						<div class="loading" id="loading_none" style="display: none">
+							<ul>
+								<li>没有更多了....</li>
+							</ul>
+						</div>
+					</div>
+
+
+					<div style="margin-top: 100px; display: block;"></div>
+				</div>
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
+		</div>
+		<!--购物车列表-->
+		<aside id="offCanvasSides" class="mui-off-canvas-right"
+			style="background: #fff;">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					$!httpInclude.include("/wap/cart_right.htm")</div>
+			</div>
+		</aside>
+	</div>
+	<script src="$!webPath/resources/wap/mui.js"></script>
 	<script>
 	mui.init({
         swipeBack: true //启用右滑关闭功能

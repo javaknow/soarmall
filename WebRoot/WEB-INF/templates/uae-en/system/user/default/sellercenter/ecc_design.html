@@ -7,17 +7,24 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link  href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type="text/css" rel="stylesheet">
-<link href="$!webPath/resources/style/common/css/overlay_blue.css" type="text/css" rel="stylesheet" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/jquery.livequery.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type="text/css" rel="stylesheet">
+			<link href="$!webPath/resources/style/common/css/overlay_blue.css"
+				type="text/css" rel="stylesheet" />
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/jquery.livequery.js"></script>
+			<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+			<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+			<script>
 jQuery(function(){ 
    jQuery(".express_top :checkbox").click(function(){
       var ck=jQuery(this).attr("checked");
@@ -132,113 +139,159 @@ function saveForm(){
 </script>
 </head>
 <body>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-  <div class="seller_center"> $!httpInclude.include("/seller/nav.htm?op=store_express")
-    <div class="seller_right">
-      <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>交易管理</b>><b>自建模板设计</b></span></div>
-      <div class="seller_list">
-        <div class="seller_list_title">
-          <ul class="seller_title_ul">
-            <li><a href="$!webPath/seller/ecc_list.htm"><i></i>常用物流配置</a></li>
-            <li><a href="$!webPath/seller/ecc_list.htm"><i></i>常用物流列表</a></li>
-            <li class="this"><a href='$!webPath/seller/ecc_design.htm?id=$!obj.id' ><i></i>自建模板设计</a></li>
-          </ul>
-        </div>
-        <div class="add_usercenter">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_base_table">
-              <tr>
-                <td colspan="2">
-                          <!--快递单打印 start -->
-          <div class="express">
-            <div class="express_top">
-              <dl>
-                <dt>选择打印选项：</dt>
-                <dd>
-                  <label> <b>
-                    <input name="seller_company" type="checkbox" value="" id="seller_company" data_item_val="发货公司"   #if($!offset_map.get("seller_company_width")!='') checked="checked"#end />
-                    </b><span>发货公司</span> </label>
-                </dd>
-                <dd>
-                  <label> <b>
-                    <input name="seller_user" id="seller_user" type="checkbox" value=""  data_item_val="发货联系人" #if($!offset_map.get("seller_user_width")!='') checked="checked"#end />
-                    </b><span>发货联系人</span> </label>
-                </dd>
-                <dd>
-                  <label> <b>
-                    <input name="seller_address" id="seller_address" type="checkbox" value="" data_item_val="发货地址" #if($!offset_map.get("seller_address_width")!='') checked="checked"#end />
-                    </b><span>发货地址</span> </label>
-                  </dd>
-                <dd>
-                  <label> <b>
-                    <input name="seller_zone" id="seller_zone" type="checkbox" value="" data_item_val="发货人区号" #if($!offset_map.get("seller_zone_width")!='') checked="checked"#end />
-                    </b><span>发货人区号</span> </label>
-                </dd>
-                <dd>
-                  <label> <b>
-                    <input name="seller_phone" id="seller_phone" type="checkbox" value="" data_item_val="发货人电话" #if($!offset_map.get("seller_phone_width")!='') checked="checked"#end />
-                    </b><span>发货人电话</span> </label>
-                </dd>
-                <dd>
-                  <label> <b>
-                    <input name="receipt_company" id="receipt_company" type="checkbox" data_item_val="收货公司" value="" #if($!offset_map.get("receipt_company_width")!='') checked="checked"#end />
-                    </b><span>收货公司</span> </label>
-                  </dd>
-                <dd>
-                  <label> <b>
-                    <input name="receipt_user" id="receipt_user" type="checkbox" data_item_val="收货联系人" value="" #if($!offset_map.get("receipt_user_width")!='') checked="checked"#end />
-                    </b><span>收货联系人</span> </label>
-                  </dd>
-                <dd>
-                  <label> <b>
-                    <input name="receipt_address" id="receipt_address" data_item_val="收货地址" type="checkbox" value="" #if($!offset_map.get("receipt_address_width")!='') checked="checked"#end />
-                    </b><span>收货地址</span> </label>
-                </dd>
-                <dd>
-                  <label> <b>
-                    <input name="receipt_zone" id="receipt_zone" data_item_val="收货区号" type="checkbox" value="" #if($!offset_map.get("receipt_zone_width")!='') checked="checked"#end />
-                    </b><span>收货区号</span> </label>
-               </dd>
-                <dd>
-                  <label> <b>
-                    <input name="receipt_phone" id="receipt_phone" data_item_val="收货人电话" type="checkbox" value="" #if($!offset_map.get("receipt_phone_width")!='') checked="checked"#end />
-                    </b><span>收货人电话</span> </label>
-                </dd>
-              </dl>
-            </div>
-            <div class="express_center">
-              <div class="express_center_bg" id="company_template_bg"  style="background:url($!webPath/$!obj.ecc_template) no-repeat; background-size:100% 100%"> #if($!offset_map.get("seller_company_width")!='')
-                <div id="seller_company" class="express_center_one" style='position: absolute; left: $!{offset_map.get("seller_company_left")}px; top: $!{offset_map.get("seller_company_top")}px; width: $!{offset_map.get("seller_company_width")}px; height: $!{offset_map.get("seller_company_height")}px;'>发货公司</div>
-                #end
-                #if($!offset_map.get("seller_user_width")!='')
-                <div id="seller_user" class="express_center_one" style='position: absolute; left: $!{offset_map.get("seller_user_left")}px; top: $!{offset_map.get("seller_user_top")}px; width: $!{offset_map.get("seller_user_width")}px; height: $!{offset_map.get("seller_user_height")}px;'>发货联系人</div>
-                #end
-                #if($!offset_map.get("seller_address_width")!='')
-                <div  id="seller_address" class="express_center_one" style='position: absolute; left: $!{offset_map.get("seller_address_left")}px; top: $!{offset_map.get("seller_address_top")}px; width: $!{offset_map.get("seller_address_width")}px; height: $!{offset_map.get("seller_address_height")}px;'>发货地址</div>
-                #end
-                #if($!offset_map.get("seller_zone_width")!='')
-                <div id="seller_zone" class="express_center_one" style='position: absolute; left: $!{offset_map.get("seller_zone_left")}px; top: $!{offset_map.get("seller_zone_top")}px; width: $!{offset_map.get("seller_zone_width")}px; height: $!{offset_map.get("seller_zone_height")}px;'>发货区号</div>
-                #end
-                #if($!offset_map.get("seller_phone_width")!='')
-                <div  id="seller_phone" class="express_center_one" style='position: absolute; left: $!{offset_map.get("seller_phone_left")}px; top: $!{offset_map.get("seller_phone_top")}px; width: $!{offset_map.get("seller_phone_width")}px; height: $!{offset_map.get("seller_phone_height")}px;'>发货人电话</div>
-                #end
-                #if($!offset_map.get("receipt_company_width")!='')
-                <div  id="receipt_company" class="express_center_one" style='position: absolute; left: $!{offset_map.get("receipt_company_left")}px; top: $!{offset_map.get("receipt_company_top")}px; width: $!{offset_map.get("receipt_company_width")}px; height: $!{offset_map.get("receipt_company_height")}px;'>收货公司</div>
-                #end
-                #if($!offset_map.get("receipt_user_width")!='')
-                <div id="receipt_user" class="express_center_one" style='position: absolute; left: $!{offset_map.get("receipt_user_left")}px; top: $!{offset_map.get("receipt_user_top")}px; width: $!{offset_map.get("receipt_user_width")}px; height: $!{offset_map.get("receipt_user_height")}px;'>收货人</div>
-                #end
-                #if($!offset_map.get("receipt_address_width")!='')
-                <div  id="receipt_address" class="express_center_one" style='position: absolute; left: $!{offset_map.get("receipt_address_left")}px; top: $!{offset_map.get("receipt_address_top")}px; width: $!{offset_map.get("receipt_address_width")}px; height: $!{offset_map.get("receipt_address_height")}px;'>收货地址</div>
-                #end
-                #if($!offset_map.get("receipt_zone_width")!='')
-                <div id="receipt_zone" class="express_center_one" style='position: absolute; left: $!{offset_map.get("receipt_zone_left")}px; top: $!{offset_map.get("receipt_zone_top")}px; width: $!{offset_map.get("receipt_zone_width")}px; height: $!{offset_map.get("receipt_zone_height")}px;'>收货区号</div>
-                #end
-                #if($!offset_map.get("receipt_phone_width")!='')
-                <div id="receipt_phone" class="express_center_one" style='position: absolute; left: $!{offset_map.get("receipt_phone_left")}px; top: $!{offset_map.get("receipt_phone_top")}px; width: $!{offset_map.get("receipt_phone_width")}px; height: $!{offset_map.get("receipt_phone_height")}px;'>收货电话</div>
-                #end </div>
-            </div>
-      <script type='text/javascript'>
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			$!httpInclude.include("/seller/nav.htm?op=store_express")
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>交易管理</b>><b>自建模板设计</b></span>
+				</div>
+				<div class="seller_list">
+					<div class="seller_list_title">
+						<ul class="seller_title_ul">
+							<li><a href="$!webPath/seller/ecc_list.htm"><i></i>常用物流配置</a></li>
+							<li><a href="$!webPath/seller/ecc_list.htm"><i></i>常用物流列表</a></li>
+							<li class="this"><a
+								href='$!webPath/seller/ecc_design.htm?id=$!obj.id'><i></i>自建模板设计</a></li>
+						</ul>
+					</div>
+					<div class="add_usercenter">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0"
+							class="user_base_table">
+							<tr>
+								<td colspan="2">
+									<!--快递单打印 start -->
+									<div class="express">
+										<div class="express_top">
+											<dl>
+												<dt>选择打印选项：</dt>
+												<dd>
+													<label> <b> <input name="seller_company"
+															type="checkbox" value="" id="seller_company"
+															data_item_val="发货公司"
+															#if($!offset_map.get("seller_company_width")!=''
+															) checked="checked" #end />
+													</b><span>发货公司</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="seller_user"
+															id="seller_user" type="checkbox" value=""
+															data_item_val="发货联系人"
+															#if($!offset_map.get("seller_user_width")!=''
+															) checked="checked" #end />
+													</b><span>发货联系人</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="seller_address"
+															id="seller_address" type="checkbox" value=""
+															data_item_val="发货地址"
+															#if($!offset_map.get("seller_address_width")!=''
+															) checked="checked" #end />
+													</b><span>发货地址</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="seller_zone"
+															id="seller_zone" type="checkbox" value=""
+															data_item_val="发货人区号"
+															#if($!offset_map.get("seller_zone_width")!=''
+															) checked="checked" #end />
+													</b><span>发货人区号</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="seller_phone"
+															id="seller_phone" type="checkbox" value=""
+															data_item_val="发货人电话"
+															#if($!offset_map.get("seller_phone_width")!=''
+															) checked="checked" #end />
+													</b><span>发货人电话</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="receipt_company"
+															id="receipt_company" type="checkbox" data_item_val="收货公司"
+															value=""
+															#if($!offset_map.get("receipt_company_width")!=''
+															) checked="checked" #end />
+													</b><span>收货公司</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="receipt_user"
+															id="receipt_user" type="checkbox" data_item_val="收货联系人"
+															value="" #if($!offset_map.get("receipt_user_width")!=''
+															) checked="checked" #end />
+													</b><span>收货联系人</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="receipt_address"
+															id="receipt_address" data_item_val="收货地址" type="checkbox"
+															value=""
+															#if($!offset_map.get("receipt_address_width")!=''
+															) checked="checked" #end />
+													</b><span>收货地址</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="receipt_zone"
+															id="receipt_zone" data_item_val="收货区号" type="checkbox"
+															value="" #if($!offset_map.get("receipt_zone_width")!=''
+															) checked="checked" #end />
+													</b><span>收货区号</span>
+													</label>
+												</dd>
+												<dd>
+													<label> <b> <input name="receipt_phone"
+															id="receipt_phone" data_item_val="收货人电话" type="checkbox"
+															value="" #if($!offset_map.get("receipt_phone_width")!=''
+															) checked="checked" #end />
+													</b><span>收货人电话</span>
+													</label>
+												</dd>
+											</dl>
+										</div>
+										<div class="express_center">
+											<div class="express_center_bg" id="company_template_bg"
+												style="background: url($!webPath/$!obj.ecc_template) no-repeat; background-size: 100% 100%">
+												#if($!offset_map.get("seller_company_width")!='')
+												<div id="seller_company" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("seller_company_left")'>发货公司</div>
+												#end #if($!offset_map.get("seller_user_width")!='')
+												<div id="seller_user" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("seller_user_left")'>发货联系人</div>
+												#end #if($!offset_map.get("seller_address_width")!='')
+												<div id="seller_address" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("seller_address_left")'>发货地址</div>
+												#end #if($!offset_map.get("seller_zone_width")!='')
+												<div id="seller_zone" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("seller_zone_left")'>发货区号</div>
+												#end #if($!offset_map.get("seller_phone_width")!='')
+												<div id="seller_phone" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("seller_phone_left")'>发货人电话</div>
+												#end #if($!offset_map.get("receipt_company_width")!='')
+												<div id="receipt_company" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("receipt_company_left")'>收货公司</div>
+												#end #if($!offset_map.get("receipt_user_width")!='')
+												<div id="receipt_user" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("receipt_user_left")'>收货人</div>
+												#end #if($!offset_map.get("receipt_address_width")!='')
+												<div id="receipt_address" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("receipt_address_left")'>收货地址</div>
+												#end #if($!offset_map.get("receipt_zone_width")!='')
+												<div id="receipt_zone" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("receipt_zone_left")'>收货区号</div>
+												#end #if($!offset_map.get("receipt_phone_width")!='')
+												<div id="receipt_phone" class="express_center_one"
+													style='position: absolute; left: $!{offset_map.get("receipt_phone_left")'>收货电话</div>
+												#end
+											</div>
+										</div>
+										<script type='text/javascript'>
       function js_getDPI() {
         var arrDPI = new Array;
         if (window.screen.deviceXDPI) {
@@ -259,21 +312,21 @@ $!httpInclude.include("/seller/top.htm")
 	 var height=$!{obj.ecc_template_heigh}*10*list[0]/254;
 	   jQuery("#company_template_bg").width(width).height(height);
       </script>
-          </div>
-          <!--快递单打印 end -->
-                </td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td ><input name="" type="button" onclick="saveForm();"  value="完成设计"  style="cursor:pointer;" class="seller_save"/></td>
-              </tr>
-            </table>
+									</div> <!--快递单打印 end -->
+								</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td><input name="" type="button" onclick="saveForm();"
+									value="完成设计" style="cursor: pointer;" class="seller_save" /></td>
+							</tr>
+						</table>
 
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

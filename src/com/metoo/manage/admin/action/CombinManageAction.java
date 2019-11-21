@@ -1,7 +1,5 @@
 package com.metoo.manage.admin.action;
 
-import java.io.File;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,14 +14,11 @@ import com.metoo.core.mv.JModelAndView;
 import com.metoo.core.query.support.IPageList;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.CombinPlan;
-import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.query.CombinPlanQueryObject;
 import com.metoo.foundation.service.ICombinPlanService;
 import com.metoo.foundation.service.IGoodsService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserConfigService;
-import com.metoo.lucene.LuceneUtil;
-import com.metoo.lucene.LuceneVo;
 import com.metoo.lucene.tools.LuceneVoTools;
 import com.metoo.manage.seller.tools.CombinTools;
 

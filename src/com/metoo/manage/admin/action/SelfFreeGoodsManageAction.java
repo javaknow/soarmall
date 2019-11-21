@@ -43,7 +43,6 @@ import com.metoo.foundation.domain.Goods;
 import com.metoo.foundation.domain.GoodsClass;
 import com.metoo.foundation.domain.Message;
 import com.metoo.foundation.domain.ShipAddress;
-import com.metoo.foundation.domain.SysConfig;
 import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.FreeApplyLogQueryObject;
 import com.metoo.foundation.domain.query.FreeGoodsQueryObject;

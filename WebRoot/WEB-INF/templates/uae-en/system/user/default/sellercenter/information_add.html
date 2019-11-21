@@ -7,25 +7,36 @@
 <meta name="description" content="$!config.description" />
 <meta name="generator" content="$!{config.meta_generator}" />
 <meta name="author" content="$!{config.meta_author}">
-<meta name="copyright" content="$!{config.copyRight}">
-<link href="$!webPath/resources/style/system/front/default/css/public.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/system/front/default/css/user.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/overlay_blue.css" type="text/css" rel="stylesheet" />
-<link href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css" type=text/css rel=stylesheet>
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<link rel="stylesheet" href="$!webPath/resources/editor/themes/default/default.css" />
-<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.base.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/kindeditor.js"></script>
-<script charset="utf-8" src="$!webPath/resources/editor/lang/zh_CN.js"></script>
-<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
-<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
-<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
-<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
-<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
-<script src="$!webPath/resources/js/jquery.imgareaselect.js"></script>
-<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
-<script>
+	<meta name="copyright" content="$!{config.copyRight}">
+		<link
+			href="$!webPath/resources/style/system/front/default/css/public.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/system/front/default/css/user.css"
+			type="text/css" rel="stylesheet" />
+		<link href="$!webPath/resources/style/common/css/overlay_blue.css"
+			type="text/css" rel="stylesheet" />
+		<link
+			href="$!webPath/resources/style/common/css/jquery-ui-1.8.22.custom.css"
+			type=text/css rel=stylesheet>
+			<link href="$!webPath/resources/style/common/css/overlay.css"
+				type="text/css" rel="stylesheet" />
+			<link rel="stylesheet"
+				href="$!webPath/resources/editor/themes/default/default.css" />
+			<script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
+			<script src="$!webPath/resources/js/jquery.shop.base.js"></script>
+			<script charset="utf-8"
+				src="$!webPath/resources/editor/kindeditor.js"></script>
+			<script charset="utf-8"
+				src="$!webPath/resources/editor/lang/zh_CN.js"></script>
+			<script src="$!webPath/resources/js/jquery.validate.min.js"></script>
+			<script src="$!webPath/resources/js/jquery.shop.common.js"></script>
+			<script src="$!webPath/resources/js/jquery.poshytip.min.js"></script>
+			<script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
+			<script src="$!webPath/resources/js/ajaxfileupload.js"></script>
+			<script src="$!webPath/resources/js/jquery.imgareaselect.js"></script>
+			<script src="$!webPath/resources/js/jquery.zh.cn.js" charset="utf-8"></script>
+			<script>
 jQuery.validator.addMethod("cl",
 function(value, element) {
     var level = jQuery(" option:selected").attr("level");
@@ -179,97 +190,128 @@ function show_goods() {
 </script>
 </head>
 <body>
-<style>
-.user_base_table td{ width:100px;}
+	<style>
+.user_base_table td {
+	width: 100px;
+}
 </style>
-$!httpInclude.include("/seller/top.htm")
-<div class="main">
-  <div class="seller_center"> $!httpInclude.include("/seller/nav.htm?op=information")
-    <div class="seller_right">
-      <div class="seller_position"><span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>其他管理</b> ><b>咨询管理</b></span></div>
-      <div class="seller_list">
-        <div class="seller_list_title">
-          <ul class="seller_title_ul">
-            <li><a href="$!webPath/seller/information_list.htm"><i></i>资讯列表</a></li>
-            <li #if(!$!edit)class="this"#end><a href="$!webPath/seller/information_add.htm"><i></i>资讯添加</a></li>
-            #if($!edit)
-            <li class="this"><a href="javascript:void(0)"><i></i>资讯编辑</a></li>
-            #end
-          </ul>
-        </div>
-        <div class="add_usercenter">
-          <form action="$!webPath/seller/information_save.htm" method="post" enctype="multipart/form-data" name="theForm" id="theForm">
-            <input id="id" name="id" value="$!obj.id" type="hidden" />
-            <input name="goods_session" type="hidden" id="goods_session" value="$!goods_session" />
-            </td>
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="user_base_table">
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong>资讯标题：</td>
-                <td class="px10"><input name="title" type="text" id="title" value="$!obj.title" class="base_txt"/></td>
-              </tr>
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong>资讯来源：</td>
-                <td class="px10"><input name="infoSource" type="text" id="infoSource" value="$!obj.infoSource" class="base_txt"/></td>
-              </tr>
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong>资讯分类：</td>
-                <td class="px10"><select name="classid" id="classid" >
-                    <option value="">请选择资讯分类</option>
-          #foreach($class in $infoclass)              
-                    <option value="$!class.id" level="1" #if($!obj.classid==$!class.id) selected="selected" #end>$!class.ic_name</option>
-              #if(!$!class.ic_pid)
-              	#foreach($ob in $cmsTools.queryChildClass("$!class.id"))
-                    <option value="$!ob.id" level="2" #if($!obj.classid==$!ob.id) selected="selected" #end>----$!ob.ic_name</option>
-                #end
-              #end
-          #end
-                  </select></td>
-              </tr>
-              <tr>
-                <td align="right" valign="top">资讯封面：</td>
-                <td class="px10"><span style="position:relative; width:50px; margin-right:5px; line-height:22px; height:22px; color:#333; float:left; border:1px solid #ccc; padding:2px 5px; border-radius:3px;">选择图片
-                  <input type="file" id="cover" style="opacity: 0;top:0;left:1px;position:absolute; z-index:100;width:60px; " name="cover" />
-                  </span> </span><span class="preview"> <img src="$!webPath/resources/style/system/manage/blue/images/preview.jpg" width="25" height="25"  id="logoShow" style="cursor:help"/>#set($img=$!imageTools.queryImg($!obj.cover))
-                  <div class="bigimgpre" id="logoImg"><img src="$!imageWebServer/$!img.path/$!img.name" style="border:3px solid #60AFFF"width="200" height="200" id="coverimg"/> </div> </span><span id="nothis"><strong class="w" style="float:left;  height:22px; margin-top:5px; margin-left:8px;">封面用于和标题一起来展示资讯的核心内容（可选）</strong></span> #if($!obj.cover)
-                  
-                  #end </td>
-              </tr>
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong>资讯导读：</td>
-                <td class="px10"><textarea id="synopsis" name="synopsis" style="width:320px; height:70px; padding:5px;border-radius: 3px;border: 1px solid #eee;">$!obj.synopsis</textarea></td>
-              </tr>
-              <tr>
-                <td align="right" valign="top"><strong class="redstr">*</strong>资讯内容：</td>
-                <td class="px10"><textarea name="article" rows="6" cols="40" id="article">$!obj.article</textarea></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td class="px10"><span style=" clear:both; margin-left:135px;"> <a id="good_button" class="eidt_li_a" href="javascript:void(0);" onclick="switch_editor_album('');">添加商品图片</a> </span></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td class="px10"><div id="info_goods" class="editor_photo_detail" style="display:none;"> </div>
-                  <div id="info_goods_imgs" class="editor_photo_detail" style="display:none;"> </div></td>
-              </tr>
-              #if($!obj.status==-10)
-              <tr>
-                <td align="right" valign="top">审核失败原因：</td>
-                <td class="px10">$!obj.failreason</td>
-              </tr>
-              #end
-              <tr>
-                <td>&nbsp;</td>
-                <td class="px10"><span class="setsub" >
-                  <input type="button" style="margin-left:0;" onclick="saveForm()" value="保存"  style="cursor:pointer;" class="seller_save"/>
-                  </span></td>
-              </tr>
-            </table>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-$!httpInclude.include("/footer.htm")
+	$!httpInclude.include("/seller/top.htm")
+	<div class="main">
+		<div class="seller_center">
+			$!httpInclude.include("/seller/nav.htm?op=information")
+			<div class="seller_right">
+				<div class="seller_position">
+					<span><b><a href="$!webPath/seller/index.htm">商家中心</a></b>><b>其他管理</b>
+						><b>咨询管理</b></span>
+				</div>
+				<div class="seller_list">
+					<div class="seller_list_title">
+						<ul class="seller_title_ul">
+							<li><a href="$!webPath/seller/information_list.htm"><i></i>资讯列表</a></li>
+							<li #if(!$!edit)class="this" #end><a
+								href="$!webPath/seller/information_add.htm"><i></i>资讯添加</a></li>
+							#if($!edit)
+							<li class="this"><a href="javascript:void(0)"><i></i>资讯编辑</a></li>
+							#end
+						</ul>
+					</div>
+					<div class="add_usercenter">
+						<form action="$!webPath/seller/information_save.htm" method="post"
+							enctype="multipart/form-data" name="theForm" id="theForm">
+							<input id="id" name="id" value="$!obj.id" type="hidden" /> <input
+								name="goods_session" type="hidden" id="goods_session"
+								value="$!goods_session" />
+							</td>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0"
+								class="user_base_table">
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>资讯标题：</td>
+									<td class="px10"><input name="title" type="text"
+										id="title" value="$!obj.title" class="base_txt" /></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>资讯来源：</td>
+									<td class="px10"><input name="infoSource" type="text"
+										id="infoSource" value="$!obj.infoSource" class="base_txt" /></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>资讯分类：</td>
+									<td class="px10"><select name="classid" id="classid">
+											<option value="">请选择资讯分类</option> #foreach($class in
+											$infoclass)
+											<option value="$!class.id" level="1"
+												#if($!obj.classid==$!class.id) selected="selected" #end>$!class.ic_name</option>
+											#if(!$!class.ic_pid) #foreach($ob in
+											$cmsTools.queryChildClass("$!class.id"))
+											<option value="$!ob.id" level="2" #if($!obj.classid==$!ob.id)
+												selected="selected" #end>----$!ob.ic_name</option> #end #end
+											#end
+									</select></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top">资讯封面：</td>
+									<td class="px10"><span
+										style="position: relative; width: 50px; margin-right: 5px; line-height: 22px; height: 22px; color: #333; float: left; border: 1px solid #ccc; padding: 2px 5px; border-radius: 3px;">选择图片
+											<input type="file" id="cover"
+											style="opacity: 0; top: 0; left: 1px; position: absolute; z-index: 100; width: 60px;"
+											name="cover" />
+									</span> </span><span class="preview"> <img
+											src="$!webPath/resources/style/system/manage/blue/images/preview.jpg"
+											width="25" height="25" id="logoShow" style="cursor: help" />#set($img=$!imageTools.queryImg($!obj.cover))
+											<div class="bigimgpre" id="logoImg">
+												<img src="$!imageWebServer/$!img.path/$!img.name"
+													style="border: 3px solid #60AFFF" width="200" height="200"
+													id="coverimg" />
+											</div>
+									</span><span id="nothis"><strong class="w"
+											style="float: left; height: 22px; margin-top: 5px; margin-left: 8px;">封面用于和标题一起来展示资讯的核心内容（可选）</strong></span>
+										#if($!obj.cover) #end</td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>资讯导读：</td>
+									<td class="px10"><textarea id="synopsis" name="synopsis"
+											style="width: 320px; height: 70px; padding: 5px; border-radius: 3px; border: 1px solid #eee;">$!obj.synopsis</textarea></td>
+								</tr>
+								<tr>
+									<td align="right" valign="top"><strong class="redstr">*</strong>资讯内容：</td>
+									<td class="px10"><textarea name="article" rows="6"
+											cols="40" id="article">$!obj.article</textarea></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td class="px10"><span
+										style="clear: both; margin-left: 135px;"> <a
+											id="good_button" class="eidt_li_a" href="javascript:void(0);"
+											onclick="switch_editor_album('');">添加商品图片</a>
+									</span></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td class="px10"><div id="info_goods"
+											class="editor_photo_detail" style="display: none;"></div>
+										<div id="info_goods_imgs" class="editor_photo_detail"
+											style="display: none;"></div></td>
+								</tr>
+								#if($!obj.status==-10)
+								<tr>
+									<td align="right" valign="top">审核失败原因：</td>
+									<td class="px10">$!obj.failreason</td>
+								</tr>
+								#end
+								<tr>
+									<td>&nbsp;</td>
+									<td class="px10"><span class="setsub"> <input
+											type="button" style="margin-left: 0;" onclick="saveForm()"
+											value="保存" style="cursor:pointer;" class="seller_save" />
+									</span></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	$!httpInclude.include("/footer.htm")
 </body>
 </html>

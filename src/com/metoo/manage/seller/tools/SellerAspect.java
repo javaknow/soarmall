@@ -14,8 +14,6 @@ import org.springframework.stereotype.Component;
 
 import com.metoo.core.security.support.SecurityUserHolder;
 import com.metoo.foundation.domain.User;
-import com.metoo.foundation.service.ISysConfigService;
-import com.metoo.foundation.service.IUserConfigService;
 import com.metoo.foundation.service.IUserService;
 
 /**

@@ -14,7 +14,24 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.iskyshop.core.domain.IdEntity;
 import com.metoo.core.constant.Globals;
-
+/**
+ * <p>
+ * Title: EnoughFree.java
+ * </p>
+ * 
+ * <p>
+ * Description: 满包邮实体类
+ * </p>
+ * 
+ * * <p>
+ * Company: metoo
+ * </p>
+ * 
+ * @author hk
+ * 
+ * @data 2019-11-18
+ *
+ */
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 @Table(name = Globals.DEFAULT_TABLE_SUFFIX + "enough_free")

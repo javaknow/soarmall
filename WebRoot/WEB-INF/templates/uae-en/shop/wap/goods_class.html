@@ -62,32 +62,28 @@
 		<div class="category_center">
 			<div class="category_center_list">
 				<ul>
-				
+
 					#foreach($gc in $gcs)
 					<li id="$!{gc.id}" mark="false">
 						<div class="category_center_list_left">$!gc.className</div> <i><img
 							src="$!webPath/resources/style/system/front/wap/images/search_on_bg.png">
-					</i></li>
-					<div class="category_center_list_right" style="display:none"
+					</i>
+					</li>
+					<div class="category_center_list_right" style="display: none"
 						id="class2_$!{gc.id}">
-						#foreach($child in $gc.childs) 
-							#if($child.display == true)
-								<span>
-									<a href="$!webPath/wap/class_goods.htm?gc_id=$!{child.id}">$!child.className</a>
-								</span> 
-							#end
-						
-						#end
+						#foreach($child in $gc.childs) #if($child.display == true) <span>
+							<a href="$!webPath/wap/class_goods.htm?gc_id=$!{child.id}">$!child.className</a>
+						</span> #end #end
 					</div>
 					#end
 				</ul>
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<div class="mt50"></div>
-	
+
 	$!httpInclude.include("/wap/footer.htm?op=list")
 </body>
 </html>

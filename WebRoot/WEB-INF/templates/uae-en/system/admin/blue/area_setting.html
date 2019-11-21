@@ -3,9 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"  rel="stylesheet" type="text/css"/>
-<link href="$!webPath/resources/style/common/css/overlay.css" type="text/css" rel="stylesheet" />
-<link href="../../../../resources/style/system/manage/blue/template.css"  rel="stylesheet" type="text/css"/>
+<link
+	href="$!webPath/resources/style/system/manage/$!{config.websiteCss}/template.css"
+	rel="stylesheet" type="text/css" />
+<link href="$!webPath/resources/style/common/css/overlay.css"
+	type="text/css" rel="stylesheet" />
+<link href="../../../../resources/style/system/manage/blue/template.css"
+	rel="stylesheet" type="text/css" />
 <script src="$!webPath/resources/js/jquery-1.6.2.js"></script>
 <script src="$!webPath/resources/js/jquery-ui-1.8.21.js"></script>
 <script src="$!webPath/resources/js/jquery.shop.base.js"></script>
@@ -93,103 +97,110 @@ function save_form(){
 }
 </script>
 </head>
-<body style="overflow:scroll;overflow-x:hidden;">
-<div class="cont">
-  <h1 class="seth">地区设置</h1>
-  <div class="nav_list">
+<body style="overflow: scroll; overflow-x: hidden;">
+	<div class="cont">
+		<h1 class="seth">地区设置</h1>
+		<div class="nav_list">
 
-  <ul>
-   <li><a href="javascript:void(0);"  class="this"><b>管理</b></a> </li>
-  
-   </ul>
-        
-    </div>
-  <form action="$!webPath/admin/area_save.htm" method="post" id="theForm" name="theForm">
-    <input name="list_url" type="hidden" id="list_url" value="$!webPath/admin/area_list.htm" />
-    <input name="pid" type="hidden" id="pid" value="$!parent.id" />
-    <input name="currentPage" type="hidden" id="currentPage" value="$!currentPage" />
-    <input name="count" type="hidden" id="count" />
-    <div class="operation">
-    <h3>友情提示</h3>
-    <ul>
-      <li>地区设置是管理系统用户的相关地址信息，默认使用中国大陆三级区域信息</li>
-    </ul>
-  </div>
-    <div class="search">
-      <ul>
-        <li> <span>查看下一级地区</span> <span>
-          <select name="tid0" id="tid0" onchange="load_area(this)" >
-            <option value="">省份</option>
-            
-     		#foreach($area in $areas)
-                
-            <option value="$!area.id" #if($!{area.id}==$!{first.id}) selected="selected"#end>$!area.areaName</option>
-            
-			#end
-          
-          </select>
-          </span> <span>
-          <select size="1" id="tid1" name="tid1" onchange="load_area(this)">
-            <option value="">城市</option>
-            
-		#foreach($area in $seconds)
-            
-            <option value="$!area.id"  #if($!{area.id}==$!{second.id}) selected="selected"#end>$!area.areaName</option>
-            
-		#end
-          
-          </select>
-          </span> <span>
-          <select size="1" id="tid2" name="tid2" onchange="load_area(this)">
-            <option value="">州县</option>
-            
-		#foreach($area in $thirds)
-            
-            <option value="$!area.id" #if($!{area.id}==$!{third.id}) selected="selected"#end>$!area.areaName</option>
-            
-		#end
-          
-          </select>
-          </span></li>
-      </ul>
-    </div>
-    <div class="fshoptb">
-      <table id="add_tr" width="100%" border="0" cellspacing="0" cellpadding="0" class="fshop_table">
-        <tr>
-          <th width="10%"><span class="form_btna">排序</span></th>
-          <th width="60%"><span class="form_btna">地区名称</span></th>
-          <th width="15%"><span class="form_btna">常用地区</span></th>
-          <th ><span class="form_btna">操作</span></th>
-        </tr>
-        #foreach($obj in $objs)
-        <tr>
-          <td><span class="size70">
-                  <input name="$!sequence_$!velocityCount" type="text" id="$!sequence_$!velocityCount" value="$!obj.sequence" size="5" onblur="ajax_update('$!obj.id','sequence',this)"/>
-                  <input name="id_$!velocityCount" type="hidden" id="id_$!velocityCount" value="$!obj.id" />
-                  <input name="areaId" type="hidden" id="areaId" value="$!obj.id"/>
-                  </span></td>
-          <td><span class="size250">
-                  <input name="areaName_$!velocityCount" type="text" id="areaName_$!velocityCount" value="$!obj.areaName" size="40" onblur="ajax_update('$!obj.id','areaName',this)"/>
-                  </span>
-            </td>
-            <td align="center"><img onclick="ajax_recommend('$!obj.id','common',this)" src="$!webPath/resources/style/system/manage/blue/images/$!{obj.common}.png" width="25" height="21" border="0" style="cursor:pointer;" title="可编辑"/></td>
-          <td id="$!area.id" class="hui oprate_con" align="center"><a href="javascript:void(0);" onclick="remove_area('$!obj.id',this);" class="blue">删除</a></td>
-        </tr>
-        #end
-      </table>
-    </div>
-    <div class="operate_bar">
-    <div class="fenye"> $!gotoPageHTML</div> 
-    
-    
-             
- </div>
-    <div class="submit">
-      <input id="add_area" name="add_area" type="button" size="40" onclick="area_add();" value="新增区域" style="cursor:pointer;" />
-      <input id="save_area" name="save_area" type="button" size="40" onclick="save_form()" value="保存" style="cursor:pointer;">
-    </div>
+			<ul>
+				<li><a href="javascript:void(0);" class="this"><b>管理</b></a></li>
 
-  </form>
-</div>
+			</ul>
+
+		</div>
+		<form action="$!webPath/admin/area_save.htm" method="post"
+			id="theForm" name="theForm">
+			<input name="list_url" type="hidden" id="list_url"
+				value="$!webPath/admin/area_list.htm" /> <input name="pid"
+				type="hidden" id="pid" value="$!parent.id" /> <input
+				name="currentPage" type="hidden" id="currentPage"
+				value="$!currentPage" /> <input name="count" type="hidden"
+				id="count" />
+			<div class="operation">
+				<h3>友情提示</h3>
+				<ul>
+					<li>地区设置是管理系统用户的相关地址信息，默认使用中国大陆三级区域信息</li>
+				</ul>
+			</div>
+			<div class="search">
+				<ul>
+					<li><span>查看下一级地区</span> <span> <select name="tid0"
+							id="tid0" onchange="load_area(this)">
+								<option value="">省份</option> #foreach($area in $areas)
+
+								<option value="$!area.id" #if($!{area.id}==$!{first.id})
+									selected="selected" #end>$!area.areaName</option> #end
+
+						</select>
+					</span> <span> <select size="1" id="tid1" name="tid1"
+							onchange="load_area(this)">
+								<option value="">城市</option> #foreach($area in $seconds)
+
+								<option value="$!area.id" #if($!{area.id}==$!{second.id})
+									selected="selected" #end>$!area.areaName</option> #end
+
+						</select>
+					</span> <span> <select size="1" id="tid2" name="tid2"
+							onchange="load_area(this)">
+								<option value="">州县</option> #foreach($area in $thirds)
+
+								<option value="$!area.id" #if($!{area.id}==$!{third.id})
+									selected="selected" #end>$!area.areaName</option> #end
+
+						</select>
+					</span></li>
+				</ul>
+			</div>
+			<div class="fshoptb">
+				<table id="add_tr" width="100%" border="0" cellspacing="0"
+					cellpadding="0" class="fshop_table">
+					<tr>
+						<th width="10%"><span class="form_btna">排序</span></th>
+						<th width="60%"><span class="form_btna">地区名称</span></th>
+						<th width="15%"><span class="form_btna">常用地区</span></th>
+						<th><span class="form_btna">操作</span></th>
+					</tr>
+					#foreach($obj in $objs)
+					<tr>
+						<td><span class="size70"> <input
+								name="$!sequence_$!velocityCount" type="text"
+								id="$!sequence_$!velocityCount" value="$!obj.sequence" size="5"
+								onblur="ajax_update('$!obj.id','sequence',this)" /> <input
+								name="id_$!velocityCount" type="hidden" id="id_$!velocityCount"
+								value="$!obj.id" /> <input name="areaId" type="hidden"
+								id="areaId" value="$!obj.id" />
+						</span></td>
+						<td><span class="size250"> <input
+								name="areaName_$!velocityCount" type="text"
+								id="areaName_$!velocityCount" value="$!obj.areaName" size="40"
+								onblur="ajax_update('$!obj.id','areaName',this)" />
+						</span></td>
+						<td align="center"><img
+							onclick="ajax_recommend('$!obj.id','common',this)"
+							src="$!webPath/resources/style/system/manage/blue/images/$!{obj.common}.png"
+							width="25" height="21" border="0" style="cursor: pointer;"
+							title="可编辑" /></td>
+						<td id="$!area.id" class="hui oprate_con" align="center"><a
+							href="javascript:void(0);"
+							onclick="remove_area('$!obj.id',this);" class="blue">删除</a></td>
+					</tr>
+					#end
+				</table>
+			</div>
+			<div class="operate_bar">
+				<div class="fenye">$!gotoPageHTML</div>
+
+
+
+			</div>
+			<div class="submit">
+				<input id="add_area" name="add_area" type="button" size="40"
+					onclick="area_add();" value="新增区域" style="cursor: pointer;" /> <input
+					id="save_area" name="save_area" type="button" size="40"
+					onclick="save_form()" value="保存" style="cursor: pointer;">
+			</div>
+
+		</form>
+	</div>
 </body>
 </html>

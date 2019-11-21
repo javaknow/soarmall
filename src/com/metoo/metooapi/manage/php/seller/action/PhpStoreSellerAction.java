@@ -27,7 +27,6 @@ import com.metoo.foundation.domain.User;
 import com.metoo.foundation.service.IAccessoryService;
 import com.metoo.foundation.service.IAreaService;
 import com.metoo.foundation.service.IGoodsClassService;
-import com.metoo.foundation.service.IGoodsService;
 import com.metoo.foundation.service.IStoreService;
 import com.metoo.foundation.service.ISysConfigService;
 import com.metoo.foundation.service.IUserService;

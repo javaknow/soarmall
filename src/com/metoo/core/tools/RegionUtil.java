@@ -1,11 +1,5 @@
 package com.metoo.core.tools;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.namespace.QName;
-
-
 public class RegionUtil {
 	
 	/**

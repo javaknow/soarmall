@@ -49,7 +49,6 @@ import com.metoo.foundation.domain.User;
 import com.metoo.foundation.domain.query.EvaluateQueryObject;
 import com.metoo.foundation.domain.query.GroupGoodsQueryObject;
 import com.metoo.foundation.domain.query.GroupLifeGoodsQueryObject;
-import com.metoo.foundation.domain.query.GroupQueryObject;
 import com.metoo.foundation.service.IEvaluateService;
 import com.metoo.foundation.service.IGoodsCartService;
 import com.metoo.foundation.service.IGoodsClassService;

@@ -1,13 +1,14 @@
-<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"  pageEncoding="utf-8"%>
-<%@page language="java" import="com.metoo.core.weixin.utils.WeixinUtil" %>
+<%@ page language="java" import="java.util.*"
+	contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@page language="java" import="com.metoo.core.weixin.utils.WeixinUtil"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>欢迎访问粉色考拉 </title>
+<title>欢迎访问粉色考拉</title>
 <%
-  %> 
-  <!--
+  %>
+<!--
         Map<String,Object>  ret = new HashMap<String,Object> ();
         ret=WeixinUtil.getWxConfig(request);
         request.setAttribute("appId", ret.get("appId"));
@@ -15,14 +16,13 @@
         request.setAttribute("nonceStr", ret.get("nonceStr"));
         request.setAttribute("signature", ret.get("signature"));  -->
 </head>
-<body>
-        
-        欢迎访问粉色考拉！
-        
+<body>欢迎访问粉色考拉！
+
 </body>
 
 
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript"
+	src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
 
 // 微信信息的以及调用的配置

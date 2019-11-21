@@ -1,7 +1,7 @@
 package com.metoo.metooapi.test;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,38 +11,26 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.UniqueConstraint;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.core.ApplicationContext;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.nutz.json.Json;
 import org.nutz.json.JsonFormat;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.metoo.buyer.domain.Result;
-import com.metoo.core.domain.virtual.SysMap;
-import com.metoo.core.query.support.IPageList;
 import com.metoo.core.tools.CommUtil;
 import com.metoo.foundation.domain.Accessory;
-import com.metoo.foundation.domain.Address;
 import com.metoo.foundation.domain.CGoods;
 import com.metoo.foundation.domain.Evaluate;
 import com.metoo.foundation.domain.Goods;
-import com.metoo.foundation.domain.StoreStat;
-import com.metoo.foundation.domain.SystemTip;
 import com.metoo.foundation.domain.Transport;
 import com.metoo.foundation.domain.User;
-import com.metoo.foundation.domain.query.GoodsQueryObject;
 import com.metoo.foundation.service.IAccessoryService;
 import com.metoo.foundation.service.IEvaluateService;
 import com.metoo.foundation.service.IGoodsService;
@@ -416,5 +404,13 @@ public class MetooTest {
 		     response.addCookie(cok);
 	  }*/
 	  
+	  
+	  public void className(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException{
+		  Goods obj = new Goods();
+		  obj.setGoods_name("name");
+		Class class1 = Class.forName(obj.getClass().getName());
+		 Method[] m =  class1.getDeclaredMethods();
+		 class1.getMethods();
+	  }
 	  
 }

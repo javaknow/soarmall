@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<!-- 配置事务管理器 JPA事务-->
+	<!-- 配置事务管理器 JPA事务 -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 		<property name="dataSource" ref="dataSource" />
@@ -19,15 +19,13 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<!-- 把标记了@Controller等注解的类转换为bean -->
 	<context:component-scan base-package="com.metoo" />
-	
-	
+
+
 	<!--拦截器 -->
 	<mvc:interceptors>
 		<!-- 微信端自动进入登陆状态拦截器 -->
-		<!--<mvc:interceptor>
-			<mvc:mapping path="/wap/goods.htm" />
-			<bean class="com.metoo.module.weixin.interceptor.LoginInterceptor"></bean>
-		</mvc:interceptor>-->
+		<!--<mvc:interceptor> <mvc:mapping path="/wap/goods.htm" /> <bean class="com.metoo.module.weixin.interceptor.LoginInterceptor"></bean> 
+			</mvc:interceptor> -->
 		<!-- 拦截非法请求向微信接口发送消息 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/weixin_develop_action.htm" />
@@ -69,7 +67,7 @@
 		<property name="contentType">
 			<value>text/html;charset=UTF-8</value>
 		</property>
-        <property name="toolboxConfigLocation" value="/WEB-INF/velocity/toolbox.xml" />
+		<property name="toolboxConfigLocation" value="/WEB-INF/velocity/toolbox.xml" />
 	</bean>
 	<!-- property-placeholder是一个属性遍历器，定位一个属性文件，属性文件存放的是jdbc一些连接数据 -->
 	<context:property-placeholder location="classpath:jdbc.properties" />
@@ -78,7 +76,7 @@
 		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
 		<property name="resourceLoaderPath" value="/velocity/"></property>
 	</bean>
-	<!-- 配置数据源   com.mchange.v2.c3p0.ComboPooledDataSource-->
+	<!-- 配置数据源 com.mchange.v2.c3p0.ComboPooledDataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${driverClassName}" />
@@ -114,14 +112,14 @@
 				<prop key="hibernate.use_sql_comments">false</prop>
 				<prop key="hibernate.format_sql">false</prop>
 				<prop key="hibernate.generate_statistics">true</prop>
-				<prop key="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</prop>  
+				<prop key="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</prop>
 			</props>
 		</property>
-		<property name="packagesToScan">  
-        <list>  
-            <value>com.metoo</value>  
-        </list>  
-    </property>  
+		<property name="packagesToScan">
+			<list>
+				<value>com.metoo</value>
+			</list>
+		</property>
 	</bean>
 	<!-- 定义了与实体相关的dao -->
 	<bean id="genericEntityDao" class="com.metoo.core.base.GenericEntityDao"
@@ -139,9 +137,9 @@
 	<bean id="configService" class="com.metoo.foundation.service.impl.SysConfigService"
 		scope="singleton">
 	</bean>
-	
-	
-	<!-- 系统调度控制器 加入定时执行的方法-->
+
+
+	<!-- 系统调度控制器 加入定时执行的方法 -->
 	<bean id="statTask"
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="shop_stat" />
@@ -154,7 +152,7 @@
 		<property name="targetMethod" value="execute" />
 		<property name="concurrent" value="false" />
 	</bean>
-	
+
 	<!-- 调度触发器，指定被调度方法的执行时间 -->
 	<bean id="stat_cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail" ref="statTask" />
@@ -164,7 +162,7 @@
 		<property name="jobDetail" ref="jobTask" />
 		<property name="cronExpression" value="1 0 0 * * ?" />
 	</bean>
-	
+
 	<!-- access_token 缓存 -->
 	<bean id="weixinTask"
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
@@ -178,7 +176,7 @@
 		<property name="jobDetail" ref="weixinTask" />
 		<property name="cronExpression" value="0 */30 * * * ?" />
 	</bean>
-	
+
 	<!-- 调度工厂 ,调度触发器 -->
 	<bean id="schdulerFactory" lazy-init="false"
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
